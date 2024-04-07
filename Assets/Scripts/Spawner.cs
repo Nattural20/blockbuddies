@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-
+    //Gets player object
     public GameObject fauxPlayer;
 
+    public GameObject[] iceBlocks;
+    public GameObject[] bounceBlocks;
 
 
     // Start is called before the first frame update
