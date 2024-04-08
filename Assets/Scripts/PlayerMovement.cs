@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         // Calculate the movement direction
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * speed * Time.deltaTime;
 
+
         // Rotate the movement vector relative to the camera
         movement = Camera.main.transform.TransformDirection(movement);
         movement.y = 0f; // Ensure the player doesn't move up or down
