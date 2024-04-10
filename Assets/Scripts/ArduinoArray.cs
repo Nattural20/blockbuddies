@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 using UnityEditor.VersionControl;
 using Unity.Collections.LowLevel.Unsafe;
 using System.Runtime.Remoting.Messaging;
-using Unity.VisualScripting;
+//using Unity.VisualScripting; Causing error. Visual scripting not found
 
 public class ArduinoArray : MonoBehaviour
 {
