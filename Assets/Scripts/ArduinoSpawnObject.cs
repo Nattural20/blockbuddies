@@ -10,7 +10,7 @@ using UnityEditor.VersionControl;
 
 public class ArduinoSpawnObject : MonoBehaviour
 {
-    static string portName = "COM3"; // Adjust to your Arduino's COM port
+    static string portName = "COM5"; // Adjust to your Arduino's COM port
     static int baudRate = 9600;
     static SerialPort serialPort;
 
@@ -91,7 +91,7 @@ public class ArduinoSpawnObject : MonoBehaviour
 
     static void SpawnThing()
     {
-        Instantiate(TheThing, new Vector3(-14, 2, 40), Quaternion.identity); //Dummy GameObject- if we get this to spawn we have a successful read 
+        Instantiate(TheThing, new Vector3(1.06f, 1f, 11.29f), Quaternion.identity); //Dummy GameObject- if we get this to spawn we have a successful read 
         Debug.Log("Spawned Thing");
     }
 }
