@@ -11,7 +11,7 @@ using UnityEditor.VersionControl;
 public class ArduinoSpawnObject : MonoBehaviour
 {
     static string portName = "COM5"; // Adjust to your Arduino's COM port
-    static int baudRate = 1200;
+    static int baudRate = 9600;
     static SerialPort serialPort;
 
     [SerializeField] private GameObject TestCube; //thing to spawn when reed switch triggered
