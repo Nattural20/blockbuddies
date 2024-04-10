@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 919491255271517240}
   - component: {fileID: 4649224218893121346}
   - component: {fileID: 8727108524489023809}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -126,7 +128,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -141,13 +143,13 @@ CharacterJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243328273134437025}
+  serializedVersion: 3
   m_ConnectedBody: {fileID: 8998174402754765212}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0.49999997, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0.010646403, y: -0.41151863, z: -0.028332625}
-  serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
     spring: 0
@@ -205,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 545051010079101396}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.70594, y: 1.2434, z: 0.2}
+  m_LocalPosition: {x: -1.4, y: 1.1, z: -0.91}
   m_LocalScale: {x: 0.7839062, y: 0.7839062, z: 0.7839062}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -213,6 +215,7 @@ Transform:
   - {fileID: 5265369587633389684}
   - {fileID: 6759254992941001933}
   - {fileID: 4201042112635481331}
+  - {fileID: 2991178407392551123}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1475730700438557418
@@ -260,7 +263,7 @@ GameObject:
   - component: {fileID: 2215297449934843927}
   - component: {fileID: 1589036800772559601}
   - component: {fileID: 8199484893358689143}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,6 +310,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -366,7 +371,7 @@ GameObject:
   - component: {fileID: 3753222503070862365}
   - component: {fileID: 4507220396779181467}
   - component: {fileID: 1623048394644829507}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GRAB DETECT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,6 +418,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -488,7 +495,7 @@ GameObject:
   - component: {fileID: 6194958674398697497}
   - component: {fileID: 3840547864282716262}
   - component: {fileID: 3156501129421894397}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,6 +542,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -593,7 +602,7 @@ GameObject:
   - component: {fileID: 8647525456722313701}
   - component: {fileID: 7340760520325880956}
   - component: {fileID: 3648952621622123339}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,6 +649,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -699,7 +710,7 @@ GameObject:
   - component: {fileID: 698624595534165850}
   - component: {fileID: 7441956337052469440}
   - component: {fileID: 7371139777972332518}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GRAB DETECT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,6 +757,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -822,7 +835,7 @@ GameObject:
   - component: {fileID: 5392376707228454934}
   - component: {fileID: 3485280800536814463}
   - component: {fileID: 8998174402754765212}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HEAD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -872,6 +885,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -907,10 +922,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 55
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -960,7 +975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6759254992941001933
 Transform:
   m_ObjectHideFlags: 0
@@ -991,7 +1006,7 @@ GameObject:
   - component: {fileID: 3104930680452135343}
   - component: {fileID: 231587834621914582}
   - component: {fileID: 327203829280007641}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ARM2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1039,6 +1054,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1106,7 +1123,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -1114,6 +1131,98 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!1 &4414818431218795204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2991178407392551123}
+  - component: {fileID: 8719253036500868470}
+  - component: {fileID: 1493833296402150923}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2991178407392551123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4414818431218795204}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.10158677, y: 0.6997715, z: -0.10158677, w: 0.6997715}
+  m_LocalPosition: {x: -8.3, y: 2.41, z: 0.27}
+  m_LocalScale: {x: 1.2756628, y: 1.3040301, z: 1.2541009}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2406101860619571318}
+  m_LocalEulerAnglesHint: {x: 16.52, y: 90, z: 0}
+--- !u!20 &8719253036500868470
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4414818431218795204}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &1493833296402150923
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4414818431218795204}
+  m_Enabled: 1
 --- !u!1 &5323445156248680969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,7 +1236,7 @@ GameObject:
   - component: {fileID: 1778438932238749641}
   - component: {fileID: 9156515853869026402}
   - component: {fileID: 583912042821865637}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ARM2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1175,6 +1284,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1242,7 +1353,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -1264,7 +1375,7 @@ GameObject:
   - component: {fileID: 6669679763545877101}
   - component: {fileID: 5032992107993001519}
   - component: {fileID: 2692981300072805117}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BODY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1314,6 +1425,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1374,15 +1487,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4585dc4e717f4710ba4885b4519079e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  atLeastOneHandIsHolding: 0
+  acceleration: 30
+  deceleration: 40
+  maxSpeed: 5
+  rotationSpeed: 5
   hand1: {fileID: 327203829280007641}
   hand2: {fileID: 583912042821865637}
   head: {fileID: 8998174402754765212}
   armThrust: 5
-  jumpThrust: 70136
-  headThrust: 1000
+  baseJumpThrust: 60
+  maxJumpThrust: 60
   isGrabbing: 0
   currentBlock: {fileID: 0}
+  groundCheckDistance: 0.59
 --- !u!54 &2692981300072805117
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1391,7 +1509,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7169297273557871976}
   serializedVersion: 4
-  m_Mass: 100
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1402,14 +1520,14 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
+  m_Constraints: 80
+  m_CollisionDetection: 3
 --- !u!1 &7235736091566137238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,7 +1542,7 @@ GameObject:
   - component: {fileID: 2957666663367380186}
   - component: {fileID: 4487764915979964862}
   - component: {fileID: 71015146592921343}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ARM1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1471,6 +1589,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1538,7 +1658,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -1553,13 +1673,13 @@ HingeJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7235736091566137238}
+  serializedVersion: 3
   m_ConnectedBody: {fileID: 583912042821865637}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: -1.32, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0.00000043804388, y: 0.5469762, z: 0.058099814}
-  serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1599,7 +1719,7 @@ GameObject:
   - component: {fileID: 5258485355204281637}
   - component: {fileID: 7532909423751507239}
   - component: {fileID: 3475664170901771177}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ARM1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1646,6 +1766,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1713,7 +1835,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -1728,13 +1850,13 @@ HingeJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7564618749836768091}
+  serializedVersion: 3
   m_ConnectedBody: {fileID: 327203829280007641}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: -1.32, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0.00000043804388, y: 0.546976, z: 0.058099676}
-  serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1774,7 +1896,7 @@ GameObject:
   - component: {fileID: 6569093562419458538}
   - component: {fileID: 4157951442774120113}
   - component: {fileID: 4044372427309569988}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1821,6 +1943,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1886,7 +2010,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -1901,13 +2025,13 @@ CharacterJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8249924783016883095}
+  serializedVersion: 3
   m_ConnectedBody: {fileID: 7532909423751507239}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0.49999997, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0.017185383, y: 1.3159976, z: -0.039421212}
-  serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
     spring: 0
@@ -1954,7 +2078,7 @@ GameObject:
   - component: {fileID: 1190671448855195301}
   - component: {fileID: 915860013309929420}
   - component: {fileID: 4980456566763941724}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shoulder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2001,6 +2125,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2066,7 +2192,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -2081,13 +2207,13 @@ CharacterJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8363196455438459056}
+  serializedVersion: 3
   m_ConnectedBody: {fileID: 4487764915979964862}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0.49999997, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0.027799897, y: 1.3065596, z: -0.03960289}
-  serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
     spring: 0
