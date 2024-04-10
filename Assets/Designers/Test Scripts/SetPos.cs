@@ -5,6 +5,7 @@ using UnityEngine;
 public class SetPos : MonoBehaviour
 {
     public Transform pos;
+    public QuickSpawn blockPos;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -13,15 +14,18 @@ public class SetPos : MonoBehaviour
             Debug.Log("Moved");
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Telport Plane"))
+        if (collision.gameObject.CompareTag("Teleport Plane"))
         {
             transform.position = pos.position;
+            Debug.Log("Teleporting");
         }
         else if (collision.gameObject.CompareTag("SpawnSet"))
         {
-            pos = gameObject.GetComponent<RespawnPointSet>().newPos;
+            Debug.Log(collision.gameObject);
+            pos = collision.gameObject.GetComponent<RespawnPointSet>().newPos;
+            blockPos.spawnPos = collision.gameObject.GetComponent<RespawnPointSet>().newBlockPos;
         }
     }
 }

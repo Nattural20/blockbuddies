@@ -5,4 +5,5 @@ using UnityEngine;
 public class RespawnPointSet : MonoBehaviour
 {
     public Transform newPos;
+    public Transform newBlockPos;
 }

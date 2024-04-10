@@ -31,6 +31,7 @@ public class QuickSpawn : MonoBehaviour
             if (arrayPos == 3)
                 arrayPos = 0;
             UpdateText();
+            Debug.Log(arrayPos);
         }
         //spawn Thing
         if (Input.GetKeyUp(KeyCode.P))
@@ -42,9 +43,9 @@ public class QuickSpawn : MonoBehaviour
     {
         if (arrayPos == 0)
             text.text = "Normal";
-        if (arrayPos == 2)
+        if (arrayPos == 1)
             text.text = "Bouncy";
-        if (arrayPos == 3)
+        if (arrayPos == 2)
             text.text = "Icy";
     }
     void SpawnThing()
