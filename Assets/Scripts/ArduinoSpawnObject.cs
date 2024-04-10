@@ -16,6 +16,7 @@ public class ArduinoSpawnObject : MonoBehaviour
 
     [SerializeField] private GameObject TestCube; //thing to spawn when reed switch triggered
     private static GameObject TheThing;
+    static private bool hasSpawned = false; //check if object has been spawned by the input and dont spawn another
 
     // Start is called before the first frame update
     void Start()
@@ -62,22 +63,21 @@ public class ArduinoSpawnObject : MonoBehaviour
                 string message = serialPort.ReadLine();
                 Debug.Log(message);
 
-                //debug code for lack of arduino on hand "we ball"
+                //debug code, doesn't work without a port open
                 if (Input.GetKeyDown("space"))
                 {
-                    message = ("Reed Switch Triggered");
+                    message = ("0100");
                 }
 
-                if (message.Contains("Reed Switch Triggered"))
+                if (message != "0000" && hasSpawned == false) //if message is not 0 inputs AND nothing has been spawned
                 {
-                    Debug.Log("Reed Switch Triggered");
-                    // Trigger your action for the reed switch here
-                    SpawnThing(); //if message read from the port is this, SpawnThing()
+                    Debug.Log("Spawned Object");
+                    SpawnThing(); //Spawn single object
+                    hasSpawned = true;
                 }
-                else if (message.Contains("Button Pressed"))
+                else if (message == "0000") //if nothing is input, reset bool to spawn another one
                 {
-                    Debug.Log("Button Pressed");
-                    // Trigger your action for the button here
+                    hasSpawned = false;
                 }
             }
             catch (TimeoutException) { }
