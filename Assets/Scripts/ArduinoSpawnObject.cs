@@ -34,6 +34,12 @@ public class ArduinoSpawnObject : MonoBehaviour
         ReadFromSerialPort(); //if read is successful from here, SpawnThing()
         Thread.Sleep(50); // Adjust as necessary
 
+        //debug code, doesn't work without a port open
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            SpawnThing(); //Spawn single object
+        }
+
         if (Input.GetKeyDown(KeyCode.R)) //debug to see if code up to update is successful
         {
             Debug.Log("Update from ArduinoScript");
@@ -64,7 +70,7 @@ public class ArduinoSpawnObject : MonoBehaviour
                 Debug.Log(message);
 
                 //debug code, doesn't work without a port open
-                if (Input.GetKeyDown("space"))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     message = ("0100");
                 }
