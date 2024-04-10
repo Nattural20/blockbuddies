@@ -13,19 +13,19 @@ public class handCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Check if holding grab button
-        if (Input.GetKeyDown(KeyCode.G))
+        //check if holding grab button
+        if (Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
             isHoldingGrabButton = true;
         }
-        else if (Input.GetKeyUp(KeyCode.G))
+        else if (Input.GetKeyUp(KeyCode.G) || Input.GetKeyUp(KeyCode.JoystickButton2))
         {
             isHoldingGrabButton = false;
         }
 
 
 
-        //Check if you can grab and if you are holding button
+        //check if you can grab AND if you are holding button
         if (isHoldingGrabButton && canGrabObject && !isGrabbingObject)
         {
             isGrabbingObject = true;
