@@ -25,7 +25,7 @@ public class SetPos : MonoBehaviour
         {
             Debug.Log(collision.gameObject);
             pos = collision.gameObject.GetComponent<RespawnPointSet>().newPos;
-            blockPos.spawnPos = collision.gameObject.GetComponent<RespawnPointSet>().newBlockPos;
+            ///blockPos.spawnPos = collision.gameObject.GetComponent<RespawnPointSet>().newBlockPos;
         }
     }
 }
