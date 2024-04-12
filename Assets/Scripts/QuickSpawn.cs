@@ -16,6 +16,8 @@ public class QuickSpawn : MonoBehaviour
     public Transform spawnPos;
     public PhysicMaterial[] blockPhys;
     public Material[] blockMaterials;
+
+    public List<GameObject> spawnedBlocks;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +55,12 @@ public class QuickSpawn : MonoBehaviour
         var newBlock = Instantiate(TheThing, spawnPos.position, spawnPos.rotation); //Dummy GameObject- if we get this to spawn we have a successful read 
         newBlock.GetComponent<BoxCollider>().material = blockPhys[arrayPos];
         newBlock.GetComponent<MeshRenderer>().material = blockMaterials[arrayPos];
+        spawnedBlocks.Add(newBlock);
+        if (spawnedBlocks.Count > 3)
+        {
+            Destroy(spawnedBlocks[0]);
+            spawnedBlocks.RemoveAt(0);
+        }
         Debug.Log("Spawned Thing(Quick Spawn)");
     }
 }
