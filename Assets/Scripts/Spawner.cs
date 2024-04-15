@@ -7,8 +7,10 @@ using UnityEngine.UIElements;
 public class Spawner : MonoBehaviour
 {
     //Gets player object
-    public GameObject fauxPlayer;
+    public GameObject player;
     public GameObject gameController;
+    public Camera Camera;
+/*    public GameObject displayCamera;*/
 
 
     public UnityEngine.UI.Button normalButton;
@@ -22,6 +24,13 @@ public class Spawner : MonoBehaviour
 
     
     public int arrayPos;
+/*    private bool isDisplayActive = false;*/
+
+
+
+    //Arduino will dictate which blocks spawn, implement TAB to change block properties.
+    //If blocks are spawned nect to each other, add a joint.
+
 
 
     // Start is called before the first frame update
@@ -39,11 +48,28 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Spawn();
+
+        
+        
+    }
+
+
+    void Spawn()
+    {
+        if (Input.GetMouseButton(1)) 
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Instantiate(normalBlocks[arrayPos], Camera.transform.position + new Vector3(4,1,0), Camera.transform.rotation);
+            }
+        }
+    }
         //Read the set tag to dertermine the array to be spawned from.
 
         //In all permeations, right click sets player into spawn mode
         //Tab cycles through the pieces in the array
-        //Left click to spawn object.
+       /* //Left click to spawn object.
         if (gameController.CompareTag("Normal"))
         {
             
@@ -51,6 +77,16 @@ public class Spawner : MonoBehaviour
             //Sets the player to spawn mode
             if (Input.GetMouseButton(1))
             {
+*//*                if (isDisplayActive == false)
+                {
+                    SpawnDisplay();
+                    *//*isDisplayActive = true;*//*
+                }
+                else if (isDisplayActive == true)
+                {
+                    
+                }*//*
+
                 if (Input.GetMouseButtonDown(0))
                 {
                     Instantiate(normalBlocks[arrayPos]);
@@ -59,6 +95,7 @@ public class Spawner : MonoBehaviour
                 //Cycles through the blocks in the given array
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
+                    *//*ChangeDisplay();*//*
                     arrayPos += 1;
                     Debug.Log("Changing ice block.");
                     if (arrayPos >= normalBlocks.Length)
@@ -127,6 +164,34 @@ public class Spawner : MonoBehaviour
 
             }
         }
-    }
+    }*/
+
+/*    void SpawnDisplay()
+    {
+        GameObject display = GameObject.Instantiate(normalBlocks[arrayPos], new Vector3(0, 2000, 100), Quaternion.identity);
+        display.GetComponent<Rigidbody>().isKinematic = true;
+
+
+        Instantiate(displayCamera, new Vector3(0, 2000, 80), Quaternion.identity);
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            Destroy(display);
+            arrayPos += 1;
+            if (arrayPos >= bounceBlocks.Length)
+            {
+                //Array resets and loops
+                arrayPos = 0;
+            }
+                SpawnDisplay();
+        }
+    }*/
+
+
+/*    void ChangeDisplay()
+    {
+        GameObject display = SpawnDisplay(display);
+    }*/
+
 }
 
