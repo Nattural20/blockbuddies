@@ -104,8 +104,7 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        if (Input.GetMouseButton(1)) 
-        {
+
             if (Input.GetMouseButtonDown(0))
             {
                 if (pos1 == true)
@@ -130,7 +129,7 @@ public class Spawner : MonoBehaviour
                 }
             }
 
-        }
+
     }
 
 
