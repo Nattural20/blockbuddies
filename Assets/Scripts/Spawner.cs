@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using TMPro;
+using System;
 
 public class Spawner : MonoBehaviour
 {
@@ -13,17 +15,26 @@ public class Spawner : MonoBehaviour
 /*    public GameObject displayCamera;*/
 
 
-    public UnityEngine.UI.Button normalButton;
+/*    public UnityEngine.UI.Button normalButton;
     public UnityEngine.UI.Button icyButton;
     public UnityEngine.UI.Button bouncyButton;
 
     //Stores the blocks in their own seperate arrays
     public GameObject[] normalBlocks;
     public GameObject[] iceBlocks;
-    public GameObject[] bounceBlocks;
+    public GameObject[] bounceBlocks;*/
+
+    public GameObject[] blocks;
 
     
     public int arrayPos;
+
+    public bool pos1;
+    public bool pos2;
+    public bool pos3;
+
+    public TMP_Text blockType;
+
 /*    private bool isDisplayActive = false;*/
 
 
@@ -39,10 +50,10 @@ public class Spawner : MonoBehaviour
         
     }
 
-    public void OnClick(UnityEngine.UI.Button normalButton, UnityEngine.UI.Button icyButton, UnityEngine.UI.Button bouncyButton)
+/*    public void OnClick(UnityEngine.UI.Button normalButton, UnityEngine.UI.Button icyButton, UnityEngine.UI.Button bouncyButton)
     {
         //Buttons to change the tag of the Game Controller.
-    }
+    }*/
 
 
     // Update is called once per frame
@@ -50,8 +61,35 @@ public class Spawner : MonoBehaviour
     {
         Spawn();
 
+        CycleBlocks();
+
+        DisplayPos();
+
         
         
+    }
+
+
+    void DisplayPos()
+    {
+        if (arrayPos == 0)
+        {
+            blockType.text = "Block Type: Normal";
+        }
+
+        if (arrayPos == 1)
+        {
+            blockType.text = "Block Type: Icy";
+        }
+
+        if (arrayPos == 2)
+        {
+            blockType.text = "Block Type: Bouncy";
+        }
+        else
+        {
+            Debug.Log("Error");
+        }
     }
 
 
@@ -61,7 +99,41 @@ public class Spawner : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Instantiate(normalBlocks[arrayPos], Camera.transform.position + new Vector3(4,1,0), Camera.transform.rotation);
+                if (pos1 == true)
+                {
+                    Instantiate(blocks[arrayPos], Camera.transform.position + new Vector3(4, 1, -1), Camera.transform.rotation);
+                }
+                if (pos2 == true)
+                {
+                    Instantiate(blocks[arrayPos], Camera.transform.position + new Vector3(4, 1, 0), Camera.transform.rotation);
+                }
+                if (pos3 == true)
+                {
+                    Instantiate(blocks[arrayPos], Camera.transform.position + new Vector3(4, 1, 1), Camera.transform.rotation);
+                }
+
+                else
+                {
+                    Debug.Log("No blocks to spawn");
+                }
+            }
+
+        }
+    }
+
+
+    void CycleBlocks()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            //*ChangeDisplay();*//*
+            arrayPos += 1;
+            Debug.Log("Changing block.");
+            if (arrayPos >= blocks.Length)
+            {
+                //Array resets and loops
+                arrayPos = 0;
+                Debug.Log("Resetting array.");
             }
         }
     }
