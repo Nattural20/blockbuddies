@@ -13,7 +13,7 @@ public class ArduinoReader : MonoBehaviour
     void Start()
     {
         t.Start();
-        Debug.Log("Started Reading");
+        Debug.Log("Started Reading from ArduinoGetter class");
     }
 
     // Update is called once per frame
