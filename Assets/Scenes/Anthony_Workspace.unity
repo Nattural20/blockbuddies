@@ -186,11 +186,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5572595646615449763, guid: 694f0084a0684274ca09da277061744e, type: 3}
   m_PrefabInstance: {fileID: 9112249103116342754}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &406543749 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 545051010079101396, guid: fd20cd349b3cd429f94fcb65e8fd2539, type: 3}
-  m_PrefabInstance: {fileID: 63054224}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &573260447
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 718362069}
   - component: {fileID: 718362068}
+  - component: {fileID: 718362070}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Normal
@@ -327,8 +323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218fd0fff11ae344bbafdd174adf842c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 406543749}
-  gameController: {fileID: 718362067}
   Camera: {fileID: 1996143022}
   blocks:
   - {fileID: 353182992}
@@ -338,7 +332,6 @@ MonoBehaviour:
   pos1: 0
   pos2: 0
   pos3: 0
-  hasJoint: 0
   blockType: {fileID: 1524031824}
 --- !u!4 &718362069
 Transform:
@@ -355,6 +348,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &718362070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718362067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c884b8a739cb1f742b39e812dc86a6c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OutputArray: 
 --- !u!1 &1177851574
 GameObject:
   m_ObjectHideFlags: 0
