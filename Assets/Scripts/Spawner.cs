@@ -33,6 +33,8 @@ public class Spawner : MonoBehaviour
     public bool pos2;
     public bool pos3;
 
+    public bool hasJoint = false;
+
     public TMP_Text blockType;
 
 /*    private bool isDisplayActive = false;*/
@@ -64,9 +66,6 @@ public class Spawner : MonoBehaviour
         CycleBlocks();
 
         DisplayPos();
-
-        
-        
     }
 
 
@@ -92,16 +91,27 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.GetComponent<Rigidbody>().CompareTag("Spocks") && !hasJoint) 
+        {
+            gameObject.AddComponent<FixedJoint>();
+            gameObject.GetComponent<FixedJoint>().connectedBody=collision.rigidbody;
+            hasJoint = true;
+        }
+    }
+
 
     void Spawn()
     {
-        if (Input.GetMouseButton(1)) 
-        {
+
             if (Input.GetMouseButtonDown(0))
             {
                 if (pos1 == true)
                 {
-                    Instantiate(blocks[arrayPos], Camera.transform.position + new Vector3(4, 1, -1), Camera.transform.rotation);
+                 Instantiate(blocks[arrayPos], Camera.transform.position + new Vector3(4, 1, -1), Camera.transform.rotation);
+                    
+                    
                 }
                 if (pos2 == true)
                 {
@@ -112,13 +122,14 @@ public class Spawner : MonoBehaviour
                     Instantiate(blocks[arrayPos], Camera.transform.position + new Vector3(4, 1, 1), Camera.transform.rotation);
                 }
 
+
                 else
                 {
                     Debug.Log("No blocks to spawn");
                 }
             }
 
-        }
+
     }
 
 
