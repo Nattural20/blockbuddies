@@ -36,7 +36,7 @@ public class QuickSpawn : MonoBehaviour
             Debug.Log(arrayPos);
         }
         //spawn Thing
-        if (Input.GetKeyUp(KeyCode.P))
+        if (Input.GetKeyUp(KeyCode.P) || Input.GetKeyUp(KeyCode.Mouse0))
         {
             SpawnThing(); //Spawn single object
         }
