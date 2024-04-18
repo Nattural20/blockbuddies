@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Vector3 lastMovementDirection = Vector3.forward;
 
+    private bool isHoldingMovementInput = false;
+
     private bool isGrounded = true;
 
     void Start()
@@ -33,15 +35,45 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        if (isHoldingMovementInput)
+        {
+            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        }
+        
 
         CheckGrounded();
+
+
+
+        //keep head up (bobble head)
+        head.AddForce(transform.up * armThrust);
+
+        //grab
+        if (isGrabbing)
+        {
+            hand1.AddForce(transform.right * armThrust);
+            hand2.AddForce(transform.right * armThrust);
+        }
+
+        //rotates player toward where you are facing
+        Quaternion targetRotation = Quaternion.LookRotation(lastMovementDirection);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     void Update()
     {
+
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
+
+
+
+
+
+
+
+
+
 
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * acceleration * Time.deltaTime;
         movement = Camera.main.transform.TransformDirection(movement);
@@ -53,21 +85,23 @@ public class PlayerMovement : MonoBehaviour
         if (horizontalInput == 0 && verticalInput == 0)
         {
             velocity -= velocity.normalized * deceleration * Time.deltaTime;
+            isHoldingMovementInput = false;
         }
 
         if (horizontalInput != 0 || verticalInput != 0)
         {
             lastMovementDirection = new Vector3(horizontalInput, 0f, verticalInput);
+            isHoldingMovementInput = true;
         }
 
 
-
-        Quaternion targetRotation = Quaternion.LookRotation(lastMovementDirection);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
         if (Input.GetKey(KeyCode.G) || Input.GetKey(KeyCode.JoystickButton2)) 
         {
-            Grab(); 
+            isGrabbing = true;
+        }
+        else
+        {
+            isGrabbing = false;
         }
 
         float jumpThrust = baseJumpThrust;
@@ -83,13 +117,7 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false; 
         }
 
-        //keep head up (bobble head)
-        head.AddForce(transform.up * armThrust);
 
-        if (isGrabbing)
-        {
-            //currentBlock.transform.position = hand1.transform.position;
-        }
     }
 
     // raycast for ground
@@ -116,10 +144,4 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position - transform.up * groundCheckDistance);
     }
 
-    // move hands
-    void Grab()
-    {
-        hand1.AddForce(transform.right * armThrust);
-        hand2.AddForce(transform.right * armThrust);
-    }
 }
