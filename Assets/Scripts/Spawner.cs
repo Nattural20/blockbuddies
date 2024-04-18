@@ -89,7 +89,7 @@ public class Spawner : MonoBehaviour
                 hasSpawned = false;
             }
         }
-        if (buttonPressed == true && input.Length == 0)
+        if (buttonPressed == true && input == null)
         {
             buttonPressed = false;
         } 
