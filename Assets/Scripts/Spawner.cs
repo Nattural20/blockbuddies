@@ -18,9 +18,9 @@ public class Spawner : MonoBehaviour
     
     public int arrayPos;
 
-    public bool pos1;
+/*    public bool pos1;
     public bool pos2;
-    public bool pos3;
+    public bool pos3;*/
 
     private bool hasSpawned;
     private bool buttonPressed;
@@ -59,7 +59,7 @@ public class Spawner : MonoBehaviour
     void Spawn()
     {
             char[] input = GetComponent<ArduinoReader>().OutputArray;
-        if (input[0].ToString() == "1")
+        if (input[0].ToString() == "1" && buttonPressed == false)
         {
             buttonPressed = true;
             if (input[1].ToString() == "1")
@@ -89,7 +89,11 @@ public class Spawner : MonoBehaviour
                 hasSpawned = false;
             }
         }
-        buttonPressed = false;
+        if (buttonPressed == true && input.Length == 0)
+        {
+            buttonPressed = false;
+        } 
+        
     }
 
 
