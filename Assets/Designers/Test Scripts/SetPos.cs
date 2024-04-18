@@ -19,13 +19,13 @@ public class SetPos : MonoBehaviour
         if (collision.gameObject.CompareTag("Teleport Plane"))
         {
             transform.position = pos.position;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
             Debug.Log("Teleporting");
         }
         else if (collision.gameObject.CompareTag("SpawnSet"))
         {
             Debug.Log(collision.gameObject);
             pos = collision.gameObject.GetComponent<RespawnPointSet>().newPos;
-            ///blockPos.spawnPos = collision.gameObject.GetComponent<RespawnPointSet>().newBlockPos;
         }
     }
 }
