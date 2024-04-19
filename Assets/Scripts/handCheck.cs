@@ -42,7 +42,7 @@ public class handCheck : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Block")
+        if (other.gameObject.tag == "Spocks")
 
         {
 
@@ -56,7 +56,7 @@ public class handCheck : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Block")
+        if (other.gameObject.tag == "Spocks")
 
         {
 
