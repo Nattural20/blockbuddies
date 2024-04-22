@@ -7,7 +7,7 @@ public class CollisionDetection : MonoBehaviour
     public bool hasJoint = false;
 
     // Start is called before the first frame update
-
+    
 
     void OnCollisionEnter(Collision collision)
     {
@@ -17,6 +17,12 @@ public class CollisionDetection : MonoBehaviour
             gameObject.GetComponent<FixedJoint>().connectedBody = collision.rigidbody;
             hasJoint = true;
         }
+
+       
     }
 
+    void ScriptDestruction()
+    {
+        Destroy(this, 0.00001f);
+    }
 }
