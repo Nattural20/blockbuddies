@@ -28,6 +28,10 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded = true;
 
+    // Moving platform velocity transferral
+    private Rigidbody movingPlatform;
+    bool onPlatform;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -40,6 +44,11 @@ public class PlayerMovement : MonoBehaviour
             rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
         }
         
+        // For platform movement
+        if (onPlatform)
+        {
+            rb.velocity = movingPlatform.velocity;
+        }
 
         CheckGrounded();
 
@@ -143,5 +152,19 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, transform.position - transform.up * groundCheckDistance);
     }
-
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Moving Platform"))
+        {
+            onPlatform = true;
+            movingPlatform = collision.gameObject.GetComponent<Rigidbody>();
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Moving Platform"))
+        {
+            onPlatform = false;
+        }
+    }
 }
