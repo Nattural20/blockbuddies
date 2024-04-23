@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Moving platform velocity transferral
     private Rigidbody movingPlatform;
+    private MovingPlatform platformMove;
     bool onPlatform;
 
     void Start()
@@ -158,6 +159,7 @@ public class PlayerMovement : MonoBehaviour
         {
             onPlatform = true;
             movingPlatform = collision.gameObject.GetComponent<Rigidbody>();
+            platformMove = collision.gameObject.GetComponent<MovingPlatform>();
         }
     }
     private void OnCollisionExit(Collision collision)
@@ -165,6 +167,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Moving Platform"))
         {
             onPlatform = false;
+            movingPlatform = null;
+            platformMove = null;
         }
     }
 }

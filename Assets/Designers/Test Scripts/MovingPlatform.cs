@@ -6,11 +6,12 @@ public class MovingPlatform : MonoBehaviour
 {
     public Transform position1;
     public Transform position2;
-    public float speed;
+    public float acceleration;
 
     public bool moving = true;
-    public float pullStrength;
+    public float maxSpeed;
     private Rigidbody rb;
+    public Vector3 distDif;
 
     public Vector3 targetPos;
     // Start is called before the first frame update
@@ -25,10 +26,10 @@ public class MovingPlatform : MonoBehaviour
     {
         if (moving)
         {
-            var lerpy = Vector3.Lerp(transform.position, targetPos, speed * Time.deltaTime);
+            var lerpy = Vector3.Lerp(transform.position, targetPos, acceleration * Time.deltaTime);
             var dist = lerpy - transform.position;
 
-            if (dist.magnitude < 0.01)
+            if (dist.magnitude < 0.2)
             {
                 if (targetPos == position1.position)
                 {
@@ -41,8 +42,10 @@ public class MovingPlatform : MonoBehaviour
             }
             else
             {
-                dist = Vector3.ClampMagnitude(dist, pullStrength);
-                rb.AddForce((dist), ForceMode.Impulse);
+                dist = Vector3.ClampMagnitude(dist, maxSpeed);
+                rb.AddForce((dist), ForceMode.Acceleration);
+                //rb.velocity = dist;
+                distDif = dist;
             }
         }
     }

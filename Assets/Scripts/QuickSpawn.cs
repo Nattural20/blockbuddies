@@ -14,8 +14,10 @@ public class QuickSpawn : MonoBehaviour
     public TextMeshProUGUI text;
 
     public Transform spawnPos;
-    public PhysicMaterial[] blockPhys;
-    public Material[] blockMaterials;
+
+    public String[] spockTypes;
+    public PhysicMaterial[] spockPhys;
+    public Material[] spockMaterials;
     public GameObject roots;
 
     public List<GameObject> spawnedBlocks;
@@ -44,18 +46,13 @@ public class QuickSpawn : MonoBehaviour
     }
     void UpdateText()
     {
-        if (arrayPos == 0)
-            text.text = "Normal";
-        if (arrayPos == 1)
-            text.text = "Bouncy";
-        if (arrayPos == 2)
-            text.text = "Rooted";
+        text.text = spockTypes[arrayPos];
     }
     void SpawnThing()
     {
         var newBlock = Instantiate(TheThing, spawnPos.position, spawnPos.rotation); //Dummy GameObject- if we get this to spawn we have a successful read 
-        newBlock.GetComponent<BoxCollider>().material = blockPhys[arrayPos];
-        newBlock.GetComponent<MeshRenderer>().material = blockMaterials[arrayPos];
+        newBlock.GetComponent<BoxCollider>().material = spockPhys[arrayPos];
+        newBlock.GetComponent<MeshRenderer>().material = spockMaterials[arrayPos];
         if (arrayPos == 2)
         {
              var root = newBlock.AddComponent<RootedBlock>();
