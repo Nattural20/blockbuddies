@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
     
     public int arrayPos;
 
-/*  public bool pos1;
+/*    public bool pos1;
     public bool pos2;
     public bool pos3;*/
 
@@ -33,11 +33,12 @@ public class Spawner : MonoBehaviour
         CycleBlocks();
         DisplayPos();
         Spawn();    
-  
+
+        
     }
 
 
-    void DisplayPos() 
+    void DisplayPos()
     {
         if (arrayPos == 0)
         {
@@ -57,10 +58,9 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        char[] input = GetComponent<ArduinoReader>().OutputArray;
+            char[] input = GetComponent<ArduinoReader>().OutputArray;
         if (input[0].ToString() == "1" && buttonPressed == false)
         {
-
             buttonPressed = true;
             if (input[1].ToString() == "1")
             {
@@ -77,38 +77,6 @@ public class Spawner : MonoBehaviour
                 Instantiate(blocks[arrayPos], Camera.transform.position + new Vector3(4, 1, 1), Camera.transform.rotation);
                 hasSpawned = true;
             }
-            //temporary hardcode 3x3 grid until foreach is working
-            if (input[4].ToString() == "1")
-            {
-                Instantiate(blocks[arrayPos], Camera.transform.position + new Vector3(5, 1, -1), Camera.transform.rotation);
-                hasSpawned = true;
-            }
-            if (input[5].ToString() == "1")
-            {
-                Instantiate(blocks[arrayPos], Camera.transform.position + new Vector3(5, 1, 0), Camera.transform.rotation);
-                hasSpawned = true;
-            }
-            if (input[6].ToString() == "1")
-            {
-                Instantiate(blocks[arrayPos], Camera.transform.position + new Vector3(5, 1, 1), Camera.transform.rotation);
-                hasSpawned = true;
-            }
-            if (input[7].ToString() == "1")
-            {
-                Instantiate(blocks[arrayPos], Camera.transform.position + new Vector3(6, 1, -1), Camera.transform.rotation);
-                hasSpawned = true;
-            }
-            if (input[8].ToString() == "1")
-            {
-                Instantiate(blocks[arrayPos], Camera.transform.position + new Vector3(6, 1, 0), Camera.transform.rotation);
-                hasSpawned = true;
-            }
-            if (input[9].ToString() == "1")
-            {
-                Instantiate(blocks[arrayPos], Camera.transform.position + new Vector3(6, 1, 1), Camera.transform.rotation);
-                hasSpawned = true;
-            }
-
 
             if (hasSpawned == true)
             {
@@ -121,7 +89,7 @@ public class Spawner : MonoBehaviour
                 hasSpawned = false;
             }
         }
-        if (buttonPressed == true && input[0].ToString() == "0") //reset buttonpressed if no input is detected
+        if (buttonPressed == true && input[0].ToString() == "0")
         {
             buttonPressed = false;
         } 
