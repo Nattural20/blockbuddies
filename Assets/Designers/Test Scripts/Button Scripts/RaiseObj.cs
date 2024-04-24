@@ -10,15 +10,11 @@ public class RaiseObj : MonoBehaviour
     public GameObject obj;
 
     bool activated = false;
-    private void Start()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (!activated)
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (other.gameObject.CompareTag("Spocks"))
             {
                 StartCoroutine(Activate());
                 activated = true;
