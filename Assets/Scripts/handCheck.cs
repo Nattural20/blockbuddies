@@ -14,11 +14,11 @@ public class handCheck : MonoBehaviour
     void Update()
     {
         //check if holding grab button
-        if (Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton2))
+        if (Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
             isHoldingGrabButton = true;
         }
-        else if (Input.GetKeyUp(KeyCode.G) || Input.GetKeyUp(KeyCode.JoystickButton2))
+        else if (Input.GetKeyUp(KeyCode.G) || Input.GetKeyUp(KeyCode.Mouse1) || Input.GetKeyUp(KeyCode.JoystickButton2))
         {
             isHoldingGrabButton = false;
         }
@@ -30,13 +30,17 @@ public class handCheck : MonoBehaviour
         {
             isGrabbingObject = true;
             FixedJoint fj = relatedArm.AddComponent<FixedJoint>();
-            fj.connectedBody = pM.currentBlock.gameObject.GetComponent<Rigidbody>();
+            var spockRb = pM.currentBlock.GetComponent<Rigidbody>();
+            spockRb.excludeLayers = 1 << 7;
+            fj.connectedBody = spockRb;
         }
 
-        if (isGrabbingObject && (!isHoldingGrabButton || !canGrabObject))
+        if (isGrabbingObject && (!isHoldingGrabButton )) //|| !canGrabObject))
         {
             isGrabbingObject = false;
+            pM.currentBlock.GetComponent<Rigidbody>().excludeLayers = 0 << 7;
             Destroy(relatedArm.GetComponent<FixedJoint>());
+            pM.currentBlock = null;
         }
     }
 
@@ -62,7 +66,7 @@ public class handCheck : MonoBehaviour
 
             canGrabObject = false;
 
-            pM.currentBlock = null;
+            //pM.currentBlock = null;
 
         }
     }
