@@ -8,7 +8,7 @@ public class handCheck : MonoBehaviour
     public GameObject relatedArm;
     public bool isHoldingGrabButton, canGrabObject, isGrabbingObject = false;
 
-
+    private Rigidbody spockRb;
 
     // Update is called once per frame
     void Update()
@@ -29,18 +29,25 @@ public class handCheck : MonoBehaviour
         if (isHoldingGrabButton && canGrabObject && !isGrabbingObject)
         {
             isGrabbingObject = true;
-            FixedJoint fj = relatedArm.AddComponent<FixedJoint>();
-            var spockRb = pM.currentBlock.GetComponent<Rigidbody>();
+            //FixedJoint fj = relatedArm.AddComponent<FixedJoint>();
+            spockRb = pM.currentBlock.GetComponent<Rigidbody>();
             spockRb.excludeLayers = 1 << 7;
-            fj.connectedBody = spockRb;
+            //fj.connectedBody = spockRb;
         }
 
         if (isGrabbingObject && (!isHoldingGrabButton )) //|| !canGrabObject))
         {
             isGrabbingObject = false;
-            pM.currentBlock.GetComponent<Rigidbody>().excludeLayers = 0 << 7;
-            Destroy(relatedArm.GetComponent<FixedJoint>());
+            //pM.currentBlock.GetComponent<Rigidbody>().excludeLayers = 0 << 7;
+            //Destroy(relatedArm.GetComponent<FixedJoint>());
+            spockRb.excludeLayers = 0 << 7;
+            spockRb = null;
             pM.currentBlock = null;
+        }
+
+        if (isGrabbingObject && spockRb != null)
+        {
+            spockRb.velocity = (transform.position - spockRb.transform.position) * 10;
         }
     }
 
