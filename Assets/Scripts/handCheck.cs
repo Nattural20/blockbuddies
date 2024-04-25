@@ -32,6 +32,7 @@ public class handCheck : MonoBehaviour
             //FixedJoint fj = relatedArm.AddComponent<FixedJoint>();
             spockRb = pM.currentBlock.GetComponent<Rigidbody>();
             spockRb.excludeLayers = 1 << 7;
+            spockRb.excludeLayers = 1 << 8;
             //fj.connectedBody = spockRb;
         }
 
@@ -41,6 +42,7 @@ public class handCheck : MonoBehaviour
             //pM.currentBlock.GetComponent<Rigidbody>().excludeLayers = 0 << 7;
             //Destroy(relatedArm.GetComponent<FixedJoint>());
             spockRb.excludeLayers = 0 << 7;
+            spockRb.excludeLayers = 0 << 8;
             spockRb = null;
             pM.currentBlock = null;
         }
