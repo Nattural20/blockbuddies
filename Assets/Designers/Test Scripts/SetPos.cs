@@ -6,12 +6,15 @@ public class SetPos : MonoBehaviour
 {
     public Transform pos;
     public QuickSpawn blockPos;
+
+    public List<GameObject> playerBits;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
             transform.position = pos.position;
-            Debug.Log("Moved");
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            TeleportPlayer();
         }
     }
     private void OnTriggerEnter(Collider collision)
@@ -19,6 +22,7 @@ public class SetPos : MonoBehaviour
         if (collision.gameObject.CompareTag("Teleport Plane"))
         {
             transform.position = pos.position;
+            TeleportPlayer();
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             Debug.Log("Teleporting");
         }
@@ -26,6 +30,13 @@ public class SetPos : MonoBehaviour
         {
             Debug.Log(collision.gameObject);
             pos = collision.gameObject.GetComponent<RespawnPointSet>().newPos;
+        }
+    }
+    void TeleportPlayer()
+    {
+        foreach (GameObject player in playerBits)
+        {
+            player.transform.position = pos.position;
         }
     }
 }

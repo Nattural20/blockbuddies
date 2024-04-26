@@ -7,8 +7,11 @@ public class CollisionDetection : MonoBehaviour
     public bool hasJoint = false;
 
     // Start is called before the first frame update
-    
 
+    private void Start()
+    {
+        StartCoroutine(ScriptDestruction());
+    }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<Rigidbody>().CompareTag("Spocks") && !hasJoint)
@@ -21,8 +24,9 @@ public class CollisionDetection : MonoBehaviour
        
     }
 
-    void ScriptDestruction()
+    IEnumerator ScriptDestruction()
     {
-        Destroy(this, 0.00001f);
+        yield return new WaitForSeconds(0.1f);
+        Destroy(this);
     }
 }
