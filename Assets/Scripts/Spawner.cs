@@ -62,50 +62,63 @@ public class Spawner : MonoBehaviour
         {
 
             buttonPressed = true;
+            var spockDaddy = new GameObject("spocks");
+            spockDaddy.transform.position = SpawnPosGuide.transform.position;
+            spockDaddy.transform.rotation = SpawnPosGuide.transform.rotation;
+            //Instantiate(new GameObject("spocks"), SpawnPosGuide.transform.position, SpawnPosGuide.transform.rotation);
             if (input[1].ToString() == "1")
             {
-                Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(4, 1, -1), new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);//SpawnPosGuide.transform.position + new Vector3(4, 1, -1), Quaternion.Euler(0, SpawnPosGuide.transform.rotation.y, 0));//new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                newSpock.transform.localPosition = new Vector3(4, 1, -1);
                 hasSpawned = true;
             }
             if (input[2].ToString() == "1")
             {
-                Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(4, 1, 0), new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);// SpawnPosGuide.transform.position + new Vector3(4, 1, 0), Quaternion.Euler(0, SpawnPosGuide.transform.rotation.y, 0));//new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                newSpock.transform.localPosition = new Vector3(4, 1, 0);
                 hasSpawned = true;
             }
             if (input[3].ToString() == "1")
             {
-                Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(4, 1, 1), new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform); //Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(4, 1, 1), Quaternion.Euler(0, SpawnPosGuide.transform.rotation.y, 0));//new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                newSpock.transform.localPosition = new Vector3(4, 1, 1);
                 hasSpawned = true;
             }
             //temporary hardcode 3x3 grid until foreach is working
             if (input[4].ToString() == "1")
             {
-                Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(5, 1, -1), new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform); //Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(5, 1, -1), Quaternion.Euler(0, SpawnPosGuide.transform.rotation.y, 0));//new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                newSpock.transform.localPosition = new Vector3(5, 1, -1);
                 hasSpawned = true;
             }
             if (input[5].ToString() == "1")
             {
-                Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(5, 1, 0), new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);// Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(5, 1, 0), Quaternion.Euler(0, SpawnPosGuide.transform.rotation.y, 0));//new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                newSpock.transform.localPosition = new Vector3(5, 1, 0);
                 hasSpawned = true;
             }
             if (input[6].ToString() == "1")
             {
-                Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(5, 1, 1), new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);//Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(5, 1, 1), Quaternion.Euler(0, SpawnPosGuide.transform.rotation.y, 0));//new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                newSpock.transform.localPosition = new Vector3(5, 1, 1);
                 hasSpawned = true;
             }
             if (input[7].ToString() == "1")
             {
-                Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(6, 1, -1), new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);//Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(6, 1, -1), Quaternion.Euler(0, SpawnPosGuide.transform.rotation.y, 0));//new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                newSpock.transform.localPosition = new Vector3(6, 1, -1);
                 hasSpawned = true;
             }
             if (input[8].ToString() == "1")
             {
-                Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(6, 1, 0), new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);//Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(6, 1, 0), Quaternion.Euler(0, SpawnPosGuide.transform.rotation.y, 0));//new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                newSpock.transform.localPosition = new Vector3(6, 1, 0);
                 hasSpawned = true;
             }
             if (input[9].ToString() == "1")
             {
-                Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(6, 1, 1), new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);//Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(6, 1, 1), Quaternion.Euler(0, SpawnPosGuide.transform.rotation.y, 0));//new Quaternion(0, SpawnPosGuide.transform.rotation.y, 0, 0));
+                newSpock.transform.localPosition = new Vector3(6, 1, 1);
                 hasSpawned = true;
             }
 
@@ -138,7 +151,8 @@ public class Spawner : MonoBehaviour
                 if (c.ToString() == "1")
                 {
                     hasSpawned = true;
-                    Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position + new Vector3(6, 1, 1), new Quaternion(0, SpawnPosGuide.transform.rotation.y, SpawnPosGuide.transform.rotation.z, 0));
+                    Instantiate(blocks[arrayPos], SpawnPosGuide.transform.position, Quaternion.Euler(0, SpawnPosGuide.transform.eulerAngles.y, SpawnPosGuide.transform.eulerAngles.z));//new Quaternion(0, SpawnPosGuide.transform.rotation.y, SpawnPosGuide.transform.rotation.z, 0));
+                    Debug.Log("Spawn guide rot is " + SpawnPosGuide.transform.eulerAngles);
                 }
             }
         }

@@ -19,7 +19,7 @@ public class ArduinoReader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(ArduinoGetter.PhysicalBlockState);
+        //Debug.Log(ArduinoGetter.PhysicalBlockState);
         OutputArray = ArduinoGetter.PhysicalBlockState;
     }
 
