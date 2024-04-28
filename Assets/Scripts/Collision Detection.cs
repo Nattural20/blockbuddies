@@ -10,7 +10,7 @@ public class CollisionDetection : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(ScriptDestruction());
+        ScriptDestruction();
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -24,9 +24,8 @@ public class CollisionDetection : MonoBehaviour
        
     }
 
-    IEnumerator ScriptDestruction()
+    private void ScriptDestruction()
     {
-        yield return new WaitForSeconds(0.1f);
-        Destroy(this);
+        Destroy(this, 0.05f);
     }
 }
