@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 using TMPro;
 using System;
 using UnityEditor.Search;
+using System.Linq;
 
 public class SpawnerSpoof : MonoBehaviour
 {
@@ -63,60 +64,69 @@ public class SpawnerSpoof : MonoBehaviour
             var spockDaddy = new GameObject("spocks");
             spockDaddy.transform.position = SpawnPosGuide.transform.position;
             spockDaddy.transform.rotation = SpawnPosGuide.transform.rotation;
+            var daddyList = spockDaddy.AddComponent<SpockScript>();
+            daddyList.spockLayout = new int[input.Length - 1];
+            var pos = 1;
+            
+            while (pos < input.Length)
+            {
+                daddyList.spockLayout[pos - 1] = input[pos];
+                pos++;
+            }
 
             if (input[1].ToString() == "1")
             {
                 var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);
-                newSpock.transform.localPosition = new Vector3(4, 1, -1);
+                newSpock.transform.localPosition = new Vector3(0, 1, -1);
                 hasSpawned = true;
             }
             if (input[2].ToString() == "1")
             {
                 var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);
-                newSpock.transform.localPosition = new Vector3(4, 1, 0);
+                newSpock.transform.localPosition = new Vector3(0, 1, 0);
                 hasSpawned = true;
             }
             if (input[3].ToString() == "1")
             {
                 var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);
-                newSpock.transform.localPosition = new Vector3(4, 1, 1);
+                newSpock.transform.localPosition = new Vector3(0, 1, 1);
                 hasSpawned = true;
             }
             //temporary hardcode 3x3 grid until foreach is working
             if (input[4].ToString() == "1")
             {
                 var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);
-                newSpock.transform.localPosition = new Vector3(5, 1, -1);
+                newSpock.transform.localPosition = new Vector3(1, 1, -1);
                 hasSpawned = true;
             }
             if (input[5].ToString() == "1")
             {
                 var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);
-                newSpock.transform.localPosition = new Vector3(5, 1, 0);
+                newSpock.transform.localPosition = new Vector3(1, 1, 0);
                 hasSpawned = true;
             }
             if (input[6].ToString() == "1")
             {
                 var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);
-                newSpock.transform.localPosition = new Vector3(5, 1, 1);
+                newSpock.transform.localPosition = new Vector3(1, 1, 1);
                 hasSpawned = true;
             }
             if (input[7].ToString() == "1")
             {
                 var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);
-                newSpock.transform.localPosition = new Vector3(6, 1, -1);
+                newSpock.transform.localPosition = new Vector3(2, 1, -1);
                 hasSpawned = true;
             }
             if (input[8].ToString() == "1")
             {
                 var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);
-                newSpock.transform.localPosition = new Vector3(6, 1, 0);
+                newSpock.transform.localPosition = new Vector3(2, 1, 0);
                 hasSpawned = true;
             }
             if (input[9].ToString() == "1")
             {
                 var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);
-                newSpock.transform.localPosition = new Vector3(6, 1, 1);
+                newSpock.transform.localPosition = new Vector3(2, 1, 1);
                 hasSpawned = true;
             }
 

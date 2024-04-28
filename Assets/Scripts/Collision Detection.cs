@@ -14,7 +14,7 @@ public class CollisionDetection : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<Rigidbody>().CompareTag("Spocks") && !hasJoint)
+        if (collision.gameObject.CompareTag("Spocks") && !hasJoint)
         {
             gameObject.AddComponent<FixedJoint>();
             gameObject.GetComponent<FixedJoint>().connectedBody = collision.rigidbody;
@@ -26,6 +26,6 @@ public class CollisionDetection : MonoBehaviour
 
     private void ScriptDestruction()
     {
-        Destroy(this, 0.05f);
+        Destroy(this, 0.2f);
     }
 }
