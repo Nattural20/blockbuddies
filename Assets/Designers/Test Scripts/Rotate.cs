@@ -26,7 +26,7 @@ public class Rotate : MonoBehaviour
         lookInputs.y += Input.GetAxis("Mouse X");
         lookInputs.z += Input.GetAxis("Mouse Y");
         
-        lookInputs.z = Mathf.Clamp(lookInputs.z, -89, 89);
+        lookInputs.z = Mathf.Clamp(lookInputs.z, -89, 10);
         transform.rotation = Quaternion.Euler(lookInputs);
     }
 }
