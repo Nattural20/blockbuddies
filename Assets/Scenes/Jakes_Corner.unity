@@ -2697,6 +2697,9 @@ MonoBehaviour:
   maxSpeed: 5
   deceleration: 28
   pivotSpeed: 5
+  jumpForce: 10
+  floatDuration: 0.5
+  descentForce: 20
   headThrust: 60
   armThrust: 7
 --- !u!1 &520172751
@@ -3502,6 +3505,9 @@ MonoBehaviour:
   maxSpeed: 5
   deceleration: 28.8
   pivotSpeed: 5
+  jumpForce: 10
+  floatDuration: 0.5
+  descentForce: 20
   headThrust: 444.9
   armThrust: 60
 --- !u!1 &681708454
@@ -7808,7 +7814,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aim: {fileID: 1097660197}
   cam: {fileID: 16857983}
-  testCube: {fileID: 0}
   camDistance: 4
 --- !u!4 &1588305246
 Transform:
@@ -8321,8 +8326,8 @@ Transform:
   m_GameObject: {fileID: 1888841426}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0.000000030908623, z: -0.000000030908623, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: -1.713, z: 0}
-  m_LocalScale: {x: 277.06558, y: 277.06558, z: 277.06558}
+  m_LocalPosition: {x: -0.0000014211, y: -1.7006, z: 0.000000022244}
+  m_LocalScale: {x: 379.91232, y: 379.91232, z: 379.91232}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 293726497}

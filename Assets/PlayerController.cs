@@ -22,6 +22,12 @@ public class PlayerController : MonoBehaviour
     public float deceleration = 5f;
     public float pivotSpeed = 5;
 
+    public float jumpForce = 10f;
+    public float floatDuration = 0.5f;
+    public float descentForce = 20f;
+    private bool isJumping = false;
+    private float jumpTimer;
+
     public float headThrust = 60;
     public float armThrust = 60;
 
@@ -47,6 +53,8 @@ public class PlayerController : MonoBehaviour
 
         controls.Gameplay.Rotate.performed += ctx => rotate = ctx.ReadValue<Vector2>();
         controls.Gameplay.Rotate.canceled += ctx => rotate = Vector2.zero;
+
+        controls.Gameplay.Jump.performed += ctx => StartJump();
     }
 
     private void Update()
@@ -54,6 +62,11 @@ public class PlayerController : MonoBehaviour
         if (isHoldingGrab)
         {
             Grab();
+        }
+
+        if (isJumping)
+        {
+            ManageJump();
         }
 
 
@@ -101,10 +114,31 @@ public class PlayerController : MonoBehaviour
         hand1.AddForce(transform.right * armThrust);
         //hand2.AddForce(transform.right * armThrust);
     }
-    
-    void Jump()
-    {
 
+    void StartJump()
+    {
+        Debug.Log("OK");
+
+        if (!isJumping) 
+        {
+            Debug.Log("OKSSSS");
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isJumping = true;
+            jumpTimer = floatDuration;
+        }
+    }
+
+    void ManageJump()
+    {
+        if (jumpTimer > 0)
+        {
+            jumpTimer -= Time.deltaTime;
+        }
+        else if (jumpTimer <= 0 && isJumping)
+        {
+            rb.AddForce(Vector3.down * descentForce, ForceMode.Impulse);
+            isJumping = false; 
+        }
     }
 
     void ApplyHeadThrust()
