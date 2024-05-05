@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class handCheck : MonoBehaviour
 {
-    public PlayerMovement pM;
+    public PlayerController pM;
     public GameObject relatedArm;
     public bool isHoldingGrabButton, canGrabObject, isGrabbingObject = false;
 
