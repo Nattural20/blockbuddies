@@ -7,12 +7,15 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
     public Rigidbody hand1, head;
+    public Collider groundCheck;
 
 
     PlayerControls controls;
 
     Vector2 move;
     Vector2 rotate;
+
+    public bool isGrounded = false;
 
     bool isHoldingGrab = false;
     public GameObject currentBlock;
@@ -25,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10f;
     public float floatDuration = 0.5f;
     public float descentForce = 20f;
-    private bool isJumping = false;
+    public bool isJumping, isFallingAfterJump = false;
     private float jumpTimer;
 
     public float headThrust = 60;
@@ -79,6 +82,11 @@ public class PlayerController : MonoBehaviour
         ApplyMovement();
         ApplyHeadThrust();
 
+        if (isFallingAfterJump && !isGrounded)
+        {
+            rb.AddForce(Vector3.down * descentForce, ForceMode.Impulse);
+        }
+
     }
 
 
@@ -117,6 +125,8 @@ public class PlayerController : MonoBehaviour
 
     void StartJump()
     {
+        isGrounded = false;
+
         Debug.Log("OK");
 
         if (!isJumping) 
@@ -136,8 +146,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (jumpTimer <= 0 && isJumping)
         {
-            rb.AddForce(Vector3.down * descentForce, ForceMode.Impulse);
-            isJumping = false; 
+            isJumping = false;
+            isFallingAfterJump = true;
         }
     }
 
@@ -164,6 +174,7 @@ public class PlayerController : MonoBehaviour
             movingPlatform = collision.gameObject.GetComponent<Rigidbody>();
             platformMove = collision.gameObject.GetComponent<MovingPlatform>();
         }
+
     }
 
     private void OnCollisionExit(Collision collision)
