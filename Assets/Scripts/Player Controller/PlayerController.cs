@@ -147,7 +147,8 @@ public class PlayerController : MonoBehaviour
 
     void Grab()
     {
-        hand1.AddForce(transform.right * armThrust);
+       // hand1.AddForce(lastMovementDirection * armThrust);
+        hand1.AddForceAtPosition(new Vector3(0, armThrust, 0), new Vector3 (0,-5,0));
         //hand2.AddForce(transform.right * armThrust);
     }
 
