@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody hand1, head;
     public Collider groundCheck;
 
+    public Transform cameraTransform;
+
 
     PlayerControls controls;
 
@@ -19,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     bool isHoldingGrab = false;
     public GameObject currentBlock;
+
+    public float rotationSpeed = 5f;
 
     public float acceleration = 5f;
     public float maxSpeed = 5f;
@@ -41,6 +45,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody movingPlatform;
     private MovingPlatform platformMove;
     bool onPlatform;
+
+    private Vector3 lastMovementDirection = Vector3.forward;
 
     void Awake()
     {
@@ -81,6 +87,7 @@ public class PlayerController : MonoBehaviour
     {
         ApplyMovement();
         ApplyHeadThrust();
+        RotatePlayer();
 
         if (isFallingAfterJump && !isGrounded)
         {
@@ -89,32 +96,53 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void RotatePlayer()
+    {
+        if (move.x != 0 || move.y != 0)
+        {
+          lastMovementDirection = new Vector3(-move.y, 0f, move.x);
+        }
+        Quaternion targetRotation = Quaternion.LookRotation(lastMovementDirection);
+        rb.transform.rotation = Quaternion.Slerp(rb.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
 
     void ApplyMovement()
     {
-        Vector3 accelerationVector = new Vector3(move.x, 0, move.y).normalized * acceleration;
+        // Convert move from 2D to 3D space
+        Vector3 moveInput = new Vector3(move.x, 0, move.y);
 
-        //check if direction has significantly changed
-        if (Vector2.Dot(lastMove.normalized, move.normalized) < 0.8f && move != Vector2.zero)
+        // Transform moveInput to be relative to the camera's rotation
+        Vector3 forward = cameraTransform.forward;
+        forward.y = 0; // Keep the movement strictly horizontal
+        Vector3 right = cameraTransform.right;
+        right.y = 0; // Keep the movement strictly horizontal
+
+        // Create the movement vector relative to the camera's orientation
+        Vector3 movementDirection = (forward * moveInput.z + right * moveInput.x).normalized;
+
+        Vector3 accelerationVector = movementDirection * acceleration;
+
+        // Check if direction has significantly changed
+        if (Vector2.Dot(lastMove.normalized, new Vector2(movementDirection.x, movementDirection.z).normalized) < 0.8f && move != Vector2.zero)
         {
-           //pivot faster
+            // Pivot faster
             velocity = Vector3.MoveTowards(velocity, Vector3.zero, deceleration * pivotSpeed * Time.fixedDeltaTime);
         }
         else if (move == Vector2.zero)
         {
-            //normal deceleration if let go
+            // Normal deceleration if let go
             velocity = Vector3.MoveTowards(velocity, Vector3.zero, deceleration * Time.fixedDeltaTime);
         }
         else
         {
-            //normal acceleration
+            // Normal acceleration
             velocity += accelerationVector * Time.fixedDeltaTime;
             velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
         }
 
         rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z);
-
-        lastMove = move; 
+        lastMove = new Vector2(movementDirection.x, movementDirection.z);
+    
     }
 
     void Grab()
