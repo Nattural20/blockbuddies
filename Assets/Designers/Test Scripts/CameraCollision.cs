@@ -21,14 +21,14 @@ public class CameraCollision : MonoBehaviour
         if (Physics.Raycast(camRayHit, out RaycastHit hit, camDistance, mask))
         {
             cam.transform.position = Vector3.Lerp(hit.point, transform.position, 0.5f);
-            cam.transform.localPosition += camOffset;
+            //cam.transform.localPosition += camOffset;
             cam.transform.rotation = Quaternion.Euler(-transform.rotation.eulerAngles.z, transform.rotation.eulerAngles.y + 90, 0);
         }
         else
         {
             
             cam.transform.position  = camRayHit.GetPoint(camDistance); //= transform.position - (transform.position - aim.position) * 3.6f;
-            cam.transform.localPosition += camOffset;
+            //cam.transform.localPosition += camOffset;
             cam.transform.rotation = Quaternion.Euler(-transform.rotation.eulerAngles.z, transform.rotation.eulerAngles.y + 90, 0);
         }
     }

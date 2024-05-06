@@ -24,11 +24,12 @@ public class SpockScript : MonoBehaviour
                 posY++;
             }
 
-            spockLayout[posX,posY] = griddyInput[griddyPos];
+            spockLayout[posY,posX] = griddyInput[griddyPos];
 
             posX++;
             griddyPos++;
         }
+        Debug.Log(spockLayout[2,0] + ", " + spockLayout[2, 1] + ", " + spockLayout[2, 2] + "\n" + spockLayout[1,0] + ", " + spockLayout[1, 1] + ", " + spockLayout[1, 2] + "\n" + spockLayout[0, 0] + ", " + spockLayout[0, 1] + ", " + spockLayout[0, 2]);
     }
     private void OnTriggerEnter(Collider other)
     {
