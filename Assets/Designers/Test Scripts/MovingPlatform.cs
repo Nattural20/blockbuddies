@@ -7,15 +7,11 @@ public class MovingPlatform : MonoBehaviour
     public Transform position1;
     Vector3 stopPos1;
     public Transform position2;
-<<<<<<< Updated upstream
     Vector3 stopPos2;
     public float acceleration;
-=======
     public float maxSpeed;
->>>>>>> Stashed changes
 
     public bool moving = true;
-    public float maxSpeed;
     private Rigidbody rb;
     public Vector3 distDif;
 
@@ -37,15 +33,12 @@ public class MovingPlatform : MonoBehaviour
     {
         if (moving)
         {
-<<<<<<< Updated upstream
             var lerpy = Vector3.Lerp(transform.position, targetPos, acceleration * Time.deltaTime);
             var dist = lerpy - transform.position;
-=======
             //var lerpy = Vector3.Lerp(transform.position, targetPos, maxSpeed * Time.deltaTime);
             //var dist = lerpy - transform.position;
-            var dist = (targetPos - transform.position ) / 2;
+            //var dist = (targetPos - transform.position ) / 2;
             dist = Vector3.ClampMagnitude(dist, maxSpeed);
->>>>>>> Stashed changes
 
             if (dist.magnitude < 0.1)
             {
@@ -60,21 +53,18 @@ public class MovingPlatform : MonoBehaviour
             }
             else
             {
-<<<<<<< Updated upstream
                 dist = Vector3.ClampMagnitude(dist, maxSpeed);
                 rb.AddForce(dist, ForceMode.Acceleration);
                 //rb.velocity = dist;
                 distDif = dist;
-            }
+            //}
             debugDist= dist;
-=======
                 //dist = Vector3.ClampMagnitude(dist, pullStrength);
                 //rb.AddForce((dist * pullStrength), ForceMode.Impulse);
-                rb.velocity = dist * pullStrength;
+               // rb.velocity = dist * pullStrength;
             }
             Debug.DrawLine(transform.position, transform.position + dist, Color.red);
             Debug.Log(dist);
->>>>>>> Stashed changes
         }
         else rb.velocity = Vector3.zero;
         //Debug.Log("Dist is " + debugDist + "." + "rb velocity is" + rb.velocity);
