@@ -23,9 +23,8 @@ public class groundCheck : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.CompareTag("Ground"))
-        {
+
             pC.isGrounded = true;
-        }
+       
     }
 }

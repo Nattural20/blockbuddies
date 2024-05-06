@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     Vector2 move;
     Vector2 rotate;
 
-    public bool isGrounded = true;
+    public bool isGrounded = false;
 
     bool isHoldingGrab = false;
     public GameObject currentBlock;
@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
         ApplyMovement();
         ApplyHeadThrust();
 
-        if (isFallingAfterJump && isGrounded)
+        if (isFallingAfterJump && !isGrounded)
         {
             rb.AddForce(Vector3.down * descentForce, ForceMode.Impulse);
         }
