@@ -19,7 +19,7 @@ public class SetPos : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Teleport Plane"))
+        if (collision.gameObject.CompareTag("Teleport Plane") || collision.gameObject.CompareTag("Lava"))
         {
             transform.position = pos.position;
             TeleportPlayer();
@@ -30,6 +30,16 @@ public class SetPos : MonoBehaviour
         {
             Debug.Log(collision.gameObject);
             pos = collision.gameObject.GetComponent<RespawnPointSet>().newPos;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Teleport Plane") || collision.gameObject.CompareTag("Lava"))
+        {
+            transform.position = pos.position;
+            TeleportPlayer();
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            Debug.Log("Death respawn");
         }
     }
     void TeleportPlayer()
