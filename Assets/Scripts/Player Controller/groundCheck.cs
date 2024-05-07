@@ -21,9 +21,9 @@ public class groundCheck : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision col)
+    private void OnCollisionStay(Collision col)
     {
-
+        Debug.Log("FDSIJBHFDSB");
             pC.isGrounded = true;
        
     }

@@ -6,8 +6,14 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
-    public Rigidbody hand1, head;
-    public Collider groundCheck;
+    public Rigidbody hand1, hand2, head;
+
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+
+    public bool isGrounded = false;
+
 
     public Transform cameraTransform;
 
@@ -17,9 +23,8 @@ public class PlayerController : MonoBehaviour
     Vector2 move;
     Vector2 rotate;
 
-    public bool isGrounded = false;
 
-    bool isHoldingGrab = false;
+    public bool isHoldingGrab = false;
     public GameObject currentBlock;
 
     public float rotationSpeed = 5f;
@@ -46,7 +51,9 @@ public class PlayerController : MonoBehaviour
     private MovingPlatform platformMove;
     bool onPlatform;
 
-    private Vector3 lastMovementDirection = Vector3.forward;
+    private Vector3 currentMovementDirection;
+    private Vector3 lastMovementDirection;
+    private Vector3 currentFacingDirection;
 
     void Awake()
     {
@@ -68,15 +75,19 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
+
         if (isHoldingGrab)
         {
             Grab();
         }
 
-        if (isJumping)
-        {
-            ManageJump();
-        }
 
 
 
@@ -89,96 +100,78 @@ public class PlayerController : MonoBehaviour
         ApplyHeadThrust();
         RotatePlayer();
 
-        if (isFallingAfterJump && !isGrounded)
-        {
-            rb.AddForce(Vector3.down * descentForce, ForceMode.Impulse);
-        }
-
+        currentFacingDirection = rb.transform.right;
     }
 
     void RotatePlayer()
     {
-        if (move.x != 0 || move.y != 0)
+        //for some reason the currentMoveDir needs to be flipped
+        Vector3 newDir = new Vector3(-currentMovementDirection.z, 0, currentMovementDirection.x);
+
+        if (newDir != Vector3.zero)
         {
-          lastMovementDirection = new Vector3(-move.y, 0f, move.x);
+            Quaternion targetRotation = Quaternion.LookRotation(newDir);
+            rb.transform.rotation = Quaternion.Slerp(rb.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
-        Quaternion targetRotation = Quaternion.LookRotation(lastMovementDirection);
-        rb.transform.rotation = Quaternion.Slerp(rb.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     void ApplyMovement()
     {
-        // Convert move from 2D to 3D space
         Vector3 moveInput = new Vector3(move.x, 0, move.y);
 
-        // Transform moveInput to be relative to the camera's rotation
         Vector3 forward = cameraTransform.forward;
-        forward.y = 0; // Keep the movement strictly horizontal
+        forward.y = 0;
         Vector3 right = cameraTransform.right;
-        right.y = 0; // Keep the movement strictly horizontal
+        right.y = 0; 
 
-        // Create the movement vector relative to the camera's orientation
-        Vector3 movementDirection = (forward * moveInput.z + right * moveInput.x).normalized;
+        currentMovementDirection = (forward * moveInput.z + right * moveInput.x).normalized;
 
-        Vector3 accelerationVector = movementDirection * acceleration;
+        Vector3 accelerationVector = currentMovementDirection * acceleration;
 
-        // Check if direction has significantly changed
-        if (Vector2.Dot(lastMove.normalized, new Vector2(movementDirection.x, movementDirection.z).normalized) < 0.8f && move != Vector2.zero)
+        if (Vector2.Dot(lastMove.normalized, new Vector2(currentMovementDirection.x, currentMovementDirection.z).normalized) < 0.8f && move != Vector2.zero)
         {
-            // Pivot faster
+            //pivot faster
             velocity = Vector3.MoveTowards(velocity, Vector3.zero, deceleration * pivotSpeed * Time.fixedDeltaTime);
+            lastMovementDirection = new Vector3(currentMovementDirection.x,0, currentMovementDirection.z);
         }
         else if (move == Vector2.zero)
         {
-            // Normal deceleration if let go
+            //normal deceleration if let go
             velocity = Vector3.MoveTowards(velocity, Vector3.zero, deceleration * Time.fixedDeltaTime);
         }
         else
         {
-            // Normal acceleration
+            //normal acceleration
             velocity += accelerationVector * Time.fixedDeltaTime;
             velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
         }
 
         rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z);
-        lastMove = new Vector2(movementDirection.x, movementDirection.z);
-    
+        lastMove = new Vector2(currentMovementDirection.x, currentMovementDirection.z);
+
     }
 
     void Grab()
     {
-       // hand1.AddForce(lastMovementDirection * armThrust);
-        hand1.AddForceAtPosition(new Vector3(0, armThrust, 0), new Vector3 (0,-5,0));
-        //hand2.AddForce(transform.right * armThrust);
+
+        Vector3 newDir = new Vector3(lastMove.x, 0, lastMovementDirection.z);
+        Debug.Log(lastMovementDirection);
+        // hand1.AddForce(lastMovementDirection * armThrust);
+        hand1.AddForce(currentFacingDirection * armThrust);
+        hand2.AddForce(currentFacingDirection * armThrust);
     }
 
     void StartJump()
     {
-        isGrounded = false;
-
-        Debug.Log("OK");
-
-        if (!isJumping) 
+        if (isGrounded)
         {
-            Debug.Log("OKSSSS");
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isJumping = true;
-            jumpTimer = floatDuration;
+            isGrounded = false;
         }
+
+        
     }
 
-    void ManageJump()
-    {
-        if (jumpTimer > 0)
-        {
-            jumpTimer -= Time.deltaTime;
-        }
-        else if (jumpTimer <= 0 && isJumping)
-        {
-            isJumping = false;
-            isFallingAfterJump = true;
-        }
-    }
 
     void ApplyHeadThrust()
     {
@@ -205,6 +198,7 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
 
     private void OnCollisionExit(Collision collision)
     {
