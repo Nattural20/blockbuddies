@@ -33,10 +33,22 @@ public class LavaScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Spocks"))
         {
-            var newSpock = collision.gameObject;
-            newSpock.GetComponent<Rigidbody>().isKinematic = true;
-            newSpock.tag = "Untagged";
-            spocks.Add(newSpock);
+            if (!spocks.Contains(collision.gameObject))
+            {
+                var newSpock = collision.gameObject;
+                newSpock.GetComponent<Rigidbody>().isKinematic = true;
+                newSpock.tag = "Lava Spock";
+                spocks.Add(newSpock);
+                newSpock.transform.position -= new Vector3(0, 0.1f, 0);
+            }
         }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        //if (collision.gameObject.CompareTag("Spocks"))
+        //{
+        //    spocks.Remove(collision.gameObject);
+        //    collision.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        //}
     }
 }
