@@ -35,7 +35,7 @@ public class AlternateGrab : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Spocks")
+        if (other.gameObject.tag == "Spocks" || other.gameObject.tag == "Key")
 
         {
             spockInFront = true;
@@ -46,7 +46,7 @@ public class AlternateGrab : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Spocks")
+        if (other.gameObject.tag == "Spocks" || other.gameObject.tag == "Key")
 
         {
             spockInFront = false;
