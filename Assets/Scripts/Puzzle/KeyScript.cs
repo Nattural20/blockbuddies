@@ -21,6 +21,7 @@ public class KeyScript : MonoBehaviour
         if (other.gameObject.CompareTag("Teleport Plane") || other.gameObject.CompareTag("Lava"))
         {
             transform.position = spawnLocation.position;
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -28,6 +29,7 @@ public class KeyScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Teleport Plane") || collision.gameObject.CompareTag("Lava"))
         {
             transform.position = spawnLocation.position;
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
 }

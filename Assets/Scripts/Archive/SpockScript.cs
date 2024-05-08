@@ -7,6 +7,7 @@ public class SpockScript : MonoBehaviour
 {
     //public int[] arduinoInput;
     public int[,] spockLayout;
+    public float spockAmount;
 
     public void FormatLayout(int[] griddyInput)
     {
@@ -25,6 +26,9 @@ public class SpockScript : MonoBehaviour
             }
 
             spockLayout[posY,posX] = griddyInput[griddyPos];
+
+            if (griddyInput[griddyPos] == 1)
+                spockAmount++;
 
             posX++;
             griddyPos++;
