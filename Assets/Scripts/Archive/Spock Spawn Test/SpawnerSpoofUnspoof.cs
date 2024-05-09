@@ -61,6 +61,8 @@ public class SpawnerSpoofUnspoof : MonoBehaviour
         char[] input = GetComponent<ArduinoReader>().OutputArray;
         if (input[0].ToString() == "1" && buttonPressed == false)
         {
+            buttonPressed = true;
+
             var spockDaddy = Instantiate(spockShell, SpawnPosGuide.transform.position, SpawnPosGuide.transform.rotation);
 
             UpdateGhostSpocks(input);
@@ -149,6 +151,11 @@ public class SpawnerSpoofUnspoof : MonoBehaviour
             {
                 Debug.Log("No blocks to spawn");
                 hasSpawned = false;
+            }
+
+            if (buttonPressed == true && input[0].ToString() == "0") //reset buttonpressed if no input is detected
+            {
+                buttonPressed = false;
             }
         }
     }
