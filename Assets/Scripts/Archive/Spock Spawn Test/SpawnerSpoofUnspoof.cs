@@ -59,7 +59,7 @@ public class SpawnerSpoofUnspoof : MonoBehaviour
     void Spawn()
     {
         char[] input = GetComponent<ArduinoReader>().OutputArray;
-        if (Input.GetKeyDown(KeyCode.F))
+        if (input[0].ToString() == "1" && buttonPressed == false)
         {
             var spockDaddy = Instantiate(spockShell, SpawnPosGuide.transform.position, SpawnPosGuide.transform.rotation);
 
