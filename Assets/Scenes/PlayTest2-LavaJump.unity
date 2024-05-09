@@ -1180,6 +1180,63 @@ Transform:
   - {fileID: 1226734441}
   m_Father: {fileID: 1674364383}
   m_LocalEulerAnglesHint: {x: 16.79, y: 90, z: 0}
+--- !u!1001 &265470054
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6379458584916036863, guid: f2cf9d0a605e6c446b8d34dfa9038558, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379458584916036863, guid: f2cf9d0a605e6c446b8d34dfa9038558, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379458584916036863, guid: f2cf9d0a605e6c446b8d34dfa9038558, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379458584916036863, guid: f2cf9d0a605e6c446b8d34dfa9038558, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379458584916036863, guid: f2cf9d0a605e6c446b8d34dfa9038558, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379458584916036863, guid: f2cf9d0a605e6c446b8d34dfa9038558, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379458584916036863, guid: f2cf9d0a605e6c446b8d34dfa9038558, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379458584916036863, guid: f2cf9d0a605e6c446b8d34dfa9038558, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379458584916036863, guid: f2cf9d0a605e6c446b8d34dfa9038558, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379458584916036863, guid: f2cf9d0a605e6c446b8d34dfa9038558, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994263608763938049, guid: f2cf9d0a605e6c446b8d34dfa9038558, type: 3}
+      propertyPath: m_Name
+      value: ENV_Lava Jump Master
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f2cf9d0a605e6c446b8d34dfa9038558, type: 3}
 --- !u!1 &271180150
 GameObject:
   m_ObjectHideFlags: 3
@@ -4631,10 +4688,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 171153559}
+    - target: {fileID: 3914470002156279328, guid: 12485bb837559584a9cc868653993dfa, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2897511013228628300, guid: c2267e0a502ceb34398bbc8b9add9f69, type: 3}
     - target: {fileID: 4495816238943518843, guid: 12485bb837559584a9cc868653993dfa, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 203867402}
+    - target: {fileID: 5004497974781828602, guid: 12485bb837559584a9cc868653993dfa, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2897511013228628300, guid: 36ca89585e864ce4c8142f27ace8abdf, type: 3}
     - target: {fileID: 5239924552044437733, guid: 12485bb837559584a9cc868653993dfa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4675,6 +4740,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6959192359712353109, guid: 12485bb837559584a9cc868653993dfa, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6419244651835415322, guid: 501e555b6fcbacd4c89561462e67ff93, type: 3}
     - target: {fileID: 8303347294952004625, guid: 12485bb837559584a9cc868653993dfa, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -6956,3 +7025,4 @@ SceneRoots:
   - {fileID: 8085313000915154565}
   - {fileID: 6295737396013407251}
   - {fileID: 800373726734673882}
+  - {fileID: 265470054}
