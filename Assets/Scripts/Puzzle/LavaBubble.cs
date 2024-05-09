@@ -10,7 +10,7 @@ public class LavaBubble : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("StartExplodeTimer");
+        StartCoroutine(StartExplodeTimer());
     }
     void Explode()
     {

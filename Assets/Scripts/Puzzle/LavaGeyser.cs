@@ -20,6 +20,5 @@ public class LavaGeyser : MonoBehaviour
         {
             other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
         }
-        
     }
 }
