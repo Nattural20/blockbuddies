@@ -29,16 +29,21 @@ public class PlayerController : MonoBehaviour
 
     public float rotationSpeed = 5f;
 
+    //movement
     public float acceleration = 5f;
     public float maxSpeed = 5f;
     public float deceleration = 5f;
     public float pivotSpeed = 5;
 
+    //jump
     public float jumpForce = 10f;
-    public float floatDuration = 0.5f;
-    public float descentForce = 20f;
     public bool isJumping, isFallingAfterJump = false;
     private float jumpTimer;
+
+    bool isHoldingJump;
+    public float fallMultiplier = 2f;
+    public float lowJumpMultiplier = 2f;
+
 
     public float headThrust = 60;
     public float armThrust = 60;
@@ -71,6 +76,8 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Rotate.canceled += ctx => rotate = Vector2.zero;
 
         controls.Gameplay.Jump.performed += ctx => StartJump();
+        controls.Gameplay.Jump.performed += ctx => isHoldingJump = true;
+        controls.Gameplay.Jump.canceled += ctx => isHoldingJump = false;
     }
 
     private void Update()
@@ -101,6 +108,18 @@ public class PlayerController : MonoBehaviour
         RotatePlayer();
 
         currentFacingDirection = rb.transform.right;
+
+
+
+        //making the jump better
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb.velocity.y > 0 && !isHoldingJump)
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
     }
 
     void RotatePlayer()
