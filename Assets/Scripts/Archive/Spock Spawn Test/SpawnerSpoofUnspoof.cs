@@ -59,13 +59,15 @@ public class SpawnerSpoofUnspoof : MonoBehaviour
     void Spawn()
     {
         char[] input = GetComponent<ArduinoReader>().OutputArray;
+        
+        UpdateGhostSpocks(input);
+        
         if (input[0].ToString() == "1" && buttonPressed == false)
         {
             buttonPressed = true;
 
             var spockDaddy = Instantiate(spockShell, SpawnPosGuide.transform.position, SpawnPosGuide.transform.rotation);
 
-            UpdateGhostSpocks(input);
 
             if (input[1].ToString() == "1")
             {
@@ -152,11 +154,10 @@ public class SpawnerSpoofUnspoof : MonoBehaviour
                 Debug.Log("No blocks to spawn");
                 hasSpawned = false;
             }
-
-            if (buttonPressed == true && input[0].ToString() == "0") //reset buttonpressed if no input is detected
-            {
-                buttonPressed = false;
-            }
+        }
+        if (buttonPressed == true && input[0].ToString() == "0") //reset buttonpressed if no input is detected
+        {
+            buttonPressed = false;
         }
     }
 
