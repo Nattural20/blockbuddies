@@ -1,20 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
     public GameObject fallingPlatform;
-    public float secondsBeforeDestroy = 5;
+    public float secondsBeforeFall = 3;
 
-    // Start is called before the first frame update
+    public Renderer platformRenderer;  
+
     void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
     {
 
     }
@@ -23,15 +17,31 @@ public class FallingPlatform : MonoBehaviour
     {
         if (col.gameObject.tag == "Body")
         {
-            fallingPlatform.GetComponent<Animator>().SetBool("isFalling", true);
-            StartCoroutine(StartCountDown());
+            fallingPlatform.GetComponent<Animator>().SetBool("isStartWobble", true);
+            StartCoroutine(StartWobble());
         }
+    }
+
+    IEnumerator StartWobble()
+    {
+        float elapsedTime = 0;
+
+        while (elapsedTime < secondsBeforeFall)
+        {
+            elapsedTime += Time.deltaTime;
+            Color newColor = Color.Lerp(Color.white, Color.red, elapsedTime / secondsBeforeFall);
+            platformRenderer.material.color = newColor;
+            yield return null; 
+        }
+
+        fallingPlatform.GetComponent<Animator>().SetBool("isFalling", true);
+        StartCoroutine(StartCountDown());
     }
 
     IEnumerator StartCountDown()
     {
-        yield return new WaitForSeconds(secondsBeforeDestroy);
+        // After falling, wait 5 seconds before destroy
+        yield return new WaitForSeconds(5);
         Destroy(fallingPlatform);
     }
-
 }
