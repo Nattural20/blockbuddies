@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SetPos : MonoBehaviour
 {
@@ -40,6 +41,9 @@ public class SetPos : MonoBehaviour
             TeleportPlayer();
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             Debug.Log("Death respawn");
+
+            //RESTART SCENE 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
     void TeleportPlayer()
