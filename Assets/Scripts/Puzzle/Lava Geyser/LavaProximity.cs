@@ -22,17 +22,34 @@ public class LavaProximity : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Body"))
         {
+            Debug.Log("2");
             if (toggleLavaBubbles)
             {
                 foreach (var bubble in lavaBubbles)
                     bubble.ActivateBubble();
+                Debug.Log("LAVA BUBBLE");
             }
             if (toggleGeyserGate)
             {
-                foreach (var gate in geyserGates)
-                    gate.SetActive(!gate.activeSelf);
+                foreach (GameObject gate in geyserGates)
+                {
+                    if (gate.activeSelf)
+                    {
+                        gate.SetActive(false);
+                        Debug.Log(gate + "Turned off");
+                    }else if (!gate.activeSelf)
+                    {
+                        gate.SetActive(true);
+                        Debug.Log(gate + "Turned on");
+                    }
+                    Debug.Log(gate);
+                }
+                   
+                //Debug.Log("Gate");
             }
+            this.GetComponent<BoxCollider>().enabled = false;
         }
+        ///Debug.Log("1");
     }
     private void OnTriggerExit(Collider other)
     {
