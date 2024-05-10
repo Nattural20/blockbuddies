@@ -4,6 +4,7 @@ using UnityEngine;
 public class FallingPlatform : MonoBehaviour
 {
     public GameObject fallingPlatform;
+    public GameObject fallingPlatformChild;
     public float secondsBeforeFall = 3;
 
     public Renderer platformRenderer;  
@@ -42,6 +43,11 @@ public class FallingPlatform : MonoBehaviour
     {
         // After falling, wait 5 seconds before destroy
         yield return new WaitForSeconds(5);
-        Destroy(fallingPlatform);
+
+        //restart object
+        fallingPlatform.GetComponent<Animator>().SetBool("isStartWobble", false);
+        fallingPlatform.GetComponent<Animator>().SetBool("isFalling", false);
+        platformRenderer.material.color = Color.white;
+        fallingPlatformChild.transform.localPosition = new Vector3(0, 0, 0);
     }
 }
