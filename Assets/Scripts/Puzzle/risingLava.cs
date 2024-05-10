@@ -6,7 +6,7 @@ public class risingLava : MonoBehaviour
 {
 
     public GameObject lava;
-    bool rising;
+    public bool rising;
     public float riseSpeed = 5;
     // Start is called before the first frame update
     void Start()

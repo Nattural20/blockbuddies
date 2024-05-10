@@ -8,6 +8,9 @@ public class SetPos : MonoBehaviour
     public Transform pos;
     public QuickSpawn blockPos;
 
+    public GameObject risingLavaObject;
+    public risingLava rL;
+
     public List<GameObject> playerBits;
     void Update()
     {
@@ -43,7 +46,8 @@ public class SetPos : MonoBehaviour
             Debug.Log("Death respawn");
 
             //RESTART SCENE 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            risingLavaObject.transform.localPosition = new Vector3(0, 0, 0);
+            rL.rising = false;
         }
     }
     void TeleportPlayer()
