@@ -76,6 +76,8 @@ public class SpawnerSpoof : MonoBehaviour
             //}
             daddyList.FormatLayout(input);
 
+            SpockMatrix.CheckConnections(input);
+
             if (input[1].ToString() == "1")
             {
                 //var newSpock = Instantiate(blocks[arrayPos], spockDaddy.transform);
