@@ -8,15 +8,25 @@ public class LavaBubble : MonoBehaviour
 
     public GameObject[] geysers;
 
+    Animator shake;
+
     public bool acivateStart = false;
     void Start()
     {
+        if (GetComponent<Animator>() != null)
+        {
+            shake = GetComponent<Animator>();
+}
         if (acivateStart)
         {
             StartCoroutine(StartExplodeTimer());
         }
     }
-
+    IEnumerator StartExplodeTimer()
+    {
+        yield return new WaitForSeconds(startDelay);
+        StartCoroutine(ExplodeTimer());
+    }
     void Explode()
     {
         foreach (GameObject spout in geysers)
@@ -31,17 +41,21 @@ public class LavaBubble : MonoBehaviour
             spout.SetActive(false);
         }
     }
-    IEnumerator StartExplodeTimer()
-    {
-        yield return new WaitForSeconds(startDelay);
-        StartCoroutine(ExplodeTimer());
-    }
     IEnumerator ExplodeTimer()
     {
-        yield return new WaitForSeconds(resetTime);
+        yield return new WaitForSeconds(resetTime / 2);
+        if (shake != null)
+        {
+            shake.SetBool("isStartWobble", true);
+        }
+        yield return new WaitForSeconds(resetTime / 2);
         Explode();
         yield return new WaitForSeconds(activeTime);
         UnExplode();
+        if (shake != null)
+        {
+            shake.SetBool("isStartWobble", false);
+        }
         StartCoroutine(ExplodeTimer());
     }
     public void DeactivateBubble()
