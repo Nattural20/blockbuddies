@@ -32,10 +32,7 @@ public class SpockMatrix : MonoBehaviour
             referenceArray.ArrayPos2D = new Vector2(posX, posY);
             referenceArray.griddayArrayPos = griddyPos - 1;
 
-            arrayRef.Add(referenceArray);
-
-            //if (griddyInput[griddyPos] == 1)
-            //    spockAmount++;
+            arrayRef.Append(referenceArray);
 
             posX++;
             griddyPos++;
@@ -92,13 +89,13 @@ public class SpockMatrix : MonoBehaviour
             + connectionChecks[0, 0] + ", " + connectionChecks[0, 1] + ", " + connectionChecks[0, 2]);
         return connectionChecks;
     }
-    public List<int[]> FindParts(SpockConnections[,] connectionArray)
+    public List<int[]> FindParts(SpockConnections[,] connectionArray, SpockArrayRefer[] referenceArray)
     {
         var totalPieces = new List<int[]>();
         var posX = 0;
         var posY = 0;
 
-        var currentSpocks = new int[9];
+        var currentSpocks = new int[3,3];
 
         var checkedSpocks = new bool[3,3];
 
@@ -106,24 +103,24 @@ public class SpockMatrix : MonoBehaviour
 
         while (index < currentSpocks.Length)
         {
-            if (index == 3 || index == 6)
-            {
-                posX = 0;
-                posY++;
-            }
+            //if (index == 3 || index == 6)
+            //{
+            //    posX = 0;
+            //    posY++;
+            //}
 
             checkedSpocks[posX, posY] = true;
 
             if (connectionArray[posX, posY].exists)
             {
-
+                currentSpocks[posX, posY] = 1;
                 if (connectionArray[posX, posY].north)
                 {
 
                 }
             }
             
-            posX++;
+            //posX++;
             index++;
         }
 
