@@ -42,6 +42,10 @@ public class LavaScript : MonoBehaviour
                 newSpock.transform.position -= new Vector3(0, 0.1f, 0);
             }
         }
+        else if (collision.gameObject.CompareTag("Body"))
+        {
+            GetComponent<AudioSource>().Play();
+        }
     }
     private void OnCollisionExit(Collision collision)
     {
