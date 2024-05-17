@@ -21,6 +21,11 @@ public class vineElevator : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        spock.transform.position = new Vector3(spock.transform.position.x, spock.transform.position.y - (sinkSpeed * Time.deltaTime), spock.transform.position.z);
+        foreach (var obj in movingGroup)
+        {
+
+            //obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y - (sinkSpeed * Time.deltaTime), obj.transform.position.z);
+        }
+        
     }
 }
