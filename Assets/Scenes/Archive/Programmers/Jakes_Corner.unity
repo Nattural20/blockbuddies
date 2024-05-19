@@ -7357,6 +7357,7 @@ MonoBehaviour:
   elevator: {fileID: 5241918209338828098}
   vineElevatorCollider: {fileID: 0}
   lS: {fileID: 0}
+  movingGroup: []
   rising: 0
   elevatorSpeed: 1.6
 --- !u!1 &1352658121
@@ -13863,6 +13864,10 @@ PrefabInstance:
       value: PLAYER2.0
       objectReference: {fileID: 0}
     - target: {fileID: 5260092555653744867, guid: 0e873bfb67f680a40b8dc7b0404eb8b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5260092555653744867, guid: 0e873bfb67f680a40b8dc7b0404eb8b9, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -13981,6 +13986,10 @@ PrefabInstance:
     - target: {fileID: 8238616345402553046, guid: 0e873bfb67f680a40b8dc7b0404eb8b9, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.30857766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8941226853330616694, guid: 0e873bfb67f680a40b8dc7b0404eb8b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8941226853330616694, guid: 0e873bfb67f680a40b8dc7b0404eb8b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14306,6 +14315,7 @@ GameObject:
   - component: {fileID: 6987760458171139640}
   - component: {fileID: 5227380024008074025}
   - component: {fileID: 6987760458171139641}
+  - component: {fileID: 6987760458171139642}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Lava
@@ -15426,6 +15436,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8279072, y: 0.0153749, z: 0.85709786}
   m_Center: {x: -0.08604684, y: 0.4923105, z: 0.07145198}
+--- !u!114 &6987760458171139642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5241918209338828098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98fb2350ccefb1345a0d50a339cf2c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vE: {fileID: 1347469593}
 --- !u!4 &7009205674566221729
 Transform:
   m_ObjectHideFlags: 3

@@ -55,8 +55,4 @@ public class vineElevator : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider col)
-    {
-        movingGroup.Add(col.transform.gameObject);
-    }
 }
