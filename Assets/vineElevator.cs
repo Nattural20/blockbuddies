@@ -9,7 +9,7 @@ public class vineElevator : MonoBehaviour
     public Collider vineElevatorCollider;
 
     public LavaScript lS;
-    private List<GameObject> movingGroup;
+    public  List<GameObject> movingGroup;
 
     public bool rising;
     public float elevatorSpeed = 5;
@@ -19,7 +19,6 @@ public class vineElevator : MonoBehaviour
     void Start()
     {
         movingGroup = new List<GameObject>();
-        movingGroup.Add(this.transform.parent.gameObject);
     }
 
     // Update is called once per frame
@@ -30,6 +29,11 @@ public class vineElevator : MonoBehaviour
             if (rising)
             {
                 elevator.transform.Translate(0, elevatorSpeed * Time.fixedDeltaTime, 0);
+
+                foreach(GameObject item in movingGroup)
+                 {
+                    item.transform.Translate(0, elevatorSpeed * Time.fixedDeltaTime, 0);
+                }
             }
             else
             {
@@ -53,9 +57,6 @@ public class vineElevator : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Body")
-        {
-            //rising = true;
-        }
+        movingGroup.Add(col.transform.gameObject);
     }
 }
