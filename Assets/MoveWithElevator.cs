@@ -19,11 +19,13 @@ public class MoveWithElevator : MonoBehaviour
         //{
         if (vE.rising)
         {
-            this.transform.Translate(0, vE.elevatorSpeed * Time.fixedDeltaTime, 0);
+            //this.transform.Translate(0, vE.elevatorSpeed * Time.fixedDeltaTime, 0);
+            transform.position += new Vector3(0, vE.elevatorSpeed * Time.fixedDeltaTime, 0);
         }
         else
         {
-            this.transform.Translate(0, -vE.elevatorSpeed * Time.fixedDeltaTime, 0);
+            //this.transform.Translate(0, -vE.elevatorSpeed * Time.fixedDeltaTime, 0);
+            transform.position += new Vector3(0, -vE.elevatorSpeed * Time.fixedDeltaTime, 0);
         }
 
     }
