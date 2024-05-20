@@ -12,6 +12,9 @@ public class SetPos : MonoBehaviour
     public risingLava rL;
 
     public List<GameObject> playerBits;
+
+
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -50,7 +53,7 @@ public class SetPos : MonoBehaviour
             rL.rising = false;
         }
     }
-    void TeleportPlayer()
+    public void TeleportPlayer()
     {
         foreach (GameObject player in playerBits)
         {

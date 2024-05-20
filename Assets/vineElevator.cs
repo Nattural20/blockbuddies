@@ -55,4 +55,12 @@ public class vineElevator : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Body"))
+        {
+            collision.transform.GetComponent<SetPos>().TeleportPlayer();
+        }
+    }
+
 }
