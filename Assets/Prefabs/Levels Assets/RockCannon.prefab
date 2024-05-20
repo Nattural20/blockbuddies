@@ -4901,6 +4901,7 @@ GameObject:
   - component: {fileID: 79369354342549057}
   - component: {fileID: 4667930088483147312}
   - component: {fileID: 5071744562833535884}
+  - component: {fileID: 6400132342626657896}
   m_Layer: 0
   m_Name: ENV_Cannon
   m_TagString: Untagged
@@ -4977,6 +4978,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6400132342626657896
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4477909990862335482}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.061599027, y: 0.038413595, z: 0.06886964}
+  m_Center: {x: -0.00910417, y: -0.000000015289865, z: 0.034434818}
 --- !u!1 &5073823495605740328
 GameObject:
   m_ObjectHideFlags: 0
@@ -13522,7 +13544,7 @@ ParticleSystem:
     serializedVersion: 4
     type: 1
     collisionMode: 0
-    colliderForce: 20
+    colliderForce: 80000
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
@@ -13688,10 +13710,10 @@ ParticleSystem:
         m_RotationOrder: 4
     minKillSpeed: 0
     maxKillSpeed: 10000
-    radiusScale: 0.01
+    radiusScale: 0.05
     collidesWith:
       serializedVersion: 2
-      m_Bits: 3968
+      m_Bits: 3840
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -14965,7 +14987,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.6981132, g: 0.59657943, b: 0.51699895, a: 0.42745098}
+      maxColor: {r: 0.7169812, g: 0.09807763, b: 0.11607234, a: 0.42745098}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

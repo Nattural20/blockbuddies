@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
-    public Rigidbody hand1, hand2, head;
+    public Rigidbody hand1, hand2, head, cubert;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
