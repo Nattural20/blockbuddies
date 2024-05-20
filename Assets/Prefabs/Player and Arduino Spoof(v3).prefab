@@ -1016,7 +1016,7 @@ MonoBehaviour:
   head: {fileID: 7968690987269825605}
   cubert: {fileID: 6003117355340771323}
   groundCheck: {fileID: 5586380785643027797}
-  groundDistance: 0.5
+  groundDistance: 0.6
   groundMask:
     serializedVersion: 2
     m_Bits: 6144
@@ -2262,8 +2262,8 @@ Rigidbody:
   m_GameObject: {fileID: 2947071632867348102}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.28
+  m_AngularDrag: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -2275,10 +2275,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 14
   m_CollisionDetection: 0
 --- !u!1 &2960549998433172848
 GameObject:
@@ -4675,7 +4675,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5532742183882821754}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14983019, y: 0.043649185, z: -0.020742225, w: 0.98752993}
+  m_LocalRotation: {x: 0.14983024, y: 0.043649253, z: -0.020742266, w: 0.98753}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6735,7 +6735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &10166153071419088
 Transform:
   m_ObjectHideFlags: 0
@@ -8236,7 +8236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6892433354765041146, guid: 26e668aafcaceb2458de979d2bbc7e71, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7010938711280064176, guid: 26e668aafcaceb2458de979d2bbc7e71, type: 3}
       propertyPath: m_Name
