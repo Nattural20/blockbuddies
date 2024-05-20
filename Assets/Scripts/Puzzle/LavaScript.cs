@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class LavaScript : MonoBehaviour
 {
-    public float sinkSpeed;
+    public float sinkSpeed, sinkRotationSpeed;
 
-    private List<GameObject> spocks;
+    public List<GameObject> spocks;
     void Start()
     {
         spocks = new List<GameObject>();
@@ -22,7 +22,10 @@ public class LavaScript : MonoBehaviour
             foreach (var spock in spocks)
             {
                 if (spock != null)
+                {
                     spock.transform.position = new Vector3(spock.transform.position.x, spock.transform.position.y - (sinkSpeed * Time.deltaTime), spock.transform.position.z);
+                    spock.transform.rotation = Quaternion.Slerp(spock.transform.rotation, Quaternion.Euler(0, spock.transform.rotation.eulerAngles.y, 0), sinkRotationSpeed * Time.deltaTime);
+                }
                 else
                     nullSpocks.Add(spocksInd);
                 spocksInd++;

@@ -9,17 +9,13 @@ public class VineFloorRaise : MonoBehaviour
 
     Vector3 risePosition;
     bool isRising;
-    private void Start()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Body"))
         {
             isRising = true;
             risePosition = vineFloor.transform.position + new Vector3(0, riseHeight, 0);
-            this.gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<Collider>().enabled = false;
         }
     }
     private void Update()
@@ -34,8 +30,10 @@ public class VineFloorRaise : MonoBehaviour
             {
                 isRising = false;
                 vineFloor.transform.position = risePosition;
-                previousHeightDangers.SetActive(false);
-                newHeightDangers.SetActive(true);
+                if (previousHeightDangers != null)
+                    previousHeightDangers.SetActive(false);
+                if (newHeightDangers != null)
+                    newHeightDangers.SetActive(true);
                 Destroy(gameObject);
             }
         }
