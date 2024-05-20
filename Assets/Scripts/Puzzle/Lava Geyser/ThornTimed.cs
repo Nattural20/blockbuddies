@@ -11,10 +11,14 @@ public class ThornTimed : MonoBehaviour
     private bool _isTriggered;
     public float thornTimer = 3f;
 
+    private Vector3 setPosition, risePositon;
+
     // Start is called before the first frame update
     void Start()
     {
         _thorn = this.gameObject;
+        setPosition = transform.position;
+        risePositon = transform.position + new Vector3(0, 5, 0);
     }
 
     // Update is called once per frame
@@ -27,10 +31,13 @@ public class ThornTimed : MonoBehaviour
     {///Vocal cords Ready
         if (!_isTriggered)
         {
-            _isTriggered = true;
-            _affectedSpock = col.gameObject;
-            StartCoroutine(ThornExplode(_affectedSpock));
-            Debug.Log("1st trigger Triggered. " + _affectedSpock);
+            if (col.CompareTag("Spocks") || col.CompareTag("Lava Spock"))
+            {
+                _isTriggered = true;
+                _affectedSpock = col.gameObject;
+                StartCoroutine(ThornExplode(_affectedSpock));
+                Debug.Log("1st trigger Triggered. " + _affectedSpock);
+            }
         }
 
     }
@@ -43,6 +50,9 @@ public class ThornTimed : MonoBehaviour
             Debug.Log("trigger Triggered");
             yield return new WaitForSeconds(thornTimer);
             Debug.Log("Timer Done");
+
+            transform.position = risePositon;
+
             //check for sinking spocks
             if (spock.CompareTag("Lava Spock"))
             {
@@ -59,12 +69,15 @@ public class ThornTimed : MonoBehaviour
             if (spock.CompareTag("Lava Spock"))
             {
                 spock.GetComponent<Rigidbody>().AddForce(new Vector3(0, thornForce, 0), ForceMode.Impulse);
-                yield return new WaitForSeconds(2f);
-                spock.tag = "Spocks";
             }
 
             _isTriggered = false;
-            
+
+            yield return new WaitForSeconds(thornTimer);
+            transform.position = setPosition;
+
+            spock.tag = "Spocks";
+
         }
 
     }
