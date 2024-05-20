@@ -29,11 +29,12 @@ public class vineElevator : MonoBehaviour
             if (rising)
             {
                 elevator.transform.Translate(0, elevatorSpeed * Time.fixedDeltaTime, 0);
-
-                foreach(GameObject item in movingGroup)
-                 {
-                    item.transform.Translate(0, elevatorSpeed * Time.fixedDeltaTime, 0);
-                }
+            /*
+            foreach(GameObject item in movingGroup)
+                {
+                item.transform.Translate(0, elevatorSpeed * Time.fixedDeltaTime, 0);
+            }
+            */
             }
             else
             {
@@ -52,6 +53,25 @@ public class vineElevator : MonoBehaviour
         else if (!rising && topOfObject.transform.position.y < fallToThisPoint.transform.position.y)
         {
             rising = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Body"))
+        {
+            collision.transform.GetComponent<SetPos>().TeleportPlayer();
+        }
+
+        if (collision.gameObject.CompareTag("Lava Spock"))
+        {
+            if (collision.gameObject.GetComponent<LavaSpockScript>() != null)
+            {
+                Destroy(collision.gameObject.GetComponent<LavaSpockScript>());
+
+                collision.gameObject.AddComponent<MoveWithElevator>();
+                collision.gameObject.GetComponent<MoveWithElevator>().vE = this;
+            }
         }
     }
 
