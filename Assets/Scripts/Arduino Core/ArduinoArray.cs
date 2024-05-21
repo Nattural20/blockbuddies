@@ -13,7 +13,7 @@ using System.Runtime.Remoting.Messaging;
 
 public class ArduinoArray : MonoBehaviour
 {
-    static string portName = "COM3"; // Adjust to your Arduino's COM port
+    static string portName = "COM5"; // Adjust to your Arduino's COM port
     static int baudRate = 9600;
     static SerialPort serialPort;
 
