@@ -15,22 +15,7 @@ public class LavaScript : MonoBehaviour
 
     void Update()
     {
-        //if (spocks.Count != 0)
-        //{
-        //    var nullSpocks = new List<int>();
-        //    var spocksInd = 0;
-        //    foreach (var spock in spocks)
-        //    {
-        //        if (spock != null)
-        //        {
-        //            spock.transform.position = new Vector3(spock.transform.position.x, spock.transform.position.y - (sinkSpeed * Time.deltaTime), spock.transform.position.z);
-        //            spock.transform.rotation = Quaternion.Slerp(spock.transform.rotation, Quaternion.Euler(0, spock.transform.rotation.eulerAngles.y, 0), sinkRotationSpeed * Time.deltaTime);
-        //        }
-        //        else
-        //            nullSpocks.Add(spocksInd);
-        //        spocksInd++;
-        //    }
-        //}
+
     }
     private void OnTriggerEnter(Collider collision)
     {

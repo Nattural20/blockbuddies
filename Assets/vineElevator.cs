@@ -14,6 +14,7 @@ public class vineElevator : MonoBehaviour
     public bool rising;
     public float elevatorSpeed = 5;
 
+    private GameObject grabbedSpock;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +54,13 @@ public class vineElevator : MonoBehaviour
         else if (!rising && topOfObject.transform.position.y < fallToThisPoint.transform.position.y)
         {
             rising = true;
+            Destroy(grabbedSpock);
+            grabbedSpock = null;
+        }
+        if (grabbedSpock != null)
+        {
+            grabbedSpock.transform.position = topOfObject.transform.position;
+            grabbedSpock.transform.rotation = Quaternion.Slerp(grabbedSpock.transform.rotation, Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0), 0.2f * Time.deltaTime);
         }
     }
 
@@ -65,12 +73,17 @@ public class vineElevator : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Lava Spock"))
         {
-            if (collision.gameObject.GetComponent<LavaSpockScript>() != null)
+            if (grabbedSpock == null)
+            {
+                grabbedSpock = collision.gameObject;
+            }
+            if (collision.gameObject.GetComponent<LavaSpockScript>() != null && !collision.gameObject.TryGetComponent<MoveWithElevator>(out MoveWithElevator elevator))
             {
                 Destroy(collision.gameObject.GetComponent<LavaSpockScript>());
 
-                collision.gameObject.AddComponent<MoveWithElevator>();
-                collision.gameObject.GetComponent<MoveWithElevator>().vE = this;
+                //collision.gameObject.AddComponent<MoveWithElevator>();
+                //collision.gameObject.GetComponent<MoveWithElevator>().vE = this;
+
             }
         }
     }
