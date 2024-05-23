@@ -85,15 +85,18 @@ public class ArduinoLockedSpawn : MonoBehaviour
         }
         foreach (char i in outputArray)
         {
-            index++;
-
-            if (i.ToString() == "1")
+            if (index == 0)
+            {
+                index++;
+            }
+            else if (i.ToString() == "1")
             {
                 Debug.Log("Array Length:" + outputArray.Length);
                 //Debug.Log("Postion: " + index + ". Spawning Block: " + spawnCubes[index]);
-                spawnCubes[index].GetComponent<MeshRenderer>().enabled = true;
-                spawnCubes[index].GetComponent<BoxCollider>().enabled = true;
-            }
+                spawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
+                spawnCubes[index - 1].GetComponent<BoxCollider>().enabled = true;
+                index++;
+            }   
         }
         
     }

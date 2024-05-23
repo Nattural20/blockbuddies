@@ -81,19 +81,21 @@ public class LockedSpawnConstant : MonoBehaviour
 
             foreach (int i in outputArray)
             {
-                index++;
-
-                if (i == 1)
+                if (index == 0)
+                    index++;
+                else if (i == 1)
                 {
                     Debug.Log("Array Length:" + outputArray.Length);
                     //Debug.Log("Postion: " + index + ". Spawning Block: " + spawnCubes[index]);
-                    spawnCubes[index].GetComponent<MeshRenderer>().enabled = true;
-                    spawnCubes[index].GetComponent<BoxCollider>().enabled = true;
-                }
-                else
-                {
-                    spawnCubes[index].GetComponent<MeshRenderer>().enabled = false;
-                    spawnCubes[index].GetComponent<BoxCollider>().enabled = false;
+                    spawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
+                    spawnCubes[index - 1].GetComponent<BoxCollider>().enabled = true;
+                index++;
+                }                   
+                else                
+                {                   
+                    spawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = false;
+                    spawnCubes[index - 1].GetComponent<BoxCollider>().enabled = false;
+                index++;
                 }
             }
     }
