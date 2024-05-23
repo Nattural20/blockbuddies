@@ -70,10 +70,10 @@ public class PlayerInputLogger : MonoBehaviour
         char[] input = GetComponent<ArduinoReader>().OutputArray;
 
         string gridConfig = "";
-        for (int i = 0; i < 9; i++)
+        for (int i = 9; i >= 0; i--)
         {
             gridConfig += (input[i] == 1) ? "[x]" : "[-]";
-            if ((i + 1) % 3 == 0) gridConfig += "\n";
+            if (i % 3 == 0) gridConfig += "\n";
             else gridConfig += " ";
         }
 
