@@ -1238,7 +1238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &180166176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2512,8 +2512,6 @@ MonoBehaviour:
   spawnScript: {fileID: 180166177}
   readerScript: {fileID: 180166176}
   spawnCubes:
-  - {fileID: 1146164557}
-  - {fileID: 1708301007}
   - {fileID: 1708301007}
   - {fileID: 860691051}
   - {fileID: 1337253620}
@@ -4886,7 +4884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3836050638245416776, guid: 824d4607f2d87d84b85a7adaf273664b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3836050638245416776, guid: 824d4607f2d87d84b85a7adaf273664b, type: 3}
       propertyPath: spawnScript
@@ -5156,7 +5154,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812817238}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba644316d23e39f46a455b50136db81b, type: 3}
   m_Name: 
@@ -5164,8 +5162,6 @@ MonoBehaviour:
   spawnScript: {fileID: 180166177}
   readerScript: {fileID: 180166176}
   spawnCubes:
-  - {fileID: 886544867}
-  - {fileID: 1462681860}
   - {fileID: 1462681860}
   - {fileID: 958241201}
   - {fileID: 1135426046}
@@ -6356,8 +6352,6 @@ MonoBehaviour:
   spawnScript: {fileID: 180166177}
   readerScript: {fileID: 180166176}
   spawnCubes:
-  - {fileID: 1531509692}
-  - {fileID: 1745504927}
   - {fileID: 1745504927}
   - {fileID: 2022789355}
   - {fileID: 1165343858}
@@ -7891,7 +7885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1786895141540685174, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.247167
+      value: -7.2471614
       objectReference: {fileID: 0}
     - target: {fileID: 1786895141540685174, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7899,27 +7893,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1786895141540685174, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.55718875
+      value: 0.55718756
       objectReference: {fileID: 0}
     - target: {fileID: 1786895141540685174, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6350123
+      value: 0.6350124
       objectReference: {fileID: 0}
     - target: {fileID: 1786895141540685174, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22020192
+      value: 0.22020209
       objectReference: {fileID: 0}
     - target: {fileID: 1786895141540685174, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6995847
+      value: 0.69958466
       objectReference: {fileID: 0}
     - target: {fileID: 1786895141540685174, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.24259356
+      value: -0.24259372
       objectReference: {fileID: 0}
     - target: {fileID: 1808071111336016890, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.247167
+      value: -7.2471614
       objectReference: {fileID: 0}
     - target: {fileID: 1808071111336016890, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7927,11 +7921,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1808071111336016890, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.55718875
+      value: 0.55718756
       objectReference: {fileID: 0}
     - target: {fileID: 2114132383730863917, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.1
+      value: 3.32
       objectReference: {fileID: 0}
     - target: {fileID: 2114132383730863917, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7939,7 +7933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2114132383730863917, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 80.3
+      value: -2.6
       objectReference: {fileID: 0}
     - target: {fileID: 2403174068250702402, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_IsActive
@@ -7963,15 +7957,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2683598155921304615, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.14983019
+      value: 0.14983031
       objectReference: {fileID: 0}
     - target: {fileID: 2683598155921304615, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.043649133
+      value: 0.043649077
       objectReference: {fileID: 0}
     - target: {fileID: 2683598155921304615, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.02074225
+      value: -0.02074223
       objectReference: {fileID: 0}
     - target: {fileID: 2809623765995111261, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_Layer
@@ -7979,7 +7973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3053367738783616864, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4203864394300873326, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_Layer
@@ -8011,19 +8005,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5790570630549949836, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9819877
+      value: 0.9819878
       objectReference: {fileID: 0}
     - target: {fileID: 5790570630549949836, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.18265997
+      value: 0.18266009
       objectReference: {fileID: 0}
     - target: {fileID: 5790570630549949836, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.04293364
+      value: 0.042933583
       objectReference: {fileID: 0}
     - target: {fileID: 5790570630549949836, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.022185503
+      value: -0.022185465
       objectReference: {fileID: 0}
     - target: {fileID: 5940548824826759355, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_Name
@@ -8095,15 +8089,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7553746107527660982, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.21558109
+      value: 0.21558112
       objectReference: {fileID: 0}
     - target: {fileID: 7553746107527660982, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.04216322
+      value: 0.04216319
       objectReference: {fileID: 0}
     - target: {fileID: 7553746107527660982, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.023616802
+      value: -0.02361675
       objectReference: {fileID: 0}
     - target: {fileID: 7712732739559506939, guid: ba862649c0f9e994e906f9d453227415, type: 3}
       propertyPath: m_IsActive
@@ -10897,8 +10891,6 @@ MonoBehaviour:
   spawnScript: {fileID: 180166177}
   readerScript: {fileID: 180166176}
   spawnCubes:
-  - {fileID: 2064089766}
-  - {fileID: 416975177}
   - {fileID: 416975177}
   - {fileID: 59343293}
   - {fileID: 1309234462}
@@ -10940,7 +10932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3836050638245416776, guid: 824d4607f2d87d84b85a7adaf273664b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3836050638245416776, guid: 824d4607f2d87d84b85a7adaf273664b, type: 3}
       propertyPath: spawnScript
@@ -11935,7 +11927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3836050638245416776, guid: 824d4607f2d87d84b85a7adaf273664b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3836050638245416776, guid: 824d4607f2d87d84b85a7adaf273664b, type: 3}
       propertyPath: spawnScript
@@ -12064,7 +12056,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757283848}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba644316d23e39f46a455b50136db81b, type: 3}
   m_Name: 
@@ -12072,8 +12064,6 @@ MonoBehaviour:
   spawnScript: {fileID: 180166177}
   readerScript: {fileID: 180166176}
   spawnCubes:
-  - {fileID: 749088780}
-  - {fileID: 1414627133}
   - {fileID: 1414627133}
   - {fileID: 1914802150}
   - {fileID: 872966163}
@@ -13551,8 +13541,6 @@ MonoBehaviour:
   spawnScript: {fileID: 180166177}
   readerScript: {fileID: 180166176}
   spawnCubes:
-  - {fileID: 1257085202}
-  - {fileID: 336058693}
   - {fileID: 336058693}
   - {fileID: 870748936}
   - {fileID: 1968510995}
@@ -13962,7 +13950,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043692862}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba644316d23e39f46a455b50136db81b, type: 3}
   m_Name: 
@@ -13970,8 +13958,6 @@ MonoBehaviour:
   spawnScript: {fileID: 180166177}
   readerScript: {fileID: 180166176}
   spawnCubes:
-  - {fileID: 1580758546}
-  - {fileID: 338281011}
   - {fileID: 338281011}
   - {fileID: 715457111}
   - {fileID: 835253601}
@@ -14123,8 +14109,6 @@ MonoBehaviour:
   spawnScript: {fileID: 180166177}
   readerScript: {fileID: 180166176}
   spawnCubes:
-  - {fileID: 368293001}
-  - {fileID: 315166775}
   - {fileID: 315166775}
   - {fileID: 679020783}
   - {fileID: 307006387}
@@ -35321,6 +35305,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sinkSpeed: 0.2
+  sinkRotationSpeed: 0
+  spocks: []
 --- !u!23 &4444379008988850728
 MeshRenderer:
   m_ObjectHideFlags: 0
