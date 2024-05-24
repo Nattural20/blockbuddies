@@ -38,12 +38,16 @@ public class ArduinoLockedSpawn : MonoBehaviour
 
             if (_playerPresent)
             {
-                spawnScript.enabled = false;
+                spawnScript.canSpawnSpocks = false;
+                foreach (var ghost in spawnScript.ghostSpocks)
+                {
+                    ghost.SetActive(false);
+                }
                 SummonBlocks();
             }
             else
             {
-                spawnScript.enabled = true;
+                spawnScript.canSpawnSpocks = true;
             }
         }
         else
@@ -74,31 +78,37 @@ public class ArduinoLockedSpawn : MonoBehaviour
         //throw new NotImplementedException();
         char[] outputArray = readerScript.OutputArray;
 
-
-        int index = 0;
-
-
-        foreach (GameObject cube in spawnCubes)
+        if (outputArray[0].ToString() == "1" && spawnScript.buttonPressed == true)
         {
-            cube.GetComponent<MeshRenderer>().enabled = false;
-            cube.GetComponent<BoxCollider>().enabled = false;
-        }
-        foreach (char i in outputArray)
-        {
-            if (index == 0)
+
+            int index = 0;
+
+
+            foreach (GameObject cube in spawnCubes)
             {
-                index++;
+                cube.GetComponent<MeshRenderer>().enabled = false;
+                cube.GetComponent<BoxCollider>().enabled = false;
             }
-            else if (i.ToString() == "1")
+            foreach (char i in outputArray)
             {
-                Debug.Log("Array Length:" + outputArray.Length);
-                //Debug.Log("Postion: " + index + ". Spawning Block: " + spawnCubes[index]);
-                spawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
-                spawnCubes[index - 1].GetComponent<BoxCollider>().enabled = true;
-                index++;
-            }   
+                if (index == 0)
+                {
+                    index++;
+                }
+                else if (i.ToString() == "1")
+                {
+                    //Debug.Log("Array Length:" + outputArray.Length);
+                    //Debug.Log("Postion: " + index + ". Spawning Block: " + spawnCubes[index]);
+                    spawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
+                    spawnCubes[index - 1].GetComponent<BoxCollider>().enabled = true;
+                    index++;
+                }
+                else
+                {
+                    index++;
+                }
+            }
         }
-        
     }
 }
 
