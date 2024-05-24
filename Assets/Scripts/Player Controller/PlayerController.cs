@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public AudioManager aM;
+
     public Rigidbody rb;
     public Rigidbody hand1, hand2, head, cubert;
 
@@ -186,6 +188,8 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
+
+            aM.Play("HopperJump");
         }
 
         
