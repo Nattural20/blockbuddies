@@ -38,16 +38,12 @@ public class ArduinoLockedSpawn : MonoBehaviour
 
             if (_playerPresent)
             {
-                spawnScript.canSpawnSpocks = false;
-                foreach (var ghost in spawnScript.ghostSpocks)
-                {
-                    ghost.SetActive(false);
-                }
+                
                 SummonBlocks();
             }
             else
             {
-                spawnScript.canSpawnSpocks = true;
+                //spawnScript.canSpawnSpocks = true;
             }
         }
         else
@@ -63,6 +59,11 @@ public class ArduinoLockedSpawn : MonoBehaviour
         if (collision.gameObject.tag == "Body")
         {
             _playerPresent = true;
+            spawnScript.canSpawnSpocks = false;
+            foreach (var ghost in spawnScript.ghostSpocks)
+            {
+                ghost.SetActive(false);
+            }
         }
     }
 
@@ -71,6 +72,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
         if (collision.gameObject.tag == "Body")
         {
             _playerPresent = false;
+            spawnScript.canSpawnSpocks = true;
         }
     }
     private void SummonBlocks() //summons the blocks
