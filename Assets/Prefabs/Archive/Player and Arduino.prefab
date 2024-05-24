@@ -240,6 +240,7 @@ MonoBehaviour:
   hand1: {fileID: 3003461425635691997}
   hand2: {fileID: 2293412319362868580}
   head: {fileID: 3950773038965560606}
+  cubert: {fileID: 0}
   groundCheck: {fileID: 2832416365628138741}
   groundDistance: 0.4
   groundMask:
@@ -1859,6 +1860,7 @@ GameObject:
   - component: {fileID: 7158935098690150040}
   - component: {fileID: 3487675256985403785}
   - component: {fileID: 6832910506421153531}
+  - component: {fileID: 4521471657346231914}
   m_Layer: 0
   m_Name: Arduino Component V2
   m_TagString: Untagged
@@ -1923,6 +1925,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OutputArray: 
+--- !u!114 &4521471657346231914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3053367738783616864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748c8adb58b21cb4c9d27b4344d7dbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: PlayerInputLog.txt
+  player: {fileID: 3575405196930932617}
+  arrayPos: 0
+  blocks: []
+  timer: 5
 --- !u!1 &3297882127570349764
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,6 +2520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: {fileID: 0}
   blockPos: {fileID: 0}
+  risingLavaObject: {fileID: 0}
+  rL: {fileID: 0}
   playerBits:
   - {fileID: 3575405196930932617}
   - {fileID: 3570881235686936619}
