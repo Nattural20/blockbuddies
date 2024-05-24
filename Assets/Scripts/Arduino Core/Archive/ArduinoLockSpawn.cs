@@ -13,7 +13,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
     public ArduinoReader readerScript; //use this to get reference to the real
     ///Both of these variables should come from the same object. Fix later.
     //public GameObject spawnLocation;
-    public GameObject[] spawnCubes; //each cube should be in here
+    public GameObject[] spawnCubes, ghostSpawnCubes; //each cube should be in here
 
     /// <summary>
     /// This version does not despawn the cubes immediately after leaving the trigger, meaning they are constant. 
@@ -80,6 +80,8 @@ public class ArduinoLockedSpawn : MonoBehaviour
         //throw new NotImplementedException();
         char[] outputArray = readerScript.OutputArray;
 
+        UpdateLockedGhostCubes(outputArray);
+
         if (outputArray[0].ToString() == "1" && spawnScript.buttonPressed == true)
         {
 
@@ -109,6 +111,32 @@ public class ArduinoLockedSpawn : MonoBehaviour
                 {
                     index++;
                 }
+            }
+        }
+    }
+    private void UpdateLockedGhostCubes(char[] outputArray)
+    {
+        int index = 0;
+
+
+        foreach (GameObject cube in ghostSpawnCubes)
+        {
+            cube.GetComponent<MeshRenderer>().enabled = false;
+        }
+        foreach (char i in outputArray)
+        {
+            if (index == 0)
+            {
+                index++;
+            }
+            else if (i.ToString() == "1")
+            {
+                ghostSpawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
+                index++;
+            }
+            else
+            {
+                index++;
             }
         }
     }
