@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
 
-            aM.Play("HopperJump");
+            //aM.Play("HopperJump");
         }
 
         
