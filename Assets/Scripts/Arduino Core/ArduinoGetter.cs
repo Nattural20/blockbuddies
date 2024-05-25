@@ -5,14 +5,16 @@ using System;
 
 public class ArduinoGetter
 {
-    static string portName = "COM5"; // Adjust to your Arduino's COM port
+    static string portName; // Adjust to your Arduino's COM port, uses the listener script to auto find open comport
     static int baudRate = 9600; 
     static SerialPort serialPort;
+    static ArduinoListener listener;
 
     public static char[] PhysicalBlockState; //this is the changing value!
 
     public static void MyThreadLoop() //"main"
     {
+        portName = listener.FindComPort();
         OpenSerialPort();
         while (true)
         {

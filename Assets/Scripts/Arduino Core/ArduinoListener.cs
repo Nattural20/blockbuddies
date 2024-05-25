@@ -5,10 +5,10 @@ using System.IO.Ports;
 using System;
 using UnityEngine.ProBuilder.MeshOperations;
 
-public class ArduinoListener : MonoBehaviour
+public class ArduinoListener
 {
     public string comPortReal;
-    public string[] _possibleComPorts = {"2",  "3", "4", "5", "6"};
+    public string[] _possibleComPorts = {"COM2",  "COM3", "COM4", "COM5", "COM6"};
     static SerialPort serialPort;
     static int baudRate = 9600;
     /// <summary>
