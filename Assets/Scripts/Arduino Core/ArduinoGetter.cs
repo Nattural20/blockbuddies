@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO.Ports;
 using System;
+using System.Drawing.Printing;
 
 public class ArduinoGetter
 {
     static string portName; // Adjust to your Arduino's COM port, uses the listener script to auto find open comport
     static int baudRate = 9600; 
     static SerialPort serialPort;
-    static ArduinoListener listener;
 
     public static char[] PhysicalBlockState; //this is the changing value!
 
     public static void MyThreadLoop() //"main"
     {
+        ArduinoListener listener = new ArduinoListener();
         portName = listener.FindComPort();
         OpenSerialPort();
         while (true)

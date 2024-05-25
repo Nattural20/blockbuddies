@@ -11,6 +11,8 @@ public class ArduinoListener
     public string[] _possibleComPorts = {"COM2",  "COM3", "COM4", "COM5", "COM6"};
     static SerialPort serialPort;
     static int baudRate = 9600;
+    public string TEST_COM_Port = "COM4" ;
+
     /// <summary>
     /// WIP Arduino Listener. 
     /// </summary>
@@ -51,7 +53,6 @@ public class ArduinoListener
                 serialPort.ReadTimeout = 50; // Adjust as necessary
 
                 comPortReal = port;
-                return port;
             }
             catch (Exception e)
             {
@@ -66,6 +67,14 @@ public class ArduinoListener
                 }
             }
         }
-        return "Reached end of method. No Port Found.";
+        if (comPortReal == null)
+        {
+            comPortReal = ("Port error- could not find port.");
+        }
+        return comPortReal;
+    }
+    public string ReturnTestPort()
+    {
+        return TEST_COM_Port;
     }
 }
