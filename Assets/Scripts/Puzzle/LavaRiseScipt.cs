@@ -12,7 +12,7 @@ public class LavaRiseScipt : MonoBehaviour
     {
         resetPosition = Vector3.zero;
     }
-    void Update()
+    void FixedUpdate()
     {
         if (rising)
         {
