@@ -30,28 +30,9 @@ public class SpawnerSpoof : MonoBehaviour
     void Update()
     {   
         CycleBlocks();
-        DisplayPos();
         Spawn();
         //ModularSpawn(); //new spawn method that utilises a foreach loop, can accept as many inputs as neccessary
 
-    }
-
-    void DisplayPos() 
-    {
-        if (arrayPos == 0)
-        {
-            blockType.text = "Block Type: Normal";
-        }
-
-        if (arrayPos == 1)
-        {
-            blockType.text = "Block Type: Icy";
-        }
-
-        if (arrayPos == 2)
-        {
-            blockType.text = "Block Type: Bouncy";
-        }
     }
 
     void Spawn()
