@@ -11,15 +11,18 @@ public class vineElevator : MonoBehaviour
     public LavaScript lS;
     public  List<GameObject> movingGroup;
 
-    public bool rising;
+    public bool rising, waiting = true;
     public float elevatorSpeed = 5;
 
     private GameObject grabbedSpock;
+
+    private Vector3 startingPos;
 
     // Start is called before the first frame update
     void Start()
     {
         movingGroup = new List<GameObject>();
+        startingPos = transform.position;
     }
 
     // Update is called once per frame
@@ -27,20 +30,24 @@ public class vineElevator : MonoBehaviour
     {
         //foreach (var obj in movingGroup)
         //{
+        if (!waiting)
+        {
+
             if (rising)
             {
                 elevator.transform.Translate(0, elevatorSpeed * Time.fixedDeltaTime, 0);
-            /*
-            foreach(GameObject item in movingGroup)
-                {
-                item.transform.Translate(0, elevatorSpeed * Time.fixedDeltaTime, 0);
-            }
-            */
+                /*
+                foreach(GameObject item in movingGroup)
+                    {
+                    item.transform.Translate(0, elevatorSpeed * Time.fixedDeltaTime, 0);
+                }
+                */
             }
             else
             {
                 elevator.transform.Translate(0, -elevatorSpeed * Time.fixedDeltaTime, 0);
             }
+        }
         //}
         
     }
@@ -56,11 +63,13 @@ public class vineElevator : MonoBehaviour
             rising = true;
             Destroy(grabbedSpock);
             grabbedSpock = null;
+            waiting = true;
+            transform.position = startingPos;
         }
         if (grabbedSpock != null)
         {
             grabbedSpock.transform.position = topOfObject.transform.position;
-            grabbedSpock.transform.rotation = Quaternion.Slerp(grabbedSpock.transform.rotation, Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0), 0.2f * Time.deltaTime);
+            grabbedSpock.transform.rotation = Quaternion.Slerp(grabbedSpock.transform.rotation, Quaternion.Euler(0, grabbedSpock.transform.rotation.eulerAngles.y, 0), 0.2f * Time.deltaTime);
         }
     }
 
@@ -71,19 +80,26 @@ public class vineElevator : MonoBehaviour
             collision.transform.GetComponent<SetPos>().TeleportPlayer();
         }
 
-        if (collision.gameObject.CompareTag("Lava Spock"))
+        if (collision.gameObject.CompareTag("Lava Spock") || collision.gameObject.CompareTag("Spocks"))
         {
+            if (collision.gameObject.CompareTag("Spocks"))
+            {
+                collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            }
+
             if (grabbedSpock == null)
             {
                 grabbedSpock = collision.gameObject;
             }
-            if (collision.gameObject.GetComponent<LavaSpockScript>() != null && !collision.gameObject.TryGetComponent<MoveWithElevator>(out MoveWithElevator elevator))
+
+            if (collision.gameObject.GetComponent<LavaSpockScript>() != null) // && !collision.gameObject.TryGetComponent<MoveWithElevator>(out MoveWithElevator elevator))
             {
                 Destroy(collision.gameObject.GetComponent<LavaSpockScript>());
+            }
 
-                //collision.gameObject.AddComponent<MoveWithElevator>();
-                //collision.gameObject.GetComponent<MoveWithElevator>().vE = this;
-
+            if (waiting)
+            {
+                waiting = false;
             }
         }
     }
