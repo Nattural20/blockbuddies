@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SideViewTrigger : MonoBehaviour
 {
+    public SpawnerSpoofUnspoof arduinoSpawner;
     public LayerMask playerMask;
     public GameObject freeLookCam, sideViewCam;
 
@@ -25,6 +26,11 @@ public class SideViewTrigger : MonoBehaviour
         {
             freeLookCam.SetActive(false);
             sideViewCam.SetActive(true);
+            arduinoSpawner.canSpawnSpocks = false;
+            foreach (var ghost in arduinoSpawner.ghostSpocks)
+            {
+                ghost.SetActive(false);
+            }
         }
     }
 
@@ -34,6 +40,7 @@ public class SideViewTrigger : MonoBehaviour
         {
             sideViewCam.SetActive(false);
             freeLookCam.SetActive(true);
+            arduinoSpawner.canSpawnSpocks = true;
         }
 
     }
