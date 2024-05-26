@@ -34,7 +34,7 @@ public class LavaScript : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Body"))
         {
-            GetComponent<AudioSource>().Play();
+            //GetComponent<AudioSource>().Play();
         }
     }
     private void OnCollisionExit(Collision collision)
