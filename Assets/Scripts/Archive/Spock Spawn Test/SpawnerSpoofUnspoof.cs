@@ -5,8 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using TMPro;
 using System;
-using UnityEditor.Search;
-using System.Linq;
 
 public class SpawnerSpoofUnspoof : MonoBehaviour
 {

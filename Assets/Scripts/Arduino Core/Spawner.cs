@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using TMPro;
 using System;
-using UnityEditor.Search;
 
 public class Spawner : MonoBehaviour
 {
