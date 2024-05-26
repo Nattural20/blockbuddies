@@ -6,7 +6,6 @@ using UnityEngine;
 public class ThornTimed : MonoBehaviour
 {
     private GameObject _affectedSpock;
-    private GameObject _thorn;
     public float thornForce = 50;
     private bool _isTriggered;
     public float thornTimer = 3f;
@@ -16,7 +15,6 @@ public class ThornTimed : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _thorn = this.gameObject;
         setPosition = transform.position;
         risePositon = transform.position + new Vector3(0, 5, 0);
     }
@@ -45,40 +43,30 @@ public class ThornTimed : MonoBehaviour
     IEnumerator ThornExplode(GameObject spock)
     { ///let the show Begin
         Debug.Log("trigger Triggered");
-        while (_isTriggered)
+        yield return new WaitForSeconds(thornTimer);
+        Debug.Log("Timer Done");
+
+        transform.position = risePositon;
+
+        //check for sinking spocks
+        if (spock.CompareTag("Lava Spock"))
         {
-            Debug.Log("trigger Triggered");
-            yield return new WaitForSeconds(thornTimer);
-            Debug.Log("Timer Done");
+            spock.GetComponent<LavaSpockScript>().enabled = false;
 
-            transform.position = risePositon;
+            spock.GetComponent<Rigidbody>().isKinematic = false;
 
-            //check for sinking spocks
-            if (spock.CompareTag("Lava Spock"))
-            {
-                spock.GetComponent<LavaSpockScript>().enabled = false;
-                
-                spock.GetComponent<Rigidbody>().isKinematic = false;
-                //****NOTE: THIS Only effects one GameObject Spock at a time- in future, look towards adjusting to take in an array and affect all of them. 
-            }
-
-            if (spock.CompareTag("Spocks"))
-            {
-                spock.GetComponent<Rigidbody>().AddForce(new Vector3(0, thornForce, 0), ForceMode.Impulse);
-            }
-            if (spock.CompareTag("Lava Spock"))
-            {
-                spock.GetComponent<Rigidbody>().AddForce(new Vector3(0, thornForce, 0), ForceMode.Impulse);
-            }
-
-            _isTriggered = false;
-
-            yield return new WaitForSeconds(thornTimer);
-            transform.position = setPosition;
-
-            spock.tag = "Spocks";
-
+            spock.GetComponent<Rigidbody>().AddForce(new Vector3(0, thornForce, 0), ForceMode.Impulse);
+            //****NOTE: THIS Only effects one GameObject Spock at a time- in future, look towards adjusting to take in an array and affect all of them. 
+        }
+        else if (spock.CompareTag("Spocks"))
+        {
+            spock.GetComponent<Rigidbody>().AddForce(new Vector3(0, thornForce, 0), ForceMode.Impulse);
         }
 
+        yield return new WaitForSeconds(thornTimer);
+        transform.position = setPosition;
+        _isTriggered = false;
+
+        spock.tag = "Spocks";
     }
 }
