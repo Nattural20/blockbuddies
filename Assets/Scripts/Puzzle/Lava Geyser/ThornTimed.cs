@@ -8,7 +8,7 @@ public class ThornTimed : MonoBehaviour
     private GameObject _affectedSpock;
     public float thornForce = 50;
     private bool _isTriggered;
-    public float thornTimer = 3f;
+    public float thornsTimer = 3f;
 
     private Vector3 setPosition, risePositon;
 
@@ -42,9 +42,9 @@ public class ThornTimed : MonoBehaviour
 
     IEnumerator ThornExplode(GameObject spock)
     { ///let the show Begin
-        Debug.Log("trigger Triggered");
-        yield return new WaitForSeconds(thornTimer);
-        Debug.Log("Timer Done");
+        //Debug.Log("trigger Triggered");
+        //yield return new WaitForSeconds(thornTimer);
+        //Debug.Log("Timer Done");
 
         transform.position = risePositon;
 
@@ -63,7 +63,7 @@ public class ThornTimed : MonoBehaviour
             spock.GetComponent<Rigidbody>().AddForce(new Vector3(0, thornForce, 0), ForceMode.Impulse);
         }
 
-        yield return new WaitForSeconds(thornTimer);
+        yield return new WaitForSeconds(thornsTimer);
         transform.position = setPosition;
         _isTriggered = false;
 
