@@ -12,6 +12,7 @@ public class StartScreenCameraMove : MonoBehaviour
         {
             startCam.SetActive(false);
             playerCam.SetActive(true);
+            StartCoroutine(TurnOnSpocks());
         }
     }
     IEnumerator TurnOnSpocks()
