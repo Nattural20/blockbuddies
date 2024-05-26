@@ -133,6 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2007699}
+  - component: {fileID: 2007703}
   - component: {fileID: 2007702}
   - component: {fileID: 2007701}
   - component: {fileID: 2007700}
@@ -186,7 +187,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007698}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -231,6 +232,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007698}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2007703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c466fdca60c4a9442936b3006fcfdb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPresent: 0
 --- !u!1 &7554865 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3108704471639173926, guid: 824d4607f2d87d84b85a7adaf273664b, type: 3}
@@ -392,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &9163515
 Transform:
@@ -798,7 +812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &16598125
 Transform:
@@ -947,7 +961,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20507666}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1239,7 +1253,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28899553}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1383,7 +1397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &35506475
 Transform:
@@ -1649,7 +1663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &58013681
 Transform:
@@ -1721,7 +1735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &58013685
 Transform:
@@ -2171,7 +2185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &62738084
 Transform:
@@ -2406,7 +2420,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71240187}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2839,7 +2853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &93579350
 Transform:
@@ -2995,7 +3009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &99155084
 Transform:
@@ -3497,7 +3511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &123632738
 Transform:
@@ -3637,7 +3651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &125554274
 Transform:
@@ -3861,7 +3875,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136603878}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3989,7 +4003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &137750446
 Transform:
@@ -4129,7 +4143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &139877780
 Transform:
@@ -4269,7 +4283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &144943859
 Transform:
@@ -4869,7 +4883,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157342662}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4997,7 +5011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &158765006
 Transform:
@@ -5153,7 +5167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &162378718
 Transform:
@@ -5293,7 +5307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &174738443
 Transform:
@@ -5433,7 +5447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &175063732
 Transform:
@@ -5612,7 +5626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &176374786
 Transform:
@@ -6041,7 +6055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &184999156
 Transform:
@@ -6267,7 +6281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &189029084
 Transform:
@@ -6591,7 +6605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &202373427
 Transform:
@@ -6810,7 +6824,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208741578}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -6992,7 +7006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &216597844
 Transform:
@@ -7244,7 +7258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &230724869
 Transform:
@@ -7694,7 +7708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &237983087
 Transform:
@@ -8064,7 +8078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &246159566
 Transform:
@@ -8197,7 +8211,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248454317}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -8459,7 +8473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &269247105
 Transform:
@@ -9001,7 +9015,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292502935}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -9283,7 +9297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &318154591
 Transform:
@@ -9423,7 +9437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &318533447
 Transform:
@@ -9665,7 +9679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &333893821
 Transform:
@@ -9814,7 +9828,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337528619}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -9935,7 +9949,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338001242}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -10056,7 +10070,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339531122}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -10809,7 +10823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &372958132
 Transform:
@@ -11144,7 +11158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &384869479
 Transform:
@@ -11277,7 +11291,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390185182}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -11453,7 +11467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &406693737
 Transform:
@@ -11593,7 +11607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &419565111
 Transform:
@@ -11733,7 +11747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &419692847
 Transform:
@@ -11979,7 +11993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &428922182
 Transform:
@@ -12245,7 +12259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &434998489
 Transform:
@@ -12385,7 +12399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &435078188
 Transform:
@@ -12464,6 +12478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 439317652}
+  - component: {fileID: 439317656}
   - component: {fileID: 439317655}
   - component: {fileID: 439317654}
   - component: {fileID: 439317653}
@@ -12517,7 +12532,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439317651}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -12562,6 +12577,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439317651}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &439317656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439317651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c466fdca60c4a9442936b3006fcfdb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPresent: 0
 --- !u!1 &439868477
 GameObject:
   m_ObjectHideFlags: 0
@@ -12901,7 +12929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &455085254 stripped
 GameObject:
@@ -13080,7 +13108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &460907504
 Transform:
@@ -13333,7 +13361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &468561001
 GameObject:
@@ -13619,7 +13647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &474279881
 GameObject:
@@ -13723,7 +13751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &493998875
 Transform:
@@ -13884,7 +13912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &500296680
 Transform:
@@ -14207,7 +14235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &516156623
 GameObject:
@@ -14473,7 +14501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &530547176
 GameObject:
@@ -14624,7 +14652,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531556204}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -14902,7 +14930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &544437545
 Transform:
@@ -15206,6 +15234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 548935706}
+  - component: {fileID: 548935710}
   - component: {fileID: 548935709}
   - component: {fileID: 548935708}
   - component: {fileID: 548935707}
@@ -15259,7 +15288,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548935705}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -15304,6 +15333,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548935705}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &548935710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548935705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c466fdca60c4a9442936b3006fcfdb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPresent: 0
 --- !u!1 &552707385
 GameObject:
   m_ObjectHideFlags: 0
@@ -15406,7 +15448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &554705051
 Transform:
@@ -15546,7 +15588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &554876428
 Transform:
@@ -15772,7 +15814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &564030910
 Transform:
@@ -15988,7 +16030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &564379634
 GameObject:
@@ -16199,7 +16241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &572134062
 Transform:
@@ -16436,7 +16478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &580438431
 GameObject:
@@ -16757,7 +16799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &589678870
 Transform:
@@ -16902,7 +16944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &595151194
 Transform:
@@ -17249,7 +17291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &604137808
 GameObject:
@@ -17873,7 +17915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &613872325
 Transform:
@@ -18013,7 +18055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &618157894
 Transform:
@@ -18153,7 +18195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &618560470
 Transform:
@@ -18330,7 +18372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &623343864
 Transform:
@@ -18463,7 +18505,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 626981651}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -18584,7 +18626,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627985310}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -18798,7 +18840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &633653684
 Transform:
@@ -19290,7 +19332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &648123160
 Transform:
@@ -19687,6 +19729,7 @@ Transform:
   - {fileID: 1734876817}
   - {fileID: 621394305}
   - {fileID: 1598508184}
+  - {fileID: 1384782713}
   - {fileID: 421975702}
   - {fileID: 907405530}
   - {fileID: 1547504548}
@@ -19802,13 +19845,17 @@ PrefabInstance:
       propertyPath: riseSpeed
       value: 0.3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5536693953438872705, guid: 4674f40190e2b4c4b8bb4415d052a211, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6987760459510122285, guid: 4674f40190e2b4c4b8bb4415d052a211, type: 3}
       insertIndex: -1
       addedObject: {fileID: 921041760}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5241918210677810263, guid: 4674f40190e2b4c4b8bb4415d052a211, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 697111889}
   m_SourcePrefab: {fileID: 100100000, guid: 4674f40190e2b4c4b8bb4415d052a211, type: 3}
 --- !u!1 &678391340
 GameObject:
@@ -19927,6 +19974,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6987760459510122285, guid: 4674f40190e2b4c4b8bb4415d052a211, type: 3}
   m_PrefabInstance: {fileID: 671310957}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &697111889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697111883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8993f8cf65f4e144cb85e3b031e756ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riseSpeed: 0
+  rising: 0
 --- !u!1001 &697717872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20073,7 +20134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &699939847
 Transform:
@@ -20145,7 +20206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &699939851
 Transform:
@@ -20301,7 +20362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &702153677
 Transform:
@@ -20434,7 +20495,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703685763}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -20842,7 +20903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &721513588
 GameObject:
@@ -20907,7 +20968,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721513588}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -21126,7 +21187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &732614105
 Transform:
@@ -21495,7 +21556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &748874992
 Transform:
@@ -21651,7 +21712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &766199590
 Transform:
@@ -21791,7 +21852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &766835894
 Transform:
@@ -21976,7 +22037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &779456747
 Transform:
@@ -22218,7 +22279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &799034141
 Transform:
@@ -22458,7 +22519,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812115395}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -22602,7 +22663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &815650142
 Transform:
@@ -22813,7 +22874,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818301884}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -23104,7 +23165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &836323061
 Transform:
@@ -23176,7 +23237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &836323065
 Transform:
@@ -23332,7 +23393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &839875367
 Transform:
@@ -23472,7 +23533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &842497638
 Transform:
@@ -23822,7 +23883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &850575619
 Transform:
@@ -23894,7 +23955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &850575623
 Transform:
@@ -24120,7 +24181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &854006197
 Transform:
@@ -24336,7 +24397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1001 &855779494
 PrefabInstance:
@@ -24484,7 +24545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &856363808
 GameObject:
@@ -24771,7 +24832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &862935643
 Transform:
@@ -24920,7 +24981,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871074512}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -25512,7 +25573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &894509231
 Transform:
@@ -25738,7 +25799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &897174058
 Transform:
@@ -26066,7 +26127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &902903285
 Transform:
@@ -26301,7 +26362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &913031636
 Transform:
@@ -26441,7 +26502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &915371786
 Transform:
@@ -26700,7 +26761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &923803406
 Transform:
@@ -27262,7 +27323,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965392270}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -27871,7 +27932,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973103577}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -27992,7 +28053,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974946861}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -28113,7 +28174,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975635460}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -28241,7 +28302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &976623179
 Transform:
@@ -28457,7 +28518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &985836065
 Transform:
@@ -28529,7 +28590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &985836069
 Transform:
@@ -29158,7 +29219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1013159081
 Transform:
@@ -29369,7 +29430,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017985403}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -29583,7 +29644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1018500844
 Transform:
@@ -29873,7 +29934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &1022097837
 GameObject:
@@ -29954,7 +30015,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022309398}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -30082,7 +30143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1026871686
 Transform:
@@ -30772,6 +30833,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1045473920}
+  - component: {fileID: 1045473924}
   - component: {fileID: 1045473923}
   - component: {fileID: 1045473922}
   - component: {fileID: 1045473921}
@@ -30825,7 +30887,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1045473919}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -30870,6 +30932,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1045473919}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1045473924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045473919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c466fdca60c4a9442936b3006fcfdb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPresent: 0
 --- !u!4 &1048400775
 Transform:
   m_ObjectHideFlags: 0
@@ -30940,7 +31015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1048400779
 Transform:
@@ -31073,7 +31148,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048905426}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -31201,7 +31276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1049818276
 Transform:
@@ -31341,7 +31416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1051956289
 Transform:
@@ -31729,7 +31804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1001 &1059104959
 PrefabInstance:
@@ -31872,7 +31947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &1061997997
 GameObject:
@@ -31965,7 +32040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1063957130
 Transform:
@@ -32103,7 +32178,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064894466}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -32646,7 +32721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3721659328678929847, guid: 1613103a85e1f2d439355b18c81fd133, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3795057505816956354, guid: 1613103a85e1f2d439355b18c81fd133, type: 3}
       propertyPath: rL
@@ -32670,11 +32745,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5529483084662761148, guid: 1613103a85e1f2d439355b18c81fd133, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9894716
+      value: 0.98947155
       objectReference: {fileID: 0}
     - target: {fileID: 5529483084662761148, guid: 1613103a85e1f2d439355b18c81fd133, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13642076
+      value: 0.13642071
       objectReference: {fileID: 0}
     - target: {fileID: 5529483084662761148, guid: 1613103a85e1f2d439355b18c81fd133, type: 3}
       propertyPath: m_LocalRotation.y
@@ -32682,7 +32757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5529483084662761148, guid: 1613103a85e1f2d439355b18c81fd133, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.020148208
+      value: -0.020148195
       objectReference: {fileID: 0}
     - target: {fileID: 5553168823221813744, guid: 1613103a85e1f2d439355b18c81fd133, type: 3}
       propertyPath: field of view
@@ -33029,7 +33104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1109151153
 Transform:
@@ -33162,7 +33237,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109623247}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -33408,7 +33483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1116968446
 Transform:
@@ -33564,7 +33639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1117739265
 Transform:
@@ -33876,7 +33951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1128572789
 Transform:
@@ -34119,7 +34194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &1135871665
 GameObject:
@@ -34277,7 +34352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1136512865
 Transform:
@@ -34742,7 +34817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1140515932
 Transform:
@@ -34974,7 +35049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1001 &1149700007
 PrefabInstance:
@@ -35117,7 +35192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &1150366522
 GameObject:
@@ -35387,7 +35462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1166873002
 Transform:
@@ -35638,7 +35713,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175859391}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -35771,7 +35846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1179080111
 Transform:
@@ -36045,7 +36120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1190676835
 Transform:
@@ -36190,7 +36265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1193270617
 Transform:
@@ -36339,7 +36414,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196225509}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -36705,7 +36780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1210793104
 Transform:
@@ -36956,7 +37031,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222197520}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -37170,7 +37245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1236152459
 Transform:
@@ -37778,7 +37853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1240633251
 Transform:
@@ -38080,7 +38155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1252190092
 Transform:
@@ -38152,7 +38227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1252190096
 Transform:
@@ -38411,7 +38486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1258229702
 Transform:
@@ -38637,7 +38712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1260608275
 Transform:
@@ -38817,7 +38892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1270270066
 Transform:
@@ -39151,7 +39226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &1285116856 stripped
 GameObject:
@@ -39304,7 +39379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &1290477198
 GameObject:
@@ -39462,7 +39537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1290579649
 Transform:
@@ -39607,7 +39682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1292651761
 Transform:
@@ -39747,7 +39822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1296276093
 Transform:
@@ -39887,7 +39962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1297047724
 Transform:
@@ -40027,7 +40102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1298969711
 Transform:
@@ -40306,7 +40381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1307591051
 Transform:
@@ -40850,7 +40925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1314970472
 Transform:
@@ -40990,7 +41065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1319408461
 Transform:
@@ -41130,7 +41205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1319772729
 Transform:
@@ -41356,7 +41431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1327250806
 Transform:
@@ -41489,7 +41564,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332588295}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -41622,7 +41697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1336526644
 Transform:
@@ -41762,7 +41837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1337726004
 Transform:
@@ -42067,7 +42142,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342111364}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -42393,7 +42468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1369577775
 Transform:
@@ -42533,7 +42608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1372361185
 Transform:
@@ -42746,6 +42821,80 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2456308112192128263, guid: 824d4607f2d87d84b85a7adaf273664b, type: 3}
   m_PrefabInstance: {fileID: 2073502678}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1384782712
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 658177111}
+    m_Modifications:
+    - target: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.69193804
+      objectReference: {fileID: 0}
+    - target: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.36037
+      objectReference: {fileID: 0}
+    - target: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 23.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -26.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2969112313536483070, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_Name
+      value: SetRespawn (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821585660252384473, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+--- !u!4 &1384782713 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+  m_PrefabInstance: {fileID: 1384782712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1394862895
 GameObject:
   m_ObjectHideFlags: 0
@@ -42809,7 +42958,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394862895}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -43107,7 +43256,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406831269}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -43321,7 +43470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1410086946
 Transform:
@@ -43461,7 +43610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1411016146
 Transform:
@@ -43601,7 +43750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1411028789
 Transform:
@@ -43817,7 +43966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &1414926800
 GameObject:
@@ -44023,7 +44172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1416898864
 Transform:
@@ -44163,7 +44312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1419039326
 Transform:
@@ -44584,7 +44733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1427531056
 Transform:
@@ -44717,7 +44866,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428618823}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -45028,7 +45177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1001 &1434827709
 PrefabInstance:
@@ -45312,7 +45461,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439576756}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -45440,7 +45589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1441074234
 Transform:
@@ -45682,7 +45831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6021558195715686092, guid: 7d0b7b0dba08eb644b096c22053542ba, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6780343903146107045, guid: 7d0b7b0dba08eb644b096c22053542ba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45782,7 +45931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9134281393161189524, guid: 7d0b7b0dba08eb644b096c22053542ba, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1498303
+      value: 0.14983024
       objectReference: {fileID: 0}
     - target: {fileID: 9134281393161189524, guid: 7d0b7b0dba08eb644b096c22053542ba, type: 3}
       propertyPath: m_LocalRotation.y
@@ -45790,7 +45939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9134281393161189524, guid: 7d0b7b0dba08eb644b096c22053542ba, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.020742228
+      value: -0.020742206
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -45953,7 +46102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1470450569
 Transform:
@@ -46093,7 +46242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1471675924
 Transform:
@@ -46249,7 +46398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1482836440
 Transform:
@@ -46382,7 +46531,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482944856}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -46510,7 +46659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1487452061
 Transform:
@@ -46659,7 +46808,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489537698}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -47163,7 +47312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1509324319
 Transform:
@@ -47328,6 +47477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1514967976}
+  - component: {fileID: 1514967980}
   - component: {fileID: 1514967979}
   - component: {fileID: 1514967978}
   - component: {fileID: 1514967977}
@@ -47381,7 +47531,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514967975}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -47426,6 +47576,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514967975}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1514967980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514967975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c466fdca60c4a9442936b3006fcfdb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPresent: 0
 --- !u!1 &1515420428 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4865136352289741367, guid: 824d4607f2d87d84b85a7adaf273664b, type: 3}
@@ -47501,7 +47664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1517035457
 Transform:
@@ -48242,7 +48405,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 23.7, y: -42.2, z: -19.73999}
-  m_LocalScale: {x: 350.79266, y: 0.16741, z: 440.0983}
+  m_LocalScale: {x: 485.32166, y: 0.16741, z: 623.7073}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 658177111}
@@ -48503,7 +48666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1554009090
 Transform:
@@ -48863,7 +49026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1560261410
 Transform:
@@ -49105,7 +49268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1573115132
 Transform:
@@ -49291,6 +49454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1583967301}
+  - component: {fileID: 1583967305}
   - component: {fileID: 1583967304}
   - component: {fileID: 1583967303}
   - component: {fileID: 1583967302}
@@ -49344,7 +49508,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583967300}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -49389,6 +49553,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583967300}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1583967305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583967300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c466fdca60c4a9442936b3006fcfdb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPresent: 0
 --- !u!1001 &1584278816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49535,7 +49712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1585074639
 Transform:
@@ -49607,7 +49784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1585074643
 Transform:
@@ -49849,7 +50026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1590192023
 Transform:
@@ -49989,7 +50166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1591134248
 Transform:
@@ -50354,7 +50531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1613440302
 Transform:
@@ -50433,6 +50610,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1619214761}
+  - component: {fileID: 1619214765}
   - component: {fileID: 1619214764}
   - component: {fileID: 1619214763}
   - component: {fileID: 1619214762}
@@ -50486,7 +50664,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619214760}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -50531,6 +50709,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619214760}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1619214765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619214760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c466fdca60c4a9442936b3006fcfdb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPresent: 0
 --- !u!1 &1619401304
 GameObject:
   m_ObjectHideFlags: 0
@@ -50540,6 +50731,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1619401305}
+  - component: {fileID: 1619401309}
   - component: {fileID: 1619401308}
   - component: {fileID: 1619401307}
   - component: {fileID: 1619401306}
@@ -50593,7 +50785,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619401304}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -50638,6 +50830,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619401304}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1619401309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619401304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c466fdca60c4a9442936b3006fcfdb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPresent: 0
 --- !u!1 &1620231115
 GameObject:
   m_ObjectHideFlags: 0
@@ -50813,7 +51018,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624519722}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -50880,6 +51085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1635043780}
+  - component: {fileID: 1635043784}
   - component: {fileID: 1635043783}
   - component: {fileID: 1635043782}
   - component: {fileID: 1635043781}
@@ -50933,7 +51139,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635043779}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -50978,6 +51184,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635043779}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1635043784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635043779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c466fdca60c4a9442936b3006fcfdb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPresent: 0
 --- !u!1 &1639301185
 GameObject:
   m_ObjectHideFlags: 0
@@ -51080,7 +51299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1645550269
 Transform:
@@ -51229,7 +51448,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646505211}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -51464,7 +51683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1649102218
 Transform:
@@ -51604,7 +51823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1649130076
 Transform:
@@ -51839,7 +52058,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653782740}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -52299,7 +52518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1660499640
 Transform:
@@ -52471,7 +52690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1661286445
 Transform:
@@ -52793,7 +53012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1666589218
 Transform:
@@ -53009,7 +53228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1670333816 stripped
 Transform:
@@ -53188,7 +53407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1677896565
 Transform:
@@ -53328,7 +53547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1681956815
 Transform:
@@ -53594,7 +53813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1697707950
 Transform:
@@ -53992,7 +54211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &1706729580 stripped
 GameObject:
@@ -54171,7 +54390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1711310888
 Transform:
@@ -54569,7 +54788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &1721035777
 GameObject:
@@ -55007,7 +55226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1001 &1734876816
 PrefabInstance:
@@ -55320,7 +55539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1740533196
 Transform:
@@ -55485,7 +55704,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747604523}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -55963,7 +56182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1772841081
 Transform:
@@ -56096,7 +56315,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775495719}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -56788,7 +57007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &1782363436
 GameObject:
@@ -57137,7 +57356,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796284951}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -57265,7 +57484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1797844387
 Transform:
@@ -57708,7 +57927,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809237053}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -57852,7 +58071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1814890479
 Transform:
@@ -58013,7 +58232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1821261418
 Transform:
@@ -58318,7 +58537,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827383049}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -58446,7 +58665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1834872013
 Transform:
@@ -58595,7 +58814,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840068527}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -58723,7 +58942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1842287843
 Transform:
@@ -59223,7 +59442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1857151989
 Transform:
@@ -59356,7 +59575,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859026700}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -59591,7 +59810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1859962164
 Transform:
@@ -59724,7 +59943,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865353298}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -59852,7 +60071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1865739794
 Transform:
@@ -60075,7 +60294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1875010704
 Transform:
@@ -60220,7 +60439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1876457462
 Transform:
@@ -60488,7 +60707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1894223120
 Transform:
@@ -60656,7 +60875,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895819759}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -60870,7 +61089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1897826804
 Transform:
@@ -61182,7 +61401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1904798775
 Transform:
@@ -61429,7 +61648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1907973975
 Transform:
@@ -61569,7 +61788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1909084473
 Transform:
@@ -61702,7 +61921,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911827963}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -62047,7 +62266,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927564082}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -62299,7 +62518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1941711759
 Transform:
@@ -62525,7 +62744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1946122000
 Transform:
@@ -62884,7 +63103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1960290507
 Transform:
@@ -63017,7 +63236,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962626474}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -63221,7 +63440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1963300114
 Transform:
@@ -63293,7 +63512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1963300118
 Transform:
@@ -63624,7 +63843,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974326500}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -63752,7 +63971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &1974439515
 Transform:
@@ -64467,7 +64686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &1985615242
 GameObject:
@@ -64709,7 +64928,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991675685}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -64916,7 +65135,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1995446796}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -65037,7 +65256,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1995522419}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -65586,7 +65805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &2020953908
 Transform:
@@ -65925,7 +66144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1001 &2040486631
 PrefabInstance:
@@ -66232,7 +66451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &2057055379
 Transform:
@@ -66388,7 +66607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &2057818868
 Transform:
@@ -66614,7 +66833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &2069696247
 Transform:
@@ -66854,7 +67073,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073387215}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -67378,7 +67597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &2090277983
 Transform:
@@ -67534,7 +67753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &2098860942
 Transform:
@@ -67750,7 +67969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &2103649118
 Transform:
@@ -67822,7 +68041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &2103649122
 Transform:
@@ -68190,7 +68409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1001 &2123728353
 PrefabInstance:
@@ -68338,7 +68557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1001 &2125334996
 PrefabInstance:
@@ -68546,7 +68765,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129802132}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -68753,7 +68972,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132905741}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -69172,7 +69391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!1 &2137880999 stripped
 GameObject:
@@ -69249,7 +69468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &2138172355
 Transform:
@@ -69482,7 +69701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 50
+  thornForce: 5000
   thornTimer: 0.2
 --- !u!4 &2144388278
 Transform:
@@ -69631,7 +69850,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145094574}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -69727,6 +69946,10 @@ PrefabInstance:
       value: 2.9721985
       objectReference: {fileID: 0}
     - target: {fileID: 4595136383001263051, guid: 1daea32ec90ea8549a345df0ed153279, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595136383001263051, guid: 1daea32ec90ea8549a345df0ed153279, type: 3}
       propertyPath: m_Center.x
       value: -0.3477211
       objectReference: {fileID: 0}
@@ -69741,6 +69964,10 @@ PrefabInstance:
     - target: {fileID: 5103488348673241881, guid: 1daea32ec90ea8549a345df0ed153279, type: 3}
       propertyPath: m_Size.y
       value: 0.117949486
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103488348673241881, guid: 1daea32ec90ea8549a345df0ed153279, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5103488348673241881, guid: 1daea32ec90ea8549a345df0ed153279, type: 3}
       propertyPath: m_Center.x
