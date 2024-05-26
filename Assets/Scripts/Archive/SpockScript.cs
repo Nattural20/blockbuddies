@@ -7,6 +7,7 @@ public class SpockScript : MonoBehaviour
 {
     //public int[] arduinoInput;
     public int[,] spockLayout;
+    public float spockWeight;
     public float spockAmount;
 
     public void FormatLayout(int[] griddyInput)
@@ -34,6 +35,8 @@ public class SpockScript : MonoBehaviour
             griddyPos++;
         }
         Debug.Log(spockLayout[2,0] + ", " + spockLayout[2, 1] + ", " + spockLayout[2, 2] + "\n" + spockLayout[1,0] + ", " + spockLayout[1, 1] + ", " + spockLayout[1, 2] + "\n" + spockLayout[0, 0] + ", " + spockLayout[0, 1] + ", " + spockLayout[0, 2]);
+
+        GetComponent<Rigidbody>().mass = spockWeight * spockAmount;
     }
     private void OnTriggerEnter(Collider other)
     {

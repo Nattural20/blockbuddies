@@ -16,6 +16,8 @@ public class vineElevator : MonoBehaviour
 
     private GameObject grabbedSpock;
 
+    private Vector3 grabbedPosition;
+
     private Vector3 startingPos;
 
     // Start is called before the first frame update
@@ -68,7 +70,7 @@ public class vineElevator : MonoBehaviour
         }
         if (grabbedSpock != null)
         {
-            grabbedSpock.transform.position = topOfObject.transform.position;
+            grabbedSpock.transform.position = topOfObject.transform.position - grabbedPosition;
             grabbedSpock.transform.rotation = Quaternion.Slerp(grabbedSpock.transform.rotation, Quaternion.Euler(0, grabbedSpock.transform.rotation.eulerAngles.y, 0), 0.2f * Time.deltaTime);
         }
     }
@@ -77,31 +79,36 @@ public class vineElevator : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Body"))
         {
-            collision.transform.GetComponent<SetPos>().TeleportPlayer();
+            //collision.transform.GetComponent<SetPos>().TeleportPlayer();
         }
 
         if (collision.gameObject.CompareTag("Lava Spock") || collision.gameObject.CompareTag("Spocks"))
         {
-            if (collision.gameObject.CompareTag("Spocks"))
-            {
-                collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            }
-
             if (grabbedSpock == null)
             {
+                if (collision.gameObject.CompareTag("Spocks"))
+                {
+                    collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                }
                 grabbedSpock = collision.gameObject;
-            }
+                grabbedPosition = topOfObject.transform.position - grabbedSpock.transform.position;
 
-            if (collision.gameObject.GetComponent<LavaSpockScript>() != null) // && !collision.gameObject.TryGetComponent<MoveWithElevator>(out MoveWithElevator elevator))
-            {
-                Destroy(collision.gameObject.GetComponent<LavaSpockScript>());
-            }
 
-            if (waiting)
-            {
-                waiting = false;
+                if (collision.gameObject.GetComponent<LavaSpockScript>() != null) // && !collision.gameObject.TryGetComponent<MoveWithElevator>(out MoveWithElevator elevator))
+                {
+                    Destroy(collision.gameObject.GetComponent<LavaSpockScript>());
+                }
+
+                if (waiting)
+                {
+                    StartCoroutine(MoveDelay());
+                }
             }
         }
     }
-
+    IEnumerator MoveDelay()
+    {
+        yield return new WaitForSeconds(1);
+        waiting = false;
+    }
 }

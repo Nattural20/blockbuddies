@@ -49,8 +49,8 @@ public class SetPos : MonoBehaviour
             Debug.Log("Death respawn");
 
             //RESTART SCENE 
-            risingLavaObject.transform.localPosition = new Vector3(0, 0, 0);
-            rL.rising = false;
+            //risingLavaObject.transform.localPosition = new Vector3(0, 0, 0);
+            //rL.rising = false;
         }
     }
     public void TeleportPlayer()
