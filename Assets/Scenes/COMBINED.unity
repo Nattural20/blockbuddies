@@ -19730,6 +19730,7 @@ Transform:
   - {fileID: 621394305}
   - {fileID: 1598508184}
   - {fileID: 1384782713}
+  - {fileID: 1232351922}
   - {fileID: 421975702}
   - {fileID: 907405530}
   - {fileID: 1547504548}
@@ -19988,6 +19989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   riseSpeed: 0
   rising: 0
+  resetPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &697717872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37175,6 +37177,74 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225457564}
   m_Mesh: {fileID: -7133521204521878831, guid: 8cf27ba1cfddca041a411f756354049c, type: 3}
+--- !u!1 &1232351921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1232351922}
+  - component: {fileID: 1232351924}
+  - component: {fileID: 1232351923}
+  m_Layer: 0
+  m_Name: VinesResetTrigger
+  m_TagString: SpawnSet
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1232351922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232351921}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.7899998, y: 23.17, z: -26.090002}
+  m_LocalScale: {x: 5.643238, y: 4.1587324, z: 6.627442}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 658177111}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1232351923
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232351921}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1232351924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232351921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686f9753bf1e9004a8b1b179124416ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lava: {fileID: 697111889}
+  newHeightReset: 17
 --- !u!4 &1236152455
 Transform:
   m_ObjectHideFlags: 0
@@ -45931,15 +46001,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9134281393161189524, guid: 7d0b7b0dba08eb644b096c22053542ba, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.14983024
+      value: 0.14983027
       objectReference: {fileID: 0}
     - target: {fileID: 9134281393161189524, guid: 7d0b7b0dba08eb644b096c22053542ba, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.043649103
+      value: 0.043649133
       objectReference: {fileID: 0}
     - target: {fileID: 9134281393161189524, guid: 7d0b7b0dba08eb644b096c22053542ba, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.020742206
+      value: -0.020742236
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -19,8 +19,6 @@ public class SetPos : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            transform.position = pos.position;
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
             TeleportPlayer();
         }
     }
@@ -28,9 +26,7 @@ public class SetPos : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Teleport Plane") || collision.gameObject.CompareTag("Lava"))
         {
-            transform.position = pos.position;
             TeleportPlayer();
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
             Debug.Log("Teleporting");
         }
         else if (collision.gameObject.CompareTag("SpawnSet"))
@@ -43,9 +39,7 @@ public class SetPos : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Teleport Plane") || collision.gameObject.CompareTag("Lava"))
         {
-            transform.position = pos.position;
             TeleportPlayer();
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
             Debug.Log("Death respawn");
 
             //RESTART SCENE 
@@ -55,6 +49,8 @@ public class SetPos : MonoBehaviour
     }
     public void TeleportPlayer()
     {
+        transform.position = pos.position;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         foreach (GameObject player in playerBits)
         {
             player.transform.position = pos.position;

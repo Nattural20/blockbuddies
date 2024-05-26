@@ -6,6 +6,12 @@ public class LavaRiseScipt : MonoBehaviour
 {
     public float riseSpeed;
     public bool rising;
+
+    public Vector3 resetPosition;
+    private void Start()
+    {
+        resetPosition = Vector3.zero;
+    }
     void Update()
     {
         if (rising)
@@ -17,9 +23,10 @@ public class LavaRiseScipt : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Body"))
         {
+            rising = false;
+            transform.localPosition = resetPosition;
             var player = other.gameObject;
             player.GetComponent<SetPos>().TeleportPlayer();
-            transform.localPosition = Vector3.zero;
         }
     }
 }
