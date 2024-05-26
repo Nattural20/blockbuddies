@@ -103,6 +103,11 @@ public class ArduinoLockedSpawn : MonoBehaviour
                 {
                     //Debug.Log("Array Length:" + outputArray.Length);
                     //Debug.Log("Postion: " + index + ". Spawning Block: " + spawnCubes[index]);
+
+                    if (ghostSpawnCubes[index -1].GetComponent<SpockSpawnPlayerDetector>().playerPresent == false)
+                    {
+                        //Move the spawnCubes stuff into here to have it not spawn if a player is in the way
+                    }
                     spawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
                     spawnCubes[index - 1].GetComponent<BoxCollider>().enabled = true;
                     index++;
