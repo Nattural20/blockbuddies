@@ -71,7 +71,7 @@ public class vineElevator : MonoBehaviour
         if (grabbedSpock != null)
         {
             grabbedSpock.transform.position = topOfObject.transform.position - grabbedPosition;
-            grabbedSpock.transform.rotation = Quaternion.Slerp(grabbedSpock.transform.rotation, Quaternion.Euler(0, grabbedSpock.transform.rotation.eulerAngles.y, 0), 0.2f * Time.deltaTime);
+            grabbedSpock.transform.rotation = Quaternion.Slerp(grabbedSpock.transform.rotation, Quaternion.Euler(0, grabbedSpock.transform.rotation.eulerAngles.y, 0), 0.4f * Time.deltaTime);
         }
     }
 
