@@ -15401,6 +15401,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkSpeed: 0.5
   sinkRotationSpeed: 0
+  deathCubert: {fileID: 0}
+  respawnCubert: {fileID: 0}
+  deathHopper: {fileID: 0}
+  respawnHopper: {fileID: 0}
   spocks: []
 --- !u!1 &548935705
 GameObject:
@@ -20162,7 +20166,6 @@ Transform:
   - {fileID: 1384782713}
   - {fileID: 421975702}
   - {fileID: 907405530}
-  - {fileID: 2515322755218150280}
   - {fileID: 1547504548}
   - {fileID: 648610674}
   - {fileID: 992155562}
@@ -28315,6 +28318,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkSpeed: 0.5
   sinkRotationSpeed: 0
+  deathCubert: {fileID: 0}
+  respawnCubert: {fileID: 0}
+  deathHopper: {fileID: 0}
+  respawnHopper: {fileID: 0}
   spocks: []
 --- !u!4 &971650529 stripped
 Transform:
@@ -31194,6 +31201,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkSpeed: 0.2
   sinkRotationSpeed: 0.4
+  deathCubert: {fileID: 0}
+  respawnCubert: {fileID: 0}
+  deathHopper: {fileID: 0}
+  respawnHopper: {fileID: 0}
   spocks: []
 --- !u!82 &1035596954
 AudioSource:
@@ -45113,6 +45124,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkSpeed: 0.5
   sinkRotationSpeed: 0
+  deathCubert: {fileID: 0}
+  respawnCubert: {fileID: 0}
+  deathHopper: {fileID: 0}
+  respawnHopper: {fileID: 0}
   spocks: []
 --- !u!1 &1425638456
 GameObject:
@@ -52977,6 +52992,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkSpeed: 0.5
   sinkRotationSpeed: 0
+  deathCubert: {fileID: 0}
+  respawnCubert: {fileID: 0}
+  deathHopper: {fileID: 0}
+  respawnHopper: {fileID: 0}
   spocks: []
 --- !u!1 &1659506886 stripped
 GameObject:
@@ -57311,6 +57330,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkSpeed: 0.5
   sinkRotationSpeed: 0
+  deathCubert: {fileID: 0}
+  respawnCubert: {fileID: 0}
+  deathHopper: {fileID: 0}
+  respawnHopper: {fileID: 0}
   spocks: []
 --- !u!4 &1779563649 stripped
 Transform:
@@ -65069,6 +65092,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkSpeed: 0.5
   sinkRotationSpeed: 0
+  deathCubert: {fileID: 0}
+  respawnCubert: {fileID: 0}
+  deathHopper: {fileID: 0}
+  respawnHopper: {fileID: 0}
   spocks: []
 --- !u!1 &1979543747
 GameObject:
@@ -69203,26 +69230,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ENV_Vine Elevation Master
       objectReference: {fileID: 0}
-    - target: {fileID: 4592340573323376811, guid: d7a34435db3f3a04a91712dfb4247a98, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 519.9688
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592340573323376811, guid: d7a34435db3f3a04a91712dfb4247a98, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.2802
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592340573323376811, guid: d7a34435db3f3a04a91712dfb4247a98, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.1053
-      objectReference: {fileID: 0}
-    - target: {fileID: 5307338442394786576, guid: d7a34435db3f3a04a91712dfb4247a98, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 519.9688
-      objectReference: {fileID: 0}
-    - target: {fileID: 5307338442394786576, guid: d7a34435db3f3a04a91712dfb4247a98, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.2802
-      objectReference: {fileID: 0}
     - target: {fileID: 7983924033706459963, guid: d7a34435db3f3a04a91712dfb4247a98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -70484,68 +70491,6 @@ Transform:
   - {fileID: 25129226}
   m_Father: {fileID: 1842625665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2515322755218150279
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 658177111}
-    m_Modifications:
-    - target: {fileID: 793648321943277327, guid: 0725b80d65953bd49b85f9c7f9a98db6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 793648321943277327, guid: 0725b80d65953bd49b85f9c7f9a98db6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -21.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 793648321943277327, guid: 0725b80d65953bd49b85f9c7f9a98db6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 793648321943277327, guid: 0725b80d65953bd49b85f9c7f9a98db6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 793648321943277327, guid: 0725b80d65953bd49b85f9c7f9a98db6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 793648321943277327, guid: 0725b80d65953bd49b85f9c7f9a98db6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 793648321943277327, guid: 0725b80d65953bd49b85f9c7f9a98db6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 793648321943277327, guid: 0725b80d65953bd49b85f9c7f9a98db6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 793648321943277327, guid: 0725b80d65953bd49b85f9c7f9a98db6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 793648321943277327, guid: 0725b80d65953bd49b85f9c7f9a98db6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8323982288891680258, guid: 0725b80d65953bd49b85f9c7f9a98db6, type: 3}
-      propertyPath: m_Name
-      value: Waterfall_Mstr
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0725b80d65953bd49b85f9c7f9a98db6, type: 3}
---- !u!4 &2515322755218150280 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 793648321943277327, guid: 0725b80d65953bd49b85f9c7f9a98db6, type: 3}
-  m_PrefabInstance: {fileID: 2515322755218150279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2628980859998970668
 PrefabInstance:
   m_ObjectHideFlags: 0
