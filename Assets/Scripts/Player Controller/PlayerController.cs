@@ -54,13 +54,16 @@ public class PlayerController : MonoBehaviour
     private Vector2 lastMove;
 
     // Moving platform velocity transferral
-    private Rigidbody movingPlatform;
-    private MovingPlatform platformMove;
-    bool onPlatform;
+    //private Rigidbody movingPlatform;
+    //private MovingPlatform platformMove;
+    //bool onPlatform;
 
-    private Vector3 currentMovementDirection;
+    public Vector3 currentMovementDirection;
     private Vector3 lastMovementDirection;
     private Vector3 currentFacingDirection;
+
+    // Action tracking data
+
 
     void Awake()
     {
@@ -211,25 +214,25 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Disable();   
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Moving Platform"))
-        {
-            onPlatform = true;
-            movingPlatform = collision.gameObject.GetComponent<Rigidbody>();
-            platformMove = collision.gameObject.GetComponent<MovingPlatform>();
-        }
-
-    }
-
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Moving Platform"))
-        {
-            onPlatform = false;
-            movingPlatform = null;
-            platformMove = null;
-        }
-    }
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Moving Platform"))
+    //    {
+    //        onPlatform = true;
+    //        movingPlatform = collision.gameObject.GetComponent<Rigidbody>();
+    //        platformMove = collision.gameObject.GetComponent<MovingPlatform>();
+    //    }
+    //
+    //}
+    //
+    //
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Moving Platform"))
+    //    {
+    //        onPlatform = false;
+    //        movingPlatform = null;
+    //        platformMove = null;
+    //    }
+    //}
 }

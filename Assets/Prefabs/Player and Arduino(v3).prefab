@@ -35225,6 +35225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2481311824358210946}
+  - component: {fileID: -2807366515085886278}
   m_Layer: 0
   m_Name: Player and Arduino(v3)
   m_TagString: Untagged
@@ -35249,6 +35250,22 @@ Transform:
   - {fileID: 381472725234099179}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2807366515085886278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5406363126950904165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1732221b87300b148a809638861c05b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hopper: {fileID: 0}
+  hopperGrab: {fileID: 0}
+  cubert: {fileID: 0}
+  instructionIndex: 0
 --- !u!1 &5478216053030185531
 GameObject:
   m_ObjectHideFlags: 0
@@ -35852,6 +35869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fJ: {fileID: 8186065262400580238}
   pC: {fileID: 3544211227757854510}
+  holdingSpock: 0
 --- !u!54 &4027612898735802930
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -35990,6 +36008,7 @@ MonoBehaviour:
   lowJumpMultiplier: 2
   headThrust: 60
   armThrust: 13.6
+  currentMovementDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &6718221757419855801
 GameObject:
   m_ObjectHideFlags: 0
@@ -41875,9 +41894,12 @@ MonoBehaviour:
   - {fileID: 1558187211424893311}
   - {fileID: 6082239582070756220}
   arrayPos: 0
+  hasSpawned: 0
   buttonPressed: 0
   canSpawnSpocks: 1
   blockType: {fileID: 1884563259253913501}
+  input: 
+  previousInput: 
 --- !u!114 &3385436990973806670
 MonoBehaviour:
   m_ObjectHideFlags: 0

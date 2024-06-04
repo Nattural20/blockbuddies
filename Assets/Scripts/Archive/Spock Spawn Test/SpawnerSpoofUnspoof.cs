@@ -21,12 +21,15 @@ public class SpawnerSpoofUnspoof : MonoBehaviour
     public bool pos2;
     public bool pos3;*/
 
-    private bool hasSpawned;
+    public bool hasSpawned;
     public bool buttonPressed;
     public bool canSpawnSpocks;
 
     public TMP_Text blockType;
 
+    // Change in griddy detector
+    public char[] input;
+    public char[] previousInput;
 
     void Update()
     {   
@@ -57,7 +60,7 @@ public class SpawnerSpoofUnspoof : MonoBehaviour
 
     void Spawn()
     {
-        char[] input = GetComponent<ArduinoReader>().OutputArray;
+        input = GetComponent<ArduinoReader>().OutputArray;
 
         if (canSpawnSpocks)
         {
@@ -139,6 +142,7 @@ public class SpawnerSpoofUnspoof : MonoBehaviour
         {
             buttonPressed = false;
         }
+        previousInput = input;
     }
 
     void Spawn(int arrayPos, GameObject spockDaddy, Vector3 offset)
