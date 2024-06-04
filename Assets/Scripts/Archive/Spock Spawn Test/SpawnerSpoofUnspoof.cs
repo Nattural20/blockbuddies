@@ -138,6 +138,7 @@ public class SpawnerSpoofUnspoof : MonoBehaviour
                 hasSpawned = false;
             }
         }
+        FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); //Sound effect script- this line plays a sound from the AudioManager.
         if (buttonPressed == true && input[0].ToString() == "0") //reset buttonpressed if no input is detected
         {
             buttonPressed = false;
