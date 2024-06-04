@@ -25,7 +25,7 @@ public class SpawnerSpoof : MonoBehaviour
     private bool buttonPressed;
 
     public TMP_Text blockType;
-
+    
 
     void Update()
     {   
@@ -109,7 +109,7 @@ public class SpawnerSpoof : MonoBehaviour
                 hasSpawned = false;
             }
             FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); //Sound effect script- this line plays a sound from the AudioManager.
-        }
+            }
     }
 
     void Spawn(int arrayPos, GameObject spockDaddy, Vector3 offset)
