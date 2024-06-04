@@ -9,6 +9,7 @@ public class ActionTracker : MonoBehaviour
     public PlayerController hopper;
     public AlternateGrab hopperGrab;
     public SpawnerSpoofUnspoof cubert;
+    public GameObject instructionUI;
 
     public int instructionIndex = 0;
 
@@ -21,7 +22,6 @@ public class ActionTracker : MonoBehaviour
         hopper = GetComponentInChildren<PlayerController>();
         hopperGrab = GetComponentInChildren<AlternateGrab>();
         cubert = GetComponentInChildren<SpawnerSpoofUnspoof>();
-        instructions = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -33,12 +33,18 @@ public class ActionTracker : MonoBehaviour
                 CheckHopperMove();
             else if (instructionIndex == 1)
                 CheckHopperJump();
+            //else if (instructionIndex == 2)
+            //    CheckSpockUpdate();
             else if (instructionIndex == 2)
-                CheckSpockUpdate();
-            else if (instructionIndex == 3)
                 CheckSpockSpawned();
-            else if (instructionIndex == 4)
+            else if (instructionIndex == 3)
                 CheckHopperGrab();
+
+            //if (Input.GetKeyDown(KeyCode.P))
+            //{
+            //    instructionIndex++;
+            //    ChangeInstructions(instructionIndex);
+            //}
         }
     }
     
@@ -93,7 +99,7 @@ public class ActionTracker : MonoBehaviour
         {
             //spocks spawned
             Debug.Log("Cubert has spawned spock");
-            ChangeInstructions(4);
+            ChangeInstructions(3);
 
             instructionIndex++;
         }
@@ -105,7 +111,7 @@ public class ActionTracker : MonoBehaviour
         {
             //spock held
             Debug.Log("Hopepr has grabbed spock");
-            ChangeInstructions(5);
+            ChangeInstructions(4);
 
             instructionIndex++;
         }
@@ -114,6 +120,24 @@ public class ActionTracker : MonoBehaviour
     void ChangeInstructions(int next)
     {
         // UI Change here
+        if (next == 4)
+        {
+            RemoveInstructions();
+        }
+        StartCoroutine(InstructionChangeDelay());
         instructions.SetInteger("nextInstruction", next);
+    }
+    IEnumerator InstructionChangeDelay()
+    {
+        checkingInputs = false;
+        yield return new WaitForSeconds(1);
+        checkingInputs = true;
+    }
+
+    void RemoveInstructions()
+    {
+        instructionUI.SetActive(false);
+        checkingInputs = false;
+        //enabled = false;
     }
 }
