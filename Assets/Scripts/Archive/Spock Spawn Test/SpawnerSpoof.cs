@@ -108,6 +108,7 @@ public class SpawnerSpoof : MonoBehaviour
                 Debug.Log("No blocks to spawn");
                 hasSpawned = false;
             }
+            FindAnyObjectByType<AudioManager>().Play("SpockSpawn");
         }
     }
 
