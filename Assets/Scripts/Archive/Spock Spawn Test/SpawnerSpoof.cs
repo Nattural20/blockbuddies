@@ -108,7 +108,7 @@ public class SpawnerSpoof : MonoBehaviour
                 Debug.Log("No blocks to spawn");
                 hasSpawned = false;
             }
-            FindAnyObjectByType<AudioManager>().Play("SpockSpawn");
+            FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); //Sound effect script- this line plays a sound from the AudioManager.
         }
     }
 

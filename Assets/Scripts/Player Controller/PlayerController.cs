@@ -177,7 +177,7 @@ public class PlayerController : MonoBehaviour
 
     void Grab()
     {
-
+        FindAnyObjectByType<AudioManager>().Play("BlockPickup"); //Sound effect script- this line plays a sound from the AudioManager.
         Vector3 newDir = new Vector3(lastMove.x, 0, lastMovementDirection.z);
         Debug.Log(lastMovementDirection);
         // hand1.AddForce(lastMovementDirection * armThrust);
@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
-
+            FindAnyObjectByType<AudioManager>().Play("HopperJump"); //Sound effect script- this line plays a sound from the AudioManager.
             //aM.Play("HopperJump");
         }
 

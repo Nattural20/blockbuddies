@@ -18,6 +18,7 @@ public class FallingPlatform : MonoBehaviour
     {
         if (col.gameObject.tag == "Body")
         {
+            FindAnyObjectByType<AudioManager>().Play("PlatformFallWarning"); //Sound effect script- this line plays a sound from the AudioManager.
             fallingPlatform.GetComponent<Animator>().SetBool("isStartWobble", true);
             StartCoroutine(StartWobble());
         }
@@ -36,6 +37,7 @@ public class FallingPlatform : MonoBehaviour
         }
 
         fallingPlatform.GetComponent<Animator>().SetBool("isFalling", true);
+        FindAnyObjectByType<AudioManager>().Play("PlatformFall"); //Sound effect script- this line plays a sound from the AudioManager.
         StartCoroutine(StartCountDown());
     }
 
