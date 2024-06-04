@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class ActionTracker : MonoBehaviour
@@ -11,26 +12,34 @@ public class ActionTracker : MonoBehaviour
 
     public int instructionIndex = 0;
 
+    public Animator instructions;
+
+    bool checkingInputs = true;
+
     void Start()
     {
         hopper = GetComponentInChildren<PlayerController>();
         hopperGrab = GetComponentInChildren<AlternateGrab>();
         cubert = GetComponentInChildren<SpawnerSpoofUnspoof>();
+        instructions = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (instructionIndex == 0)
-            CheckHopperMove();
-        else if (instructionIndex == 1)
-            CheckHopperJump();
-        else if (instructionIndex == 2)
-            CheckSpockUpdate();
-        else if (instructionIndex == 3)
-            CheckSpockSpawned();
-        else if (instructionIndex == 4)
-            CheckHopperGrab();
+        if (checkingInputs)
+        {
+            if (instructionIndex == 0)
+                CheckHopperMove();
+            else if (instructionIndex == 1)
+                CheckHopperJump();
+            else if (instructionIndex == 2)
+                CheckSpockUpdate();
+            else if (instructionIndex == 3)
+                CheckSpockSpawned();
+            else if (instructionIndex == 4)
+                CheckHopperGrab();
+        }
     }
     
     void CheckHopperMove()
@@ -39,6 +48,7 @@ public class ActionTracker : MonoBehaviour
         {
             //hopper moved
             Debug.Log("Hopper has moved");
+            ChangeInstructions(1);
 
             instructionIndex++;
         }
@@ -50,7 +60,7 @@ public class ActionTracker : MonoBehaviour
         {
             //hopper jump
             Debug.Log("Hopper has jumped");
-
+            ChangeInstructions(2);
 
             instructionIndex++;
         }
@@ -67,6 +77,7 @@ public class ActionTracker : MonoBehaviour
             {
                 // Spock updated
                 Debug.Log("Griddy has changed");
+                ChangeInstructions(3);
 
                 instructionIndex++;
                 break;
@@ -82,6 +93,7 @@ public class ActionTracker : MonoBehaviour
         {
             //spocks spawned
             Debug.Log("Cubert has spawned spock");
+            ChangeInstructions(4);
 
             instructionIndex++;
         }
@@ -93,8 +105,15 @@ public class ActionTracker : MonoBehaviour
         {
             //spock held
             Debug.Log("Hopepr has grabbed spock");
+            ChangeInstructions(5);
 
             instructionIndex++;
         }
+    }
+
+    void ChangeInstructions(int next)
+    {
+        // UI Change here
+        instructions.SetInteger("nextInstruction", next);
     }
 }
