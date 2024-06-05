@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class ActionTracker : MonoBehaviour
