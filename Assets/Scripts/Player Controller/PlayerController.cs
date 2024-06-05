@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+
     public AudioManager aM;
 
     public Rigidbody rb;
@@ -84,10 +86,19 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Jump.performed += ctx => StartJump();
         controls.Gameplay.Jump.performed += ctx => isHoldingJump = true;
         controls.Gameplay.Jump.canceled += ctx => isHoldingJump = false;
+
+        controls.Gameplay.Reset.performed += ctx => ResetScene();
+
     }
 
     private void Update()
     {
+
+
+
+
+
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -209,6 +220,15 @@ public class PlayerController : MonoBehaviour
         }
 
         
+    }
+
+
+
+
+    void ResetScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("BOISJDFBJSDBFJDSB");
     }
 
 
