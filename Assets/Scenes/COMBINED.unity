@@ -3511,6 +3511,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111862840}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!198 &116547103 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8073022020917276514, guid: da1859ba07553b84198916595f6be490, type: 3}
+  m_PrefabInstance: {fileID: 8291046373578420103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &123632734
 Transform:
   m_ObjectHideFlags: 0
@@ -20418,11 +20423,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!198 &696120251 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3552037743002437829, guid: da1859ba07553b84198916595f6be490, type: 3}
-  m_PrefabInstance: {fileID: 8291046373578420103}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &697111883 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5241918210677810263, guid: 4674f40190e2b4c4b8bb4415d052a211, type: 3}
@@ -31206,10 +31206,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkSpeed: 0.2
   sinkRotationSpeed: 0.4
-  deathCubert: {fileID: 696120251}
-  respawnCubert: {fileID: 1693361830}
-  deathHopper: {fileID: 0}
-  respawnHopper: {fileID: 0}
+  deathCubert: {fileID: 1153969824}
+  respawnCubert: {fileID: 116547103}
+  deathHopper: {fileID: 1101906360}
+  respawnHopper: {fileID: 1715601494}
   spocks: []
 --- !u!82 &1035596954
 AudioSource:
@@ -33317,6 +33317,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092621080}
   m_Mesh: {fileID: -7133521204521878831, guid: 8cf27ba1cfddca041a411f756354049c, type: 3}
+--- !u!198 &1101906360 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7147032605847992558, guid: da1859ba07553b84198916595f6be490, type: 3}
+  m_PrefabInstance: {fileID: 8291046373578420103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1104117875 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3108704471639173926, guid: 824d4607f2d87d84b85a7adaf273664b, type: 3}
@@ -35790,6 +35795,11 @@ MeshFilter:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8cf27ba1cfddca041a411f756354049c, type: 3}
   m_PrefabInstance: {fileID: 1059104959}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1153969824 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2423329963186186141, guid: da1859ba07553b84198916595f6be490, type: 3}
+  m_PrefabInstance: {fileID: 8291046373578420103}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1166872998
 Transform:
@@ -54311,11 +54321,6 @@ Transform:
   - {fileID: 292502936}
   m_Father: {fileID: 2113024326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!198 &1693361830 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3021838525747959778, guid: da1859ba07553b84198916595f6be490, type: 3}
-  m_PrefabInstance: {fileID: 8291046373578420103}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1697707946
 Transform:
   m_ObjectHideFlags: 0
@@ -55214,6 +55219,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
   m_PrefabInstance: {fileID: 1713519257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1715601494 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4430438235447696145, guid: da1859ba07553b84198916595f6be490, type: 3}
+  m_PrefabInstance: {fileID: 8291046373578420103}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1718015734
 PrefabInstance:
