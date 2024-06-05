@@ -159,10 +159,19 @@ public class SpawnerSpoofUnspoof : MonoBehaviour
         int ind = 1;
         while (ind < input.Length)
         {
-            if (input[ind].ToString() == "1")
+            bool wasActive = ghostSpocks[ind - 1].activeSelf;
+            bool isActive = input[ind].ToString() == "1";
+
+            if (isActive && !wasActive)
+            {
                 ghostSpocks[ind - 1].SetActive(true);
-            else
+                FindAnyObjectByType<AudioManager>().Play("GhostSpockAppear");
+            }
+            else if (!isActive && wasActive)
+            {
                 ghostSpocks[ind - 1].SetActive(false);
+                FindAnyObjectByType<AudioManager>().Play("GhostSpockDisappear");
+            }
 
             ind++;
         }
