@@ -34,7 +34,7 @@ public class SpawnerSpoofUnspoof : MonoBehaviour
     void Update()
     {   
         CycleBlocks();
-        DisplayPos();
+        //DisplayPos();
         Spawn();
         //ModularSpawn(); //new spawn method that utilises a foreach loop, can accept as many inputs as neccessary
 
