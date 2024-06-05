@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
 
     public bool isHoldingGrab = false;
+    bool playedGrabSound = false;
     public GameObject currentBlock;
 
     public float rotationSpeed = 5f;
@@ -97,7 +98,19 @@ public class PlayerController : MonoBehaviour
 
         if (isHoldingGrab)
         {
+            if (!playedGrabSound)
+            {
+                FindAnyObjectByType<AudioManager>().Play("BlockPickup"); //Sound effect script- this line plays a sound from the AudioManager.
+                playedGrabSound = true;
+            }
+
+
             Grab();
+        }
+
+        if (!isHoldingGrab)
+        {
+            playedGrabSound = false;
         }
 
 
@@ -177,7 +190,7 @@ public class PlayerController : MonoBehaviour
 
     void Grab()
     {
-        FindAnyObjectByType<AudioManager>().Play("BlockPickup"); //Sound effect script- this line plays a sound from the AudioManager.
+        
         Vector3 newDir = new Vector3(lastMove.x, 0, lastMovementDirection.z);
         Debug.Log(lastMovementDirection);
         // hand1.AddForce(lastMovementDirection * armThrust);
