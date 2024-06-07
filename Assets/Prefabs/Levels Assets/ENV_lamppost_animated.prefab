@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316185676217985661}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25299022, y: 0.38018796, z: 0.49284962, w: 0.74064326}
+  m_LocalRotation: {x: 0, y: 0.456671, z: 0, w: 0.8896357}
   m_LocalPosition: {x: 3.923668, y: 5.033, z: -4.680229}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 2120671534968013424}
   - {fileID: 8839934555052545935}
   m_Father: {fileID: 1439972825477910646}
-  m_LocalEulerAnglesHint: {x: 0, y: 54.345, z: 67.282}
+  m_LocalEulerAnglesHint: {x: 0, y: 54.345, z: 0}
 --- !u!95 &926670342814350304
 Animator:
   serializedVersion: 7
@@ -173,6 +173,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1439972825477910646}
+  - component: {fileID: 8896215196675264087}
+  - component: {fileID: 7790436334032735566}
   m_Layer: 0
   m_Name: ENV_lamppost_animated
   m_TagString: Untagged
@@ -188,7 +190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2717934901127814203}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.44060388, z: -0, w: 0.8977017}
+  m_LocalRotation: {x: 0, y: -0.44060522, z: 0, w: 0.897701}
   m_LocalPosition: {x: -3.42, y: 0.86000013, z: -11.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -198,6 +200,41 @@ Transform:
   - {fileID: 7319204874966014050}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -52.285, z: 0}
+--- !u!65 &8896215196675264087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2717934901127814203}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 14.096549, y: 6.059105, z: 7.9466996}
+  m_Center: {x: -0.93069226, y: 2.9997058, z: -7.6438}
+--- !u!114 &7790436334032735566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2717934901127814203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead5e990ee94c5e4bb56516c132cab33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bellpart: {fileID: 7104246952919707876}
+  Bellanim: {fileID: 926670342814350304}
 --- !u!1 &2978358897875103094
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +501,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
