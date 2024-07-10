@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class LockedSpawn : MonoBehaviour
 {
-    //public GameObject arduinoController; 
-    //private string scriptName = "Spawner.cs";
-
     private bool _playerPresent = false;
     public SpawnerSpoof spawnScript; //use this to get reference to spawner script, should  pass in object with the script
     public ArduinoReaderSpoof readerScript; //use this to get reference to the spoof output
@@ -24,7 +21,6 @@ public class LockedSpawn : MonoBehaviour
             cube.GetComponent<MeshRenderer>().enabled = false;
             cube.GetComponent<BoxCollider>().enabled = false;
         }
-
     }
 
     // If i go outside with all these powers
@@ -69,8 +65,6 @@ public class LockedSpawn : MonoBehaviour
     {
         //throw new NotImplementedException();
         int[] outputArray = readerScript.OutputArray;
-
-
         int index = 0;
 
         if (_playerPresent)

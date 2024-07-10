@@ -40,33 +40,33 @@ public class ArduinoGetter
         }
     }
 
-    static char[] ReadFromSerialPort() //could add parameter here- pass in string message from serialPort.ReadLine() 
+    static char[] ReadFromSerialPort() 
     {
         //Gets the raw string from Serial Port. Returns a char array.
-            if (serialPort != null && serialPort.IsOpen)
+        if (serialPort != null && serialPort.IsOpen)
+        {
+            try
             {
-                try
-                {
-                    string message = serialPort.ReadLine();
-                    //debug code for lack of arduino on hand "we ball"
-                    //DOESN'T WORK UNLESS SERIALPORT IS OPEN!!!!!!!! DUMBASS!!!!!!!! WHO WROTE THIS???(i am dumbass)
+                string message = serialPort.ReadLine();
+                //debug code for lack of arduino on hand "we ball"
+                //DOESN'T WORK UNLESS SERIALPORT IS OPEN!!!!!!!! DUMBASS!!!!!!!! WHO WROTE THIS???(i am dumbass)
 
-                    if (message != "")
-                    {
-                        char[] FinalArdArray = ArduinoStringToArray(message);
-                        return FinalArdArray;
-                    }
-                    
-
-                }
-                catch (TimeoutException) { }
-                catch (Exception e)
+                if (message != "")
                 {
-                    Console.WriteLine(e);
+                    char[] FinalArdArray = ArduinoStringToArray(message);
+                    return FinalArdArray;
                 }
-                
+
+
             }
-            return null;
+            catch (TimeoutException) { }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+        }
+        return null;
     }
 
     static char[] ArduinoStringToArray(string ArduinoString)

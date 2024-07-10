@@ -10,6 +10,7 @@ public class ArduinoReader : MonoBehaviour
 
     public char[] OutputArray;
     // Start is called before the first frame update
+    //This code starts a thread and returns its array as a value in ArduinoGetter.cs
     void Start()
     {
         t.Start();
