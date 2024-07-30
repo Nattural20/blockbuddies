@@ -8,43 +8,46 @@ public class MineCartControl : MonoBehaviour
 
     Vector3 target, speedDirection;
 
+    int distance = 1;
+
     Rigidbody rb;
 
     bool goMove, isMoving;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         GetBusyMoving();
+        ChangeDistance();
 
         if (goMove)
+            MoveCart();
+    }
+    void MoveCart()
+    {
+        var newPos = Vector3.MoveTowards(transform.position, target, cartSpeed * Time.deltaTime);
+        var changeInPos = newPos - transform.position;
+
+        if (changeInPos.magnitude > 0.001)
         {
-            var newPos = Vector3.MoveTowards(transform.position, target, cartSpeed * Time.deltaTime);
-            var changeInPos = newPos - transform.position;
+            rb.velocity = speedDirection * cartSpeed;
+        }
+        else
+        {
+            transform.position = target;
 
-            //Debug.Log(changeInPos.magnitude);
-            //transform.position = Vector3.Lerp(transform.position, target, cartSpeed * Time.deltaTime);
-            if (changeInPos.magnitude > 0.001)
-            {
-                rb.velocity = speedDirection * cartSpeed;
-            }
-            else
-            {
-                transform.position = target;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            speedDirection = Vector3.zero;
 
-                rb.constraints = RigidbodyConstraints.FreezeAll;
-                speedDirection = Vector3.zero;
-
-                goMove = false;
-                isMoving = false;
-            }
+            goMove = false;
+            isMoving = false;
         }
     }
+
     public void Move(int distanceX, int distanceZ)
     {
         if (!isMoving)
@@ -63,8 +66,18 @@ public class MineCartControl : MonoBehaviour
                 speedDirection = Vector3.forward * distanceZ;
             }
 
-            target = new Vector3(transform.position.x + distanceX * 3, transform.position.y, transform.position.z + distanceZ * 3);
+            target = new Vector3(transform.position.x + distanceX * 3 * distance, transform.position.y, transform.position.z + distanceZ * 3 * distance);
         }
+    }
+
+    void ChangeDistance()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            distance = 1;
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            distance = 2;
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            distance = 3;
     }
 
     void GetBusyMoving()
