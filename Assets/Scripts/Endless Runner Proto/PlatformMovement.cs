@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformMovement : MonoBehaviour
 {
 
-    public int speed = 2;
+    public int speed = 3;
     public float rotation = 50;
     public float maxRotation = 15;
 
