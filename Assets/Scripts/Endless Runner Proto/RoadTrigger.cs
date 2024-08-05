@@ -9,6 +9,7 @@ public class RoadTrigger : MonoBehaviour
     private int currentIndex = 0;
 
     public GameObject lastSpawnedObject;
+    public float zOffset = 16f;
 
 
     private void OnTriggerEnter(Collider other)
@@ -18,8 +19,22 @@ public class RoadTrigger : MonoBehaviour
             //Spawn new platform
             Quaternion spawnRotation = lastSpawnedObject != null ? lastSpawnedObject.transform.rotation : Quaternion.identity;
 
-            //Need to debug the rotation identity for spinning mechanic
-            lastSpawnedObject = Instantiate(sectionPrefab[currentIndex], new Vector3(0,0, 16), spawnRotation);
+            spawnRotation = Quaternion.Euler(spawnRotation.eulerAngles.x, 0, spawnRotation.eulerAngles.z);
+
+            Vector3 newPosition;
+
+
+            if (lastSpawnedObject != null)
+            {
+                newPosition = new Vector3(lastSpawnedObject.transform.position.x, 0, lastSpawnedObject.transform.position.z + zOffset);
+            }
+
+            else
+            {
+                newPosition = new Vector3(transform.position.x, 0, 16);
+            }
+            
+            lastSpawnedObject = Instantiate(sectionPrefab[currentIndex], newPosition, spawnRotation);
 
             //Move to next object in array
             currentIndex++;

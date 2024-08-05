@@ -10,34 +10,42 @@ public class PlatformMovement : MonoBehaviour
     public float maxRotation = 15;
 
     private static float ZRotation = 0;
+    private static float XMovement =1;
 
 
     // Update is called once per frame
     void Update()
     {
-        //Platform movement
+        //Platform z axis movement
         transform.position += new Vector3(0, 0, -2) * speed * Time.deltaTime;
 
-        //Rotate left
+        //Movement left
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             
-
+            //Rotation
             if (ZRotation < maxRotation)
             {
                 ZRotation += rotation * Time.deltaTime;
                 ZRotation = Mathf.Min(ZRotation, maxRotation);
             }
+
+            //X axis movement
+            transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
         }
 
-        //Rotate right
+        //Movement right
         if (Input.GetKey(KeyCode.RightArrow))
         {
+            //Rotation
             if (ZRotation > -maxRotation)
             {   
                 ZRotation += -rotation * Time.deltaTime;
                 ZRotation = Mathf.Max(ZRotation, -maxRotation);            
             }
+
+            //X Axis movement
+            transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
         }
 
         //Reset roation to 0 when no keys are pressed
