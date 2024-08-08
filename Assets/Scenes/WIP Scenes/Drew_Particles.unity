@@ -427,7 +427,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71382345db977be4c85483c1cfe368df, type: 2}
+  - {fileID: -876546973899608171, guid: b4bd6f8641bd0a546aacfd0e9be26e0a, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2527,10 +2527,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7960946102680418857, guid: 64658e7300ed9a445951ddfb7dd80267, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 70810e779bd17c54b8eea46fd7ad363f, type: 2}
+    - target: {fileID: -419533680697149277, guid: 64658e7300ed9a445951ddfb7dd80267, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a7924d37a038ca24da5247e2a5e20e3e, type: 2}
     - target: {fileID: 919132149155446097, guid: 64658e7300ed9a445951ddfb7dd80267, type: 3}
       propertyPath: m_Name
       value: Cubert_V2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3067859705831562286, guid: 64658e7300ed9a445951ddfb7dd80267, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067859705831562286, guid: 64658e7300ed9a445951ddfb7dd80267, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: cbb61bac082d685419ae2064e9831451, type: 3}
+    - target: {fileID: 3067859705831562286, guid: 64658e7300ed9a445951ddfb7dd80267, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: b4bd6f8641bd0a546aacfd0e9be26e0a, type: 3}
+    - target: {fileID: 3067859705831562286, guid: 64658e7300ed9a445951ddfb7dd80267, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eec600feb6e1a7409a7fbc0f926a6da, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
