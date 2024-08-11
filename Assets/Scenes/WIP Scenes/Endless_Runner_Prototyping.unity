@@ -349,6 +349,8 @@ MonoBehaviour:
   - {fileID: 7092467510474044676, guid: 08d47197bcf9bdc44806acb55f3f0183, type: 3}
   - {fileID: 8779607916378170055, guid: 8750a0affa2f4d4428c7c2759f8b127f, type: 3}
   - {fileID: 4280163455942365505, guid: fb5816921d5b3224a88c96cd9a50f79e, type: 3}
+  rotateSpeed: 20
+  platform: {fileID: 0}
   lastSpawnedObject: {fileID: 0}
   zOffset: 29
 --- !u!135 &443215453
@@ -652,15 +654,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9134281393161189524, guid: 7d0b7b0dba08eb644b096c22053542ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000057471075
+      value: -0.000013363192
       objectReference: {fileID: 0}
     - target: {fileID: 9134281393161189524, guid: 7d0b7b0dba08eb644b096c22053542ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.000002483456
+      value: -0.000005506794
       objectReference: {fileID: 0}
     - target: {fileID: 9134281393161189524, guid: 7d0b7b0dba08eb644b096c22053542ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.000008230798
+      value: -0.0000182509
       objectReference: {fileID: 0}
     - target: {fileID: 9134281393161189524, guid: 7d0b7b0dba08eb644b096c22053542ba, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1056,7 +1058,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.8189396, y: 3.3150783, z: 1}
   m_Center: {x: -0.08767721, y: 1.1575394, z: 0}

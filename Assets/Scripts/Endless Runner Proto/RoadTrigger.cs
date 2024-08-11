@@ -8,11 +8,11 @@ public class RoadTrigger : MonoBehaviour
 {
     public GameObject[] sectionPrefab;
     private int currentIndex = 0;
-    
-/*    public float rotateSpeed = 20f;
+
+    public float rotateSpeed = 20f;
     public Transform platform;
     private Quaternion targetRotation;
-    private bool isRotating = false;*/
+    private bool isRotating = false;
 
     public GameObject lastSpawnedObject;
     public float zOffset = 16f;
@@ -53,16 +53,16 @@ public class RoadTrigger : MonoBehaviour
             }
         }
 
- /*       if (other.gameObject.CompareTag("Pivot") && !isRotating)
+        if (other.gameObject.CompareTag("Pivot") && !isRotating)
         {
             targetRotation = Quaternion.Euler(0, 20, 0);
             isRotating = true;
-        }*/
+        }
     }
 
-/*    private void Update()
+    private void Update()
     {
-        if (isRotating) 
+        if (isRotating)
         {
             platform.rotation = Quaternion.Slerp(platform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
 
@@ -72,6 +72,6 @@ public class RoadTrigger : MonoBehaviour
                 isRotating = false;
             }
         }
-    }*/
+    }
 
 }

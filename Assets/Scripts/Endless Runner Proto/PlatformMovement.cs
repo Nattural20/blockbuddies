@@ -68,7 +68,7 @@ public class PlatformMovement : MonoBehaviour
         }
 
         //Global Z axis rotation
-        transform.rotation = Quaternion.Euler(0, 0, ZRotation);
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, ZRotation);
 
 
     }
