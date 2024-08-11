@@ -31,10 +31,11 @@ public class RoadTrigger : MonoBehaviour
 
             else
             {
-                newPosition = new Vector3(transform.position.x, 0, 16);
+                newPosition = new Vector3(transform.position.x, 0, 100);
             }
             
             lastSpawnedObject = Instantiate(sectionPrefab[currentIndex], newPosition, spawnRotation);
+            lastSpawnedObject.transform.parent = GameObject.Find("World").transform;
 
             //Move to next object in array
             currentIndex++;

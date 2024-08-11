@@ -12,6 +12,15 @@ public class PlatformMovement : MonoBehaviour
     private static float ZRotation = 0;
     private static float XMovement =1;
 
+    [SerializeField]
+    private float raftDirection;
+    public ArduinoReaderSpoof readerScript;
+
+    private void Start()
+    {
+        GameObject theObject = GameObject.Find("Arduino Component Spoof");
+        readerScript = theObject.GetComponent<ArduinoReaderSpoof>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -19,8 +28,11 @@ public class PlatformMovement : MonoBehaviour
         //Platform z axis movement
         transform.position += new Vector3(0, 0, -2) * speed * Time.deltaTime;
 
-        //Movement left
-        if (Input.GetKey(KeyCode.LeftArrow))
+        raftDirection = CheckInput();
+
+
+        //Movement right
+        if (Input.GetKey(KeyCode.RightArrow) || (raftDirection < 0))
         {
             
             //Rotation
@@ -34,8 +46,8 @@ public class PlatformMovement : MonoBehaviour
             transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
         }
 
-        //Movement right
-        if (Input.GetKey(KeyCode.RightArrow))
+        //Movement left
+        if (Input.GetKey(KeyCode.LeftArrow) || (raftDirection > 0))
         {
             //Rotation
             if (ZRotation > -maxRotation)
@@ -58,6 +70,19 @@ public class PlatformMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, ZRotation);
     }
 
+    private float CheckInput()
+    {
+        int[] outputArray = readerScript.OutputArray;
+        float input = 0;
+        Debug.Log("Direction:" + raftDirection);
+        if (outputArray[1] == 1) input++;
+        if (outputArray[4] == 1) input++;
+        if (outputArray[7] == 1) input++;
+        if (outputArray[3] == 1) input--;
+        if (outputArray[6] == 1) input--;
+        if (outputArray[9] == 1) input--;
+        return input;
+    }
 
 
 }
