@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlatformMovement : MonoBehaviour
 {
 
-    public int speed = 3;
+    public float speed = 3;
     public float rotation = 50;
     public float maxRotation = 15;
+    
 
     private static float ZRotation = 0;
     private static float XMovement =1;
@@ -68,6 +69,8 @@ public class PlatformMovement : MonoBehaviour
 
         //Global Z axis rotation
         transform.rotation = Quaternion.Euler(0, 0, ZRotation);
+
+
     }
 
     private float CheckInput()
