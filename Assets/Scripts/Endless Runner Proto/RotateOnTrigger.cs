@@ -29,7 +29,7 @@ public class RotateOnTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Raft") && !isRotating && side == 0)
+        if (other.CompareTag("Raft") && !isRotating && side == 1)
         {
             // Define the target rotation (20 degrees around the Y-axis in this example)
             targetRotation = Quaternion.Euler(0, 20, 0);

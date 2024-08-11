@@ -32,8 +32,8 @@ public class PlatformMovement : MonoBehaviour
         raftDirection = CheckInput();
 
 
-        //Movement right
-        if (Input.GetKey(KeyCode.RightArrow) || (raftDirection < 0))
+        //Movement Left
+        if (Input.GetKey(KeyCode.RightArrow) || (raftDirection > 0))
         {
             
             //Rotation
@@ -44,11 +44,11 @@ public class PlatformMovement : MonoBehaviour
             }
 
             //X axis movement
-            transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
+            /*transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);*/
         }
 
-        //Movement left
-        if (Input.GetKey(KeyCode.LeftArrow) || (raftDirection > 0))
+        //Movement Right
+        if (Input.GetKey(KeyCode.LeftArrow) || (raftDirection < 0))
         {
             //Rotation
             if (ZRotation > -maxRotation)
@@ -58,7 +58,7 @@ public class PlatformMovement : MonoBehaviour
             }
 
             //X Axis movement
-            transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
+            /*transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);*/
         }
 
         //Reset roation to 0 when no keys are pressed
