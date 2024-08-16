@@ -17,11 +17,11 @@ public class RaftWeightChecker : MonoBehaviour
         {
             if (addWeight)
             {
-                raft.obstacleWeightAdd++;
+                //raft.obstacleWeightAdd++;
             }
             else
             {
-                raft.obstacleWeightAdd--;
+                //raft.obstacleWeightAdd--;
             }
         }
     }
@@ -31,11 +31,11 @@ public class RaftWeightChecker : MonoBehaviour
         {
             if (addWeight)
             {
-                raft.obstacleWeightAdd--;
+                //raft.obstacleWeightAdd--;
             }
             else
             {
-                raft.obstacleWeightAdd++;
+                //raft.obstacleWeightAdd++;
             }
         }
     }
