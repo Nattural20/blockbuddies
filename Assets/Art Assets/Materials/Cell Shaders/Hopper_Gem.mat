@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hopper_Blue_Cell Shade
+  m_Name: Hopper_Gem
   m_Shader: {fileID: 4800000, guid: 8fa84e1c8f3a97b4bb416e8eb087630e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -19,7 +19,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _OutlineColor
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -73,9 +73,9 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FresnelBrightness: 0.216
-    - _FresnelPower: 0.283
-    - _FresnelShadowDropoff: 0.26
+    - _FresnelBrightness: 0
+    - _FresnelPower: 0.87
+    - _FresnelShadowDropoff: 0.426
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -85,23 +85,23 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineSize: 10
+    - _OutlineSize: 0
     - _Parallax: 0.02
-    - _RampLevels: 4
-    - _RimAlpha: 0.123
+    - _RampLevels: 3
+    - _RimAlpha: 0.641
     - _RimDropOff: 0.152
-    - _RimPower: 0.107
+    - _RimPower: 0.605
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.8443396, g: 0.98631763, b: 1, a: 1}
+    - _Color: {r: 0.9627292, g: 0.84313726, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 0.3523496, g: 0.63939863, b: 0.6981132, a: 1}
-    - _HighColor: {r: 0.6236205, g: 0.81606156, b: 0.9245283, a: 1}
-    - _LowColor: {r: 0.25485048, g: 0.674946, b: 0.7830189, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0.3254717, g: 1, b: 0.8884931, a: 1}
+    - _FresnelColor: {r: 0.3214667, g: 0.49579927, b: 0.5283019, a: 1}
+    - _HighColor: {r: 0.83884525, g: 0.64146495, b: 0.8773585, a: 1}
+    - _LowColor: {r: 0.54432184, g: 0.8301887, b: 0.5715472, a: 1}
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 0.8475555, g: 0.7698469, b: 0.9433962, a: 1}
   m_BuildTextureStacks: []
