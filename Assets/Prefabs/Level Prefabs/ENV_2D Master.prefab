@@ -9678,7 +9678,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4149631307555763884, guid: b29d3abcb9cfe2b45af40801341777e3, type: 3}
+  - {fileID: 2100000, guid: 4eec600feb6e1a7409a7fbc0f926a6da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10120,7 +10120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4396211435503709011, guid: ff0b06f31ac358a48b251729e44e7605, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.6
+      value: 33.52
       objectReference: {fileID: 0}
     - target: {fileID: 4396211435503709011, guid: ff0b06f31ac358a48b251729e44e7605, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10150,10 +10150,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6658064939095411077, guid: ff0b06f31ac358a48b251729e44e7605, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 17e2dcee530f70b4b989836efe14d0cf, type: 2}
     - target: {fileID: 7802805230739332039, guid: ff0b06f31ac358a48b251729e44e7605, type: 3}
       propertyPath: m_Name
-      value: ENV_GameEnd2D_Placeholder
+      value: ENV_GameEnd2D_Main
       objectReference: {fileID: 0}
+    - target: {fileID: 7811186931213455720, guid: ff0b06f31ac358a48b251729e44e7605, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 17e2dcee530f70b4b989836efe14d0cf, type: 2}
+    - target: {fileID: 8211530852856434694, guid: ff0b06f31ac358a48b251729e44e7605, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 17e2dcee530f70b4b989836efe14d0cf, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10172,6 +10184,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3534707887885541298}
     m_Modifications:
+    - target: {fileID: 81539793912938756, guid: 6dbc6121fd4bcec488b08a684f1c3967, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eec600feb6e1a7409a7fbc0f926a6da, type: 2}
     - target: {fileID: 979899860474569858, guid: 6dbc6121fd4bcec488b08a684f1c3967, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.27
@@ -10212,6 +10228,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1249186910216344116, guid: 6dbc6121fd4bcec488b08a684f1c3967, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eec600feb6e1a7409a7fbc0f926a6da, type: 2}
+    - target: {fileID: 1308695455651944003, guid: 6dbc6121fd4bcec488b08a684f1c3967, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eec600feb6e1a7409a7fbc0f926a6da, type: 2}
+    - target: {fileID: 1968599334014262225, guid: 6dbc6121fd4bcec488b08a684f1c3967, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eec600feb6e1a7409a7fbc0f926a6da, type: 2}
+    - target: {fileID: 2774132913120728049, guid: 6dbc6121fd4bcec488b08a684f1c3967, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eec600feb6e1a7409a7fbc0f926a6da, type: 2}
+    - target: {fileID: 3573217692090492203, guid: 6dbc6121fd4bcec488b08a684f1c3967, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eec600feb6e1a7409a7fbc0f926a6da, type: 2}
+    - target: {fileID: 4093132329563082868, guid: 6dbc6121fd4bcec488b08a684f1c3967, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eec600feb6e1a7409a7fbc0f926a6da, type: 2}
+    - target: {fileID: 5273744122536805443, guid: 6dbc6121fd4bcec488b08a684f1c3967, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eec600feb6e1a7409a7fbc0f926a6da, type: 2}
+    - target: {fileID: 6149970804919178942, guid: 6dbc6121fd4bcec488b08a684f1c3967, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eec600feb6e1a7409a7fbc0f926a6da, type: 2}
     - target: {fileID: 9172831637807878546, guid: 6dbc6121fd4bcec488b08a684f1c3967, type: 3}
       propertyPath: m_Name
       value: TestLevel2_LavaClimb_Blockout
@@ -11631,10 +11679,11 @@ PrefabInstance:
       value: ENV_2D Aesthetic
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5494964222325899118, guid: 2f0de89eb4fe8d0438c59c03b6248f74, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 393460869375349489, guid: 2f0de89eb4fe8d0438c59c03b6248f74, type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 4349131698634863845}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f0de89eb4fe8d0438c59c03b6248f74, type: 3}
