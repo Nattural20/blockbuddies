@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.2
+      value: 8.75
       objectReference: {fileID: 0}
     - target: {fileID: 162680498337163520, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
       propertyPath: m_LocalRotation.w
@@ -170,20 +170,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 599703237857240907, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 751508934802194433, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 751508934802194433, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 2969112313536483070, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
       propertyPath: m_Name
       value: SetRespawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821585660252384473, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 077c4eb4838162d42a3c668f2974ec21, type: 3}
---- !u!198 &125201486 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4430438235447696145, guid: da1859ba07553b84198916595f6be490, type: 3}
-  m_PrefabInstance: {fileID: 712396371}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &168773150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3926068289490570043, guid: 26e668aafcaceb2458de979d2bbc7e71, type: 3}
@@ -276,11 +287,6 @@ MeshFilter:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0e355f609416edc4988f79e80f75ff42, type: 3}
   m_PrefabInstance: {fileID: 1433072044}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &287102898 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8073022020917276514, guid: da1859ba07553b84198916595f6be490, type: 3}
-  m_PrefabInstance: {fileID: 712396371}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &288588841
 GameObject:
@@ -842,6 +848,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647509414}
   m_Mesh: {fileID: -2124705421725058983, guid: 979e0a27880f1584cabe6426111c6103, type: 3}
+--- !u!198 &710098498 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4430438235447696145, guid: da1859ba07553b84198916595f6be490, type: 3}
+  m_PrefabInstance: {fileID: 712396371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &712396371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -854,6 +865,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player and Arduino(v4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2473371758201935302, guid: da1859ba07553b84198916595f6be490, type: 3}
+      propertyPath: deathCubert
+      value: 
+      objectReference: {fileID: 1402673570}
+    - target: {fileID: 2473371758201935302, guid: da1859ba07553b84198916595f6be490, type: 3}
+      propertyPath: deathHopper
+      value: 
+      objectReference: {fileID: 1874086764}
+    - target: {fileID: 2473371758201935302, guid: da1859ba07553b84198916595f6be490, type: 3}
+      propertyPath: respawnCubert
+      value: 
+      objectReference: {fileID: 1452133671}
+    - target: {fileID: 2473371758201935302, guid: da1859ba07553b84198916595f6be490, type: 3}
+      propertyPath: respawnHopper
+      value: 
+      objectReference: {fileID: 710098498}
     - target: {fileID: 8951110856518919355, guid: da1859ba07553b84198916595f6be490, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.961258
@@ -1401,10 +1428,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkSpeed: 0.2
   sinkRotationSpeed: 0.4
-  deathCubert: {fileID: 0}
-  respawnCubert: {fileID: 0}
-  deathHopper: {fileID: 0}
-  respawnHopper: {fileID: 0}
   spocks: []
 --- !u!4 &807451396
 Transform:
@@ -1918,7 +1941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1157411147
 Transform:
   m_ObjectHideFlags: 0
@@ -2326,6 +2349,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spockWeight: 0
   spockAmount: 0
+--- !u!198 &1402673570 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2423329963186186141, guid: da1859ba07553b84198916595f6be490, type: 3}
+  m_PrefabInstance: {fileID: 712396371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1418083486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2469,6 +2497,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e355f609416edc4988f79e80f75ff42, type: 3}
+--- !u!198 &1452133671 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8073022020917276514, guid: da1859ba07553b84198916595f6be490, type: 3}
+  m_PrefabInstance: {fileID: 712396371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1481920421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3022,6 +3055,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0e355f609416edc4988f79e80f75ff42, type: 3}
   m_PrefabInstance: {fileID: 1869136395}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1874086764 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7147032605847992558, guid: da1859ba07553b84198916595f6be490, type: 3}
+  m_PrefabInstance: {fileID: 712396371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1924633379
 GameObject:
   m_ObjectHideFlags: 0
@@ -3179,11 +3217,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e355f609416edc4988f79e80f75ff42, type: 3}
---- !u!198 &2008205565 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2423329963186186141, guid: da1859ba07553b84198916595f6be490, type: 3}
-  m_PrefabInstance: {fileID: 712396371}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2041730327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3544,10 +3577,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinkSpeed: 0.2
   sinkRotationSpeed: 0.4
-  deathCubert: {fileID: 2008205565}
-  respawnCubert: {fileID: 287102898}
-  deathHopper: {fileID: 2132232797}
-  respawnHopper: {fileID: 125201486}
   spocks: []
 --- !u!4 &2103043062
 Transform:
@@ -3639,11 +3668,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0e355f609416edc4988f79e80f75ff42, type: 3}
   m_PrefabInstance: {fileID: 2130480935}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2132232797 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7147032605847992558, guid: da1859ba07553b84198916595f6be490, type: 3}
-  m_PrefabInstance: {fileID: 712396371}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &543450651973778919
 Transform:
@@ -4472,6 +4496,10 @@ PrefabInstance:
     - target: {fileID: 6547758950133196455, guid: 33a0b97b3844f3a4ca551be727cb3342, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953841419325011275, guid: 33a0b97b3844f3a4ca551be727cb3342, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8226770975416447853, guid: 33a0b97b3844f3a4ca551be727cb3342, type: 3}
       propertyPath: m_Name
