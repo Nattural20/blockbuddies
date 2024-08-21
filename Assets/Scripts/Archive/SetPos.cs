@@ -13,20 +13,31 @@ public class SetPos : MonoBehaviour
 
     public List<GameObject> playerBits;
 
-
+    public ParticleSystem deathCubert;
+    public ParticleSystem respawnCubert;
+    public ParticleSystem deathHopper;
+    public ParticleSystem respawnHopper;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            TeleportPlayer();
+            StartCoroutine(TeleportDelay());
+            deathHopper.Play();
+            deathCubert.Play();
+            respawnCubert.Play();
+            respawnHopper.Play();
         }
     }
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Teleport Plane") || collision.gameObject.CompareTag("Lava"))
         {
-            TeleportPlayer();
+            deathHopper.Play();
+            deathCubert.Play();
+            respawnCubert.Play();
+            respawnHopper.Play();
+            StartCoroutine (TeleportDelay());
             Debug.Log("Teleporting");
         }
         else if (collision.gameObject.CompareTag("SpawnSet"))
@@ -34,6 +45,12 @@ public class SetPos : MonoBehaviour
             Debug.Log(collision.gameObject);
             pos = collision.gameObject.GetComponent<RespawnPointSet>().newPos;
         }
+    }
+
+    private IEnumerator TeleportDelay() //Delay teleport so particles can activate
+    {
+        yield return new WaitForSeconds((float)0.15);
+        TeleportPlayer();
     }
     private void OnCollisionEnter(Collision collision)
     {

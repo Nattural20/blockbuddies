@@ -6,10 +6,7 @@ using UnityEngine;
 public class LavaScript : MonoBehaviour
 {
     public float sinkSpeed, sinkRotationSpeed;
-    public ParticleSystem deathCubert;
-    public ParticleSystem respawnCubert;
-    public ParticleSystem deathHopper;
-    public ParticleSystem respawnHopper;
+
 
     public List<GameObject> spocks;
     void Start()
@@ -41,10 +38,6 @@ public class LavaScript : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Body"))
         {
-            deathCubert.Play();
-            respawnCubert.Play();
-            deathHopper.Play();
-            respawnHopper.Play();
             //GetComponent<AudioSource>().Play();
             FindAnyObjectByType<AudioManager>().Play("PlayerInVines"); //Sound effect script- this line plays a sound from the AudioManager.
         }
