@@ -234,7 +234,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    void ResetScene()
+    public void ResetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Debug.Log("BOISJDFBJSDBFJDSB");
