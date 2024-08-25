@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class SpawnerCode : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class SpawnerCode : MonoBehaviour
     public char[] input;
     public char[] previousInput;
     public int spawnLimit = 5;
+    public int spockWeight = 60;
     private Queue<GameObject> spawnQueue = new Queue<GameObject>();
 
 
@@ -34,6 +36,23 @@ public class SpawnerCode : MonoBehaviour
         {
             blockType.text = $"Block Type: {blockTypes[arrayPos]}";
         }
+    }
+    public void ChangeSpawnLimit(string input)
+    {
+        //turn to int
+        int x = spawnLimit;//if parse doesnt work, spawnlimit is unchanged
+        Int32.TryParse(input, out x);
+
+        spawnLimit = x;
+    }
+
+    public void ChangeBlockWeight(string input)
+    {
+        //turn to int
+        int x = spockWeight;//if parse doesnt work, spawnlimit is unchanged
+        Int32.TryParse(input, out x);
+
+        spockWeight = x;
     }
 
     void Spawn()
@@ -79,6 +98,9 @@ public class SpawnerCode : MonoBehaviour
             
             //Debug to see if it actually  works!!
             Debug.Log(hasSpawned ? "Can't spawn just yet." : "No blocks to spawn");//IF '1' :else: '2'
+
+            spockDaddy.GetComponent<Rigidbody>().mass = spockWeight;
+            FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); // Sound effect script - this line plays a sound from the AudioManager.
         }
 
         FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); //Audio Scipt
