@@ -30,10 +30,6 @@ public class SetPos : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(TeleportDelay());
-            deathHopper.Play();
-            deathCubert.Play();
-            respawnCubert.Play();
-            respawnHopper.Play();
         }
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxPlayerSpeed);
         if (transform.position.y < -100)
@@ -43,10 +39,6 @@ public class SetPos : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Teleport Plane") || collision.gameObject.CompareTag("Lava"))
         {
-            deathHopper.Play();
-            deathCubert.Play();
-            respawnCubert.Play();
-            respawnHopper.Play();
             StartCoroutine (TeleportDelay());
             Debug.Log("Teleporting");
         }
@@ -59,6 +51,10 @@ public class SetPos : MonoBehaviour
 
     private IEnumerator TeleportDelay() //Delay teleport so particles can activate
     {
+        deathHopper.Play();
+        deathCubert.Play();
+        respawnCubert.Play();
+        respawnHopper.Play();
         yield return new WaitForSeconds((float)0.15);
         TeleportPlayer();
     }
