@@ -18,6 +18,13 @@ public class SetPos : MonoBehaviour
     public ParticleSystem deathHopper;
     public ParticleSystem respawnHopper;
 
+    public float maxPlayerSpeed;
+    Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -28,6 +35,9 @@ public class SetPos : MonoBehaviour
             respawnCubert.Play();
             respawnHopper.Play();
         }
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxPlayerSpeed);
+        if (transform.position.y < -100)
+            TeleportPlayer();
     }
     private void OnTriggerEnter(Collider collision)
     {
@@ -42,7 +52,7 @@ public class SetPos : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("SpawnSet"))
         {
-            Debug.Log(collision.gameObject);
+            //Debug.Log(collision.gameObject);
             pos = collision.gameObject.GetComponent<RespawnPointSet>().newPos;
         }
     }
@@ -67,7 +77,7 @@ public class SetPos : MonoBehaviour
     public void TeleportPlayer()
     {
         transform.position = pos.position;
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
         foreach (GameObject player in playerBits)
         {
             player.transform.position = pos.position;
