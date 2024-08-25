@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+
 public class PlayerController : MonoBehaviour
 {
 
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
 
     PlayerControls controls;
+    PauseMenuController pause;
 
     Vector2 move;
     Vector2 rotate;
@@ -71,6 +73,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         controls = new PlayerControls();
+        pause = gameObject.AddComponent(typeof(PauseMenuController)) as PauseMenuController;
 
         //.started .performed .cancelled
 
@@ -87,7 +90,18 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Jump.performed += ctx => isHoldingJump = true;
         controls.Gameplay.Jump.canceled += ctx => isHoldingJump = false;
 
+        if(pause.isPaused == false)
+        {
+            controls.Gameplay.Menu.performed += ctx => pause.Pause();
+        }
+        if(pause.isPaused == true)
+        {
+            controls.Gameplay.Menu.performed += ctx => pause.Resume();
+        }
         
+        
+
+
 
     }
 

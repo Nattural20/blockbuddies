@@ -12,23 +12,30 @@ public class PauseMenuController : MonoBehaviour
     public List<GameObject> playerParts;
     public Camera mainCam;
 
-    PlayerControls controls;
+    
 
     public GameObject pauseMenuUI;
-    private bool isPaused = false;
+    public bool isPaused = false;
 
 
     private void Awake()
     {
-        controls = new PlayerControls();
+        
 
-        controls.Gameplay.Menu.performed += ctx => PauseMenu();
     }
 
     private void Start()
     {
-        //Turns off pause menu at game start
-        pauseMenuUI.SetActive(false);
+
+        if (pauseMenuUI == null)
+        {
+            Debug.Log("I'm throwing a fit cause I can't read that I have an object.");
+        }
+        else
+        {
+            //Turns off pause menu at game start
+            pauseMenuUI.SetActive(false);
+        }
 
         PopulateDropdown();
 
@@ -42,18 +49,19 @@ public class PauseMenuController : MonoBehaviour
         
     }
 
-void PauseMenu()
-    {
+    
 
-            if (isPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        
+    public void PauseMenu()
+    {
+        /*var pm = new PauseMenuController();*/
+        if (isPaused)
+        {
+            Resume();
+        }
+        else
+        { 
+            Pause();
+        }
     }
 
 
