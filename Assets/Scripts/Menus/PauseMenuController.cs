@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using static UnityEditor.PlayerSettings;
 
 public class PauseMenuController : MonoBehaviour
 {
-  
-    public Dropdown spawnSelect;
+    public GameObject spawnSelect;
+    private Dropdown actualspawnSelect;
     public List<Transform> spawns;
     public List<GameObject> playerParts;
     public Camera mainCam;
-
-    
 
     public GameObject pauseMenuUI;
     public bool isPaused = false;
@@ -26,7 +25,8 @@ public class PauseMenuController : MonoBehaviour
 
     private void Start()
     {
-
+        actualspawnSelect = spawnSelect.GetComponent<Dropdown>();
+        actualspawnSelect.onValueChanged.AddListener(OnSpawnLocationsSelect);
         if (pauseMenuUI == null)
         {
             Debug.Log("I'm throwing a fit cause I can't read that I have an object.");
@@ -37,9 +37,8 @@ public class PauseMenuController : MonoBehaviour
             pauseMenuUI.SetActive(false);
         }
 
+        
         PopulateDropdown();
-
-        spawnSelect.onValueChanged.AddListener(OnSpawnLocationsSelect);
     }
 
     void Update()
@@ -82,7 +81,7 @@ public class PauseMenuController : MonoBehaviour
 
     void PopulateDropdown()
     {
-        spawnSelect.ClearOptions();
+        actualspawnSelect.ClearOptions();
 
         List<string> options = new List<string>();
         foreach(var spawnzone in spawns)
@@ -90,7 +89,7 @@ public class PauseMenuController : MonoBehaviour
             options.Add(spawnzone.name);
         }
 
-        spawnSelect.AddOptions(options);
+        actualspawnSelect.AddOptions(options);
     }
 
 

@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     PlayerControls controls;
     PauseMenuController pause;
+    public GameObject pauseObject;
 
     Vector2 move;
     Vector2 rotate;
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         controls = new PlayerControls();
-        pause = gameObject.AddComponent(typeof(PauseMenuController)) as PauseMenuController;
+        pause = pauseObject.GetComponent<PauseMenuController>();
 
         //.started .performed .cancelled
 
@@ -90,14 +91,8 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Jump.performed += ctx => isHoldingJump = true;
         controls.Gameplay.Jump.canceled += ctx => isHoldingJump = false;
 
-        if(pause.isPaused == false)
-        {
-            controls.Gameplay.Menu.performed += ctx => pause.Pause();
-        }
-        if(pause.isPaused == true)
-        {
-            controls.Gameplay.Menu.performed += ctx => pause.Resume();
-        }
+        controls.Gameplay.Menu.performed += ctx => pause.PauseMenu();
+
         
         
 
