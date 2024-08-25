@@ -10,10 +10,20 @@ public class PauseMenuController : MonoBehaviour
     public Dropdown spawnSelect;
     public List<Transform> spawns;
     public List<GameObject> playerParts;
-    
+    public Camera mainCam;
+
+    PlayerControls controls;
+
     public GameObject pauseMenuUI;
     private bool isPaused = false;
 
+
+    private void Awake()
+    {
+        controls = new PlayerControls();
+
+        controls.Gameplay.Menu.performed += ctx => PauseMenu();
+    }
 
     private void Start()
     {
@@ -28,9 +38,13 @@ public class PauseMenuController : MonoBehaviour
     void Update()
     {
 
-        //Pauses an unpauses game on ESC press
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+
+        
+    }
+
+void PauseMenu()
+    {
+
             if (isPaused)
             {
                 Resume();
@@ -39,7 +53,6 @@ public class PauseMenuController : MonoBehaviour
             {
                 Pause();
             }
-        }
         
     }
 

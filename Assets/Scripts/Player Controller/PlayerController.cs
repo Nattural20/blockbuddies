@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Jump.performed += ctx => isHoldingJump = true;
         controls.Gameplay.Jump.canceled += ctx => isHoldingJump = false;
 
-        controls.Gameplay.Reset.performed += ctx => ResetScene();
+        
 
     }
 
