@@ -29,15 +29,6 @@ public class SpawnerCode : MonoBehaviour
         CycleBlocks();
         Spawn();
     }
-
-    void DisplayPos() //Currently Unused- block types soon?
-    {
-        string[] blockTypes = { "Normal", "Icy", "Bouncy" };
-        if (arrayPos >= 0 && arrayPos < blockTypes.Length)
-        {
-            blockType.text = $"Block Type: {blockTypes[arrayPos]}";
-        }
-    }
     public void ChangeSpawnLimit(string input)
     {
         //turn to int
@@ -121,9 +112,10 @@ public class SpawnerCode : MonoBehaviour
             {
                 Debug.LogError("Oopsy woopsy arduino got fucky wuckied");
                 hasErrored = true;
+                StartCoroutine(ErrorReset());
             }
         }
-        }
+    }
 
     void SpawnBlock(int arrayPos, GameObject spockDaddy, Vector3 offset) //spawns each INDIVIDUAL BLOCK within the SpockDaddy group. Gives them a Collider too
     {
@@ -163,6 +155,12 @@ public class SpawnerCode : MonoBehaviour
             arrayPos = (arrayPos + 1) % blocks.Length; //cycle to 0 after hitting length count
             Debug.Log(arrayPos == 0 ? "Resetting array." : "Changing block.");
         }
+    }
+
+    IEnumerator ErrorReset()
+    {
+        yield return new WaitForSeconds(2);
+        hasErrored = false;
     }
 }
 

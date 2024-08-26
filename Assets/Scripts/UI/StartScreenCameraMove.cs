@@ -5,7 +5,7 @@ using UnityEngine;
 public class StartScreenCameraMove : MonoBehaviour
 {
     public GameObject playerCam, startCam;
-    public SpawnerSpoofUnspoof spawner;
+    public SpawnerCode spawner;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Body"))
