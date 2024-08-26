@@ -19,6 +19,7 @@ public class SpawnerCode : MonoBehaviour
     public int spockWeight = 60;
     private Queue<GameObject> spawnQueue = new Queue<GameObject>();
 
+    bool hasErrored = false;
 
     /// <summary>
     /// Spawner Code V2. No More Blockin' Around. 
@@ -59,59 +60,70 @@ public class SpawnerCode : MonoBehaviour
     {
         input = GetComponent<ArduinoReader>().OutputArray;
 
-        if (canSpawnSpocks)
+        if (input != null)
         {
-            UpdateGhostSpocks(input);
-        }
-
-        if (input[0].ToString() == "1" && !buttonPressed)
-        {
-            buttonPressed = true;
-            GameObject spockDaddy = Instantiate(spockShell, SpawnPosGuide.transform.position, SpawnPosGuide.transform.rotation);
-
             if (canSpawnSpocks)
             {
-                Vector3[] positions = {
+                UpdateGhostSpocks(input);
+            }
+
+            if (input[0].ToString() == "1" && !buttonPressed)
+            {
+                buttonPressed = true;
+                GameObject spockDaddy = Instantiate(spockShell, SpawnPosGuide.transform.position, SpawnPosGuide.transform.rotation);
+
+                if (canSpawnSpocks)
+                {
+                    Vector3[] positions = {
                     new Vector3(-1, 0, 1), new Vector3(-1, 0, 0), new Vector3(-1, 0, -1),
                     new Vector3(0, 0, 1), new Vector3(0, 0, 0), new Vector3(0, 0, -1),
                     new Vector3(1, 0, 1), new Vector3(1, 0, 0), new Vector3(1, 0, -1)
                 };
 
-                for (int i = 1; i <= 9; i++) //Assign each position active or inactive depending on Arduino input
-                {
-                    if (input[i].ToString() == "1")
+                    for (int i = 1; i <= 9; i++) //Assign each position active or inactive depending on Arduino input
                     {
-                        SpawnBlock(arrayPos, spockDaddy, positions[i - 1]);
-                        hasSpawned = true;
+                        if (input[i].ToString() == "1")
+                        {
+                            SpawnBlock(arrayPos, spockDaddy, positions[i - 1]);
+                            hasSpawned = true;
+                        }
                     }
                 }
+
+                //Spawn Limit argument ahead...
+                if (spawnQueue.Count >= spawnLimit)
+                {
+                    GameObject oldestSpockGroup = spawnQueue.Dequeue(); ///Hydrocity Zone Act 1
+                    Debug.Log("Destroying oldest spock group: " + oldestSpockGroup.name);
+                    Destroy(oldestSpockGroup);
+                }
+                spawnQueue.Enqueue(spockDaddy); //Queue the newest Spock group after destroying the old one 
+
+                //Debug to see if it actually  works!!
+                Debug.Log(hasSpawned ? "Can't spawn just yet." : "No blocks to spawn");//IF '1' :else: '2'
+
+                spockDaddy.GetComponent<Rigidbody>().mass = spockWeight;
+                FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); // Sound effect script - this line plays a sound from the AudioManager.
             }
 
-            //Spawn Limit argument ahead...
-            if (spawnQueue.Count >= spawnLimit) 
+            FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); //Audio Scipt
+
+            if (buttonPressed && input[0].ToString() == "0")
             {
-                GameObject oldestSpockGroup = spawnQueue.Dequeue(); ///Hydrocity Zone Act 1
-                Debug.Log("Destroying oldest spock group: " + oldestSpockGroup.name);
-                Destroy(oldestSpockGroup);
+                buttonPressed = false;
             }
-            spawnQueue.Enqueue(spockDaddy); //Queue the newest Spock group after destroying the old one 
-            
-            //Debug to see if it actually  works!!
-            Debug.Log(hasSpawned ? "Can't spawn just yet." : "No blocks to spawn");//IF '1' :else: '2'
 
-            spockDaddy.GetComponent<Rigidbody>().mass = spockWeight;
-            FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); // Sound effect script - this line plays a sound from the AudioManager.
+            previousInput = input;
         }
-
-        FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); //Audio Scipt
-
-        if (buttonPressed && input[0].ToString() == "0")
+        else
         {
-            buttonPressed = false;
+            if (!hasErrored)
+            {
+                Debug.LogError("Oopsy woopsy arduino got fucky wuckied");
+                hasErrored = true;
+            }
         }
-
-        previousInput = input;
-    }
+        }
 
     void SpawnBlock(int arrayPos, GameObject spockDaddy, Vector3 offset) //spawns each INDIVIDUAL BLOCK within the SpockDaddy group. Gives them a Collider too
     {
