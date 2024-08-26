@@ -88,8 +88,14 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Rotate.canceled += ctx => rotate = Vector2.zero;
 
         controls.Gameplay.Jump.performed += ctx => StartJump();
+
+
+
+        /*
         controls.Gameplay.Jump.performed += ctx => isHoldingJump = true;
         controls.Gameplay.Jump.canceled += ctx => isHoldingJump = false;
+        */
+
 
         controls.Gameplay.Menu.performed += ctx => pause.PauseMenu();
 
@@ -149,6 +155,8 @@ public class PlayerController : MonoBehaviour
 
 
 
+        /*
+
         //making the jump better
         if (rb.velocity.y < 0)
         {
@@ -158,6 +166,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
+        */
     }
 
     void RotatePlayer()
