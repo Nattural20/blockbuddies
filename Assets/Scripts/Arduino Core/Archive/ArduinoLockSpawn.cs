@@ -9,7 +9,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
     //private string scriptName = "Spawner.cs";
 
     private bool _playerPresent = false;
-    public SpawnerSpoofUnspoof spawnScript; //use this to get reference to spawner script, should pass in object with the script
+    public SpawnerCode spawnScript; //use this to get reference to spawner script, should pass in object with the script
     public ArduinoReader readerScript; //use this to get reference to the real
     ///Both of these variables should come from the same object. Fix later.
     //public GameObject spawnLocation;
