@@ -12,8 +12,11 @@ public class PauseMenuController : MonoBehaviour
     public List<GameObject> playerParts;
     public Camera mainCam;
 
+    public GameObject fpsCounter;
     public GameObject pauseMenuUI;
     public bool isPaused = false;
+
+    private bool fpsOn = false;
 
 
     private void Awake()
@@ -24,6 +27,8 @@ public class PauseMenuController : MonoBehaviour
 
     private void Start()
     {
+        fpsCounter.SetActive(false);
+
         actualspawnSelect = spawnSelect.GetComponent<Dropdown>();
         actualspawnSelect.onValueChanged.AddListener(OnSpawnLocationsSelect);
         if (pauseMenuUI == null)
@@ -114,6 +119,21 @@ public class PauseMenuController : MonoBehaviour
         else
         {
             Debug.LogWarning("Invalid index selected: " +  index);
+        }
+    }
+
+    public void FPSCheck()
+    {
+        if (fpsOn == false)
+        {
+            fpsCounter.SetActive(true);
+            fpsOn = true;
+        }
+
+        else
+        {
+            fpsCounter.SetActive(false);
+            fpsOn = false;
         }
     }
 
