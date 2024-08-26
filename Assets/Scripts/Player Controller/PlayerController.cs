@@ -111,7 +111,10 @@ public class PlayerController : MonoBehaviour
     {
 
 
-
+        if (pause.isPaused == true && Input.GetKey(KeyCode.Joystick1Button6) && Input.GetKey(KeyCode.Joystick1Button7))
+        {
+            ResetScene();
+        }
 
 
 
@@ -250,6 +253,7 @@ public class PlayerController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Debug.Log("BOISJDFBJSDBFJDSB");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
     }
 
 
