@@ -31,6 +31,8 @@ public class SpawnerSpoofUnspoof : MonoBehaviour
     public char[] input;
     public char[] previousInput;
 
+    bool hasErrored = false;
+
     void Update()
     {   
         CycleBlocks();
@@ -62,88 +64,99 @@ public class SpawnerSpoofUnspoof : MonoBehaviour
     {
         input = GetComponent<ArduinoReader>().OutputArray;
 
-        if (canSpawnSpocks)
+        if (input != null)
         {
-            UpdateGhostSpocks(input);
-        }
-        
-        if (input[0].ToString() == "1" && buttonPressed == false)
-        {
-            buttonPressed = true;
-
-            var spockDaddy = Instantiate(spockShell, SpawnPosGuide.transform.position, SpawnPosGuide.transform.rotation);
-
             if (canSpawnSpocks)
             {
-                if (input[1].ToString() == "1")
-                {
-                    Spawn(arrayPos, spockDaddy, new Vector3(-1, 0, 1));
-
-                    hasSpawned = true;
-                }
-                if (input[2].ToString() == "1")
-                {
-                    Spawn(arrayPos, spockDaddy, new Vector3(-1, 0, 0));
-
-                    hasSpawned = true;
-                }
-                if (input[3].ToString() == "1")
-                {
-                    Spawn(arrayPos, spockDaddy, new Vector3(-1, 0, -1));
-
-                    hasSpawned = true;
-                }
-                //temporary hardcode 3x3 grid until foreach is working
-                if (input[4].ToString() == "1")
-                {
-                    Spawn(arrayPos, spockDaddy, new Vector3(0, 0, 1));
-                    hasSpawned = true;
-                }
-                if (input[5].ToString() == "1")
-                {
-                    Spawn(arrayPos, spockDaddy, new Vector3(0, 0, 0));
-                    hasSpawned = true;
-                }
-                if (input[6].ToString() == "1")
-                {
-                    Spawn(arrayPos, spockDaddy, new Vector3(0, 0, -1));
-                    hasSpawned = true;
-                }
-                if (input[7].ToString() == "1")
-                {
-                    Spawn(arrayPos, spockDaddy, new Vector3(1, 0, 1));
-                    hasSpawned = true;
-                }
-                if (input[8].ToString() == "1")
-                {
-                    Spawn(arrayPos, spockDaddy, new Vector3(1, 0, 0));
-                    hasSpawned = true;
-                }
-                if (input[9].ToString() == "1")
-                {
-                    Spawn(arrayPos, spockDaddy, new Vector3(1, 0, -1));
-                    hasSpawned = true;
-                }
+                UpdateGhostSpocks(input);
             }
 
-
-            if (hasSpawned == true)
+            if (input[0].ToString() == "1" && buttonPressed == false)
             {
-                Debug.Log("Can't spawn just yet.");
-            }
+                buttonPressed = true;
 
-            else
-            {
-                Debug.Log("No blocks to spawn");
-                hasSpawned = false;
+                var spockDaddy = Instantiate(spockShell, SpawnPosGuide.transform.position, SpawnPosGuide.transform.rotation);
+
+                if (canSpawnSpocks)
+                {
+                    if (input[1].ToString() == "1")
+                    {
+                        Spawn(arrayPos, spockDaddy, new Vector3(-1, 0, 1));
+
+                        hasSpawned = true;
+                    }
+                    if (input[2].ToString() == "1")
+                    {
+                        Spawn(arrayPos, spockDaddy, new Vector3(-1, 0, 0));
+
+                        hasSpawned = true;
+                    }
+                    if (input[3].ToString() == "1")
+                    {
+                        Spawn(arrayPos, spockDaddy, new Vector3(-1, 0, -1));
+
+                        hasSpawned = true;
+                    }
+                    //temporary hardcode 3x3 grid until foreach is working
+                    if (input[4].ToString() == "1")
+                    {
+                        Spawn(arrayPos, spockDaddy, new Vector3(0, 0, 1));
+                        hasSpawned = true;
+                    }
+                    if (input[5].ToString() == "1")
+                    {
+                        Spawn(arrayPos, spockDaddy, new Vector3(0, 0, 0));
+                        hasSpawned = true;
+                    }
+                    if (input[6].ToString() == "1")
+                    {
+                        Spawn(arrayPos, spockDaddy, new Vector3(0, 0, -1));
+                        hasSpawned = true;
+                    }
+                    if (input[7].ToString() == "1")
+                    {
+                        Spawn(arrayPos, spockDaddy, new Vector3(1, 0, 1));
+                        hasSpawned = true;
+                    }
+                    if (input[8].ToString() == "1")
+                    {
+                        Spawn(arrayPos, spockDaddy, new Vector3(1, 0, 0));
+                        hasSpawned = true;
+                    }
+                    if (input[9].ToString() == "1")
+                    {
+                        Spawn(arrayPos, spockDaddy, new Vector3(1, 0, -1));
+                        hasSpawned = true;
+                    }
+                }
+
+
+                if (hasSpawned == true)
+                {
+                    Debug.Log("Can't spawn just yet.");
+                }
+
+                else
+                {
+                    Debug.Log("No blocks to spawn");
+                    hasSpawned = false;
+                }
             }
+            FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); //Sound effect script- this line plays a sound from the AudioManager.
+            if (buttonPressed == true && input[0].ToString() == "0") //reset buttonpressed if no input is detected
+            {
+                buttonPressed = false;
+            }
+            previousInput = input;
         }
-        FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); //Sound effect script- this line plays a sound from the AudioManager.
-        if (buttonPressed == true && input[0].ToString() == "0") //reset buttonpressed if no input is detected
+        else
         {
-            buttonPressed = false;
+            if (!hasErrored)
+            {
+                Debug.LogError("Oopsy woopsy arduino got fucky wuckied");
+                hasErrored = true;
+            }
         }
-        previousInput = input;
     }
 
     void Spawn(int arrayPos, GameObject spockDaddy, Vector3 offset)
