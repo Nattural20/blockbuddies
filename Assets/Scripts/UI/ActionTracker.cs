@@ -7,7 +7,7 @@ public class ActionTracker : MonoBehaviour
 {
     public PlayerController hopper;
     public AlternateGrab hopperGrab;
-    public SpawnerSpoofUnspoof cubert;
+    public SpawnerCode cubert;
     public GameObject instructionUI;
 
     public int instructionIndex = 0;
@@ -20,7 +20,7 @@ public class ActionTracker : MonoBehaviour
     {
         hopper = GetComponentInChildren<PlayerController>();
         hopperGrab = GetComponentInChildren<AlternateGrab>();
-        cubert = GetComponentInChildren<SpawnerSpoofUnspoof>();
+        cubert = GetComponentInChildren<SpawnerCode>();
     }
 
     // Update is called once per frame

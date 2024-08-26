@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
+    public float groundRayDistance = 1;
     public LayerMask groundMask;
 
     public bool isGrounded = false;
@@ -114,7 +115,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = CheckGrounded();
 
         if (isGrounded && velocity.y < 0)
         {
@@ -265,25 +267,35 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Disable();   
     }
 
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Moving Platform"))
-    //    {
-    //        onPlatform = true;
-    //        movingPlatform = collision.gameObject.GetComponent<Rigidbody>();
-    //        platformMove = collision.gameObject.GetComponent<MovingPlatform>();
-    //    }
-    //
-    //}
-    //
-    //
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Moving Platform"))
-    //    {
-    //        onPlatform = false;
-    //        movingPlatform = null;
-    //        platformMove = null;
-    //    }
-    //}
+    bool CheckGrounded()
+    {
+        RaycastHit hit;
+
+        Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        if (Physics.SphereCast(groundCheck.position, groundDistance, Vector3.down, out hit, groundRayDistance))
+        {
+            float groundSlopeAngle = Vector3.Angle(hit.normal, Vector3.up);
+
+            //Vector3 temp = Vector3.Cross(hit.normal, Vector3.down);
+            //
+            //Vector3 groundSlopeDir = Vector3.Cross(temp, hit.normal);
+
+            if (groundSlopeAngle < 45)
+            {
+                Debug.Log("Player is grounded on " + hit.collider.name);
+                return true;
+            }
+            else
+            {
+                Debug.Log("Player is not grounded (sphere check)");
+                return false;
+            }
+        }
+        else
+        {
+            Debug.Log("Player is not grounded (no sphere check)");
+            return false;
+
+        }
+    }
 }
