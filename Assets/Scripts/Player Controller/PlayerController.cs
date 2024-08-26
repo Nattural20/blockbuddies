@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public float groundRayDistance = 1;
+    public float groundMaxAngle = 45;
     public LayerMask groundMask;
 
     public bool isGrounded = false;
@@ -285,20 +286,20 @@ public class PlayerController : MonoBehaviour
             //
             //Vector3 groundSlopeDir = Vector3.Cross(temp, hit.normal);
 
-            if (groundSlopeAngle < 45)
+            if (groundSlopeAngle < groundMaxAngle)
             {
-                //Debug.Log("Player is grounded on " + hit.collider.name);
+                Debug.Log("Player is grounded on " + hit.collider.name);
                 return true;
             }
             else
             {
-                //Debug.Log("Player is not grounded (sphere check)");
+                Debug.Log("Player is not grounded (sphere check)");
                 return false;
             }
         }
         else
         {
-            //Debug.Log("Player is not grounded (no sphere check)");
+            Debug.Log("Player is not grounded (no sphere check)");
             return false;
 
         }
