@@ -14,6 +14,8 @@ public class ActionTracker : MonoBehaviour
 
     public Animator instructions;
 
+    public int instructionTimeoutTime = 30;
+
     bool checkingInputs = true;
 
     void Start()
@@ -53,9 +55,7 @@ public class ActionTracker : MonoBehaviour
         {
             //hopper moved
             Debug.Log("Hopper has moved");
-            ChangeInstructions(1);
-
-            instructionIndex++;
+            ChangeInstructions();
         }
     }
 
@@ -65,9 +65,7 @@ public class ActionTracker : MonoBehaviour
         {
             //hopper jump
             Debug.Log("Hopper has jumped");
-            ChangeInstructions(2);
-
-            instructionIndex++;
+            ChangeInstructions();
         }
     }
 
@@ -82,9 +80,7 @@ public class ActionTracker : MonoBehaviour
             {
                 // Spock updated
                 Debug.Log("Griddy has changed");
-                ChangeInstructions(3);
-
-                instructionIndex++;
+                ChangeInstructions();
                 break;
             }
             else
@@ -98,9 +94,7 @@ public class ActionTracker : MonoBehaviour
         {
             //spocks spawned
             Debug.Log("Cubert has spawned spock");
-            ChangeInstructions(3);
-
-            instructionIndex++;
+            ChangeInstructions();
         }
     }
 
@@ -109,22 +103,28 @@ public class ActionTracker : MonoBehaviour
         if (hopperGrab.holdingSpock == true)
         {
             //spock held
-            Debug.Log("Hopepr has grabbed spock");
-            ChangeInstructions(4);
-
-            instructionIndex++;
+            Debug.Log("Hopper has grabbed spock");
+            ChangeInstructions();
         }
     }
 
-    void ChangeInstructions(int next)
+    void ChangeInstructions()
     {
+        instructionIndex++;
         // UI Change here
-        if (next == 4)
+        if (instructionIndex == 4)
         {
             RemoveInstructions();
         }
-        StartCoroutine(InstructionChangeDelay());
-        instructions.SetInteger("nextInstruction", next);
+        else
+        {
+            StopCoroutine(InstructionTimeout());
+
+            StartCoroutine(InstructionChangeDelay());
+            StartCoroutine(InstructionTimeout());
+
+            instructions.SetInteger("nextInstruction", instructionIndex);
+        }
     }
     IEnumerator InstructionChangeDelay()
     {
@@ -138,5 +138,15 @@ public class ActionTracker : MonoBehaviour
         instructionUI.SetActive(false);
         checkingInputs = false;
         //enabled = false;
+    }
+
+    IEnumerator InstructionTimeout()
+    {
+        int currentInstruction = instructionIndex;
+        yield return new WaitForSeconds(instructionTimeoutTime);
+        if (instructionIndex == currentInstruction)
+        {
+            ChangeInstructions();
+        }
     }
 }
