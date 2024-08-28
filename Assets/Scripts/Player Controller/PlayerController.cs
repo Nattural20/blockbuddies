@@ -280,11 +280,6 @@ public class PlayerController : MonoBehaviour
 
     bool CheckGrounded()
     {
-        //if (rb.velocity.y < 0.2)
-        //{
-        //    return true;
-        //}
-
         if (Physics.SphereCast(groundCheck.position, groundDistance, Vector3.down, out RaycastHit hit, groundRayDistance))
         {
             float groundSlopeAngle = Vector3.Angle(hit.normal, Vector3.up);
