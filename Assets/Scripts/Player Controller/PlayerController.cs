@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public float spockGroundMaxAngle = 70;
     public LayerMask groundMask;
 
+    public float coyoteTime = 0.2f;
+    private float timeSinceLastGrounded;
+
     //timer to check if player is not falling
     private float verticalVelocityCheck;
     public float timeBetweenVerticalVelocityCheck = 0.5f;
@@ -278,8 +281,11 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Disable();   
     }
 
-    bool CheckGrounded()
+    private bool CheckGrounded()
     {
+        timeSinceLastGrounded += Time.deltaTime;
+
+
         if (Physics.SphereCast(groundCheck.position, groundDistance, Vector3.down, out RaycastHit hit, groundRayDistance))
         {
             float groundSlopeAngle = Vector3.Angle(hit.normal, Vector3.up);
@@ -292,22 +298,30 @@ public class PlayerController : MonoBehaviour
             {
                 if (groundSlopeAngle < spockGroundMaxAngle)
                 {
+                    timeSinceLastGrounded = 0f;
                     return true;
                 }
                 else
                 {
-                    return false;
+                    if (timeSinceLastGrounded < coyoteTime)
+                        return true;
+                    else
+                        return false;
                 }
             }
-            else if (groundSlopeAngle < groundMaxAngle)
+            else if (groundSlopeAngle < groundMaxAngle && !hit.collider.isTrigger)
             {
                 Debug.Log("Ray hit. Player is grounded on " + hit.collider.name + " at " + groundSlopeAngle + " degrees");
+                timeSinceLastGrounded = 0f;
                 return true;
             }
             else
             {
                 Debug.Log("Ray hit. Player is not grounded" + " at " + groundSlopeAngle + " degrees");
-                return false;
+                if (timeSinceLastGrounded < coyoteTime)
+                    return true;
+                else
+                    return false;
             }
         }
 
@@ -319,24 +333,34 @@ public class PlayerController : MonoBehaviour
             {
                 if (rb.velocity.y < 0.2 && rb.velocity.y > -0.2) // Check again after time passes
                 {
+                    timeSinceLastGrounded = 0f;
                     return true;
                 }
                 else
                 {
                     verticalVelocityCheck = 0;
-                    return false;
+                    if (timeSinceLastGrounded < coyoteTime)
+                        return true;
+                    else
+                        return false;
                 }
             }
             else
             {
-                return false;
+                if (timeSinceLastGrounded < coyoteTime)
+                    return true;
+                else
+                    return false;
             }
         }
 
         else
         {
             Debug.Log("Ray has not hit. Player is not grounded");
-            return false;
+            if (timeSinceLastGrounded < coyoteTime)
+                return true;
+            else
+                return false;
         }
     }
 }
