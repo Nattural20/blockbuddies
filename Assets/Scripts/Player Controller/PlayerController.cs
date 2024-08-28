@@ -17,7 +17,12 @@ public class PlayerController : MonoBehaviour
     public float groundDistance = 0.4f;
     public float groundRayDistance = 1;
     public float groundMaxAngle = 45;
+    public float spockGroundMaxAngle = 70;
     public LayerMask groundMask;
+
+    //timer to check if player is not falling
+    private float verticalVelocityCheck;
+    public float timeBetweenVerticalVelocityCheck = 0.5f;
 
     public bool isGrounded = false;
 
@@ -275,10 +280,12 @@ public class PlayerController : MonoBehaviour
 
     bool CheckGrounded()
     {
-        RaycastHit hit;
+        //if (rb.velocity.y < 0.2)
+        //{
+        //    return true;
+        //}
 
-        Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if (Physics.SphereCast(groundCheck.position, groundDistance, Vector3.down, out hit, groundRayDistance))
+        if (Physics.SphereCast(groundCheck.position, groundDistance, Vector3.down, out RaycastHit hit, groundRayDistance))
         {
             float groundSlopeAngle = Vector3.Angle(hit.normal, Vector3.up);
 
@@ -286,22 +293,55 @@ public class PlayerController : MonoBehaviour
             //
             //Vector3 groundSlopeDir = Vector3.Cross(temp, hit.normal);
 
-            if (groundSlopeAngle < groundMaxAngle)
+            if (hit.collider.gameObject.layer == groundMask)
             {
-                Debug.Log("Player is grounded on " + hit.collider.name);
+                if (groundSlopeAngle < spockGroundMaxAngle)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if (groundSlopeAngle < groundMaxAngle)
+            {
+                Debug.Log("Ray hit. Player is grounded on " + hit.collider.name + " at " + groundSlopeAngle + " degrees");
                 return true;
             }
             else
             {
-                Debug.Log("Player is not grounded (sphere check)");
+                Debug.Log("Ray hit. Player is not grounded" + " at " + groundSlopeAngle + " degrees");
                 return false;
             }
         }
+
+        else if (rb.velocity.y < 0.2 && rb.velocity.y > -0.2) //Check if the player is falling or rising
+        {
+            verticalVelocityCheck += Time.deltaTime;
+        
+            if (verticalVelocityCheck > timeBetweenVerticalVelocityCheck)
+            {
+                if (rb.velocity.y < 0.2 && rb.velocity.y > -0.2) // Check again after time passes
+                {
+                    return true;
+                }
+                else
+                {
+                    verticalVelocityCheck = 0;
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         else
         {
-            Debug.Log("Player is not grounded (no sphere check)");
+            Debug.Log("Ray has not hit. Player is not grounded");
             return false;
-
         }
     }
 }
