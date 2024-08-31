@@ -9,7 +9,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
     //private string scriptName = "Spawner.cs";
 
     private bool _playerPresent = false;
-    public SpawnerCode spawnScript; //use this to get reference to spawner script, should pass in object with the script
+    public SpawnerCodeV3 spawnScript; //use this to get reference to spawner script, should pass in object with the script
     public ArduinoReader readerScript; //use this to get reference to the real
     ///Both of these variables should come from the same object. Fix later.
     //public GameObject spawnLocation;
@@ -45,6 +45,11 @@ public class ArduinoLockedSpawn : MonoBehaviour
             {
                 //spawnScript.canSpawnSpocks = true;
             }
+
+            //foreach (var ghost in spawnScript.ghostSpocks)//this sucks
+            //{
+            //    ghost.SetActive(false);
+            //}
         }
         else
         {
@@ -59,11 +64,8 @@ public class ArduinoLockedSpawn : MonoBehaviour
         if (collision.gameObject.tag == "Body")
         {
             _playerPresent = true;
-            //spawnScript.canSpawnSpocks = false;
-            //foreach (var ghost in spawnScript.ghostSpocks)
-            //{
-            //    ghost.SetActive(false);
-            //}
+            spawnScript.canSpawnSpocks = false;
+
         }
     }
 
@@ -72,13 +74,18 @@ public class ArduinoLockedSpawn : MonoBehaviour
         if (collision.gameObject.tag == "Body")
         {
             _playerPresent = false;
-            //spawnScript.canSpawnSpocks = true;
+            spawnScript.canSpawnSpocks = true; //fixed for v3 spawn code spoof
+
         }
     }
     private void SummonBlocks() //summons the blocks
     {
         //throw new NotImplementedException();
         char[] outputArray = readerScript.OutputArray;
+        if (outputArray == null)//check for spoof output
+        {
+            outputArray = spawnScript.SpoofOutputArray;
+        }
 
         UpdateLockedGhostCubes(outputArray);
 
