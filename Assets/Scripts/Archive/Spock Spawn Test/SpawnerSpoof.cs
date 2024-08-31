@@ -11,7 +11,6 @@ public class SpawnerSpoof : MonoBehaviour
     public GameObject[] blocks;
     public int arrayPos;
     private bool hasSpawned;
-    public TMP_Text blockType;
     public int spawnLimit = 5;
     private Queue<GameObject> spawnQueue = new Queue<GameObject>();
     public int spockWeight = 60;
