@@ -121,7 +121,6 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
 
-
         if (pause.isPaused == true && Input.GetKey(KeyCode.Joystick1Button6) && Input.GetKey(KeyCode.Joystick1Button7))
         {
             ResetScene();
@@ -252,6 +251,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
+            StopCoroutine(CoyoteCooldown());
             StartCoroutine(CoyoteCooldown());
 
             isGrounded = false;
