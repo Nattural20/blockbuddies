@@ -21,11 +21,13 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
 
     public float coyoteTime = 0.2f;
+    private bool canCoyotetime = true;
     private float timeSinceLastGrounded;
 
     //timer to check if player is not falling
     private float verticalVelocityCheck;
     public float timeBetweenVerticalVelocityCheck = 0.5f;
+    private bool verticalVelocityZero = false;
 
     public bool isGrounded = false;
 
@@ -128,7 +130,8 @@ public class PlayerController : MonoBehaviour
 
 
         //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        isGrounded = CheckGrounded();
+        //isGrounded = CheckGrounded();
+        ExtraGroundCheck();
 
         if (isGrounded && velocity.y < 0)
         {
@@ -243,9 +246,14 @@ public class PlayerController : MonoBehaviour
 
     void StartJump()
     {
+        isGrounded = CheckGrounded();
+
         if (isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            StartCoroutine(CoyoteCooldown());
+
             isGrounded = false;
             FindAnyObjectByType<AudioManager>().Play("HopperJump"); //Sound effect script- this line plays a sound from the AudioManager.
             //aM.Play("HopperJump");
@@ -254,7 +262,12 @@ public class PlayerController : MonoBehaviour
         
     }
 
-
+    IEnumerator CoyoteCooldown()
+    {
+        canCoyotetime = false;
+        yield return new WaitForSeconds(coyoteTime);
+        canCoyotetime = true;
+    }
 
 
     public void ResetScene()
@@ -283,7 +296,6 @@ public class PlayerController : MonoBehaviour
 
     private bool CheckGrounded()
     {
-        timeSinceLastGrounded += Time.deltaTime;
 
 
         if (Physics.SphereCast(groundCheck.position, groundDistance, Vector3.down, out RaycastHit hit, groundRayDistance)) //Casts sphere downwards along a ray
@@ -304,7 +316,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    if (timeSinceLastGrounded < coyoteTime) // If player has been ungrounded for only a little bit, let them jump
+                    if (canCoyotetime && timeSinceLastGrounded < coyoteTime) // If player has been ungrounded for only a little bit, let them jump
                         return GroundCheckReturn(true, false);
                     else
                         return GroundCheckReturn(false, false);
@@ -320,52 +332,59 @@ public class PlayerController : MonoBehaviour
             else
             {
                 Debug.Log("Ray hit. Player is not grounded" + " at " + groundSlopeAngle + " degrees");
-                if (timeSinceLastGrounded < coyoteTime)
+                if (canCoyotetime && timeSinceLastGrounded < coyoteTime)
                     return GroundCheckReturn(true, false);
                 else
                     return GroundCheckReturn(false, false);
             }
         }
-
+        // else if(velocityCheckGrounded = true)
         else if (rb.velocity.y < 0.2 && rb.velocity.y > -0.2) //Check if the player is falling or rising. If the player's velocity doesn't change over time return grounded true
         {
-            verticalVelocityCheck += Time.deltaTime;
-        
-            if (verticalVelocityCheck > timeBetweenVerticalVelocityCheck)
-            {
-                if (rb.velocity.y < 0.2 && rb.velocity.y > -0.2) // Check again after time passes
-                {
-                    return GroundCheckReturn(true, true);
-                    //timeSinceLastGrounded = 0f;
-                    //return true;
-                }
-                else
-                {
-                    verticalVelocityCheck = 0;
-                    if (timeSinceLastGrounded < coyoteTime)
-                        return GroundCheckReturn(true, false);
-                    else
-                        return GroundCheckReturn(false, false);
-                }
-            }
-            else
-            {
-                if (timeSinceLastGrounded < coyoteTime)
-                    return GroundCheckReturn(true, false);
-                else
-                    return GroundCheckReturn(false, false);
-            }
+            return verticalVelocityZero;
         }
 
         else
         {
+            verticalVelocityCheck = 0;
             Debug.Log("Ray has not hit. Player is not grounded");
-            if (timeSinceLastGrounded < coyoteTime)
+            if (canCoyotetime && timeSinceLastGrounded < coyoteTime)
                 return GroundCheckReturn(true, false);
             else
                 return GroundCheckReturn(false, false);
         }
     }
+
+    void ExtraGroundCheck()
+    {
+        timeSinceLastGrounded += Time.deltaTime;
+
+        verticalVelocityCheck += Time.deltaTime;
+
+        if (verticalVelocityCheck > timeBetweenVerticalVelocityCheck)
+        {
+            if (rb.velocity.y < 0.2 && rb.velocity.y > -0.2) // Check again after time passes
+            {
+                verticalVelocityZero = GroundCheckReturn(true, true);
+            }
+            else
+            {
+                verticalVelocityCheck = 0;
+                if (canCoyotetime && timeSinceLastGrounded < coyoteTime)
+                    verticalVelocityZero = GroundCheckReturn(true, false);
+                else
+                    verticalVelocityZero = GroundCheckReturn(false, false);
+            }
+        }
+        else
+        {
+            if (canCoyotetime && timeSinceLastGrounded < coyoteTime)
+                verticalVelocityZero = GroundCheckReturn(true, false);
+            else
+                verticalVelocityZero = GroundCheckReturn(false, false);
+        }
+    }
+
     bool GroundCheckReturn(bool groundedReturn, bool resetGroundedTimer) // Returns grounded value and resets timer. Added this cause I ended up adding the reset timer to each true return, so we can add any extra stuff to the return values here
     {
         if (resetGroundedTimer)
