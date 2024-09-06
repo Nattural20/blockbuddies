@@ -21,6 +21,9 @@ public class SpawnerCodeV3 : MonoBehaviour
     private Queue<GameObject> spawnQueue = new Queue<GameObject>();
     bool hasErrored = false;
 
+    public Dropdown spawnRotation;
+    private readonly string[] options = { "Left", "Up", "Right", "Down"};
+
     //Spoof arguments
     public bool enableSpoof = false;
     public Image[] spockDisplay;
@@ -40,6 +43,13 @@ public class SpawnerCodeV3 : MonoBehaviour
         {
             SpoofCanvas.SetActive(false);
         }
+
+        spawnRotation.ClearOptions();
+        spawnRotation.AddOptions(new List<string>(options));
+
+        spawnRotation.value = 0;
+
+
     }
 
     void Update()
@@ -52,8 +62,11 @@ public class SpawnerCodeV3 : MonoBehaviour
     {
         input = GetInput();
 
-        if (input != null)
+        //I am so sorry about the sins I have committed 
+        //Left Orientation
+        if (input != null && spawnRotation.value == 0)
         {
+            Debug.Log("Facing Left");
             if (canSpawnSpocks)
             {
                 UpdateGhostSpocks(input);
@@ -70,6 +83,180 @@ public class SpawnerCodeV3 : MonoBehaviour
                     new Vector3(-1, 0, 1), new Vector3(-1, 0, 0), new Vector3(-1, 0, -1),
                     new Vector3(0, 0, 1), new Vector3(0, 0, 0), new Vector3(0, 0, -1),
                     new Vector3(1, 0, 1), new Vector3(1, 0, 0), new Vector3(1, 0, -1)
+                };
+
+                    for (int i = 1; i <= 9; i++) //Assign each position active or inactive depending on Arduino input
+                    {
+                        if (input[i].ToString() == "1")
+                        {
+                            SpawnBlock(arrayPos, spockDaddy, positions[i - 1]);
+                            hasSpawned = true;
+                        }
+                    }
+                }
+
+                //Spawn Limit argument ahead...
+                if (spawnQueue.Count >= spawnLimit)
+                {
+                    GameObject oldestSpockGroup = spawnQueue.Dequeue(); ///Mall Blart Pall Cop
+                    Debug.Log("Destroying oldest spock group: " + oldestSpockGroup.name);
+                    Destroy(oldestSpockGroup);
+                }
+                spawnQueue.Enqueue(spockDaddy); //Queue the newest Spock group after destroying the old one 
+
+                //Debug to see if it actually  works!!
+                Debug.Log(hasSpawned ? "Can't spawn just yet." : "No blocks to spawn");//IF '1' :else: '2'
+
+                spockDaddy.GetComponent<Rigidbody>().mass = spockWeight;
+                FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); // Sound effect script - this line plays a sound from the AudioManager.
+            }
+
+            //FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); //Audio Scipt
+
+            if (buttonPressed && input[0].ToString() == "0")
+            {
+                buttonPressed = false;
+            }
+
+            previousInput = input;
+        }
+
+        //Up Orientation
+        if (input != null && spawnRotation.value == 1)
+        {
+            Debug.Log("Facing Up");
+            if (canSpawnSpocks)
+            {
+                UpdateGhostSpocks(input);
+            }
+
+            if (input[0].ToString() == "1" && !buttonPressed)
+            {
+                buttonPressed = true;
+                GameObject spockDaddy = Instantiate(spockShell, SpawnPosGuide.transform.position, SpawnPosGuide.transform.rotation);
+
+                if (canSpawnSpocks)
+                {
+                    Vector3[] positions = {
+                    new Vector3(1, 0, 1), new Vector3(0, 0, 1), new Vector3(-1, 0, 1),
+                    new Vector3(1, 0, 0), new Vector3(0, 0, 0), new Vector3(-1, 0, 0),
+                    new Vector3(1, 0, -1), new Vector3(0, 0, -1), new Vector3(-1, 0, -1)
+                };
+
+                    for (int i = 1; i <= 9; i++) //Assign each position active or inactive depending on Arduino input
+                    {
+                        if (input[i].ToString() == "1")
+                        {
+                            SpawnBlock(arrayPos, spockDaddy, positions[i - 1]);
+                            hasSpawned = true;
+                        }
+                    }
+                }
+
+                //Spawn Limit argument ahead...
+                if (spawnQueue.Count >= spawnLimit)
+                {
+                    GameObject oldestSpockGroup = spawnQueue.Dequeue(); ///Mall Blart Pall Cop
+                    Debug.Log("Destroying oldest spock group: " + oldestSpockGroup.name);
+                    Destroy(oldestSpockGroup);
+                }
+                spawnQueue.Enqueue(spockDaddy); //Queue the newest Spock group after destroying the old one 
+
+                //Debug to see if it actually  works!!
+                Debug.Log(hasSpawned ? "Can't spawn just yet." : "No blocks to spawn");//IF '1' :else: '2'
+
+                spockDaddy.GetComponent<Rigidbody>().mass = spockWeight;
+                FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); // Sound effect script - this line plays a sound from the AudioManager.
+            }
+
+            //FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); //Audio Scipt
+
+            if (buttonPressed && input[0].ToString() == "0")
+            {
+                buttonPressed = false;
+            }
+
+            previousInput = input;
+        }
+
+        //Right Orientation
+        if (input != null && spawnRotation.value == 2)
+        {
+            Debug.Log("Facing Right");
+            if (canSpawnSpocks)
+            {
+                UpdateGhostSpocks(input);
+            }
+
+            if (input[0].ToString() == "1" && !buttonPressed)
+            {
+                buttonPressed = true;
+                GameObject spockDaddy = Instantiate(spockShell, SpawnPosGuide.transform.position, SpawnPosGuide.transform.rotation);
+
+                if (canSpawnSpocks)
+                {
+                    Vector3[] positions = {
+                    new Vector3(1, 0, -1), new Vector3(1, 0, 0), new Vector3(1, 0, 1),
+                    new Vector3(0, 0, -1), new Vector3(0, 0, 0), new Vector3(0, 0, 1),
+                    new Vector3(-1, 0, -1), new Vector3(-1, 0, 0), new Vector3(-1, 0, 1)
+                };
+
+                    for (int i = 1; i <= 9; i++) //Assign each position active or inactive depending on Arduino input
+                    {
+                        if (input[i].ToString() == "1")
+                        {
+                            SpawnBlock(arrayPos, spockDaddy, positions[i - 1]);
+                            hasSpawned = true;
+                        }
+                    }
+                }
+
+                //Spawn Limit argument ahead...
+                if (spawnQueue.Count >= spawnLimit)
+                {
+                    GameObject oldestSpockGroup = spawnQueue.Dequeue(); ///Mall Blart Pall Cop
+                    Debug.Log("Destroying oldest spock group: " + oldestSpockGroup.name);
+                    Destroy(oldestSpockGroup);
+                }
+                spawnQueue.Enqueue(spockDaddy); //Queue the newest Spock group after destroying the old one 
+
+                //Debug to see if it actually  works!!
+                Debug.Log(hasSpawned ? "Can't spawn just yet." : "No blocks to spawn");//IF '1' :else: '2'
+
+                spockDaddy.GetComponent<Rigidbody>().mass = spockWeight;
+                FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); // Sound effect script - this line plays a sound from the AudioManager.
+            }
+
+            //FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); //Audio Scipt
+
+            if (buttonPressed && input[0].ToString() == "0")
+            {
+                buttonPressed = false;
+            }
+
+            previousInput = input;
+        }
+
+        //Down Orientation
+        if (input != null && spawnRotation.value == 3)
+        {
+            Debug.Log("Facing Down");
+            if (canSpawnSpocks)
+            {
+                UpdateGhostSpocks(input);
+            }
+
+            if (input[0].ToString() == "1" && !buttonPressed)
+            {
+                buttonPressed = true;
+                GameObject spockDaddy = Instantiate(spockShell, SpawnPosGuide.transform.position, SpawnPosGuide.transform.rotation);
+
+                if (canSpawnSpocks)
+                {
+                    Vector3[] positions = {
+                    new Vector3(-1, 0, -1), new Vector3(0, 0, -1), new Vector3(1, 0, -1),
+                    new Vector3(-1, 0, 0), new Vector3(0, 0, 0), new Vector3(1, 0, 0),
+                    new Vector3(-1, 0, 1), new Vector3(0, 0, 1), new Vector3(1, 0, 1)
                 };
 
                     for (int i = 1; i <= 9; i++) //Assign each position active or inactive depending on Arduino input
