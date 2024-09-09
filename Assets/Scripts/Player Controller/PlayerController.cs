@@ -12,8 +12,10 @@ public class PlayerController : MonoBehaviour
 
     //jump buffer stuff
     public float jumpBufferTime = 0.2f;
-    private float jumpBufferCounter;
-    private bool jumpQueued;
+    public float jumpBufferCounter;
+    public  bool jumpQueued;
+
+    public float jumpCooldown = .5f;
 
 
     public AudioManager aM;
@@ -126,6 +128,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        isGrounded = CheckGrounded();
+
         if (pause.isPaused == true && Input.GetKey(KeyCode.Joystick1Button6) && Input.GetKey(KeyCode.Joystick1Button7))
         {
             ResetScene();
@@ -153,14 +157,20 @@ public class PlayerController : MonoBehaviour
 
         Vector2 r = new Vector2(rotate.x, rotate.y) * Time.deltaTime;
 
-        // Handle jump buffer
+  
         if (jumpBufferCounter > 0)
         {
             jumpBufferCounter -= Time.deltaTime;
             if (isGrounded)
             {
                 PerformJump();
+                Debug.Log("6");
             }
+        }
+
+        if (jumpCooldown > -.1f)
+        {
+            jumpCooldown -= Time.deltaTime;
         }
     }
 
@@ -249,11 +259,12 @@ public class PlayerController : MonoBehaviour
 
     void StartJump()
     {
-        PerformJump();
+        //PerformJump();
 
         if (isGrounded)
         {
             PerformJump();
+            Debug.Log("5");
         }
         else
         {
@@ -264,12 +275,18 @@ public class PlayerController : MonoBehaviour
 
     void PerformJump()
     {
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        StopCoroutine(CoyoteCooldown());
-        StartCoroutine(CoyoteCooldown());
-        isGrounded = false;
-        FindAnyObjectByType<AudioManager>().Play("HopperJump");
-        jumpQueued = false;
+        if (jumpCooldown < 0)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            StopCoroutine(CoyoteCooldown());
+            StartCoroutine(CoyoteCooldown());
+            isGrounded = false;
+            FindAnyObjectByType<AudioManager>().Play("HopperJump");
+            jumpQueued = false;
+            Debug.Log("JUMP");
+
+            jumpCooldown = .5f;
+        }
     }
 
 
