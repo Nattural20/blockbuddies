@@ -5472,7 +5472,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 734521632}
   distanceFromPlayer: 9.31
+  distanceAwayFromWall: 0.1
   rayColor: {r: 1, g: 0, b: 0, a: 1}
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 16768
 --- !u!1 &1333450519
 GameObject:
   m_ObjectHideFlags: 0
@@ -13051,7 +13055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &515176410573498319
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33015,7 +33019,11 @@ PrefabInstance:
       objectReference: {fileID: 1461756316}
     - target: {fileID: 1932022863527210934, guid: f441e3ae51431a64fa59aa6d23effbe2, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.67
+      value: 2.833712
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932022863527210934, guid: f441e3ae51431a64fa59aa6d23effbe2, type: 3}
+      propertyPath: m_FollowOffset.z
+      value: -5.049573
       objectReference: {fileID: 0}
     - target: {fileID: 2002289314286505608, guid: f441e3ae51431a64fa59aa6d23effbe2, type: 3}
       propertyPath: m_IsActive
@@ -33063,7 +33071,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4538907298355776232, guid: f441e3ae51431a64fa59aa6d23effbe2, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.67
+      value: 2.833712
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538907298355776232, guid: f441e3ae51431a64fa59aa6d23effbe2, type: 3}
+      propertyPath: m_FollowOffset.z
+      value: -5.049573
       objectReference: {fileID: 0}
     - target: {fileID: 4918883348784231712, guid: f441e3ae51431a64fa59aa6d23effbe2, type: 3}
       propertyPath: m_Name
@@ -33071,7 +33083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4918883348784231712, guid: f441e3ae51431a64fa59aa6d23effbe2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4987308892336633554, guid: f441e3ae51431a64fa59aa6d23effbe2, type: 3}
       propertyPath: m_IsActive
@@ -33099,7 +33111,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6711495064957581148, guid: f441e3ae51431a64fa59aa6d23effbe2, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.67
+      value: 2.833712
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711495064957581148, guid: f441e3ae51431a64fa59aa6d23effbe2, type: 3}
+      propertyPath: m_FollowOffset.z
+      value: -5.049573
       objectReference: {fileID: 0}
     - target: {fileID: 6996130531729073046, guid: f441e3ae51431a64fa59aa6d23effbe2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -75469,6 +75485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118187073310f2b43ad5fa02e6b7ac1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGrounded: 0
+  jumpBufferTime: 0.2
   aM: {fileID: 0}
   rb: {fileID: 3433780804361227664}
   hand1: {fileID: 1793278091184270699}
@@ -75485,7 +75503,6 @@ MonoBehaviour:
     m_Bits: 2048
   coyoteTime: 0.2
   timeBetweenVerticalVelocityCheck: 0.5
-  isGrounded: 0
   cameraTransform: {fileID: 8271180113719263544}
   pauseObject: {fileID: 396760000}
   isHoldingGrab: 0
@@ -123086,7 +123103,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 8271180113719263544}
   distanceFromPlayer: 9.31
+  distanceAwayFromWall: 0.1
   rayColor: {r: 1, g: 0, b: 0, a: 1}
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!33 &8198959386681975660
 MeshFilter:
   m_ObjectHideFlags: 0
