@@ -21,8 +21,8 @@ public class SpawnerCodeV3 : MonoBehaviour
     private Queue<GameObject> spawnQueue = new Queue<GameObject>();
     bool hasErrored = false;
 
-    public Dropdown spawnRotation;
-    private readonly string[] options = { "Left", "Up", "Right", "Down"};
+/*    public Dropdown spawnRotation;
+    private readonly string[] options = { "Left", "Up", "Right", "Down"};*/
 
     //Spoof arguments
     public bool enableSpoof = false;
@@ -44,11 +44,11 @@ public class SpawnerCodeV3 : MonoBehaviour
             SpoofCanvas.SetActive(false);
         }
 
-        spawnRotation.ClearOptions();
+/*        spawnRotation.ClearOptions();
         spawnRotation.AddOptions(new List<string>(options));
 
         spawnRotation.value = 0;
-
+*/
 
     }
 
@@ -64,7 +64,7 @@ public class SpawnerCodeV3 : MonoBehaviour
 
         //I am so sorry about the sins I have committed 
         //Left Orientation
-        if (input != null && spawnRotation.value == 0)
+        if (input != null /*&& spawnRotation.value == 0*/)
         {
             Debug.Log("Facing Left");
             if (canSpawnSpocks)
@@ -122,7 +122,7 @@ public class SpawnerCodeV3 : MonoBehaviour
         }
 
         //Up Orientation
-        if (input != null && spawnRotation.value == 1)
+        /*if (input != null && spawnRotation.value == 1)
         {
             Debug.Log("Facing Up");
             if (canSpawnSpocks)
@@ -293,7 +293,7 @@ public class SpawnerCodeV3 : MonoBehaviour
             }
 
             previousInput = input;
-        }
+        }*/
         else
         {
             if (!hasErrored)
