@@ -7,6 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool isGrounded = false;
+
+
+    //jump buffer stuff
+    public float jumpBufferTime = 0.2f;
+    public float jumpBufferCounter;
+    public  bool jumpQueued;
+
+    public float jumpCooldown = .5f;
+
 
     public AudioManager aM;
 
@@ -28,8 +38,6 @@ public class PlayerController : MonoBehaviour
     private float verticalVelocityCheck;
     public float timeBetweenVerticalVelocityCheck = 0.5f;
     private bool verticalVelocityZero = false;
-
-    public bool isGrounded = false;
 
 
     public Transform cameraTransform;
@@ -121,46 +129,52 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        isGrounded = CheckGrounded();
 
         if (pause.isPaused == true && Input.GetKey(KeyCode.Joystick1Button6) && Input.GetKey(KeyCode.Joystick1Button7))
         {
             ResetScene();
         }
 
-
-
-        //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        //isGrounded = CheckGrounded();
         ExtraGroundCheck();
-
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
 
-
         if (isHoldingGrab)
         {
             if (!playedGrabSound)
             {
-                FindAnyObjectByType<AudioManager>().Play("BlockPickup"); //Sound effect script- this line plays a sound from the AudioManager.
+                FindAnyObjectByType<AudioManager>().Play("BlockPickup");
                 playedGrabSound = true;
             }
-
-
             Grab();
         }
-
         if (!isHoldingGrab)
         {
             playedGrabSound = false;
         }
 
-
-
-
         Vector2 r = new Vector2(rotate.x, rotate.y) * Time.deltaTime;
+
+  
+        if (jumpBufferCounter > 0)
+        {
+            jumpBufferCounter -= Time.deltaTime;
+            if (isGrounded)
+            {
+                PerformJump();
+                Debug.Log("6");
+            }
+        }
+
+        if (jumpCooldown > -.1f)
+        {
+            jumpCooldown -= Time.deltaTime;
+        }
     }
+
 
     private void FixedUpdate()
     {
@@ -246,22 +260,36 @@ public class PlayerController : MonoBehaviour
 
     void StartJump()
     {
-        isGrounded = CheckGrounded();
+        //PerformJump();
 
         if (isGrounded)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            PerformJump();
+            Debug.Log("5");
+        }
+        else
+        {
+            jumpBufferCounter = jumpBufferTime;
+            jumpQueued = true;
+        }
+    }
 
+    void PerformJump()
+    {
+        if (jumpCooldown < 0)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             StopCoroutine(CoyoteCooldown());
             StartCoroutine(CoyoteCooldown());
-
             isGrounded = false;
-            FindAnyObjectByType<AudioManager>().Play("HopperJump"); //Sound effect script- this line plays a sound from the AudioManager.
-            //aM.Play("HopperJump");
-        }
+            FindAnyObjectByType<AudioManager>().Play("HopperJump");
+            jumpQueued = false;
+            Debug.Log("JUMP");
 
-        
+            jumpCooldown = .5f;
+        }
     }
+
 
     IEnumerator CoyoteCooldown()
     {

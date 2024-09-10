@@ -16,7 +16,8 @@ public class AlternateGrab : MonoBehaviour
     {
         if (spockInFront && pC.isHoldingGrab && !holdingSpock)
         {
-            currentSpock.transform.position = new Vector3(currentSpock.transform.position.x, currentSpock.transform.position.y + .5f, currentSpock.transform.position.z);
+
+            //currentSpock.transform.position = new Vector3(currentSpock.transform.position.x, currentSpock.transform.position.y + .5f, currentSpock.transform.position.z);
             holdingSpock = true;
             fJ.connectedBody = currentSpock.GetComponent<Rigidbody>();
         }
