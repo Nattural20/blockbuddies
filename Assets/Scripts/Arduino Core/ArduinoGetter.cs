@@ -22,7 +22,7 @@ public class ArduinoGetter
     public static char[] PhysicalBlockState; //this is the changing value!
 
     public static Orientation selectedOrientation = Orientation.Left;
-
+    
 
     public static void MyThreadLoop() //"main"
     {
@@ -36,6 +36,7 @@ public class ArduinoGetter
         PhysicalBlockState = ReadFromSerialPort();
         }
     }
+
 
     static void OpenSerialPort()
     {
@@ -112,6 +113,11 @@ public class ArduinoGetter
             Console.WriteLine("Output of array is: " + FinalString);
         }
         return arduinoArray;*/
+    }
+
+    public static void SetOrientation(Orientation newOrientation)
+    {
+        selectedOrientation = newOrientation;
     }
 
     static char[] RotateGriddy(char[] array, Orientation orientation)

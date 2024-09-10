@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     PlayerControls controls;
     PauseMenuController pause;
     public GameObject pauseObject;
+    private bool resetLag = true;
 
     Vector2 move;
     Vector2 rotate;
@@ -272,11 +273,10 @@ public class PlayerController : MonoBehaviour
 
     public void ResetScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Debug.Log("BOISJDFBJSDBFJDSB");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1f;
+        FindObjectOfType<ResetManager>().ResetScene();
     }
+
+
 
 
     void ApplyHeadThrust()
