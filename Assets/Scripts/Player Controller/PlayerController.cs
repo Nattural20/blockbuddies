@@ -352,14 +352,14 @@ public class PlayerController : MonoBehaviour
             }
             else if (groundSlopeAngle < groundMaxAngle && !hit.collider.isTrigger) // If hit is not a spock or a trigger, checks if the hit face is less then ground angle
             {
-                Debug.Log("Ray hit. Player is grounded on " + hit.collider.name + " at " + groundSlopeAngle + " degrees");
+                //Debug.Log("Ray hit. Player is grounded on " + hit.collider.name + " at " + groundSlopeAngle + " degrees");
                 return GroundCheckReturn(true, true);
                 //timeSinceLastGrounded = 0f;
                 //return true;
             }
             else
             {
-                Debug.Log("Ray hit. Player is not grounded" + " at " + groundSlopeAngle + " degrees");
+                //Debug.Log("Ray hit. Player is not grounded" + " at " + groundSlopeAngle + " degrees");
                 if (canCoyotetime && timeSinceLastGrounded < coyoteTime)
                     return GroundCheckReturn(true, false);
                 else
@@ -375,7 +375,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             verticalVelocityCheck = 0;
-            Debug.Log("Ray has not hit. Player is not grounded");
+            //Debug.Log("Ray has not hit. Player is not grounded");
             if (canCoyotetime && timeSinceLastGrounded < coyoteTime)
                 return GroundCheckReturn(true, false);
             else
