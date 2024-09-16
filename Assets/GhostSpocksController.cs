@@ -1,39 +1,75 @@
+using UnityEditor.ShaderGraph;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class GhostSpocksController : MonoBehaviour
 {
-    public Transform playerCamera;
-    public float distanceFromPlayer = 5f;
-    public float distanceAwayFromWall = 0.1f;
-    public Color rayColor = Color.red;
-    public LayerMask ignoreLayer;
+    public Transform refPoint;
+    public Transform player;
+    public Transform ghostSpocks;
 
-    void Update()
+    public int maxYHeight = 3, minYHeight = 0, newYHeight;
+    public float ghostDistanceMax = 7, ghostDistanceMin = 3, ghostDistance = 5, ghostMoveSpeed = 5;
+
+    PlayerControls controls;
+
+    private void Awake()
     {
-        Vector3 desiredLocalPosition = Vector3.forward * distanceFromPlayer;
+        //controls = new PlayerControls();
 
-        RaycastHit hit;
-        bool hitSomething = Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, distanceFromPlayer, ~ignoreLayer);
+        //ghostbusters starring bill murray except the stay puft marshmallow man has won cause idk what is not happening here
+        //controls.Gameplay.GhostHeightIncrease.performed += ctx => IncreaseGhostHeight();
+        //controls.Gameplay.GhostHeightDecrease.performed += ctx => IncreaseGhostHeight();
 
-        Debug.DrawRay(playerCamera.position, playerCamera.forward * distanceFromPlayer, rayColor);
+    }
+    void FixedUpdate()
+    {
+        transform.position = player.position;
+        //this.transform.position = new Vector3(refPoint.transform.position.x, player.position.y, refPoint.transform.position.z);
+        this.transform.rotation = Quaternion.Euler(0, refPoint.transform.rotation.eulerAngles.y-90, 0);
 
-        if (hitSomething)
-        {
-            Collider hitCollider = hit.collider;
+        ghostSpocks.position = transform.position + transform.right * ghostDistance + new Vector3(0, newYHeight, 0);
+        ghostSpocks.rotation = transform.rotation;
 
-            if (!hitCollider.isTrigger)
-            {
-                float adjustedDistance = hit.distance - distanceAwayFromWall;
-                transform.localPosition = Vector3.forward * Mathf.Max(adjustedDistance, 0);
-            }
-            else
-            {
-                transform.localPosition = desiredLocalPosition;
-            }
-        }
-        else
-        {
-            transform.localPosition = desiredLocalPosition;
-        }
+        //if (Input.GetKeyDown(KeyCode.Joystick1Button4))
+        //{
+        //    newYHeight--;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Joystick1Button5))
+        //{
+        //    newYHeight++;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Joystick1Button6))
+        //{
+        //    if (ghostDistance > ghostDistanceMin)
+        //        ghostDistance -= Time.deltaTime * ghostMoveSpeed;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Joystick1Button7))
+        //{
+        //        if (ghostDistance < ghostDistanceMax)
+        //            ghostDistance += Time.deltaTime * ghostMoveSpeed;
+        //}
+
+    }
+    void IncreaseGhostHeight() // paul blart mall cop
+    {
+        if (newYHeight < maxYHeight)
+            newYHeight ++;
+    }
+    void UnIncreaseGhostHeight() //paul cop mall blart
+    {
+        if (newYHeight > minYHeight)
+            newYHeight --;
+    }
+    void SpiritedAway() // mall blart cop plart blart
+    {
+        if (ghostDistance < ghostDistanceMax)
+            ghostDistance += Time.deltaTime * ghostMoveSpeed;
+    }
+    void SpiritedCloser() // paul cop mlart cop blart paul mall cop blart paul
+    {
+        if (ghostDistance > ghostDistanceMin)
+            ghostDistance -= Time.deltaTime * ghostMoveSpeed;
     }
 }

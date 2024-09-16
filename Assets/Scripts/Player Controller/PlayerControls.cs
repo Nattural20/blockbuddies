@@ -71,6 +71,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GhostHeightIncrease"",
+                    ""type"": ""Button"",
+                    ""id"": ""177d5ef4-b3d5-44cf-94a4-8b11ec9047d8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GhostHeightDecrease"",
+                    ""type"": ""Button"",
+                    ""id"": ""bba81b04-5614-48e6-8aff-48c076e4b7b5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -227,6 +245,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""008aecac-3e4b-41c8-9d74-8334e623504a"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GhostHeightIncrease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4482bb3-8925-4220-bd1e-70a59a7cd078"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GhostHeightDecrease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -240,6 +280,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_Rotate = m_Gameplay.FindAction("Rotate", throwIfNotFound: true);
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
+        m_Gameplay_GhostHeightIncrease = m_Gameplay.FindAction("GhostHeightIncrease", throwIfNotFound: true);
+        m_Gameplay_GhostHeightDecrease = m_Gameplay.FindAction("GhostHeightDecrease", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -306,6 +348,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Rotate;
     private readonly InputAction m_Gameplay_Jump;
     private readonly InputAction m_Gameplay_Menu;
+    private readonly InputAction m_Gameplay_GhostHeightIncrease;
+    private readonly InputAction m_Gameplay_GhostHeightDecrease;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -315,6 +359,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Rotate => m_Wrapper.m_Gameplay_Rotate;
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
+        public InputAction @GhostHeightIncrease => m_Wrapper.m_Gameplay_GhostHeightIncrease;
+        public InputAction @GhostHeightDecrease => m_Wrapper.m_Gameplay_GhostHeightDecrease;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -339,6 +385,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Menu.started += instance.OnMenu;
             @Menu.performed += instance.OnMenu;
             @Menu.canceled += instance.OnMenu;
+            @GhostHeightIncrease.started += instance.OnGhostHeightIncrease;
+            @GhostHeightIncrease.performed += instance.OnGhostHeightIncrease;
+            @GhostHeightIncrease.canceled += instance.OnGhostHeightIncrease;
+            @GhostHeightDecrease.started += instance.OnGhostHeightDecrease;
+            @GhostHeightDecrease.performed += instance.OnGhostHeightDecrease;
+            @GhostHeightDecrease.canceled += instance.OnGhostHeightDecrease;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -358,6 +410,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Menu.started -= instance.OnMenu;
             @Menu.performed -= instance.OnMenu;
             @Menu.canceled -= instance.OnMenu;
+            @GhostHeightIncrease.started -= instance.OnGhostHeightIncrease;
+            @GhostHeightIncrease.performed -= instance.OnGhostHeightIncrease;
+            @GhostHeightIncrease.canceled -= instance.OnGhostHeightIncrease;
+            @GhostHeightDecrease.started -= instance.OnGhostHeightDecrease;
+            @GhostHeightDecrease.performed -= instance.OnGhostHeightDecrease;
+            @GhostHeightDecrease.canceled -= instance.OnGhostHeightDecrease;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -382,5 +440,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnRotate(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
+        void OnGhostHeightIncrease(InputAction.CallbackContext context);
+        void OnGhostHeightDecrease(InputAction.CallbackContext context);
     }
 }
