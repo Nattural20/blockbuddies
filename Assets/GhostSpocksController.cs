@@ -32,25 +32,27 @@ public class GhostSpocksController : MonoBehaviour
         ghostSpocks.position = transform.position + transform.right * ghostDistance + new Vector3(0, newYHeight, 0);
         ghostSpocks.rotation = transform.rotation;
 
-        //if (Input.GetKeyDown(KeyCode.Joystick1Button4))
-        //{
-        //    newYHeight--;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Joystick1Button5))
-        //{
-        //    newYHeight++;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Joystick1Button6))
-        //{
-        //    if (ghostDistance > ghostDistanceMin)
-        //        ghostDistance -= Time.deltaTime * ghostMoveSpeed;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Joystick1Button7))
-        //{
-        //        if (ghostDistance < ghostDistanceMax)
-        //            ghostDistance += Time.deltaTime * ghostMoveSpeed;
-        //}
+    }
 
+    void Update() //< /\ > \/
+    {
+
+        if (Input.GetKeyDown(KeyCode.Joystick1Button4))
+        {
+            UnIncreaseGhostHeight();
+        }
+        if (Input.GetKeyDown(KeyCode.Joystick1Button5))
+        {
+            IncreaseGhostHeight();
+        }
+        if (Input.GetAxis("L2") > 0.1f) //Use a custom axis input for the triggers
+        {
+            SpiritedCloser();
+        }
+        if (Input.GetAxis("R2") > 0.1f) //Use a custom axis input for the triggers
+        {
+            SpiritedAway();
+        }
     }
     void IncreaseGhostHeight() // paul blart mall cop
     {
@@ -68,6 +70,7 @@ public class GhostSpocksController : MonoBehaviour
             ghostDistance += Time.deltaTime * ghostMoveSpeed;
     }
     void SpiritedCloser() // paul cop mlart cop blart paul mall cop blart paul
+    //Ok
     {
         if (ghostDistance > ghostDistanceMin)
             ghostDistance -= Time.deltaTime * ghostMoveSpeed;
