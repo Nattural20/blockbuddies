@@ -9,23 +9,35 @@ public class VineFloorRaise : MonoBehaviour
 
     public BoxCollider[] triggers;
     Vector3 risePosition;
-    bool isRising;
+    bool isRising, hasChildren = false;
     private void Start()
     {
         risePosition = vineFloor.transform.position + new Vector3(0, riseHeight, 0);
-        triggers = GetComponentsInChildren<BoxCollider>();
-        //Debug.Log(triggers);
+
+        if (GetComponentsInChildren<BoxCollider>() != null )
+        {
+            triggers = GetComponentsInChildren<BoxCollider>();
+            hasChildren = true;
+        }
     }
     public void RaiseFloor()
     {
         isRising = true;
-        //gameObject.GetComponent<Collider>().enabled = false;
+
         foreach (BoxCollider col in triggers)
         {
             col.enabled = false;
         }
     }
-    private void Update()
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!hasChildren)
+        {
+            isRising = true;
+            GetComponent<BoxCollider>().enabled = false;
+        }
+    }
+    private void FixedUpdate()
     {
         if (isRising)
         {
