@@ -21,6 +21,9 @@ public class SpawnerCodeV3 : MonoBehaviour
     private Queue<GameObject> spawnQueue = new Queue<GameObject>();
     bool hasErrored = false;
 
+    public Toggle spoofToggle;
+    private bool TogOn = false;
+
     public Dropdown spawnRotation;
     private readonly string[] options = { "Left", "Up", "Right", "Down"};
 
@@ -35,6 +38,19 @@ public class SpawnerCodeV3 : MonoBehaviour
     /// </summary>
     private void Start()
     {
+
+        spawnRotation.ClearOptions();
+        spawnRotation.AddOptions(new List<string>(options));
+
+        spawnRotation.value = 0;
+
+        
+    }
+
+    void Update()
+    {
+        CycleBlocks();
+        Spawn();
         if (enableSpoof)
         {
             SpoofCanvas.SetActive(true); ///Paul Blart Mall Cop
@@ -44,18 +60,7 @@ public class SpawnerCodeV3 : MonoBehaviour
             SpoofCanvas.SetActive(false);
         }
 
-        spawnRotation.ClearOptions();
-        spawnRotation.AddOptions(new List<string>(options));
-
-        spawnRotation.value = 0;
-
-
-    }
-
-    void Update()
-    {
-        CycleBlocks();
-        Spawn();
+        ToggleSpoof();
     }
 
     void Spawn()
@@ -346,7 +351,7 @@ public class SpawnerCodeV3 : MonoBehaviour
         }
     }
 
-    char[] GetInput() //new inputs: works normally if normal, redirect to spoof if spoof is enabled
+   char[] GetInput() //new inputs: works normally if normal, redirect to spoof if spoof is enabled
     {
         if (!enableSpoof)
         {
@@ -407,6 +412,18 @@ public class SpawnerCodeV3 : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         hasErrored = false;
+    }
+
+    public void ToggleSpoof()
+    {
+        if (spoofToggle.isOn)
+        {
+            enableSpoof = true;
+        }
+        else
+        {
+            enableSpoof = false;
+        }
     }
 }
 
