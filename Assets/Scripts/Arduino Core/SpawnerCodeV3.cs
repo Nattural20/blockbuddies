@@ -21,8 +21,8 @@ public class SpawnerCodeV3 : MonoBehaviour
     private Queue<GameObject> spawnQueue = new Queue<GameObject>();
     bool hasErrored = false;
 
-/*    public Dropdown spawnRotation;
-    private readonly string[] options = { "Left", "Up", "Right", "Down"};*/
+    [SerializeField] public Dropdown spawnRotation;
+    public readonly string[] options = { "Left", "Up", "Right", "Down" };
 
     //Spoof arguments
     public bool enableSpoof = false;
@@ -33,7 +33,7 @@ public class SpawnerCodeV3 : MonoBehaviour
     /// <summary>
     /// Spawner Code V3.Integrated Spoof toggle and functionality.  
     /// </summary>
-    private void Start()
+    public void Start()
     {
         if (enableSpoof)
         {
@@ -44,11 +44,11 @@ public class SpawnerCodeV3 : MonoBehaviour
             SpoofCanvas.SetActive(false);
         }
 
-/*        spawnRotation.ClearOptions();
+        spawnRotation.ClearOptions();
         spawnRotation.AddOptions(new List<string>(options));
 
         spawnRotation.value = 0;
-*/
+        
 
     }
 

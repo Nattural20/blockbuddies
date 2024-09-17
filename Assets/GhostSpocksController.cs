@@ -1,12 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using System;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.UI;
 
 public class GhostSpocksController : MonoBehaviour
 {
     public bool increasingDistance, decreasingDistance;
 
+    public float spockRotation = 0;
 
     public Transform refPoint;
     public Transform player;
@@ -16,6 +21,8 @@ public class GhostSpocksController : MonoBehaviour
     public float ghostDistanceMax = 7, ghostDistanceMin = 3, ghostDistance = 5, ghostMoveSpeed = 5;
 
     PlayerControls controls;
+    [SerializeField] public Dropdown spawnRotation;
+    public readonly string[] options = { "Left", "Up", "Right", "Down" };
 
     private void Awake()
     {
@@ -35,8 +42,30 @@ public class GhostSpocksController : MonoBehaviour
         ghostSpocks.position = transform.position + transform.right * ghostDistance + new Vector3(0, newYHeight, 0);
 
 
+        
+            if (spawnRotation.value == 0)
+            {
+                spockRotation = 0;
+            }
+            else if (spawnRotation.value == 1)
+            {
+                spockRotation = 90;
+            }
+            else if (spawnRotation.value == 2)
+            {
+                spockRotation = 180;
+            }
+            else if (spawnRotation.value == 3)
+            {
+                spockRotation = 270;
+            }
+        
+        else 
+        {
+            Debug.Log("cry");
+        }
 
-        ghostSpocks.rotation = transform.rotation;
+        ghostSpocks.rotation = transform.rotation * Quaternion.Euler(1, spockRotation, 0);
 
         if (increasingDistance)
         {
