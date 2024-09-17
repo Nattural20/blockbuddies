@@ -6,18 +6,26 @@ using UnityEngine.UI;
 public class OrientationDropdown : MonoBehaviour
 {
     public Dropdown dropdown;
-    public YourSpawnerClass spawner;
+    public SpawnerRotationManager spawner;
 
 
     void Start()
     {
-        ArduinoGetter.SetOrientation(ArduinoGetter.Orientation.Left);
-
-        dropdown.onValueChanged.AddListener(delegate
+        if (spawner == null)
         {
-            DropdownValueChanged(dropdown);
-        });
-       
+            ArduinoGetter.SetOrientation(ArduinoGetter.Orientation.Left);
+
+            dropdown.onValueChanged.AddListener(delegate
+            {
+                DropdownValueChanged(dropdown);
+            });
+        }
+        else
+        {
+            ArduinoGetter.Orientation storedOrientation = ResetManager.ApplyStoredRotation(); // Assuming this method exists
+            ArduinoGetter.SetOrientation(storedOrientation);
+            spawner.SetOrientation(storedOrientation);
+        }
     }
 
     public void DropdownValueChanged(Dropdown change)

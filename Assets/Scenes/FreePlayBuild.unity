@@ -3187,11 +3187,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728641746}
   m_CullTransparentMesh: 1
---- !u!4 &734521632 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3572108705813541923, guid: f441e3ae51431a64fa59aa6d23effbe2, type: 3}
-  m_PrefabInstance: {fileID: 1862361914620647898}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &779146149 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8154551965332349892, guid: b29d3abcb9cfe2b45af40801341777e3, type: 3}
@@ -3585,7 +3580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5737,13 +5732,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad7bcaa622844e3ba9e48bd54049c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 734521632}
-  distanceFromPlayer: 9.31
-  distanceAwayFromWall: 0.1
-  rayColor: {r: 1, g: 0, b: 0, a: 1}
-  ignoreLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  increasingDistance: 0
+  decreasingDistance: 0
+  refPoint: {fileID: 0}
+  player: {fileID: 0}
+  ghostSpocks: {fileID: 0}
+  maxYHeight: 3
+  minYHeight: 0
+  newYHeight: 0
+  ghostDistanceMax: 7
+  ghostDistanceMin: 3
+  ghostDistance: 5
+  ghostMoveSpeed: 5
 --- !u!1 &1333450519
 GameObject:
   m_ObjectHideFlags: 0
@@ -11527,8 +11527,6 @@ MonoBehaviour:
   previousInput: 
   spawnLimit: 5
   spockWeight: 60
-  spoofToggle: {fileID: 103022316}
-  spawnRotation: {fileID: 500740599}
   enableSpoof: 1
   spockDisplay:
   - {fileID: 1383678636}
@@ -75905,6 +75903,7 @@ MonoBehaviour:
   headThrust: 60
   armThrust: 13.6
   currentMovementDirection: {x: 0, y: 0, z: 0}
+  gS: {fileID: 0}
 --- !u!4 &4987511945020786429
 Transform:
   m_ObjectHideFlags: 0
@@ -99578,8 +99577,6 @@ MonoBehaviour:
   previousInput: 
   spawnLimit: 5
   spockWeight: 60
-  spoofToggle: {fileID: 0}
-  spawnRotation: {fileID: 0}
   enableSpoof: 1
   spockDisplay:
   - {fileID: 1990524643}
@@ -123500,13 +123497,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad7bcaa622844e3ba9e48bd54049c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 8271180113719263544}
-  distanceFromPlayer: 9.31
-  distanceAwayFromWall: 0.1
-  rayColor: {r: 1, g: 0, b: 0, a: 1}
-  ignoreLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  increasingDistance: 0
+  decreasingDistance: 0
+  refPoint: {fileID: 0}
+  player: {fileID: 0}
+  ghostSpocks: {fileID: 0}
+  maxYHeight: 3
+  minYHeight: 0
+  newYHeight: 0
+  ghostDistanceMax: 7
+  ghostDistanceMin: 3
+  ghostDistance: 5
+  ghostMoveSpeed: 5
 --- !u!33 &8198959386681975660
 MeshFilter:
   m_ObjectHideFlags: 0
