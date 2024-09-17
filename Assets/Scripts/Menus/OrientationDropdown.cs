@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class OrientationDropdown : MonoBehaviour
 {
     public Dropdown dropdown;
-
+    public YourSpawnerClass spawner;
 
 
     void Start()
@@ -20,7 +20,7 @@ public class OrientationDropdown : MonoBehaviour
        
     }
 
-    void DropdownValueChanged(Dropdown change)
+    public void DropdownValueChanged(Dropdown change)
     {
         switch (change.value)
         {
@@ -37,6 +37,26 @@ public class OrientationDropdown : MonoBehaviour
                 ArduinoGetter.SetOrientation(ArduinoGetter.Orientation.Down);
                 break;
 
+        }
+    }
+    void SetInitialOrientation()
+    {
+        // Set the initial value of the dropdown based on ArduinoGetter's orientation
+        ArduinoGetter.Orientation currentOrientation = ArduinoGetter.GetOrientation();
+        switch (currentOrientation)
+        {
+            case ArduinoGetter.Orientation.Left:
+                dropdown.value = 0;
+                break;
+            case ArduinoGetter.Orientation.Up:
+                dropdown.value = 1;
+                break;
+            case ArduinoGetter.Orientation.Right:
+                dropdown.value = 2;
+                break;
+            case ArduinoGetter.Orientation.Down:
+                dropdown.value = 3;
+                break;
         }
     }
 

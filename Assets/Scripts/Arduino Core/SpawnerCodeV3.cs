@@ -42,13 +42,14 @@ public class SpawnerCodeV3 : MonoBehaviour
         spawnRotation.ClearOptions();
         spawnRotation.AddOptions(new List<string>(options));
 
-        spawnRotation.value = 0;
+        /*spawnRotation.value = 0;*/
 
         
     }
 
     void Update()
     {
+
         CycleBlocks();
         Spawn();
         if (enableSpoof)
@@ -338,6 +339,22 @@ public class SpawnerCodeV3 : MonoBehaviour
             }
 
             ind++;
+        }
+        
+        if (spawnRotation.value == 0)
+        {
+           /*GameObject input = ghostSpocks[5]; */
+        }
+        else if (spawnRotation.value == 1) 
+        { 
+        }
+        else if(spawnRotation.value == 2)
+        {
+
+        }
+        else if (spawnRotation.value == 3)
+        {
+
         }
         
     }

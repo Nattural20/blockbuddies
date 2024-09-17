@@ -38,4 +38,11 @@ public class ResetManager : MonoBehaviour
         Debug.Log("Second Reset");
         Time.timeScale = 1f;
     }
+
+    public void ApplyStoredRotation()
+    {
+        // Get the stored orientation
+        SpawnerRotationManager.Orientation orientation = SpawnerRotationManager.Instance.CurrentOrientation;
+
+    }
 }
