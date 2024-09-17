@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded = false;
 
 
+
+
     //jump buffer stuff
     public float jumpBufferTime = 0.2f;
     public float jumpBufferCounter;
@@ -206,20 +208,20 @@ public class PlayerController : MonoBehaviour
 
         currentFacingDirection = rb.transform.right;
 
+     
+        ApplyCustomGravity();
+    }
 
-
-        /*
-
-        //making the jump better
-        if (rb.velocity.y < 0)
+    void ApplyCustomGravity()
+    {
+        if (rb.velocity.y < 0) // Falling
         {
-            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
         }
-        else if (rb.velocity.y > 0 && !isHoldingJump)
+        else if (rb.velocity.y > 0 && !isHoldingJump) // Jump released early
         {
-            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
         }
-        */
     }
 
     void RotatePlayer()
