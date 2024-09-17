@@ -65,7 +65,7 @@ public class GhostSpocksController : MonoBehaviour
             Debug.Log("cry");
         }
 
-        ghostSpocks.rotation = transform.rotation * Quaternion.Euler(1, spockRotation, 0);
+        ghostSpocks.rotation = transform.rotation * Quaternion.Euler(1, spockRotation, 1);
 
         if (increasingDistance)
         {
