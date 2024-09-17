@@ -89,6 +89,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GhostDistanceIncrease"",
+                    ""type"": ""Button"",
+                    ""id"": ""95253d02-26e8-4d09-97a8-e9980bd5dfdb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GhostDistanceDecrease"",
+                    ""type"": ""Button"",
+                    ""id"": ""4fb2050b-5f2c-4643-ace9-52ec3fda135a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -267,6 +285,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""GhostHeightDecrease"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d02cf812-139c-4d38-bf1a-db9ffe46360c"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GhostDistanceIncrease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""45a49e52-8f39-4da0-8f81-d6499c155634"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GhostDistanceDecrease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -282,6 +322,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         m_Gameplay_GhostHeightIncrease = m_Gameplay.FindAction("GhostHeightIncrease", throwIfNotFound: true);
         m_Gameplay_GhostHeightDecrease = m_Gameplay.FindAction("GhostHeightDecrease", throwIfNotFound: true);
+        m_Gameplay_GhostDistanceIncrease = m_Gameplay.FindAction("GhostDistanceIncrease", throwIfNotFound: true);
+        m_Gameplay_GhostDistanceDecrease = m_Gameplay.FindAction("GhostDistanceDecrease", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -350,6 +392,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Menu;
     private readonly InputAction m_Gameplay_GhostHeightIncrease;
     private readonly InputAction m_Gameplay_GhostHeightDecrease;
+    private readonly InputAction m_Gameplay_GhostDistanceIncrease;
+    private readonly InputAction m_Gameplay_GhostDistanceDecrease;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -361,6 +405,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputAction @GhostHeightIncrease => m_Wrapper.m_Gameplay_GhostHeightIncrease;
         public InputAction @GhostHeightDecrease => m_Wrapper.m_Gameplay_GhostHeightDecrease;
+        public InputAction @GhostDistanceIncrease => m_Wrapper.m_Gameplay_GhostDistanceIncrease;
+        public InputAction @GhostDistanceDecrease => m_Wrapper.m_Gameplay_GhostDistanceDecrease;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -391,6 +437,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @GhostHeightDecrease.started += instance.OnGhostHeightDecrease;
             @GhostHeightDecrease.performed += instance.OnGhostHeightDecrease;
             @GhostHeightDecrease.canceled += instance.OnGhostHeightDecrease;
+            @GhostDistanceIncrease.started += instance.OnGhostDistanceIncrease;
+            @GhostDistanceIncrease.performed += instance.OnGhostDistanceIncrease;
+            @GhostDistanceIncrease.canceled += instance.OnGhostDistanceIncrease;
+            @GhostDistanceDecrease.started += instance.OnGhostDistanceDecrease;
+            @GhostDistanceDecrease.performed += instance.OnGhostDistanceDecrease;
+            @GhostDistanceDecrease.canceled += instance.OnGhostDistanceDecrease;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -416,6 +468,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @GhostHeightDecrease.started -= instance.OnGhostHeightDecrease;
             @GhostHeightDecrease.performed -= instance.OnGhostHeightDecrease;
             @GhostHeightDecrease.canceled -= instance.OnGhostHeightDecrease;
+            @GhostDistanceIncrease.started -= instance.OnGhostDistanceIncrease;
+            @GhostDistanceIncrease.performed -= instance.OnGhostDistanceIncrease;
+            @GhostDistanceIncrease.canceled -= instance.OnGhostDistanceIncrease;
+            @GhostDistanceDecrease.started -= instance.OnGhostDistanceDecrease;
+            @GhostDistanceDecrease.performed -= instance.OnGhostDistanceDecrease;
+            @GhostDistanceDecrease.canceled -= instance.OnGhostDistanceDecrease;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -442,5 +500,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnMenu(InputAction.CallbackContext context);
         void OnGhostHeightIncrease(InputAction.CallbackContext context);
         void OnGhostHeightDecrease(InputAction.CallbackContext context);
+        void OnGhostDistanceIncrease(InputAction.CallbackContext context);
+        void OnGhostDistanceDecrease(InputAction.CallbackContext context);
     }
 }

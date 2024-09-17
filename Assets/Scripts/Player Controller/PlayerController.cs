@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 lastMovementDirection;
     private Vector3 currentFacingDirection;
 
+    public GhostSpocksController gS;
     // Action tracking data
 
 
@@ -120,8 +121,29 @@ public class PlayerController : MonoBehaviour
 
         controls.Gameplay.Menu.performed += ctx => pause.PauseMenu();
 
-        
-        
+
+
+
+
+
+        //SPOCK STUFF
+        controls.Gameplay.GhostHeightIncrease.performed += ctx =>  gS.UnIncreaseGhostHeight();
+        controls.Gameplay.GhostHeightDecrease.performed += ctx =>  gS.IncreaseGhostHeight();
+
+
+
+
+
+        controls.Gameplay.GhostDistanceIncrease.performed += ctx => gS.increasingDistance = true;
+        controls.Gameplay.GhostDistanceIncrease.canceled += ctx => gS.increasingDistance = false;
+
+        controls.Gameplay.GhostDistanceDecrease.performed += ctx => gS.decreasingDistance = true;
+        controls.Gameplay.GhostDistanceDecrease.canceled += ctx => gS.decreasingDistance = false;
+
+        //controls.Gameplay.GhostDistanceDecrease.performed += ctx => gS.UnIncreaseGhostHeight();
+
+
+
 
 
 

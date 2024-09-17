@@ -5,6 +5,9 @@ using UnityEngine.InputSystem.Controls;
 
 public class GhostSpocksController : MonoBehaviour
 {
+    public bool increasingDistance, decreasingDistance;
+
+
     public Transform refPoint;
     public Transform player;
     public Transform ghostSpocks;
@@ -30,21 +33,27 @@ public class GhostSpocksController : MonoBehaviour
         this.transform.rotation = Quaternion.Euler(0, refPoint.transform.rotation.eulerAngles.y-90, 0);
 
         ghostSpocks.position = transform.position + transform.right * ghostDistance + new Vector3(0, newYHeight, 0);
+
+
+
         ghostSpocks.rotation = transform.rotation;
+
+        if (increasingDistance)
+        {
+            SpiritedAway();
+        }
+
+        if (decreasingDistance)
+        {
+            SpiritedCloser();
+        }
 
     }
 
     void Update() //< /\ > \/
     {
 
-        if (Input.GetKeyDown(KeyCode.Joystick1Button4))
-        {
-            UnIncreaseGhostHeight();
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button5))
-        {
-            IncreaseGhostHeight();
-        }
+        /*
         if (Input.GetAxis("L2") > 0.1f) //Use a custom axis input for the triggers
         {
             SpiritedCloser();
@@ -53,25 +62,42 @@ public class GhostSpocksController : MonoBehaviour
         {
             SpiritedAway();
         }
+        */
+        
     }
-    void IncreaseGhostHeight() // paul blart mall cop
+    public void IncreaseGhostHeight() // paul blart mall cop
     {
+        Debug.Log("increase height");
         if (newYHeight < maxYHeight)
-            newYHeight ++;
+        {
+            newYHeight++;
+        }
     }
-    void UnIncreaseGhostHeight() //paul cop mall blart
+    public void UnIncreaseGhostHeight() //paul cop mall blart
     {
+
+        Debug.Log("de height");
         if (newYHeight > minYHeight)
-            newYHeight --;
+        {
+            
+            newYHeight--;
+        }
+
     }
-    void SpiritedAway() // mall blart cop plart blart
+    public void SpiritedAway() // mall blart cop plart blart
     {
+
         if (ghostDistance < ghostDistanceMax)
+        {
+            Debug.Log("increase dis");
             ghostDistance += Time.deltaTime * ghostMoveSpeed;
+        }
+      
     }
-    void SpiritedCloser() // paul cop mlart cop blart paul mall cop blart paul
+    public void SpiritedCloser() // paul cop mlart cop blart paul mall cop blart paul
     //Ok
     {
+        Debug.Log("de dis");
         if (ghostDistance > ghostDistanceMin)
             ghostDistance -= Time.deltaTime * ghostMoveSpeed;
     }
