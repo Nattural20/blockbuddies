@@ -153,19 +153,23 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        //isGrounded = CheckGrounded();
+        isGrounded = CheckGrounded();
 
         if (pause.isPaused == true && Input.GetKey(KeyCode.Joystick1Button6) && Input.GetKey(KeyCode.Joystick1Button7))
         {
             ResetScene();
         }
 
+        //Ground check 
         ExtraGroundCheck();
+
+        //if grounded and moving downward, reset vertical velocity
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
 
+        //Grab 
         if (isHoldingGrab)
         {
             if (!playedGrabSound)
@@ -175,21 +179,24 @@ public class PlayerController : MonoBehaviour
             }
             Grab();
         }
-        if (!isHoldingGrab)
+        else
         {
             playedGrabSound = false;
         }
 
+        //process rotation
         Vector2 r = new Vector2(rotate.x, rotate.y) * Time.deltaTime;
 
-  
+        //Jump buffer logic
         if (jumpBufferCounter > 0)
         {
             jumpBufferCounter -= Time.deltaTime;
             if (isGrounded)
             {
-                PerformJump();
-                Debug.Log("6");
+                rb.velocity = new Vector3 (rb.velocity.x, 0, rb.velocity.z);
+                PerformJump(); 
+                jumpBufferCounter = 0; 
+                Debug.Log("Jump performed from buffer");
             }
         }
 
@@ -198,6 +205,7 @@ public class PlayerController : MonoBehaviour
             jumpCooldown -= Time.deltaTime;
         }
     }
+
 
 
     private void FixedUpdate()
@@ -282,21 +290,19 @@ public class PlayerController : MonoBehaviour
         hand2.AddForce(currentFacingDirection * armThrust);
     }
 
+
     void StartJump()
     {
-        //PerformJump();
-
-        isGrounded = CheckGrounded();
 
         if (isGrounded)
         {
             PerformJump();
-            Debug.Log("5");
+            Debug.Log("Immediate jump performed");
         }
         else
         {
-            jumpBufferCounter = jumpBufferTime;
-            jumpQueued = true;
+            jumpBufferCounter = jumpBufferTime; // Buffer the jump if not grounded
+            Debug.Log("Jump buffered");
         }
     }
 
@@ -308,11 +314,11 @@ public class PlayerController : MonoBehaviour
             StopCoroutine(CoyoteCooldown());
             StartCoroutine(CoyoteCooldown());
             isGrounded = false;
-            FindAnyObjectByType<AudioManager>().Play("HopperJump");
             jumpQueued = false;
             Debug.Log("JUMP");
 
-            jumpCooldown = .5f;
+            // Reset jump cooldown
+            jumpCooldown = 0.5f; // Adjust as needed
         }
     }
 
