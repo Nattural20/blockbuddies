@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SideViewTrigger : MonoBehaviour
 {
-    public SpawnerCode arduinoSpawner;
+    public SpawnerCodeV3 arduinoSpawner;
     public LayerMask playerMask;
     public GameObject freeLookCam, sideViewCam;
 

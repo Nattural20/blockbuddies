@@ -61,8 +61,11 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
     }
 
+    /// <summary>
+    ///Fades the first sound out and the second sound in over the duration of time provided. 
+    /// </summary>
     public void CrossFade(string fadeOut, string fadeIn, float duration)
-    //Fades the first sound out and the second sound in over the duration of time provided. 
+    
     {
         Sound soundOut = Array.Find(sounds, sound => sound.name == fadeOut);
         Sound soundIn = Array.Find(sounds, sound => sound.name == fadeIn);
