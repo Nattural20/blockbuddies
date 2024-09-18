@@ -11,7 +11,7 @@ public class OrientationDropdown : MonoBehaviour
 
     void Start()
     {
-        if (spawner == null)
+/*        if (spawner == null)
         {
             ArduinoGetter.SetOrientation(ArduinoGetter.Orientation.Left);
 
@@ -24,8 +24,8 @@ public class OrientationDropdown : MonoBehaviour
         {
             ArduinoGetter.Orientation storedOrientation = ResetManager.ApplyStoredRotation(); // Assuming this method exists
             ArduinoGetter.SetOrientation(storedOrientation);
-            spawner.SetOrientation(storedOrientation);
-        }
+*//*            spawner.SetOrientation(storedOrientation);
+*//*        }*/
     }
 
     public void DropdownValueChanged(Dropdown change)
@@ -50,7 +50,7 @@ public class OrientationDropdown : MonoBehaviour
     void SetInitialOrientation()
     {
         // Set the initial value of the dropdown based on ArduinoGetter's orientation
-        ArduinoGetter.Orientation currentOrientation = ArduinoGetter.GetOrientation();
+/*        ArduinoGetter.Orientation currentOrientation = ArduinoGetter.GetOrientation();
         switch (currentOrientation)
         {
             case ArduinoGetter.Orientation.Left:
@@ -65,7 +65,7 @@ public class OrientationDropdown : MonoBehaviour
             case ArduinoGetter.Orientation.Down:
                 dropdown.value = 3;
                 break;
-        }
+        }*/
     }
 
 }

@@ -433,13 +433,19 @@ public class SpawnerCodeV3 : MonoBehaviour
 
     public void ToggleSpoof()
     {
-        if (spoofToggle.isOn)
+        // Check if the Toggle is on
+        if (spoofToggle.isOn && !TogOn)
         {
             enableSpoof = true;
+            TogOn = true;
+            Debug.Log("Spoofing enabled.");
         }
-        else
+        // If the Toggle is off and it was previously on, disable the spoofing
+        else if (!spoofToggle.isOn && TogOn)
         {
             enableSpoof = false;
+            TogOn = false;
+            Debug.Log("Spoofing disabled.");
         }
     }
 }
