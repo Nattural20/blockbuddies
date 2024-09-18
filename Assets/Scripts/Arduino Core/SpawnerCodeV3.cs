@@ -39,10 +39,8 @@ public class SpawnerCodeV3 : MonoBehaviour
     private void Start()
     {
 
-        spawnRotation.ClearOptions();
-        spawnRotation.AddOptions(new List<string>(options));
-
-        /*spawnRotation.value = 0;*/
+        //spawnRotation.ClearOptions();
+        //spawnRotation.AddOptions(new List<string>(options));
 
         
     }

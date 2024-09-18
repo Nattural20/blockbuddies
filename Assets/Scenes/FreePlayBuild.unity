@@ -1996,6 +1996,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4984992600682756018}
     - target: {fileID: 4122041025376506723, guid: 8ca330e2254559547831ffd3b0aec1c5, type: 3}
+      propertyPath: m_IsOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122041025376506723, guid: 8ca330e2254559547831ffd3b0aec1c5, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 262074837490712306}
@@ -4541,6 +4545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropdown: {fileID: 500740599}
+  spoof: {fileID: 103022316}
 --- !u!4 &1436841979
 Transform:
   m_ObjectHideFlags: 0
@@ -8991,7 +8996,7 @@ MonoBehaviour:
   spockWeight: 60
   spoofToggle: {fileID: 103022316}
   spawnRotation: {fileID: 500740599}
-  enableSpoof: 1
+  enableSpoof: 0
   spockDisplay:
   - {fileID: 1383678636}
   - {fileID: 1418703892}

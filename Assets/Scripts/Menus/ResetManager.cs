@@ -9,94 +9,83 @@ public class ResetManager : MonoBehaviour
 
     private static ResetManager instance;
 
-    public Dropdown dropdown;  // Your dropdown component
-    private static int savedDropdownValue = -1;  // Static variable to store value
+    public Dropdown dropdown;  // The specific dropdown component
+    private static int savedDropdownValue = -1;  // Static variable to store value across scenes
+
+    public Toggle spoof;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);  // Persist this object across scenes
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject);  // Ensure only one instance of ResetManager exists
         }
-
-        
     }
 
     private void Start()
     {
-
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         if (dropdown == null)
         {
             dropdown = GameObject.Find("Spawner Rotation").GetComponent<Dropdown>();
-
-            DontDestroyOnLoad(dropdown.gameObject);
+            DontDestroyOnLoad(dropdown.gameObject);  // Ensure the dropdown is not destroyed
         }
-        
-        // If there's a saved value, use it to set the dropdown
-        if (savedDropdownValue != -1)
+
+        // Load the saved dropdown value from PlayerPrefs or use the static value if it exists
+        if (savedDropdownValue == -1)
         {
-            dropdown.value = savedDropdownValue;
+            savedDropdownValue = PlayerPrefs.GetInt("Rotation", dropdown.value);
         }
 
-        // Add listener to update the static variable when the value changes
+        // Set the dropdown to the saved value
+        dropdown.value = savedDropdownValue;
+
+        // Add listener to save the dropdown value when it changes
         dropdown.onValueChanged.AddListener(delegate { SaveDropdownValue(); });
-        
     }
 
     public void SaveDropdownValue()
     {
-        // Store the dropdown's current value in a static variable
+        // Save the dropdown's current value to the static variable and PlayerPrefs
         savedDropdownValue = dropdown.value;
+        PlayerPrefs.SetInt("Rotation", savedDropdownValue);
+        PlayerPrefs.Save();  // Force PlayerPrefs to save immediately
     }
 
     public void ResetScene()
     {
-        Debug.Log("BOISJDFBJSDBFJDSB");
         StartCoroutine(RespawnLag());
-
     }
 
     IEnumerator RespawnLag()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         yield return new WaitForSecondsRealtime(1);
-        Debug.Log("Waiting 1 second");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Debug.Log("Second Reset");
         Time.timeScale = 1f;
-    }
-
-    public void ApplyStoredRotation()
-    {
-        // Get the stored orientation
-        SpawnerRotationManager.Orientation orientation = SpawnerRotationManager.Instance.CurrentOrientation;
-
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Reassign dropdown when the scene is loaded
+        // Reassign the dropdown after the scene is loaded
         dropdown = GameObject.Find("Spawner Rotation").GetComponent<Dropdown>();
 
         // Reapply the saved value
-        if (savedDropdownValue != -1)
-        {
-            dropdown.value = savedDropdownValue;
-        }
+        dropdown.value = savedDropdownValue;
 
+        // Ensure the listener is added to save the value on change
+        dropdown.onValueChanged.RemoveAllListeners();  // Remove existing listeners to avoid duplicates
         dropdown.onValueChanged.AddListener(delegate { SaveDropdownValue(); });
     }
 
     private void OnDestroy()
     {
-        // Unsubscribe from the event when the object is destroyed
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
