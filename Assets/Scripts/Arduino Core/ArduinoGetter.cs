@@ -93,12 +93,12 @@ public class ArduinoGetter
         string FinalString = new string(rotatedArray);
         Console.WriteLine("String of " + arduinoArray.Length + "numbers");
 
-        /*return rotatedArray;*/
+        return rotatedArray;
 
         //conversion of string 0 and 1's into the blocks
         //there needs to be a different PREFAB for each possible input!!!!!
         ///Finally we will Among
-        foreach (char str in arduinoArray)
+/*        foreach (char str in arduinoArray)
         {
             FinalString = FinalString + " " + str;
         }
@@ -112,7 +112,7 @@ public class ArduinoGetter
         {
             Console.WriteLine("Output of array is: " + FinalString);
         }
-        return rotatedArray;
+        return arduinoArray;*/
     }
 
     public static void SetOrientation(Orientation newOrientation)
