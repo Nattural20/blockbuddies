@@ -35,6 +35,21 @@ public class SpawnerCodeV3 : MonoBehaviour
     /// </summary>
     public void Start()
     {
+
+
+/*        spawnRotation.ClearOptions();
+        spawnRotation.AddOptions(new List<string>(options));
+
+        spawnRotation.value = 0;*/
+        
+
+    }
+
+    void Update()
+    {
+        CycleBlocks();
+        Spawn();
+
         if (enableSpoof)
         {
             SpoofCanvas.SetActive(true); ///Paul Blart Mall Cop
@@ -44,18 +59,8 @@ public class SpawnerCodeV3 : MonoBehaviour
             SpoofCanvas.SetActive(false);
         }
 
-        spawnRotation.ClearOptions();
-        spawnRotation.AddOptions(new List<string>(options));
 
-        spawnRotation.value = 0;
-        
 
-    }
-
-    void Update()
-    {
-        CycleBlocks();
-        Spawn();
     }
 
     void Spawn()
@@ -122,7 +127,7 @@ public class SpawnerCodeV3 : MonoBehaviour
         }
 
         //Up Orientation
-        /*if (input != null && spawnRotation.value == 1)
+        if (input != null && spawnRotation.value == 1)
         {
             Debug.Log("Facing Up");
             if (canSpawnSpocks)
@@ -293,7 +298,7 @@ public class SpawnerCodeV3 : MonoBehaviour
             }
 
             previousInput = input;
-        }*/
+        }
         else
         {
             if (!hasErrored)
