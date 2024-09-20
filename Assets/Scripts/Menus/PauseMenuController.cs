@@ -22,9 +22,12 @@ public class PauseMenuController : MonoBehaviour
     private bool fpsOn = false;
 
 
+
     private void Awake()
     {
-        
+
+
+
 
     }
 

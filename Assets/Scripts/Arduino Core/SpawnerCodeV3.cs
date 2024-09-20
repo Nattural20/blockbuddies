@@ -21,8 +21,11 @@ public class SpawnerCodeV3 : MonoBehaviour
     private Queue<GameObject> spawnQueue = new Queue<GameObject>();
     bool hasErrored = false;
 
-    [SerializeField] public Dropdown spawnRotation;
-    public readonly string[] options = { "Left", "Up", "Right", "Down" };
+    public Toggle spoofToggle;
+    private bool TogOn = false;
+
+    public Dropdown spawnRotation;
+    private readonly string[] options = { "Left", "Up", "Right", "Down"};
 
     //Spoof arguments
     public bool enableSpoof = false;
@@ -35,6 +38,18 @@ public class SpawnerCodeV3 : MonoBehaviour
     /// </summary>
     public void Start()
     {
+
+        //spawnRotation.ClearOptions();
+        //spawnRotation.AddOptions(new List<string>(options));
+
+        
+    }
+
+    void Update()
+    {
+
+        CycleBlocks();
+        Spawn();
         if (enableSpoof)
         {
             SpoofCanvas.SetActive(true); ///Paul Blart Mall Cop
@@ -44,18 +59,7 @@ public class SpawnerCodeV3 : MonoBehaviour
             SpoofCanvas.SetActive(false);
         }
 
-        spawnRotation.ClearOptions();
-        spawnRotation.AddOptions(new List<string>(options));
-
-        spawnRotation.value = 0;
-        
-
-    }
-
-    void Update()
-    {
-        CycleBlocks();
-        Spawn();
+        ToggleSpoof();
     }
 
     void Spawn()
@@ -64,7 +68,7 @@ public class SpawnerCodeV3 : MonoBehaviour
 
         //I am so sorry about the sins I have committed 
         //Left Orientation
-        if (input != null /*&& spawnRotation.value == 0*/)
+        if (input != null && spawnRotation.value == 0)
         {
             Debug.Log("Facing Left");
             if (canSpawnSpocks)
@@ -122,7 +126,7 @@ public class SpawnerCodeV3 : MonoBehaviour
         }
 
         //Up Orientation
-        /*if (input != null && spawnRotation.value == 1)
+        if (input != null && spawnRotation.value == 1)
         {
             Debug.Log("Facing Up");
             if (canSpawnSpocks)
@@ -293,7 +297,7 @@ public class SpawnerCodeV3 : MonoBehaviour
             }
 
             previousInput = input;
-        }*/
+        }
         else
         {
             if (!hasErrored)
@@ -334,6 +338,23 @@ public class SpawnerCodeV3 : MonoBehaviour
 
             ind++;
         }
+        
+        if (spawnRotation.value == 0)
+        {
+           /*GameObject input = ghostSpocks[5]; */
+        }
+        else if (spawnRotation.value == 1) 
+        { 
+        }
+        else if(spawnRotation.value == 2)
+        {
+
+        }
+        else if (spawnRotation.value == 3)
+        {
+
+        }
+        
     }
 
     void CycleBlocks()
@@ -345,7 +366,7 @@ public class SpawnerCodeV3 : MonoBehaviour
         }
     }
 
-    char[] GetInput() //new inputs: works normally if normal, redirect to spoof if spoof is enabled
+   char[] GetInput() //new inputs: works normally if normal, redirect to spoof if spoof is enabled
     {
         if (!enableSpoof)
         {
@@ -406,6 +427,24 @@ public class SpawnerCodeV3 : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         hasErrored = false;
+    }
+
+    public void ToggleSpoof()
+    {
+        // Check if the Toggle is on
+        if (spoofToggle.isOn && !TogOn)
+        {
+            enableSpoof = true;
+            TogOn = true;
+            Debug.Log("Spoofing enabled.");
+        }
+        // If the Toggle is off and it was previously on, disable the spoofing
+        else if (!spoofToggle.isOn && TogOn)
+        {
+            enableSpoof = false;
+            TogOn = false;
+            Debug.Log("Spoofing disabled.");
+        }
     }
 }
 
