@@ -21,10 +21,10 @@ public class ResetManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);  // Persist this object across scenes
         }
-        else
+/*        else
         {
             Destroy(gameObject);  // Ensure only one instance of ResetManager exists
-        }
+        }*/
     }
 
     private void Start()
@@ -61,6 +61,7 @@ public class ResetManager : MonoBehaviour
     public void ResetScene()
     {
         StartCoroutine(RespawnLag());
+        Time.timeScale = 1f;
     }
 
     IEnumerator RespawnLag()
