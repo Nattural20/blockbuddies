@@ -13,7 +13,7 @@ public class SpawnerCodeV3 : MonoBehaviour
     public bool hasSpawned;
     public bool buttonPressed;
     public bool canSpawnSpocks;
-    public TMP_Text blockType;
+    public TextMesh blockType;
     public char[] input;
     public char[] previousInput;
     public int spawnLimit = 5;
