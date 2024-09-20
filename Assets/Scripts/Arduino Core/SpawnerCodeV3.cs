@@ -71,8 +71,9 @@ public class SpawnerCodeV3 : MonoBehaviour
         input = GetInput();
 
         //I am so sorry about the sins I have committed 
+        //No I'm not. Those sins were pointless!!!
         //Left Orientation
-        if (input != null && spawnRotation.value == 0)
+        if (input != null /*&& spawnRotation.value == 0*/)
         {
             Debug.Log("Facing Left");
             if (canSpawnSpocks)
@@ -129,7 +130,8 @@ public class SpawnerCodeV3 : MonoBehaviour
             previousInput = input;
         }
 
-        //Up Orientation
+        //Leave me commented out!
+        /*//Up Orientation
         if (input != null && spawnRotation.value == 1)
         {
             Debug.Log("Facing Up");
@@ -301,7 +303,7 @@ public class SpawnerCodeV3 : MonoBehaviour
             }
 
             previousInput = input;
-        }
+        }*/
         else
         {
             if (!hasErrored)
