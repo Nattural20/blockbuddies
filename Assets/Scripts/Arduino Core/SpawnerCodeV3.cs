@@ -21,6 +21,9 @@ public class SpawnerCodeV3 : MonoBehaviour
     private Queue<GameObject> spawnQueue = new Queue<GameObject>();
     bool hasErrored = false;
 
+    public Toggle spoofToggle;
+    private bool TogOn = false;
+
     [SerializeField] public Dropdown spawnRotation;
     public readonly string[] options = { "Left", "Up", "Right", "Down" };
 
@@ -59,7 +62,7 @@ public class SpawnerCodeV3 : MonoBehaviour
             SpoofCanvas.SetActive(false);
         }
 
-
+        ToggleSpoof();
 
     }
 
@@ -411,6 +414,24 @@ public class SpawnerCodeV3 : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         hasErrored = false;
+    }
+
+    public void ToggleSpoof()
+    {
+        // Check if the Toggle is on
+        if (spoofToggle.isOn && !TogOn)
+        {
+            enableSpoof = true;
+            TogOn = true;
+            Debug.Log("Spoofing enabled.");
+        }
+        // If the Toggle is off and it was previously on, disable the spoofing
+        else if (!spoofToggle.isOn && TogOn)
+        {
+            enableSpoof = false;
+            TogOn = false;
+            Debug.Log("Spoofing disabled.");
+        }
     }
 }
 
