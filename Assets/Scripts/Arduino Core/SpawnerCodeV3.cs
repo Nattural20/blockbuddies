@@ -72,7 +72,7 @@ public class SpawnerCodeV3 : MonoBehaviour
 
         //I am so sorry about the sins I have committed 
         //Left Orientation
-        if (input != null /*&& spawnRotation.value == 0*/)
+        if (input != null && spawnRotation.value == 0)
         {
             Debug.Log("Facing Left");
             if (canSpawnSpocks)
