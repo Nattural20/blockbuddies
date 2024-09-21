@@ -47,7 +47,7 @@ public class RiverSpockScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Body"))
         {
-            controller.extraVelocity = pushDirection * speed;
+            controller.extraVelocity += pushDirection * speed;
         }
     }
 }
