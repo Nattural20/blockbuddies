@@ -24,7 +24,7 @@ public class ThirdPersonCamera : MonoBehaviour
         }
 
         // Set the player transform as the follow target for the Cinemachine FreeLook camera
-        freeLookCamera.Follow = playerTransform;
+        //freeLookCamera.Follow = playerTransform;
     }
 
     void Update()

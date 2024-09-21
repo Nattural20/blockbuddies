@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 
 public class PlayerController : MonoBehaviour
@@ -204,6 +205,7 @@ public class PlayerController : MonoBehaviour
         {
             jumpCooldown -= Time.deltaTime;
         }
+
     }
 
 
@@ -216,8 +218,29 @@ public class PlayerController : MonoBehaviour
 
         currentFacingDirection = rb.transform.right;
 
-     
+        ApplyForwardRotation();
+
+
         ApplyCustomGravity();
+    }
+
+
+
+
+    void ApplyForwardRotation()
+    {
+
+
+        float currentSpeed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
+        float targetZRotation = Mathf.Lerp(0, -60, currentSpeed / maxSpeed);
+
+        Quaternion currentRotation = rb.transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(currentRotation.eulerAngles.x, currentRotation.eulerAngles.y, targetZRotation);
+
+        rb.transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
+
+        //Camera.main.transform.rotation = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.rotation.eulerAngles.y, 0);
+        
     }
 
     void ApplyCustomGravity()
