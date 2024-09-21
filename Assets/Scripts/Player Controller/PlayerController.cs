@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
     public float headThrust = 60;
     public float armThrust = 60;
 
+    public Vector3 extraVelocity;
     private Vector3 velocity;
     private Vector2 lastMove;
 
@@ -226,9 +227,10 @@ public class PlayerController : MonoBehaviour
             velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
         }
 
-        rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z);
+        rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z) + extraVelocity;
         lastMove = new Vector2(currentMovementDirection.x, currentMovementDirection.z);
 
+        extraVelocity = Vector3.zero;
     }
 
     void Grab()
@@ -312,14 +314,14 @@ public class PlayerController : MonoBehaviour
             }
             else if (groundSlopeAngle < groundMaxAngle && !hit.collider.isTrigger) // If hit is not a spock or a trigger, checks if the hit face is less then ground angle
             {
-                Debug.Log("Ray hit. Player is grounded on " + hit.collider.name + " at " + groundSlopeAngle + " degrees");
+                //Debug.Log("Ray hit. Player is grounded on " + hit.collider.name + " at " + groundSlopeAngle + " degrees");
                 return GroundCheckReturn(true, true);
                 //timeSinceLastGrounded = 0f;
                 //return true;
             }
             else
             {
-                Debug.Log("Ray hit. Player is not grounded" + " at " + groundSlopeAngle + " degrees");
+                //Debug.Log("Ray hit. Player is not grounded" + " at " + groundSlopeAngle + " degrees");
                 if (timeSinceLastGrounded < coyoteTime)
                     return GroundCheckReturn(true, false);
                 else
@@ -359,7 +361,7 @@ public class PlayerController : MonoBehaviour
 
         else
         {
-            Debug.Log("Ray has not hit. Player is not grounded");
+            //Debug.Log("Ray has not hit. Player is not grounded");
             if (timeSinceLastGrounded < coyoteTime)
                 return GroundCheckReturn(true, false);
             else
