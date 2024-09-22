@@ -275,28 +275,30 @@ public class PlayerController : MonoBehaviour
         Vector3 forward = cameraTransform.forward;
         forward.y = 0;
         Vector3 right = cameraTransform.right;
-        right.y = 0; 
+        right.y = 0;
 
+        // Scale movement speed based on how far the stick is being pushed
+        float movementMultiplier = move.magnitude; // This will be a value between 0 and 1
         currentMovementDirection = (forward * moveInput.z + right * moveInput.x).normalized;
 
-        Vector3 accelerationVector = currentMovementDirection * acceleration;
+        Vector3 accelerationVector = currentMovementDirection * acceleration * movementMultiplier; // Apply scaling here
 
         if (Vector2.Dot(lastMove.normalized, new Vector2(currentMovementDirection.x, currentMovementDirection.z).normalized) < 0.8f && move != Vector2.zero)
         {
-            //pivot faster
+            // Pivot faster
             velocity = Vector3.MoveTowards(velocity, Vector3.zero, deceleration * pivotSpeed * Time.fixedDeltaTime);
-            lastMovementDirection = new Vector3(currentMovementDirection.x,0, currentMovementDirection.z);
+            lastMovementDirection = new Vector3(currentMovementDirection.x, 0, currentMovementDirection.z);
         }
         else if (move == Vector2.zero)
         {
-            //normal deceleration if let go
+            // Normal deceleration if let go
             velocity = Vector3.MoveTowards(velocity, Vector3.zero, deceleration * Time.fixedDeltaTime);
         }
         else
         {
-            //normal acceleration
+            // Normal acceleration with scaling based on input magnitude
             velocity += accelerationVector * Time.fixedDeltaTime;
-            velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+            velocity = Vector3.ClampMagnitude(velocity, maxSpeed * movementMultiplier); // Scale max speed too
         }
 
         rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z) + extraVelocity;
@@ -304,6 +306,7 @@ public class PlayerController : MonoBehaviour
 
         extraVelocity = Vector3.zero;
     }
+
 
     void Grab()
     {
