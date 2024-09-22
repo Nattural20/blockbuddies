@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed = 5f;
     public float deceleration = 5f;
     public float pivotSpeed = 5;
+    public Vector3 extraVelocity;
 
     //jump
     public float jumpForce = 10f;
@@ -154,7 +155,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = CheckGrounded();
 
         if (pause.isPaused == true && Input.GetKey(KeyCode.Joystick1Button6) && Input.GetKey(KeyCode.Joystick1Button7))
         {
@@ -191,6 +191,7 @@ public class PlayerController : MonoBehaviour
         //Jump buffer logic
         if (jumpBufferCounter > 0)
         {
+            isGrounded = CheckGrounded();
             jumpBufferCounter -= Time.deltaTime;
             if (isGrounded)
             {
@@ -298,9 +299,10 @@ public class PlayerController : MonoBehaviour
             velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
         }
 
-        rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z);
+        rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z) + extraVelocity;
         lastMove = new Vector2(currentMovementDirection.x, currentMovementDirection.z);
 
+        extraVelocity = Vector3.zero;
     }
 
     void Grab()
@@ -316,7 +318,7 @@ public class PlayerController : MonoBehaviour
 
     void StartJump()
     {
-
+        isGrounded = CheckGrounded();
         if (isGrounded)
         {
             PerformJump();
