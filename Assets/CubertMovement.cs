@@ -6,7 +6,7 @@ public class CubertMovement : MonoBehaviour
     public float moveSpeed = 2f;
     public float rotationSpeed = 5f;
 
-    void Update()
+    void FixedUpdate()
     {
         if (CubertAimPosition != null)
         {
@@ -15,6 +15,10 @@ public class CubertMovement : MonoBehaviour
 
             Quaternion targetRotation = CubertAimPosition.rotation;
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            Vector3 eulerAngles = transform.rotation.eulerAngles;
+            eulerAngles.z = 0;
+            transform.rotation = Quaternion.Euler(eulerAngles);
         }
     }
 }
