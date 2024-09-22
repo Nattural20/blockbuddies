@@ -74,7 +74,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
         if (collision.gameObject.tag == "Body")
         {
             _playerPresent = false;
-            spawnScript.canSpawnSpocks = true; //fixed for v3 spawn code spoof
+            //spawnScript.canSpawnSpocks = true; //fixed for v3 spawn code spoof
 
         }
     }

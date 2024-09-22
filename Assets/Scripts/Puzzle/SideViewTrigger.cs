@@ -8,22 +8,14 @@ public class SideViewTrigger : MonoBehaviour
     public LayerMask playerMask;
     public GameObject freeLookCam, sideViewCam;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    int triggersActive;
 
     private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Body")
         {
+            triggersActive++;
+
             freeLookCam.SetActive(false);
             sideViewCam.SetActive(true);
             arduinoSpawner.canSpawnSpocks = false;
@@ -31,6 +23,7 @@ public class SideViewTrigger : MonoBehaviour
             {
                 ghost.SetActive(false);
             }
+
         }
     }
 
@@ -38,9 +31,14 @@ public class SideViewTrigger : MonoBehaviour
     {
         if (col.gameObject.tag == "Body")
         {
-            sideViewCam.SetActive(false);
-            freeLookCam.SetActive(true);
-            arduinoSpawner.canSpawnSpocks = true;
+            triggersActive--;
+
+            if (triggersActive == 0)
+            {
+                sideViewCam.SetActive(false);
+                freeLookCam.SetActive(true);
+                arduinoSpawner.canSpawnSpocks = true;
+            }
         }
 
     }
