@@ -6,10 +6,10 @@ Preset:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FPSCounter
+  m_Name: Dropdown
   m_TargetType:
     m_NativeTypeID: 114
-    m_ManagedTypePPtr: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
     m_ManagedTypeFallback: 
   m_Properties:
   - target: {fileID: 0}
@@ -26,7 +26,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Navigation.m_Mode
-    value: 3
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Navigation.m_WrapAround
@@ -110,7 +110,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Colors.m_SelectedColor.b
-    value: 0.99135804
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Colors.m_SelectedColor.a
@@ -185,67 +185,83 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: toggleTransition
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: graphic
+    propertyPath: m_Template
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: m_Group
+    propertyPath: m_CaptionText
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    propertyPath: m_CaptionImage
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-    value: UnityEngine.GameObject, UnityEngine
+    propertyPath: m_ItemText
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-    value: SetActive
+    propertyPath: m_ItemImage
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+    propertyPath: m_Value
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+    propertyPath: m_Options.m_Options.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+    value: PauseMenuController, Assembly-CSharp
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+    value: OnSpawnLocationsSelect
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
     value: UnityEngine.Object, UnityEngine
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+    propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+    propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+    propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+    propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+    propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
     value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: m_IsOn
-    value: 0
+    propertyPath: m_AlphaFadeSpeed
+    value: 0.15
     objectReference: {fileID: 0}
   m_ExcludedProperties: []
