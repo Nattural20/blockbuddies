@@ -1,0 +1,191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3031399951440337322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1083811649666657521}
+  - component: {fileID: 6550495843015916093}
+  m_Layer: 0
+  m_Name: AudioManagerV2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1083811649666657521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3031399951440337322}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6550495843015916093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3031399951440337322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0bbe5e8ff6841d9a2d5dd3cd884bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: ThemeNeutral
+    clip: {fileID: 8300000, guid: e2c8a8bfb32e7415f866373d4a00cd1b, type: 3}
+    volume: 0.283
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: AmbientChimes
+    clip: {fileID: 8300000, guid: fd5fee76d117cbf42b38296d74592f87, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MusicEndgame
+    clip: {fileID: 8300000, guid: 35faa8cbfec1f9c4299bc1723c7c99a7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MusicTension
+    clip: {fileID: 8300000, guid: c29d968b60716b54aa310f659d93cc92, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SpockSpawn
+    clip: {fileID: 8300000, guid: 2ae1d4979359e334a8de0be8950d1665, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SpockPlace
+    clip: {fileID: 8300000, guid: 2ea126c0e8388854bb8d9f151157d319, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BlockPickup
+    clip: {fileID: 8300000, guid: 91d9a03ba3f82664092440f3d2f6e615, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GhostSpockAppear
+    clip: {fileID: 8300000, guid: fc80a2bee05201a4ab0828ba5fb2f14b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GhostSpockDisappear
+    clip: {fileID: 8300000, guid: 8c0c5d992dd92554eaf90c43237e8cc9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HopperJump
+    clip: {fileID: 8300000, guid: cf347e51e9666ea4cade25a65ecaf3c8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MoveFromStill
+    clip: {fileID: 8300000, guid: b42d15a77136b304e87ab44834c5606c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerInVines
+    clip: {fileID: 8300000, guid: e91e23816898a084ebf8104b9b6c58e0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SinkingInVines
+    clip: {fileID: 8300000, guid: 8b29b91e31d94af40a1fa73d8f113ec9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SpockInVines
+    clip: {fileID: 8300000, guid: de3746f4177b507449d993d4dba5e260, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WarningRumbleGeyser
+    clip: {fileID: 8300000, guid: 0c9eb83851808a646ac3ea1d437c4661, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TurretFire
+    clip: {fileID: 8300000, guid: 6827d0ec60db0cf4488a2bcae3fceeea, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TurretHit
+    clip: {fileID: 8300000, guid: 42f4eb6aa532ed54b9b87d8f3ea75cf4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GateOpening
+    clip: {fileID: 8300000, guid: 5b5a88d14a3cc8d4385df1bd26a5e9e4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GrowingVines
+    clip: {fileID: 8300000, guid: b1c6c1fadac6db848ae3a9bd05a2b079, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Respawn
+    clip: {fileID: 8300000, guid: 82387d028cb6d83458f3d56072c4a8ed, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PuzzleComplete
+    clip: {fileID: 8300000, guid: 362d7bdfeaf3e484d990b0683659ad72, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlatformFallWarning
+    clip: {fileID: 8300000, guid: 16ffc158505fae345b080ff250b35a9e, type: 3}
+    volume: 0.275
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlatformFall
+    clip: {fileID: 8300000, guid: 7435efdc39859ac4c9dec6226f6342ad, type: 3}
+    volume: 0.326
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ThemeExcited
+    clip: {fileID: 8300000, guid: 314729f4e599ac546952e18d73143d29, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
