@@ -59,9 +59,9 @@ public class RiverSpockScript : MonoBehaviour
     }
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Body"))
+        if (collision.gameObject.CompareTag("Body") && controller.extraVelocity.magnitude == 0) //Will have to remove second part if extra velocity is used anywhere else
         {
-            controller.extraVelocity += pushDirection * speed;
+            controller.extraVelocity += rb.velocity;
         }
     }
 }
