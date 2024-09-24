@@ -27,7 +27,6 @@ public class ArduinoLockedSpawn : MonoBehaviour
             cube.GetComponent<MeshRenderer>().enabled = false;
             cube.GetComponent<BoxCollider>().enabled = false;
         }
-
     }
 
     // when are you gonna make Automatic Blast
@@ -114,9 +113,9 @@ public class ArduinoLockedSpawn : MonoBehaviour
                     if (ghostSpawnCubes[index -1].GetComponent<SpockSpawnPlayerDetector>().playerPresent == false)
                     {
                         //Move the spawnCubes stuff into here to have it not spawn if a player is in the way
+                        spawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
+                        spawnCubes[index - 1].GetComponent<BoxCollider>().enabled = true;
                     }
-                    spawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
-                    spawnCubes[index - 1].GetComponent<BoxCollider>().enabled = true;
                     index++;
                 }
                 else
