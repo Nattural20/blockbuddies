@@ -7,6 +7,7 @@ using System;
 
 public class SpawnerCodeV3 : MonoBehaviour
 {
+    public bool enableDebugSpam = true;
     public GameObject SpawnPosGuide, spockShell;
     public GameObject[] blocks, ghostSpocks;
     public int arrayPos;
@@ -75,7 +76,8 @@ public class SpawnerCodeV3 : MonoBehaviour
         //Left Orientation
         if (input != null /*&& spawnRotation.value == 0*/)
         {
-            Debug.Log("Facing Left");
+            if (enableDebugSpam)
+                Debug.Log("Facing Left");
             if (canSpawnSpocks)
             {
                 UpdateGhostSpocks(input);
@@ -390,7 +392,8 @@ public class SpawnerCodeV3 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Keypad8) || Input.GetKeyDown(KeyCode.Alpha8)) { if (SpoofOutputArray[8] == '1') { SpoofOutputArray[8] = '0'; spockDisplay[7].color = Color.red;  } else { SpoofOutputArray[8] = '1'; spockDisplay[7].color = Color.green;  }}//griddyPlace.Play(); } }
         if (Input.GetKeyDown(KeyCode.Keypad9) || Input.GetKeyDown(KeyCode.Alpha9)) { if (SpoofOutputArray[9] == '1') { SpoofOutputArray[9] = '0'; spockDisplay[8].color = Color.red;  } else { SpoofOutputArray[9] = '1'; spockDisplay[8].color = Color.green;  }}//griddyPlace.Play(); } }
 
-        Debug.Log("Sending " + SpoofOutputArray.Length + "chars");
+        if (enableDebugSpam)
+            Debug.Log("Sending " + SpoofOutputArray.Length + "chars");
 
         return SpoofOutputArray;
     }
