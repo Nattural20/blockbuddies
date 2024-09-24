@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngineInternal;
 
 public class RiverSpockScript : MonoBehaviour
 {
-    Vector3 pushDirection;
-    Rigidbody rb;
+    public Vector3 pushDirection, aimDirection;
+    public Rigidbody rb;
     public float speed;
-    bool gotDirection;
+    public float aimSpeed, lerpSpeed;
+    public bool gotDirection, gotNewDirection;
     PlayerController controller;
     void Start()
     {
@@ -16,7 +18,12 @@ public class RiverSpockScript : MonoBehaviour
     }
     void FixedUpdate()
     {
-        //transform.position = new Vector3(transform.position.x, transform.position.y - (sinkSpeed * Time.deltaTime), transform.position.z);
+        if (gotNewDirection)
+        {
+            //pushDirection = Vector3.Lerp(pushDirection, aimDirection, lerpSpeed * Time.deltaTime);
+            //speed = Mathf.Lerp(speed, aimSpeed, lerpSpeed * Time.deltaTime);
+
+        }
         if (gotDirection)
         {
             rb.velocity = pushDirection * speed;
@@ -27,6 +34,13 @@ public class RiverSpockScript : MonoBehaviour
         pushDirection = direction;
         speed = riverSpeed;
         gotDirection = true;
+    }
+    public void NewPushDirection(Vector3 newDirection, float newSpeed, float changeInLerp)
+    {
+        aimDirection = newDirection;
+        aimSpeed = newSpeed;
+        lerpSpeed = changeInLerp;
+        gotNewDirection = true;
     }
     private void OnTriggerEnter(Collider other)
     {
