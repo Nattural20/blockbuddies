@@ -31,16 +31,4 @@ public class RiverPush : MonoBehaviour
             FindAnyObjectByType<AudioManager>().Play("PlayerInVines"); //Sound effect script- this line plays a sound from the AudioManager.
         }
     }
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Spocks"))
-    //    {
-    //        if (other.gameObject.GetComponent<RiverSpockScript>() != null)
-    //        {
-    //            var riverSpock = other.gameObject.GetComponent<RiverSpockScript>();
-    //
-    //            riverSpock.
-    //        }
-    //    }
-    //}
 }

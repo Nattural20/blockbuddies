@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -34,7 +35,7 @@ public class ThornTimed : MonoBehaviour
     {
         if (!_isTriggered)
         {
-            if (col.CompareTag("Spocks") || col.CompareTag("Lava Spock"))
+            if (col.CompareTag("Spocks") || col.CompareTag("Lava Spock") || col.CompareTag("River Spock"))
             {
                 _isTriggered = true;
                 _affectedSpock = col.gameObject;
@@ -50,14 +51,16 @@ public class ThornTimed : MonoBehaviour
 
         if (spock.CompareTag("Lava Spock"))
         {
-            spock.GetComponent<LavaSpockScript>().enabled = false;
+            Destroy(spock.GetComponent<LavaSpockScript>());
             spock.GetComponent<Rigidbody>().isKinematic = false;
-            spock.GetComponent<Rigidbody>().AddForce(new Vector3(0, thornForce, 0), ForceMode.Impulse);
         }
-        else if (spock.CompareTag("Spocks"))
+        else if (spock.CompareTag("River Spock"))
         {
-            spock.GetComponent<Rigidbody>().AddForce(new Vector3(0, thornForce, 0), ForceMode.Impulse);
+            Destroy(spock.GetComponent<RiverSpockScript>());
         }
+        var launchForce = new Vector3(UnityEngine.Random.value, thornForce, UnityEngine.Random.value);
+
+        spock.GetComponent<Rigidbody>().velocity = launchForce;
 
         yield return new WaitForSeconds(thornsTimer);
         transform.position = setPosition;

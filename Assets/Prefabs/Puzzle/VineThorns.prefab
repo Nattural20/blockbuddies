@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8cf27ba1cfddca041a411f756354049c, type: 3}
       propertyPath: m_Name
-      value: ENV_Vine-thorns
+      value: VineThorns
       objectReference: {fileID: 0}
     - target: {fileID: 4493443417187746001, guid: 8cf27ba1cfddca041a411f756354049c, type: 3}
       propertyPath: m_LocalScale.x
@@ -120,8 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ba488a1ac3ef4ebbf280eea302768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thornForce: 5000
-  thornsTimer: 3
+  thornForce: 50
+  thornsTimer: 1
 --- !u!65 &597283804702295735
 BoxCollider:
   m_ObjectHideFlags: 0
