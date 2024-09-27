@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     //jump buffer stuff
     public float jumpBufferTime = 0.2f;
     public float jumpBufferCounter;
-    public  bool jumpQueued;
+    public bool jumpQueued;
 
     public float jumpCooldown = .5f;
 
@@ -131,8 +131,8 @@ public class PlayerController : MonoBehaviour
 
 
         //SPOCK STUFF
-        controls.Gameplay.GhostHeightIncrease.performed += ctx =>  gS.UnIncreaseGhostHeight();
-        controls.Gameplay.GhostHeightDecrease.performed += ctx =>  gS.IncreaseGhostHeight();
+        controls.Gameplay.GhostHeightIncrease.performed += ctx => gS.UnIncreaseGhostHeight();
+        controls.Gameplay.GhostHeightDecrease.performed += ctx => gS.IncreaseGhostHeight();
 
 
 
@@ -195,9 +195,9 @@ public class PlayerController : MonoBehaviour
             jumpBufferCounter -= Time.deltaTime;
             if (isGrounded)
             {
-                rb.velocity = new Vector3 (rb.velocity.x, 0, rb.velocity.z);
-                PerformJump(); 
-                jumpBufferCounter = 0; 
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+                PerformJump();
+                jumpBufferCounter = 0;
                 Debug.Log("Jump performed from buffer");
             }
         }
@@ -241,7 +241,7 @@ public class PlayerController : MonoBehaviour
         rb.transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
 
         //Camera.main.transform.rotation = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.rotation.eulerAngles.y, 0);
-        
+
     }
 
     void ApplyCustomGravity()
@@ -310,7 +310,7 @@ public class PlayerController : MonoBehaviour
 
     void Grab()
     {
-        
+
         Vector3 newDir = new Vector3(lastMove.x, 0, lastMovementDirection.z);
         Debug.Log(lastMovementDirection);
         // hand1.AddForce(lastMovementDirection * armThrust);
@@ -338,7 +338,10 @@ public class PlayerController : MonoBehaviour
     {
         if (jumpCooldown < 0)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            //rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+
+
             StopCoroutine(CoyoteCooldown());
             StartCoroutine(CoyoteCooldown());
             isGrounded = false;
@@ -379,7 +382,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        controls.Gameplay.Disable();   
+        controls.Gameplay.Disable();
     }
 
     private bool CheckGrounded()
