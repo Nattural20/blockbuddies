@@ -8,7 +8,7 @@ using UnityEngine.ProBuilder.MeshOperations;
 public class ArduinoListener
 {
     public string comPortReal;
-    public string[] possibleComPorts = {"COM2",  "COM3", "COM4", "COM5", "COM6"};
+    public string[] possibleComPorts = {"COM2",  "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9", "COM10", "COM11", "COM12"};
     static SerialPort serialPort;
     static int baudRate = 9600;
     public string TEST_COM_Port = "COM4" ;
@@ -26,7 +26,6 @@ public class ArduinoListener
             {
                 serialPort.Open();
                 serialPort.ReadTimeout = 50; // Adjust as necessary
-
                 comPortReal = port;
             }
             catch (Exception e)

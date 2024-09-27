@@ -46,6 +46,7 @@ public class ArduinoGetter
         {
             serialPort.Open();
             serialPort.ReadTimeout = 50; // Adjust as necessary
+            serialPort.DtrEnable = true;
         }
         catch (Exception e)
         {
