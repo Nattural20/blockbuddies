@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.InputSystem;
 
 public class SpawnerCodeV3 : MonoBehaviour
 {
@@ -33,6 +34,13 @@ public class SpawnerCodeV3 : MonoBehaviour
     public Image[] spockDisplay;
     public char[] SpoofOutputArray;
     public GameObject SpoofCanvas;
+
+    //Rumble properties
+    public bool rumble = true;
+    public float lowFrequency = .100f;
+    public float highFrequency = .750f;
+    public float rumbleDuration = .1f;
+
 
     /// <summary>
     /// Spawner Code V3.Integrated Spoof toggle and functionality.  
@@ -87,6 +95,10 @@ public class SpawnerCodeV3 : MonoBehaviour
             {
                 buttonPressed = true;
                 GameObject spockDaddy = Instantiate(spockShell, SpawnPosGuide.transform.position, SpawnPosGuide.transform.rotation);
+                if (rumble == true)
+                {
+                    TriggerHapticFeedback();
+                }
 
                 if (canSpawnSpocks)
                 {
@@ -437,6 +449,23 @@ public class SpawnerCodeV3 : MonoBehaviour
             TogOn = false;
             Debug.Log("Spoofing disabled.");
         }
+    }
+
+    public void TriggerHapticFeedback()
+    {
+        StartCoroutine(HapticCoroutine());
+    }
+
+    private IEnumerator HapticCoroutine()
+    {
+        // Set the motor speeds to start the haptic feedback.
+        Gamepad.current.SetMotorSpeeds(lowFrequency, highFrequency);
+
+        // Wait for 0.5 seconds.
+        yield return new WaitForSeconds(rumbleDuration);
+
+        // Reset haptic feedback.
+        InputSystem.ResetHaptics();
     }
 }
 
