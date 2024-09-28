@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class LockZoneMovingSpocks : MonoBehaviour
 {
+    LilyPadLockedSpawn lilySpawn;
     LockZoneMovement lockZone;
     LilyLookSelection lookSelection;
     public bool present, detected;
     private void Start()
     {
+        lilySpawn = GetComponentInParent<LilyPadLockedSpawn>();
         lockZone = GetComponentInParent<LockZoneMovement>();
         lookSelection = GetComponentInChildren<LilyLookSelection>();
     }
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Lily Pad Collision");
         if (collision.gameObject.CompareTag("Body"))
         {
             lockZone.playerPresent++;
@@ -21,6 +24,13 @@ public class LockZoneMovingSpocks : MonoBehaviour
             {
                 lockZone.controller = collision.gameObject.GetComponentInParent<PlayerController>();
             }
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Lily Pad Sucker"))
+        {
+            lilySpawn.BustSpocks();
         }
     }
     private void OnCollisionExit(Collision collision)

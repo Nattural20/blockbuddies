@@ -35,7 +35,8 @@ public class LockZoneMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Pad Reset"))
         {
             GetComponent<LilyPadLockedSpawn>().BustSpocks();
-            transform.position -= new Vector3(100, 0, 0); 
+            
+            transform.position -= new Vector3(other.GetComponent<LilyPadResetValue>().resetDistance, 0, 0);
         }
     }
     private void OnTriggerStay(Collider other)

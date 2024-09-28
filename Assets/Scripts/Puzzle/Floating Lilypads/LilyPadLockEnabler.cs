@@ -7,12 +7,15 @@ public class LilyPadLockEnabler : MonoBehaviour
 {
     public SpawnerCodeV3 spawner;
     public bool playerNearby;
-    public List<LilyPadLockedSpawn> lilyPads;
+    //public List<LilyPadLockedSpawn> lilyPads;
+    public GameObject lilyPadParent;
+    public LilyPadLockedSpawn[] lilyPads;
     public float centerWeighting, proximityWeighting;
     LilyPadLockedSpawn currentPad;
     void Start()
     {
         //lilyPads = new List<LilyPadLockedSpawn>();
+        lilyPads = lilyPadParent.GetComponentsInChildren<LilyPadLockedSpawn>();
     }
     void FixedUpdate()
     {
@@ -31,12 +34,12 @@ public class LilyPadLockEnabler : MonoBehaviour
                     {
                         if (pad.centerDistance < currentPad.centerDistance)
                         {
-                            if (pad.padDistance < currentPad.padDistance)
+                            if (5 < pad.padDistance && pad.padDistance < proximityWeighting)
                             {
                                 currentPad._playerPresent = false;
                                 currentPad.BustGhosts();
                                 currentPad = pad;
-                                Debug.Log("The active pad is now " + currentPad.name + " with an offset of " + currentPad.centerDistance);
+                                //Debug.Log("The active pad is now " + currentPad.name + " with an offset of " + currentPad.centerDistance);
                             }
                         }
                     }
@@ -66,6 +69,10 @@ public class LilyPadLockEnabler : MonoBehaviour
         {
             playerNearby = true;
             spawner.canSpawnSpocks = false;
+            foreach (GameObject ghost in spawner.ghostSpocks)
+            {
+                ghost.SetActive(false);
+            }
         }
     }
     private void OnTriggerExit(Collider other)
