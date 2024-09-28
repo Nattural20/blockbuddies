@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LilyPadLockEnabler : MonoBehaviour
 {
-    public List<LilyPadLockedSpawn> lilyPads;
+    public SpawnerCodeV3 spawner;
     public bool playerNearby;
+    public List<LilyPadLockedSpawn> lilyPads;
+    public float centerWeighting, proximityWeighting;
     LilyPadLockedSpawn currentPad;
     void Start()
     {
@@ -26,11 +29,15 @@ public class LilyPadLockEnabler : MonoBehaviour
                     }
                     else
                     {
-                        if (pad.padDistance < currentPad.padDistance)
+                        if (pad.centerDistance < currentPad.centerDistance)
                         {
-                            currentPad._playerPresent = false;
-                            currentPad.BustGhosts();
-                            currentPad = pad;
+                            if (pad.padDistance < currentPad.padDistance)
+                            {
+                                currentPad._playerPresent = false;
+                                currentPad.BustGhosts();
+                                currentPad = pad;
+                                Debug.Log("The active pad is now " + currentPad.name + " with an offset of " + currentPad.centerDistance);
+                            }
                         }
                     }
                 }
@@ -45,6 +52,12 @@ public class LilyPadLockEnabler : MonoBehaviour
             {
                 currentPad._playerPresent = true;
             }
+            else
+            {
+                currentPad.BustGhosts();
+                currentPad._playerPresent = false;
+                currentPad = null;
+            }
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -52,7 +65,7 @@ public class LilyPadLockEnabler : MonoBehaviour
         if (other.gameObject.CompareTag("Body"))
         {
             playerNearby = true;
-            other.GetComponent<SpawnerCodeV3>().canSpawnSpocks = false;
+            spawner.canSpawnSpocks = false;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -60,7 +73,7 @@ public class LilyPadLockEnabler : MonoBehaviour
         if (other.gameObject.CompareTag("Body"))
         {
             playerNearby = false;
-            other.GetComponent<SpawnerCodeV3>().canSpawnSpocks = true;
+            spawner.GetComponent<SpawnerCodeV3>().canSpawnSpocks = true;
         }
     }
 }

@@ -17,6 +17,7 @@ public class LilyPadLockedSpawn : MonoBehaviour
 
     public float selectionDistance = 20;
     public float padDistance;
+    public float centerDistance;
     public bool onScreen;
     LilyLookSelection lookSelection;
 
