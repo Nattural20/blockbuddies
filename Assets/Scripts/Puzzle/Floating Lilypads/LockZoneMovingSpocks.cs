@@ -30,6 +30,7 @@ public class LockZoneMovingSpocks : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Lily Pad Sucker"))
         {
+            other.GetComponent<VineSuperSucker>().ActivateVineSuck(lilySpawn.spawnCubesParent);
             lilySpawn.BustSpocks();
         }
     }

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem.XR;
 
 public class LockZoneMovement : MonoBehaviour
 {
+    public bool isStatic = false;
     public float speed = 1;
     Rigidbody rb;
     Vector3 startPos;
@@ -41,13 +42,16 @@ public class LockZoneMovement : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Body"))
+        if (!isStatic)
         {
-            if (playerPresent != 0)
+            if (other.gameObject.CompareTag("Body"))
             {
-                if (controller != null)
+                if (playerPresent != 0)
                 {
-                    controller.extraVelocity += new Vector3(speed, 0, 0);
+                    if (controller != null)
+                    {
+                        controller.extraVelocity += new Vector3(speed, 0, 0);
+                    }
                 }
             }
         }

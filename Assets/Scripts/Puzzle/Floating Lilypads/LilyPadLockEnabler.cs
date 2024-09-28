@@ -51,15 +51,18 @@ public class LilyPadLockEnabler : MonoBehaviour
                 }
                 ind++;
             }
-            if (currentPad.onScreen == true)
+            if (currentPad != null)
             {
-                currentPad._playerPresent = true;
-            }
-            else
-            {
-                currentPad.BustGhosts();
-                currentPad._playerPresent = false;
-                currentPad = null;
+                if (currentPad.onScreen == true)
+                {
+                    currentPad._playerPresent = true;
+                }
+                else
+                {
+                    currentPad.BustGhosts();
+                    currentPad._playerPresent = false;
+                    currentPad = null;
+                }
             }
         }
     }
