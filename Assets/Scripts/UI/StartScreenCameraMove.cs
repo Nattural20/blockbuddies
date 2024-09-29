@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StartScreenCameraMove : MonoBehaviour
 {
-    public GameObject playerCam, startCam;
-    public SpawnerCode spawner;
+    public GameObject playerCam, startCam, logo;
+    public SpawnerCodeV3 spawner;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Body"))
@@ -19,5 +19,6 @@ public class StartScreenCameraMove : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         spawner.canSpawnSpocks = true;
+        logo.SetActive(false);
     }
 }

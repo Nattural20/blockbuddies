@@ -38,8 +38,8 @@ public class ActionTracker : MonoBehaviour
             //    CheckSpockUpdate();
             else if (instructionIndex == 2)
                 CheckSpockSpawned();
-            else if (instructionIndex == 3)
-                CheckHopperGrab();
+            //else if (instructionIndex == 3)
+            //    CheckHopperGrab();
 
             //if (Input.GetKeyDown(KeyCode.P))
             //{
@@ -112,7 +112,7 @@ public class ActionTracker : MonoBehaviour
     {
         instructionIndex++;
         // UI Change here
-        if (instructionIndex == 4)
+        if (instructionIndex == 3)
         {
             RemoveInstructions();
         }
