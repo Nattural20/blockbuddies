@@ -6,6 +6,7 @@ public class VineSuperSucker : MonoBehaviour
 {
     public float sinkSpeed;
     bool isSinking;
+    int rotateDir;
     GameObject sinkingSpock;
     public void ActivateVineSuck(GameObject lilyPadSpocks)
     {
@@ -16,6 +17,12 @@ public class VineSuperSucker : MonoBehaviour
         }
         sinkingSpock = Instantiate(lilyPadSpocks, lilyPadSpocks.transform.position, lilyPadSpocks.transform.rotation);
         sinkingSpock.transform.localScale = lilyPadSpocks.transform.lossyScale;
+        
+        rotateDir = Random.Range(0, 2);
+        if (rotateDir == 0)
+        {
+            rotateDir = -1;
+        }
 
         LockZoneMovingSpocks[] spockDetectors = sinkingSpock.GetComponentsInChildren<LockZoneMovingSpocks>();
         foreach (LockZoneMovingSpocks spock in spockDetectors)
@@ -30,7 +37,8 @@ public class VineSuperSucker : MonoBehaviour
         if (isSinking)
         {
             sinkingSpock.transform.position -= new Vector3 (0, sinkSpeed * Time.deltaTime, 0);
-            sinkingSpock.transform.rotation = Quaternion.Euler (sinkingSpock.transform.rotation.eulerAngles - new Vector3(0, sinkSpeed * 10 * Time.deltaTime, 0));
+
+            sinkingSpock.transform.rotation = Quaternion.Euler (sinkingSpock.transform.rotation.eulerAngles - new Vector3(0, sinkSpeed * 10 * rotateDir * Time.deltaTime, 0));
         }
     }
     IEnumerator DestroyDelay()
