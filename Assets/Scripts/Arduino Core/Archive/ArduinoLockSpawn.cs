@@ -15,6 +15,8 @@ public class ArduinoLockedSpawn : MonoBehaviour
     //public GameObject spawnLocation;
     public GameObject[] spawnCubes, ghostSpawnCubes; //each cube should be in here
 
+    char[] previousOutput;
+
     /// <summary>
     /// This version does not despawn the cubes immediately after leaving the trigger, meaning they are constant. 
     /// </summary>
@@ -22,6 +24,8 @@ public class ArduinoLockedSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        previousOutput = new char[10];
+
         foreach (GameObject cube in spawnCubes)
         {
             cube.GetComponent<MeshRenderer>().enabled = false;
@@ -30,7 +34,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
     }
 
     // when are you gonna make Automatic Blast
-    void Update()
+    void FixedUpdate()
     {
         if (spawnScript) //null catch
         {
@@ -86,7 +90,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
             outputArray = spawnScript.SpoofOutputArray;
         }
 
-        UpdateLockedGhostCubes(outputArray);
+            UpdateLockedGhostCubes(outputArray);
 
         if (outputArray[0].ToString() == "1" && spawnScript.buttonPressed == true)
         {

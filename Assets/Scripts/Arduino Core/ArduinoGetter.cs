@@ -34,6 +34,7 @@ public class ArduinoGetter
         //blah do hardware processing..
         //Begin "hardware processing"...
         PhysicalBlockState = ReadFromSerialPort();
+
         }
     }
 
@@ -69,6 +70,9 @@ public class ArduinoGetter
                 {
                     char[] FinalArdArray = ArduinoStringToArray(message, selectedOrientation);
                     return FinalArdArray;
+                }
+                else {
+                    //previous
                 }
 
 
