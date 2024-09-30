@@ -43,7 +43,7 @@ public class LilyPadLockedSpawn : MonoBehaviour
     }
 
     // when are you gonna make Automatic Blast
-    void Update()
+    void FixedUpdate()
     {
         if (spawnScript) //null catch
         {

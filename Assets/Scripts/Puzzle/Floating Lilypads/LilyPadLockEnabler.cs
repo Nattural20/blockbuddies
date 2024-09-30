@@ -10,7 +10,7 @@ public class LilyPadLockEnabler : MonoBehaviour
     //public List<LilyPadLockedSpawn> lilyPads;
     public GameObject lilyPadParent;
     public LilyPadLockedSpawn[] lilyPads;
-    public float centerWeighting, proximityWeighting;
+    public float centerWeighting, proximityWeighting, closenessProximity;
     LilyPadLockedSpawn currentPad;
     void Start()
     {
@@ -34,7 +34,7 @@ public class LilyPadLockEnabler : MonoBehaviour
                     {
                         if (pad.centerDistance < currentPad.centerDistance)
                         {
-                            if (5 < pad.padDistance && pad.padDistance < proximityWeighting)
+                            if (closenessProximity < pad.padDistance && pad.padDistance < proximityWeighting)
                             {
                                 currentPad._playerPresent = false;
                                 currentPad.BustGhosts();
