@@ -374,6 +374,7 @@ public class SpawnerCodeV3 : MonoBehaviour
         if (!enableSpoof)
         {
             input = GetComponent<ArduinoReader>().OutputArray;
+            Debug.Log("Error: Arduino enabled but input is null.");
         }
         else
         {
@@ -451,9 +452,31 @@ public class SpawnerCodeV3 : MonoBehaviour
         }
     }
 
+    public void ToggleSpoofBool(bool input)
+    {
+        // Check if the Toggle is on
+        if (input == true)
+        {
+            enableSpoof = true;
+            TogOn = true;
+            Debug.Log("Spoofing enabled.");
+        }
+        // If the Toggle is off and it was previously on, disable the spoofing
+        else if (input == false)
+        {
+            enableSpoof = false;
+            TogOn = false;
+            Debug.Log("Spoofing disabled.");
+        }
+    }
+
     public void TriggerHapticFeedback()
     {
-        StartCoroutine(HapticCoroutine());
+        // catch to stop error messages in console
+        if (Gamepad.current != null)
+        {
+            StartCoroutine(HapticCoroutine());
+        }
     }
 
     private IEnumerator HapticCoroutine()
