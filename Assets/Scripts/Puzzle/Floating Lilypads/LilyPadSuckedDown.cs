@@ -6,6 +6,7 @@ using UnityEngine;
 public class LilyPadSuckedDown : MonoBehaviour
 {
     public float suckSpeed;
+    public float resetTime;
     bool suckedDown;
     Vector3 floatPos, suckedPos;
     private void Start()
@@ -34,7 +35,7 @@ public class LilyPadSuckedDown : MonoBehaviour
     }
     IEnumerator ResetSuck()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(resetTime);
         suckedDown = false;
     }
 }

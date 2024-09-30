@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Awooga : MonoBehaviour
 {
+    public float awoogaSize;
     Vector3 startScale;
     bool awoogaed;
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class Awooga : MonoBehaviour
         {
             if (!awoogaed)
             {
-                transform.localScale = startScale + new Vector3(0, 10, 0);
+                transform.localScale = startScale + new Vector3(0, awoogaSize, 0);
                 awoogaed = !awoogaed;
             }
             else 
