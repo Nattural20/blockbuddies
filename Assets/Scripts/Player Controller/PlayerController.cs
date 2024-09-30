@@ -64,6 +64,8 @@ public class PlayerController : MonoBehaviour
     //movement
     public float acceleration = 5f;
     public float maxSpeed = 5f;
+
+    public float airSpeed = 1.2f;
     public float deceleration = 5f;
     public float pivotSpeed = 5;
     public Vector3 extraVelocity;
@@ -309,7 +311,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            rb.velocity = new Vector3(velocity.x * 1.5f, rb.velocity.y, velocity.z * 1.5f) + extraVelocity;
+            rb.velocity = new Vector3(velocity.x * airSpeed, rb.velocity.y, velocity.z * airSpeed) + extraVelocity;
         }
 
         lastMove = new Vector2(currentMovementDirection.x, currentMovementDirection.z);
