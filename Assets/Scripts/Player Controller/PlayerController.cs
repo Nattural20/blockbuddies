@@ -156,6 +156,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
 
+        isGrounded = CheckGrounded();
+
         if (pause.isPaused == true && Input.GetKey(KeyCode.Joystick1Button6) && Input.GetKey(KeyCode.Joystick1Button7))
         {
             ResetScene();
@@ -191,7 +193,7 @@ public class PlayerController : MonoBehaviour
         //Jump buffer logic
         if (jumpBufferCounter > 0)
         {
-            isGrounded = CheckGrounded();
+
             jumpBufferCounter -= Time.deltaTime;
             if (isGrounded)
             {
@@ -301,7 +303,15 @@ public class PlayerController : MonoBehaviour
             velocity = Vector3.ClampMagnitude(velocity, maxSpeed * movementMultiplier); // Scale max speed too
         }
 
-        rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z) + extraVelocity;
+        if (isGrounded)
+        {
+            rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z) + extraVelocity;
+        }
+        else
+        {
+            rb.velocity = new Vector3(velocity.x * 1.5f, rb.velocity.y, velocity.z * 1.5f) + extraVelocity;
+        }
+
         lastMove = new Vector2(currentMovementDirection.x, currentMovementDirection.z);
 
         extraVelocity = Vector3.zero;
