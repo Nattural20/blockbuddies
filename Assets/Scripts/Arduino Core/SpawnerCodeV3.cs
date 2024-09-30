@@ -374,7 +374,6 @@ public class SpawnerCodeV3 : MonoBehaviour
         if (!enableSpoof)
         {
             input = GetComponent<ArduinoReader>().OutputArray;
-            Debug.Log("Error: Arduino enabled but input is null.");
         }
         else
         {

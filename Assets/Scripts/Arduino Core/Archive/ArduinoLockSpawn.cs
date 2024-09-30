@@ -130,14 +130,15 @@ public class ArduinoLockedSpawn : MonoBehaviour
         int index = 0;
 
 
-        foreach (GameObject cube in ghostSpawnCubes)
-        {
-            cube.GetComponent<MeshRenderer>().enabled = false;
-        }
+        //foreach (GameObject cube in ghostSpawnCubes)
+        //{
+        //    cube.GetComponent<MeshRenderer>().enabled = false;
+        //}
         foreach (char i in outputArray)
         {
             if (index == 0)
             {
+                
                 index++;
             }
             else if (i.ToString() == "1")
@@ -147,6 +148,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
             }
             else
             {
+                ghostSpawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = false;
                 index++;
             }
         }
