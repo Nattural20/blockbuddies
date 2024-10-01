@@ -29,6 +29,11 @@ public class ArduinoLockedSpawn : MonoBehaviour
             cube.GetComponent<MeshRenderer>().enabled = false;
             cube.GetComponent<BoxCollider>().enabled = false;
         }
+        foreach (GameObject ghost in ghostSpawnCubes)
+        {
+            ghost.GetComponent<MeshRenderer>().enabled = false;
+            ghost.GetComponent<BoxCollider>().enabled = false;
+        }
     }
 
     // when are you gonna make Automatic Blast

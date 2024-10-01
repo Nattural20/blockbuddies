@@ -86,4 +86,19 @@ public class LilyPadLockEnabler : MonoBehaviour
             spawner.GetComponent<SpawnerCodeV3>().canSpawnSpocks = true;
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Body"))
+        {
+            if (!playerNearby)
+            {
+                playerNearby = true;
+                spawner.canSpawnSpocks = false;
+                foreach (GameObject ghost in spawner.ghostSpocks)
+                {
+                    ghost.SetActive(false);
+                }
+            }
+        }
+    }
 }
