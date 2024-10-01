@@ -15,7 +15,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
     //public GameObject spawnLocation;
     public GameObject[] spawnCubes, ghostSpawnCubes; //each cube should be in here
 
-    char[] previousOutput;
+    int triggerCount;
 
     /// <summary>
     /// This version does not despawn the cubes immediately after leaving the trigger, meaning they are constant. 
@@ -24,8 +24,6 @@ public class ArduinoLockedSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        previousOutput = new char[10];
-
         foreach (GameObject cube in spawnCubes)
         {
             cube.GetComponent<MeshRenderer>().enabled = false;
@@ -68,6 +66,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
         {
             _playerPresent = true;
             spawnScript.canSpawnSpocks = false;
+            triggerCount++;
 
         }
     }
@@ -76,7 +75,11 @@ public class ArduinoLockedSpawn : MonoBehaviour
     {
         if (collision.gameObject.tag == "Body")
         {
-            _playerPresent = false;
+            triggerCount--;
+            if (triggerCount == 0)
+            {
+                _playerPresent = false;
+            }
             //spawnScript.canSpawnSpocks = true; //fixed for v3 spawn code spoof
 
         }
