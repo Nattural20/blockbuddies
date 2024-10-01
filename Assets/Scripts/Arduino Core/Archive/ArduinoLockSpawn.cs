@@ -85,7 +85,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
     {
         //throw new NotImplementedException();
         char[] outputArray = readerScript.OutputArray;
-        if (outputArray == null)//check for spoof output
+        if (spawnScript.enableSpoof == true)//check for spoof output
         {
             outputArray = spawnScript.SpoofOutputArray;
         }

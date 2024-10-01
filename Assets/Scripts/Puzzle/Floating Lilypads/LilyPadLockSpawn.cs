@@ -21,6 +21,7 @@ public class LilyPadLockedSpawn : MonoBehaviour
     public float centerDistance;
     public bool onScreen;
     LilyLookSelection lookSelection;
+    bool readyToSpawn = true;
 
     /// <summary>
     /// This version does not despawn the cubes immediately after leaving the trigger, meaning they are constant. 
@@ -79,7 +80,7 @@ public class LilyPadLockedSpawn : MonoBehaviour
     {
         //throw new NotImplementedException();
         char[] outputArray = readerScript.OutputArray;
-        if (outputArray == null)//check for spoof output
+        if (spawnScript.enableSpoof == true)//check for spoof output
         {
             outputArray = spawnScript.SpoofOutputArray;
         }
@@ -88,6 +89,7 @@ public class LilyPadLockedSpawn : MonoBehaviour
 
         if (outputArray[0].ToString() == "1" && spawnScript.buttonPressed == true)
         {
+            readyToSpawn = false;
 
             int index = 0;
 
@@ -121,6 +123,10 @@ public class LilyPadLockedSpawn : MonoBehaviour
                     index++;
                 }
             }
+        }
+        else if (outputArray[0].ToString() == "0")
+        {
+            readyToSpawn = true;
         }
     }
     private void UpdateLockedGhostCubes(char[] outputArray)

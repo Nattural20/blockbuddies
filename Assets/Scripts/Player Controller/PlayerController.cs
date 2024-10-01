@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
 
-        isGrounded = CheckGrounded();
+        //isGrounded = CheckGrounded();
 
         if (pause.isPaused == true && Input.GetKey(KeyCode.Joystick1Button6) && Input.GetKey(KeyCode.Joystick1Button7))
         {
