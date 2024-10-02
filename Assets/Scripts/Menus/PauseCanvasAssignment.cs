@@ -15,6 +15,7 @@ public class PauseCanvasAssignment : MonoBehaviour
     public string targetScriptName; // The name of the target GameObject with the script
     public string resetName;        // The name of the target GameObject with the reset button
     public GameObject pauseController;
+    public string threadResetName;  // The name of the target GameObject with the thread reset button
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class PauseCanvasAssignment : MonoBehaviour
         BindWeightInput();
         BindSpawnLimitInput();
         BindResetButton();
+        BindThreadResetButton();
     }
 
     private void BindSpoofToggle()
@@ -229,6 +231,51 @@ public class PauseCanvasAssignment : MonoBehaviour
                         // Bind the Button event to the target function
                         input.onClick.AddListener(targetScript.ResetScene);
                         Debug.Log("Reset field assigned.");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("TargetScript not found on the target GameObject.");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Target GameObject not found.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Button component not found on child.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Child GameObject not found.");
+        }
+    }
+    private void BindThreadResetButton()
+    {
+        // Find the child GameObject by name
+        Transform childTransform = transform.Find(threadResetName);
+        if (childTransform != null)
+        {
+            //Debug.Log("Child object " + childTransform.name + " found");
+            // Get the Toggle component
+            Button input = childTransform.GetComponent<Button>();
+            if (input != null)
+            {
+                GameObject targetGameObject = GameObject.Find(targetScriptName);
+                //Debug.Log("found button field");
+                if (targetGameObject != null)
+                {
+                    //Debug.Log("Found pause controller object: " + pauseController.name);
+                    // Get the target script component
+                    ArduinoReaderV2 targetScript = targetGameObject.GetComponent<ArduinoReaderV2>();
+                    if (targetScript != null)
+                    {
+                        //Debug.Log("found reset manager");
+                        // Bind the Button event to the target function
+                        input.onClick.AddListener(targetScript.ForceThreadReset);
+                        Debug.Log("Thread reset field assigned.");
                     }
                     else
                     {
