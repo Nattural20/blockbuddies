@@ -13,6 +13,8 @@ public class PauseCanvasAssignment : MonoBehaviour
     public string weightName;       // The name of the child GameObject with the weight input field
     public string spawnLimitName;   // The name of the child GameObject with the spawn limit input field
     public string targetScriptName; // The name of the target GameObject with the script
+    public string resetName;        // The name of the target GameObject with the reset button
+    public GameObject pauseController;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class PauseCanvasAssignment : MonoBehaviour
         BindVineSinkToggle();
         BindWeightInput();
         BindSpawnLimitInput();
+        BindResetButton();
     }
 
     private void BindSpoofToggle()
@@ -195,6 +198,51 @@ public class PauseCanvasAssignment : MonoBehaviour
             else
             {
                 Debug.LogWarning("InputField component not found on child.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Child GameObject not found.");
+        }
+    }
+
+    private void BindResetButton()
+    {
+        // Find the child GameObject by name
+        Transform childTransform = transform.Find(resetName);
+        if (childTransform != null)
+        {
+            //Debug.Log("Child object " + childTransform.name + " found");
+            // Get the Toggle component
+            Button input = childTransform.GetComponent<Button>();
+            if (input != null)
+            {
+                //Debug.Log("found button field");
+                if (pauseController != null)
+                {
+                    //Debug.Log("Found pause controller object: " + pauseController.name);
+                    // Get the target script component
+                    ResetManager targetScript = pauseController.GetComponent<ResetManager>();
+                    if (targetScript != null)
+                    {
+                        //Debug.Log("found reset manager");
+                        // Bind the Button event to the target function
+                        input.onClick.AddListener(targetScript.ResetScene);
+                        Debug.Log("Reset field assigned.");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("TargetScript not found on the target GameObject.");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Target GameObject not found.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Button component not found on child.");
             }
         }
         else
