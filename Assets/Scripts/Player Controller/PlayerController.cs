@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-
     //jump buffer stuff
     public float jumpBufferTime = 0.2f;
     public float jumpBufferCounter;
@@ -85,6 +84,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 velocity;
     private Vector2 lastMove;
+
+    public ParticleSystem dust;
 
     // Moving platform velocity transferral
     //private Rigidbody movingPlatform;
@@ -337,6 +338,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             PerformJump();
+            CreateDust();
             Debug.Log("Immediate jump performed");
         }
         else
@@ -495,5 +497,9 @@ public class PlayerController : MonoBehaviour
             timeSinceLastGrounded = 0f;
         }
         return groundedReturn;
+    }
+    void CreateDust() //Adds in Jumping particle system
+    {
+        dust.Play();
     }
 }
