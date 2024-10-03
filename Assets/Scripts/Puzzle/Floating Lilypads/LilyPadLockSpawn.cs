@@ -33,13 +33,11 @@ public class LilyPadLockedSpawn : MonoBehaviour
         lookSelection = GetComponentInChildren<LilyLookSelection>();
         foreach (GameObject cube in spawnCubes)
         {
-            cube.GetComponent<MeshRenderer>().enabled = false;
-            cube.GetComponent<BoxCollider>().enabled = false;
+            cube.SetActive(false);
         }
         foreach (GameObject ghost in ghostSpawnCubes)
         {
-            ghost.GetComponent<MeshRenderer>().enabled = false;
-            ghost.GetComponent<BoxCollider>().enabled = false;
+            ghost.SetActive(false);
         }
     }
 
@@ -48,15 +46,7 @@ public class LilyPadLockedSpawn : MonoBehaviour
     {
         if (spawnScript) //null catch
         {
-            if (onScreen)
-            {
-                //if (padDistance < selectionDistance)
-                //{
-                //    _playerPresent = true;
-                //    spawnScript.canSpawnSpocks = false;
-                //}
-            }
-            else
+            if (!onScreen)
             {
                 _playerPresent = false;
             }
@@ -96,8 +86,7 @@ public class LilyPadLockedSpawn : MonoBehaviour
 
             foreach (GameObject cube in spawnCubes)
             {
-                cube.GetComponent<MeshRenderer>().enabled = false;
-                cube.GetComponent<BoxCollider>().enabled = false;
+                cube.SetActive(false);
             }
             foreach (char i in outputArray)
             {
@@ -107,14 +96,11 @@ public class LilyPadLockedSpawn : MonoBehaviour
                 }
                 else if (i.ToString() == "1")
                 {
-                    //Debug.Log("Array Length:" + outputArray.Length);
-                    //Debug.Log("Postion: " + index + ". Spawning Block: " + spawnCubes[index]);
 
                     if (ghostSpawnCubes[index -1].GetComponent<SpockSpawnPlayerDetector>().playerPresent == false)
                     {
                         //Move the spawnCubes stuff into here to have it not spawn if a player is in the way
-                        spawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
-                        spawnCubes[index - 1].GetComponent<BoxCollider>().enabled = true;
+                        spawnCubes[index - 1].SetActive(true);
                     }
                     index++;
                 }
@@ -133,11 +119,6 @@ public class LilyPadLockedSpawn : MonoBehaviour
     {
         int index = 0;
 
-
-        foreach (GameObject cube in ghostSpawnCubes)
-        {
-            cube.GetComponent<MeshRenderer>().enabled = false;
-        }
         foreach (char i in outputArray)
         {
             if (index == 0)
@@ -146,11 +127,18 @@ public class LilyPadLockedSpawn : MonoBehaviour
             }
             else if (i.ToString() == "1")
             {
-                ghostSpawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
+                ghostSpawnCubes[index - 1].SetActive(true);
+
+                spawnCubes[index - 1].GetComponent<SpockColourChange>().ChangeToBlue();
+
                 index++;
             }
             else
             {
+                ghostSpawnCubes[index - 1].SetActive(false);
+
+                spawnCubes[index - 1].GetComponent<SpockColourChange>().ChangeToRed();
+
                 index++;
             }
         }
@@ -159,16 +147,14 @@ public class LilyPadLockedSpawn : MonoBehaviour
     {
         foreach (GameObject ghost in ghostSpawnCubes)
         {
-            ghost.GetComponent<MeshRenderer>().enabled = false;
-            ghost.GetComponent<BoxCollider>().enabled = false;
+            ghost.SetActive(false);
         }
     }
     public void BustSpocks()
     {
         foreach (GameObject cube in spawnCubes)
         {
-            cube.GetComponent<MeshRenderer>().enabled = false;
-            cube.GetComponent<BoxCollider>().enabled = false;
+            cube.SetActive(false);
         }
     }
 }
