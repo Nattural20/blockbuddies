@@ -14,6 +14,9 @@ public class ArduinoLockedSpawn : MonoBehaviour
     ///Both of these variables should come from the same object. Fix later.
     //public GameObject spawnLocation;
     public GameObject[] spawnCubes, ghostSpawnCubes; //each cube should be in here
+    public Material[] spockGlow;
+
+    char[] currentSpawns;
 
     int triggerCount;
 
@@ -24,21 +27,38 @@ public class ArduinoLockedSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentSpawns = new char[10];
         foreach (GameObject cube in spawnCubes)
         {
-            cube.GetComponent<MeshRenderer>().enabled = false;
-            cube.GetComponent<BoxCollider>().enabled = false;
+            cube.SetActive(false);
+            //cube.GetComponent<MeshRenderer>().enabled = false;
+            //cube.GetComponent<BoxCollider>().enabled = false;
         }
         foreach (GameObject ghost in ghostSpawnCubes)
         {
-            ghost.GetComponent<MeshRenderer>().enabled = false;
-            ghost.GetComponent<BoxCollider>().enabled = false;
+            ghost.SetActive(false);
+            //ghost.GetComponent<MeshRenderer>().enabled = false;
+            //ghost.GetComponent<BoxCollider>().enabled = false;
         }
     }
 
     // when are you gonna make Automatic Blast
     void FixedUpdate()
     {
+        if (_playerPresent)
+        {
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                spawnCubes[0].GetComponent<SpockColourChange>().ChangeToBlue();
+                Debug.Log("Changing spock material to blue");
+            }
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                spawnCubes[0].GetComponent<SpockColourChange>().ChangeToRed();
+                Debug.Log("Changing spock material to red");
+            }
+        }
+
         if (spawnScript) //null catch
         {
 
@@ -52,10 +72,6 @@ public class ArduinoLockedSpawn : MonoBehaviour
                 //spawnScript.canSpawnSpocks = true;
             }
 
-            //foreach (var ghost in spawnScript.ghostSpocks)//this sucks
-            //{
-            //    ghost.SetActive(false);
-            //}
         }
         else
         {
@@ -71,8 +87,10 @@ public class ArduinoLockedSpawn : MonoBehaviour
         {
             _playerPresent = true;
             spawnScript.canSpawnSpocks = false;
+
             triggerCount++;
 
+            Debug.Log("Player is present is " + triggerCount + " triggers");
         }
     }
 
@@ -86,6 +104,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
                 _playerPresent = false;
             }
             //spawnScript.canSpawnSpocks = true; //fixed for v3 spawn code spoof
+            Debug.Log("Player has left. Current trigger count is " + triggerCount + " triggers");
 
         }
     }
@@ -102,14 +121,16 @@ public class ArduinoLockedSpawn : MonoBehaviour
 
         if (outputArray[0].ToString() == "1" && spawnScript.buttonPressed == true)
         {
+            //currentSpawns = outputArray;
 
             int index = 0;
 
 
             foreach (GameObject cube in spawnCubes)
             {
-                cube.GetComponent<MeshRenderer>().enabled = false;
-                cube.GetComponent<BoxCollider>().enabled = false;
+                cube.SetActive(false);
+                //cube.GetComponent<MeshRenderer>().enabled = false;
+                //cube.GetComponent<BoxCollider>().enabled = false;
             }
             foreach (char i in outputArray)
             {
@@ -125,8 +146,9 @@ public class ArduinoLockedSpawn : MonoBehaviour
                     if (ghostSpawnCubes[index -1].GetComponent<SpockSpawnPlayerDetector>().playerPresent == false)
                     {
                         //Move the spawnCubes stuff into here to have it not spawn if a player is in the way
-                        spawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
-                        spawnCubes[index - 1].GetComponent<BoxCollider>().enabled = true;
+                        spawnCubes[index - 1].SetActive(true);
+                        //spawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
+                        //spawnCubes[index - 1].GetComponent<BoxCollider>().enabled = true;
                     }
                     index++;
                 }
@@ -134,6 +156,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
                 {
                     index++;
                 }
+                FindAnyObjectByType<AudioManager>().Play("SpockSpawn");
             }
         }
     }
@@ -150,17 +173,22 @@ public class ArduinoLockedSpawn : MonoBehaviour
         {
             if (index == 0)
             {
-                
                 index++;
             }
             else if (i.ToString() == "1")
             {
-                ghostSpawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
+                ghostSpawnCubes[index - 1].SetActive(true); //GetComponent<MeshRenderer>().enabled = true;
+
+                spawnCubes[index - 1].GetComponent<SpockColourChange>().ChangeToBlue();
+
                 index++;
             }
             else
             {
-                ghostSpawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = false;
+                ghostSpawnCubes[index - 1].SetActive(false); //GetComponent<MeshRenderer>().enabled = false;
+
+                spawnCubes[index - 1].GetComponent<SpockColourChange>().ChangeToRed();
+
                 index++;
             }
         }
