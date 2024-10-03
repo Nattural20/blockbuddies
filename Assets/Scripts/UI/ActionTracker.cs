@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ActionTracker : MonoBehaviour
 {
+    public ResetManager resetManager;
+
     public PlayerController hopper;
     public AlternateGrab hopperGrab;
     public SpawnerCodeV3 cubert;
@@ -55,6 +57,7 @@ public class ActionTracker : MonoBehaviour
         {
             //hopper moved
             Debug.Log("Hopper has moved");
+            resetManager.startAutoReset = true;
             ChangeInstructions();
         }
     }

@@ -196,6 +196,7 @@ public class PlayerController : MonoBehaviour
         //Jump buffer logic
         if (jumpBufferCounter > 0)
         {
+            isGrounded = CheckGrounded();
 
             jumpBufferCounter -= Time.deltaTime;
             if (isGrounded)

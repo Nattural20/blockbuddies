@@ -131,7 +131,10 @@ public class SpawnerCodeV3 : MonoBehaviour
                 Debug.Log(hasSpawned ? "Can't spawn just yet." : "No blocks to spawn");//IF '1' :else: '2'
 
                 spockDaddy.GetComponent<Rigidbody>().mass = spockWeight;
-                FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); // Sound effect script - this line plays a sound from the AudioManager.
+                if (canSpawnSpocks)
+                {
+                    FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); // Sound effect script - this line plays a sound from the AudioManager.
+                }
             }
 
             //FindAnyObjectByType<AudioManager>().Play("SpockSpawn"); //Audio Scipt

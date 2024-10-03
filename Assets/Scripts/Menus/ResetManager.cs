@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +15,10 @@ public class ResetManager : MonoBehaviour
 
     public Toggle spoof;
 
+    public float timeToReset = 30;
+    public float autoResetTimer;
+    public bool startAutoReset = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -21,10 +26,10 @@ public class ResetManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);  // Persist this object across scenes
         }
-/*        else
-        {
-            Destroy(gameObject);  // Ensure only one instance of ResetManager exists
-        }*/
+        /*        else
+                {
+                    Destroy(gameObject);  // Ensure only one instance of ResetManager exists
+                }*/
     }
 
     private void Start()
@@ -83,6 +88,35 @@ public class ResetManager : MonoBehaviour
         // Ensure the listener is added to save the value on change
         dropdown.onValueChanged.RemoveAllListeners();  // Remove existing listeners to avoid duplicates
         dropdown.onValueChanged.AddListener(delegate { SaveDropdownValue(); });
+    }
+
+    void InputGotten()
+    {
+        autoResetTimer = 0f;
+    }
+
+    private void FixedUpdate()
+    {
+        if (startAutoReset)
+        {
+            autoResetTimer += Time.deltaTime;
+
+            if (Input.anyKey)
+            {
+                InputGotten();
+            }
+            if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Horizontal") > 0)
+            {
+                InputGotten();
+            }
+
+            if (autoResetTimer > timeToReset)
+            {
+                startAutoReset = false;
+                autoResetTimer = 0f;
+                ResetScene();
+            }
+        }
     }
 
     private void OnDestroy()
