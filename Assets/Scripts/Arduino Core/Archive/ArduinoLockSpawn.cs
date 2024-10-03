@@ -20,9 +20,18 @@ public class ArduinoLockedSpawn : MonoBehaviour
 
     int triggerCount;
 
+
+
     /// <summary>
     /// This version does not despawn the cubes immediately after leaving the trigger, meaning they are constant. 
     /// </summary>
+
+    private CubertMovement cM;
+
+    private void Awake()
+    {
+        cM = GameObject.Find("CUBERT").GetComponent<CubertMovement>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +92,10 @@ public class ArduinoLockedSpawn : MonoBehaviour
 
     private void OnTriggerEnter(UnityEngine.Collider collision) //When the player enters, set player to true. 
     {
+        cM.currentSpawnLockPosition = this.gameObject.transform;
+        cM.cubertOnLock = true;
+
+
         if (collision.gameObject.tag == "Body")
         {
             _playerPresent = true;
@@ -96,6 +109,9 @@ public class ArduinoLockedSpawn : MonoBehaviour
 
     private void OnTriggerExit(Collider collision) //When the player exits, set to false. 
     {
+        cM.cubertOnLock = false;
+
+
         if (collision.gameObject.tag == "Body")
         {
             triggerCount--;
