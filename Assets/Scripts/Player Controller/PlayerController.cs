@@ -355,7 +355,7 @@ public class PlayerController : MonoBehaviour
         {
             //rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
-
+            FindAnyObjectByType<AudioManager>().Play("HopperJump");
 
             StopCoroutine(CoyoteCooldown());
             StartCoroutine(CoyoteCooldown());
