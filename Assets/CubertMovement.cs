@@ -11,6 +11,8 @@ public class CubertMovement : MonoBehaviour
     public float moveSpeed = 2f;
     public float rotationSpeed = 5f;
 
+    public Animator movementAnim;
+
     void FixedUpdate()
     {
         if (CubertAimPosition != null)
@@ -32,10 +34,12 @@ public class CubertMovement : MonoBehaviour
         if (cubertOnLock)
         {
             AimPosParent.transform.position = currentSpawnLockPosition;
+            movementAnim.SetBool("isMoving", false);
         }
         else
         {
             AimPosParent.transform.position = playerTransform.position;
+            movementAnim.SetBool("isMoving", true);
         }
 
     }

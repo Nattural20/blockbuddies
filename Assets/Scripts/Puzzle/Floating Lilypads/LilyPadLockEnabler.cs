@@ -61,7 +61,7 @@ public class LilyPadLockEnabler : MonoBehaviour
             if (currentPad != null)
             {
                 cM.cubertOnLock = true;
-                cM.currentSpawnLockPosition = new Vector3(currentPad.transform.position.x, currentPad.transform.position.y +6, currentPad.transform.position.z);
+                cM.currentSpawnLockPosition = new Vector3(currentPad.transform.position.x, currentPad.transform.position.y +3, currentPad.transform.position.z);
 
 
                 if (currentPad.onScreen == true)

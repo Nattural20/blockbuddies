@@ -78,7 +78,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
 
     private void OnTriggerEnter(UnityEngine.Collider collision) //When the player enters, set player to true. 
     {
-        cM.currentSpawnLockPosition = this.gameObject.transform.position;
+        cM.currentSpawnLockPosition = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z) + this.gameObject.transform.forward * 2; ;
         cM.cubertOnLock = true;
 
 
