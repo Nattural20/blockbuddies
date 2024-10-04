@@ -3,7 +3,7 @@ using UnityEngine;
 public class CubertMovement : MonoBehaviour
 {
     public bool cubertOnLock;
-    public Transform currentSpawnLockPosition;
+    public Vector3 currentSpawnLockPosition;
     public GameObject AimPosParent;
     public Transform playerTransform;
 
@@ -31,7 +31,7 @@ public class CubertMovement : MonoBehaviour
     {
         if (cubertOnLock)
         {
-            AimPosParent.transform.position = currentSpawnLockPosition.position;
+            AimPosParent.transform.position = currentSpawnLockPosition;
         }
         else
         {

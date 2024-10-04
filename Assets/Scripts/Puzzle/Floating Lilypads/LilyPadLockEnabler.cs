@@ -12,8 +12,14 @@ public class LilyPadLockEnabler : MonoBehaviour
     public LilyPadLockedSpawn[] lilyPads;
     public float centerWeighting, proximityWeighting, closenessProximity;
     LilyPadLockedSpawn currentPad;
+
+    CubertMovement cM;
+
+
     void Start()
     {
+        cM = GameObject.Find("CUBERT").GetComponent<CubertMovement>();
+
         //lilyPads = new List<LilyPadLockedSpawn>();
         lilyPads = lilyPadParent.GetComponentsInChildren<LilyPadLockedSpawn>();
     }
@@ -46,6 +52,7 @@ public class LilyPadLockEnabler : MonoBehaviour
                 }
                 else
                 {
+                    cM.cubertOnLock = false;
                     pad._playerPresent = false;
                     pad.BustGhosts();
                 }
@@ -53,6 +60,10 @@ public class LilyPadLockEnabler : MonoBehaviour
             }
             if (currentPad != null)
             {
+                cM.cubertOnLock = true;
+                cM.currentSpawnLockPosition = new Vector3(currentPad.transform.position.x, currentPad.transform.position.y +6, currentPad.transform.position.z);
+
+
                 if (currentPad.onScreen == true)
                 {
                     currentPad._playerPresent = true;
