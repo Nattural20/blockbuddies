@@ -81,6 +81,8 @@ public class LilyPadLockedSpawn : MonoBehaviour
         {
             readyToSpawn = false;
 
+            FindAnyObjectByType<AudioManager>().Play("SpockSpawn");
+
             int index = 0;
 
 
