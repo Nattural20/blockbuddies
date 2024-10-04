@@ -54,20 +54,6 @@ public class ArduinoLockedSpawn : MonoBehaviour
     // when are you gonna make Automatic Blast
     void FixedUpdate()
     {
-        if (_playerPresent)
-        {
-            if (Input.GetKeyDown(KeyCode.N))
-            {
-                spawnCubes[0].GetComponent<SpockColourChange>().ChangeToBlue();
-                Debug.Log("Changing spock material to blue");
-            }
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                spawnCubes[0].GetComponent<SpockColourChange>().ChangeToRed();
-                Debug.Log("Changing spock material to red");
-            }
-        }
-
         if (spawnScript) //null catch
         {
 
@@ -102,8 +88,6 @@ public class ArduinoLockedSpawn : MonoBehaviour
             spawnScript.canSpawnSpocks = false;
 
             triggerCount++;
-
-            Debug.Log("Player is present is " + triggerCount + " triggers");
         }
     }
 
@@ -119,9 +103,6 @@ public class ArduinoLockedSpawn : MonoBehaviour
             {
                 _playerPresent = false;
             }
-            //spawnScript.canSpawnSpocks = true; //fixed for v3 spawn code spoof
-            Debug.Log("Player has left. Current trigger count is " + triggerCount + " triggers");
-
         }
     }
     private void SummonBlocks() //summons the blocks
