@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5134638618265516735}
+  - component: {fileID: 8114491719566712797}
   m_Layer: 0
   m_Name: LockZoneSpawnCubes
   m_TagString: Untagged
@@ -159,6 +160,19 @@ Transform:
   - {fileID: 701538894853389150}
   m_Father: {fileID: 4888905921671836922}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8114491719566712797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2309381481202213265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8911b068c5d138647ac3f085febffb0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRotation: {fileID: 0}
 --- !u!1 &2328455761163495798
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8917995323669640036}
+  - component: {fileID: 2112006355155693020}
   m_Layer: 0
   m_Name: LockZoneGhostSpawnCubes
   m_TagString: Untagged
@@ -437,6 +452,19 @@ Transform:
   - {fileID: 1346195384800147758}
   m_Father: {fileID: 4888905921671836922}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2112006355155693020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932141940043796315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f3185de7f203044b55e8e2edd026ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRotation: {fileID: 0}
 --- !u!1 &4026762945276749166
 GameObject:
   m_ObjectHideFlags: 0

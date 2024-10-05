@@ -77,7 +77,7 @@ public class LilyPadLockedSpawn : MonoBehaviour
 
         UpdateLockedGhostCubes(outputArray);
 
-        if (outputArray[0].ToString() == "1" && spawnScript.buttonPressed == true)
+        if (outputArray[0].ToString() == "1" && spawnScript.buttonPressed == true && readyToSpawn == true)
         {
             readyToSpawn = false;
 
