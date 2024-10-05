@@ -41,6 +41,7 @@ public class SpawnerCodeV3 : MonoBehaviour
     public float lowFrequency = .100f;
     public float highFrequency = .750f;
     public float rumbleDuration = .1f;
+    private bool haptics = false;
 
 
     /// <summary>
@@ -295,8 +296,15 @@ public class SpawnerCodeV3 : MonoBehaviour
     public void TriggerHapticFeedback()
     {
         // catch to stop error messages in console
-        if (Gamepad.current != null)
+        if (haptics == true)
         {
+            InputSystem.ResetHaptics();
+            haptics = false;
+        }
+
+        if (Gamepad.current != null && haptics == false)
+        {
+            haptics = true;
             StartCoroutine(HapticCoroutine());
         }
     }
@@ -306,11 +314,12 @@ public class SpawnerCodeV3 : MonoBehaviour
         // Set the motor speeds to start the haptic feedback.
         Gamepad.current.SetMotorSpeeds(lowFrequency, highFrequency);
 
-        // Wait for 0.5 seconds.
+        // Wait for set duration.
         yield return new WaitForSeconds(rumbleDuration);
 
         // Reset haptic feedback.
         InputSystem.ResetHaptics();
+        haptics = false;
     }
 }
 
