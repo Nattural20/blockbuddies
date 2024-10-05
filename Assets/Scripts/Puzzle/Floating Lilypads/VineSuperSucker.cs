@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VineSuperSucker : MonoBehaviour
 {
-    public float sinkSpeed;
+    public float sinkSpeed, rotateSpeed;
     bool isSinking;
     int rotateDir;
     GameObject sinkingSpock;
@@ -40,6 +40,10 @@ public class VineSuperSucker : MonoBehaviour
 
             sinkingSpock.transform.rotation = Quaternion.Euler (sinkingSpock.transform.rotation.eulerAngles - new Vector3(0, sinkSpeed * 10 * rotateDir * Time.deltaTime, 0));
         }
+
+        var rotation = new Vector3(0, 0, sinkSpeed * rotateSpeed * Time.deltaTime);
+
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles - rotation);
     }
     IEnumerator DestroyDelay()
     {
