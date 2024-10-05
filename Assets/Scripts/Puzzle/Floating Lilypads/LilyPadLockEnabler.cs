@@ -10,7 +10,7 @@ public class LilyPadLockEnabler : MonoBehaviour
     //public List<LilyPadLockedSpawn> lilyPads;
     public GameObject lilyPadParent;
     public LilyPadLockedSpawn[] lilyPads;
-    public float centerWeighting, proximityWeighting, closenessProximity;
+    public float proximityWeighting, closenessProximity;
     LilyPadLockedSpawn currentPad;
 
     CubertMovement cM;
