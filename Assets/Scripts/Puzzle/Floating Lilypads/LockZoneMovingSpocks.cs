@@ -16,7 +16,6 @@ public class LockZoneMovingSpocks : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Lily Pad Collision");
         if (collision.gameObject.CompareTag("Body"))
         {
             lockZone.playerPresent++;

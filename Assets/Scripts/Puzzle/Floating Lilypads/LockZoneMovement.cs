@@ -11,11 +11,14 @@ public class LockZoneMovement : MonoBehaviour
     Vector3 startPos;
     public PlayerController controller;
 
+    LilyPadLockedSpawn lockSpawn;
+
     public int playerPresent;
     // Start is called before the first frame update
     void Start()
     {
         startPos = transform.position;
+        lockSpawn = GetComponentInParent<LilyPadLockedSpawn>();
     }
 
     // Update is called once per frame
@@ -35,6 +38,11 @@ public class LockZoneMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Pad Reset"))
         {
+            var leftoverCubes = Instantiate(lockSpawn.spawnCubesParent, lockSpawn.spawnCubesParent.transform.position, lockSpawn.spawnCubesParent.transform.rotation);
+            leftoverCubes.transform.localScale = lockSpawn.spawnCubesParent.transform.lossyScale;
+
+            other.GetComponent<LilyPadResetValue>().LeftoverSpocks(leftoverCubes);
+
             GetComponent<LilyPadLockedSpawn>().BustSpocks();
             
             transform.position -= new Vector3(other.GetComponent<LilyPadResetValue>().resetDistance, 0, 0);
