@@ -18,6 +18,7 @@ public class CheckpointTrigger : MonoBehaviour
         {
             Bellanim.SetTrigger("Checkpoint");
             Bellpart.Play();
+            Debug.Log("Checkpoint hit");
         }
     }
 }
