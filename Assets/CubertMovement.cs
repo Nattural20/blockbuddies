@@ -21,11 +21,22 @@ public class CubertMovement : MonoBehaviour
             Vector3 newPosition = Vector3.Lerp(transform.position, CubertAimPosition.position, moveSpeed * Time.deltaTime);
             transform.position = newPosition;
 
-            if (direction.magnitude > 0.01f)
+
+            
+            if (direction.magnitude > 0.01f && !cubertOnLock)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
+                targetRotation *= Quaternion.Euler(0, -90, 0);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             }
+            else if (cubertOnLock)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(playerTransform.position - transform.position);
+                targetRotation *= Quaternion.Euler(0, -90, 0);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            }
+
         }
     }
 

@@ -232,14 +232,14 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
+    public float leaningAngle = -50; //0 to -100
 
     void ApplyForwardRotation()
     {
 
 
         float currentSpeed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
-        float targetZRotation = Mathf.Lerp(0, -60, currentSpeed / maxSpeed);
+        float targetZRotation = Mathf.Lerp(0, leaningAngle, currentSpeed / maxSpeed);
 
         Quaternion currentRotation = rb.transform.rotation;
         Quaternion targetRotation = Quaternion.Euler(currentRotation.eulerAngles.x, currentRotation.eulerAngles.y, targetZRotation);
