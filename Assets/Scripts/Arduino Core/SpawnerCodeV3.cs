@@ -42,6 +42,7 @@ public class SpawnerCodeV3 : MonoBehaviour
     public float highFrequency = .750f;
     public float rumbleDuration = .1f;
     private bool haptics = false;
+    private DualShockGamepad gamepad = DualShockGamepad.current;
 
 
     /// <summary>
@@ -49,8 +50,7 @@ public class SpawnerCodeV3 : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        var gamepad = (DualShockGamepad)Gamepad.all[0];
-        gamepad.SetLightBarColor(Color.blue);
+
     }
 
     void Update()
@@ -69,11 +69,17 @@ public class SpawnerCodeV3 : MonoBehaviour
 
         ToggleSpoof();
 
+
+
+
     }
 
     void Spawn()
     {
+
+
         input = GetInput();
+
 
         //I am so sorry about the sins I have committed 
         //No I'm not. Those sins were pointless!!!
@@ -89,6 +95,7 @@ public class SpawnerCodeV3 : MonoBehaviour
 
             if (input[0].ToString() == "1" && !buttonPressed)
             {
+                gamepad.SetLightBarColor(Color.magenta);
                 buttonPressed = true;
                 GameObject spockDaddy = Instantiate(spockShell, SpawnPosGuide.transform.position, SpawnPosGuide.transform.rotation);
                 if (rumble == true)
@@ -110,6 +117,8 @@ public class SpawnerCodeV3 : MonoBehaviour
                         {
                             SpawnBlock(arrayPos, spockDaddy, positions[i - 1]);
                             hasSpawned = true;
+
+
                         }
                     }
                 }
@@ -137,11 +146,18 @@ public class SpawnerCodeV3 : MonoBehaviour
 
             if (buttonPressed && input[0].ToString() == "0")
             {
+
                 buttonPressed = false;
+            }
+            else if (!buttonPressed && input[0].ToString() == "0")
+            {
+                gamepad.SetLightBarColor(Color.blue);
             }
 
             previousInput = input;
         }
+
+        
         else
         {
             if (!hasErrored)
@@ -159,6 +175,8 @@ public class SpawnerCodeV3 : MonoBehaviour
         newSpock.transform.localPosition = offset;
         BoxCollider spockCollider = spockDaddy.AddComponent<BoxCollider>();
         spockCollider.center = offset;
+        
+
     }
 
     void UpdateGhostSpocks(char[] input)
@@ -298,11 +316,12 @@ public class SpawnerCodeV3 : MonoBehaviour
         // catch to stop error messages in console
         if (haptics == true)
         {
-            InputSystem.ResetHaptics();
+            Debug.Log("Interupting Rumble");
+            gamepad.SetMotorSpeeds(0f, 0f);
             haptics = false;
         }
 
-        if (Gamepad.current != null && haptics == false)
+        if (gamepad != null && haptics == false)
         {
             haptics = true;
             StartCoroutine(HapticCoroutine());
@@ -311,14 +330,16 @@ public class SpawnerCodeV3 : MonoBehaviour
 
     private IEnumerator HapticCoroutine()
     {
+        Debug.Log("I'm about to rumble");
         // Set the motor speeds to start the haptic feedback.
-        Gamepad.current.SetMotorSpeeds(lowFrequency, highFrequency);
-
+        gamepad.SetMotorSpeeds(lowFrequency, highFrequency);
+       
         // Wait for set duration.
         yield return new WaitForSeconds(rumbleDuration);
 
+        Debug.Log("Rumble stopping");
         // Reset haptic feedback.
-        InputSystem.ResetHaptics();
+        gamepad.ResetHaptics();
         haptics = false;
     }
 }
