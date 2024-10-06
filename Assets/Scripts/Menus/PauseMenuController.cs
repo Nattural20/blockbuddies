@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using UnityEngine.Windows;
 
 public class PauseMenuController : MonoBehaviour
 {
@@ -17,9 +18,13 @@ public class PauseMenuController : MonoBehaviour
 
     public GameObject fpsCounter;
     public GameObject pauseMenuUI;
+    public Text arduinoString;
+    public char[] input;
     public bool isPaused = false;
 
     private bool fpsOn = false;
+    public char[] output = { 'a', 'b', 'c' };
+    
 
 
     private void Awake()
@@ -44,13 +49,12 @@ public class PauseMenuController : MonoBehaviour
             pauseMenuUI.SetActive(false);
         }
 
-        
         PopulateDropdown();
     }
 
     void Update()
     {
-        
+        CollectArduino();
     }
 
     
@@ -136,6 +140,23 @@ public class PauseMenuController : MonoBehaviour
             fpsCounter.SetActive(false);
             fpsOn = false;
         }
+    }
+
+    public void CollectArduino()
+    {
+        input = GetComponent<ArduinoReader>().OutputArray;
+        
+
+        if (input != null)
+        {
+            arduinoString.text = input[0].ToString();
+        }
+        else if (input == null)
+        {
+            arduinoString.text = ("Can't read arduino!");
+            Debug.Log("Can't read arduino!");
+        }
+
     }
 
 }
