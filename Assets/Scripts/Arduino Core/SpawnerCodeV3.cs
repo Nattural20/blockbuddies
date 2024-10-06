@@ -42,7 +42,8 @@ public class SpawnerCodeV3 : MonoBehaviour
     public float highFrequency = .750f;
     public float rumbleDuration = .1f;
     private bool haptics = false;
-    private DualShockGamepad gamepad = DualShockGamepad.current;
+    private DualShockGamepad dualShockGamepad;
+    private Gamepad currentGamepad;
 
 
     /// <summary>
@@ -95,7 +96,12 @@ public class SpawnerCodeV3 : MonoBehaviour
 
             if (input[0].ToString() == "1" && !buttonPressed)
             {
-                gamepad.SetLightBarColor(Color.magenta);
+                if (Gamepad.current is DualShockGamepad)
+                {
+                    dualShockGamepad = (DualShockGamepad)Gamepad.current;
+                    dualShockGamepad.SetLightBarColor(Color.magenta);
+                }
+                
                 buttonPressed = true;
                 GameObject spockDaddy = Instantiate(spockShell, SpawnPosGuide.transform.position, SpawnPosGuide.transform.rotation);
                 if (rumble == true)
@@ -151,7 +157,7 @@ public class SpawnerCodeV3 : MonoBehaviour
             }
             else if (!buttonPressed && input[0].ToString() == "0")
             {
-                gamepad.SetLightBarColor(Color.blue);
+                dualShockGamepad.SetLightBarColor(Color.blue);
             }
 
             previousInput = input;
@@ -317,11 +323,11 @@ public class SpawnerCodeV3 : MonoBehaviour
         if (haptics == true)
         {
             Debug.Log("Interupting Rumble");
-            gamepad.SetMotorSpeeds(0f, 0f);
+            currentGamepad.SetMotorSpeeds(0f, 0f);
             haptics = false;
         }
 
-        if (gamepad != null && haptics == false)
+        if (currentGamepad != null && haptics == false)
         {
             haptics = true;
             StartCoroutine(HapticCoroutine());
@@ -332,14 +338,14 @@ public class SpawnerCodeV3 : MonoBehaviour
     {
         Debug.Log("I'm about to rumble");
         // Set the motor speeds to start the haptic feedback.
-        gamepad.SetMotorSpeeds(lowFrequency, highFrequency);
+        currentGamepad.SetMotorSpeeds(lowFrequency, highFrequency);
        
         // Wait for set duration.
         yield return new WaitForSeconds(rumbleDuration);
 
         Debug.Log("Rumble stopping");
         // Reset haptic feedback.
-        gamepad.ResetHaptics();
+        currentGamepad.ResetHaptics();
         haptics = false;
     }
 }
