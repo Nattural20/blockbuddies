@@ -6,19 +6,18 @@ public class CheckpointTrigger : MonoBehaviour
 {
     public ParticleSystem Bellpart;
     public Animator Bellanim;
-
-    void Start()
-    {
-
-    }
+    bool hasTriggered = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Body"))
+        if (!hasTriggered)
         {
-            Bellanim.SetTrigger("Checkpoint");
-            Bellpart.Play();
-            Debug.Log("Checkpoint hit");
+            if (other.CompareTag("Body"))
+            {
+                Bellanim.SetTrigger("Checkpoint");
+                Bellpart.Play();
+                hasTriggered = true;
+            }
         }
     }
 }
