@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1371535890303219358}
   - component: {fileID: 5016949146843335392}
   - component: {fileID: 3402192033311569935}
+  - component: {fileID: 2219810550785080398}
   m_Layer: 0
   m_Name: Cube6
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1015750135383540236}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.12571676, y: 0.08231699, z: -1.5102296}
+  m_LocalPosition: {x: 0.12571676, y: 0.08231699, z: -1.5}
   m_LocalScale: {x: 1.0548277, y: 1.0548277, z: 1.0548279}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4923,6 +4924,27 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!95 &2219810550785080398
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015750135383540236}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e90d2953f58c3ab45b28fb87a23528e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1423009102431737807
 GameObject:
   m_ObjectHideFlags: 0
@@ -4938,6 +4960,7 @@ GameObject:
   - component: {fileID: 1484054544540400627}
   - component: {fileID: 5607658837674098518}
   - component: {fileID: 7756411900289136357}
+  - component: {fileID: 2163739908935141333}
   m_Layer: 0
   m_Name: Cube3
   m_TagString: Untagged
@@ -4954,7 +4977,7 @@ Transform:
   m_GameObject: {fileID: 1423009102431737807}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.12571657, y: -1.4486828, z: -1.5102296}
+  m_LocalPosition: {x: 0.12571657, y: -1.4486828, z: -1.5}
   m_LocalScale: {x: 1.0548277, y: 1.0548277, z: 1.0548279}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -9846,6 +9869,27 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!95 &2163739908935141333
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423009102431737807}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e90d2953f58c3ab45b28fb87a23528e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1447481161932859224
 GameObject:
   m_ObjectHideFlags: 0
@@ -9860,6 +9904,7 @@ GameObject:
   - component: {fileID: 5075590975963592692}
   - component: {fileID: 8159270286424004812}
   - component: {fileID: 5655841723759336312}
+  - component: {fileID: 8351073155099160000}
   m_Layer: 0
   m_Name: LockZoneCube 9
   m_TagString: Lily Pad
@@ -9983,6 +10028,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0293239, y: 1.0389587, z: 1.0369749}
   m_Center: {x: 0.00008541512, y: -0.0119536575, z: 0.0068969447}
+--- !u!95 &8351073155099160000
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447481161932859224}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f843ac05b82e9446a9ecf986c0a7295, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1501776884735337865
 GameObject:
   m_ObjectHideFlags: 0
@@ -9997,6 +10063,7 @@ GameObject:
   - component: {fileID: 1876669332009278645}
   - component: {fileID: 4440862123384422593}
   - component: {fileID: 3099545907563227806}
+  - component: {fileID: 4493969617146891814}
   m_Layer: 0
   m_Name: LockZoneCube 5
   m_TagString: Lily Pad
@@ -10120,6 +10187,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0293239, y: 1.0389587, z: 1.0369749}
   m_Center: {x: 0.00008541512, y: -0.011953121, z: 0.0068969447}
+--- !u!95 &4493969617146891814
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501776884735337865}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f843ac05b82e9446a9ecf986c0a7295, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1772827610984684422
 GameObject:
   m_ObjectHideFlags: 0
@@ -10219,6 +10307,7 @@ GameObject:
   - component: {fileID: 2591534922441500313}
   - component: {fileID: 2917126972323353210}
   - component: {fileID: 7820864054283312815}
+  - component: {fileID: 4198825728062621106}
   m_Layer: 0
   m_Name: Cube5
   m_TagString: Untagged
@@ -10235,7 +10324,7 @@ Transform:
   m_GameObject: {fileID: 1897149230679679679}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.12571676, y: 0.08231699, z: 0.013771091}
+  m_LocalPosition: {x: 0.12571676, y: 0.08231699, z: 0}
   m_LocalScale: {x: 1.0548277, y: 1.0548277, z: 1.0548279}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -15127,6 +15216,27 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!95 &4198825728062621106
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897149230679679679}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e90d2953f58c3ab45b28fb87a23528e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1897857122896276001
 GameObject:
   m_ObjectHideFlags: 0
@@ -15226,6 +15336,7 @@ GameObject:
   - component: {fileID: 597641138240571989}
   - component: {fileID: 7968075583751771725}
   - component: {fileID: 1255768320715981300}
+  - component: {fileID: 3917644315635679103}
   m_Layer: 0
   m_Name: Cube4
   m_TagString: Untagged
@@ -15242,7 +15353,7 @@ Transform:
   m_GameObject: {fileID: 1991522187554466863}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.12571676, y: 0.08231699, z: 1.5367726}
+  m_LocalPosition: {x: 0.12571676, y: 0.08231699, z: 1.45}
   m_LocalScale: {x: 1.0548277, y: 1.0548277, z: 1.0548279}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -20134,6 +20245,27 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!95 &3917644315635679103
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991522187554466863}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e90d2953f58c3ab45b28fb87a23528e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2172695335504032171
 GameObject:
   m_ObjectHideFlags: 0
@@ -20148,6 +20280,7 @@ GameObject:
   - component: {fileID: 5922078694993547317}
   - component: {fileID: 1789877154114703315}
   - component: {fileID: 570865275949054595}
+  - component: {fileID: 466154953785645227}
   m_Layer: 0
   m_Name: LockZoneCube 2
   m_TagString: Lily Pad
@@ -20271,6 +20404,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0293239, y: 1.0389587, z: 1.0369749}
   m_Center: {x: 0.00008541512, y: -0.011953121, z: 0.0068969447}
+--- !u!95 &466154953785645227
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2172695335504032171}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f843ac05b82e9446a9ecf986c0a7295, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2565189422353902608
 GameObject:
   m_ObjectHideFlags: 0
@@ -20674,6 +20828,7 @@ GameObject:
   - component: {fileID: 5161575290537650595}
   - component: {fileID: 7918923354864870024}
   - component: {fileID: 2906559252975507015}
+  - component: {fileID: 5865757814952936340}
   m_Layer: 0
   m_Name: LockZoneCube 6
   m_TagString: Lily Pad
@@ -20797,6 +20952,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0293239, y: 1.0389587, z: 1.0369749}
   m_Center: {x: 0.00008541512, y: -0.0119536575, z: 0.0068969447}
+--- !u!95 &5865757814952936340
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125577416444539199}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f843ac05b82e9446a9ecf986c0a7295, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4021312915677093998
 GameObject:
   m_ObjectHideFlags: 0
@@ -20811,6 +20987,7 @@ GameObject:
   - component: {fileID: 1162599581270066833}
   - component: {fileID: 1090019697221449561}
   - component: {fileID: 3503853497494655738}
+  - component: {fileID: 3326998528491129018}
   m_Layer: 0
   m_Name: LockZoneCube 8
   m_TagString: Lily Pad
@@ -20934,6 +21111,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0293239, y: 1.0389587, z: 1.0369749}
   m_Center: {x: 0.00008541512, y: -0.0119536575, z: 0.0068969447}
+--- !u!95 &3326998528491129018
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4021312915677093998}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f843ac05b82e9446a9ecf986c0a7295, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4044317846734019527
 GameObject:
   m_ObjectHideFlags: 0
@@ -20948,6 +21146,7 @@ GameObject:
   - component: {fileID: 343477119124623064}
   - component: {fileID: 2531218528966883858}
   - component: {fileID: 236463461886140765}
+  - component: {fileID: 6413122278158285111}
   m_Layer: 0
   m_Name: LockZoneCube 1
   m_TagString: Lily Pad
@@ -21071,6 +21270,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0293239, y: 1.0389587, z: 1.0369749}
   m_Center: {x: 0.00008541512, y: -0.011952644, z: 0.0068969447}
+--- !u!95 &6413122278158285111
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4044317846734019527}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f843ac05b82e9446a9ecf986c0a7295, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4079567010148632011
 GameObject:
   m_ObjectHideFlags: 0
@@ -21126,6 +21346,7 @@ GameObject:
   - component: {fileID: 1303346859615835613}
   - component: {fileID: 5055925258691682567}
   - component: {fileID: 4981812921047692731}
+  - component: {fileID: 3118500106406606661}
   m_Layer: 0
   m_Name: Cube9
   m_TagString: Untagged
@@ -21142,7 +21363,7 @@ Transform:
   m_GameObject: {fileID: 4749847837864663351}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.12571692, y: 1.6023148, z: -1.5102296}
+  m_LocalPosition: {x: 0.12571692, y: 1.6023148, z: -1.5}
   m_LocalScale: {x: 1.0548277, y: 1.0548277, z: 1.0548279}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -26034,6 +26255,27 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!95 &3118500106406606661
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4749847837864663351}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e90d2953f58c3ab45b28fb87a23528e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4783346484090359036
 GameObject:
   m_ObjectHideFlags: 0
@@ -26133,6 +26375,7 @@ GameObject:
   - component: {fileID: 7889623666616604840}
   - component: {fileID: 877708921992406216}
   - component: {fileID: 2881090096914594629}
+  - component: {fileID: 5014816469216647705}
   m_Layer: 0
   m_Name: Cube2
   m_TagString: Untagged
@@ -26149,7 +26392,7 @@ Transform:
   m_GameObject: {fileID: 5125845471981026437}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.12571657, y: -1.4486828, z: 0.013771091}
+  m_LocalPosition: {x: 0.12571657, y: -1.4486828, z: 0}
   m_LocalScale: {x: 1.0548277, y: 1.0548277, z: 1.0548279}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -31041,6 +31284,27 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!95 &5014816469216647705
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5125845471981026437}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e90d2953f58c3ab45b28fb87a23528e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5125995430001617252
 GameObject:
   m_ObjectHideFlags: 0
@@ -31140,6 +31404,7 @@ GameObject:
   - component: {fileID: 589666405071489404}
   - component: {fileID: 5630193977493949794}
   - component: {fileID: 4258906460485315637}
+  - component: {fileID: 1614312485399894988}
   m_Layer: 0
   m_Name: Cube1
   m_TagString: Untagged
@@ -31156,7 +31421,7 @@ Transform:
   m_GameObject: {fileID: 5502887821057392955}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.12571657, y: -1.4486828, z: 1.5367726}
+  m_LocalPosition: {x: 0.12571657, y: -1.4486828, z: 1.45}
   m_LocalScale: {x: 1.0548277, y: 1.0548277, z: 1.0548279}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -36048,6 +36313,27 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!95 &1614312485399894988
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502887821057392955}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e90d2953f58c3ab45b28fb87a23528e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5776984407847871328
 GameObject:
   m_ObjectHideFlags: 0
@@ -36242,7 +36528,7 @@ Transform:
   m_GameObject: {fileID: 5923131057053276559}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.16, z: 0}
   m_LocalScale: {x: 1.352247, y: 1.352247, z: 1.3522476}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -36284,6 +36570,7 @@ GameObject:
   - component: {fileID: 7191071963728211569}
   - component: {fileID: 2266583725119898558}
   - component: {fileID: 2309305165498713926}
+  - component: {fileID: 4826866992834813683}
   m_Layer: 0
   m_Name: LockZoneCube 7
   m_TagString: Lily Pad
@@ -36407,6 +36694,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0293239, y: 1.0389587, z: 1.0369749}
   m_Center: {x: 0.00008541512, y: -0.0119536575, z: 0.0068969447}
+--- !u!95 &4826866992834813683
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118413616920558564}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f843ac05b82e9446a9ecf986c0a7295, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6181645795647571058
 GameObject:
   m_ObjectHideFlags: 0
@@ -36421,6 +36729,7 @@ GameObject:
   - component: {fileID: 4952297636789431111}
   - component: {fileID: 8264888419696641242}
   - component: {fileID: 2807973772868440955}
+  - component: {fileID: 8121273163364772756}
   m_Layer: 0
   m_Name: LockZoneCube 4
   m_TagString: Lily Pad
@@ -36544,6 +36853,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0293239, y: 1.0389587, z: 1.0369749}
   m_Center: {x: 0.00008541512, y: -0.011952644, z: 0.0068969447}
+--- !u!95 &8121273163364772756
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6181645795647571058}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f843ac05b82e9446a9ecf986c0a7295, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7789424280149421536
 GameObject:
   m_ObjectHideFlags: 0
@@ -36643,6 +36973,7 @@ GameObject:
   - component: {fileID: 2630572039671983302}
   - component: {fileID: 5247375617952392034}
   - component: {fileID: 622650283951762297}
+  - component: {fileID: 5165000062684038499}
   m_Layer: 0
   m_Name: Cube7
   m_TagString: Untagged
@@ -36659,7 +36990,7 @@ Transform:
   m_GameObject: {fileID: 8053136907187845460}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.12571692, y: 1.6023148, z: 1.5367726}
+  m_LocalPosition: {x: 0.12571692, y: 1.6023148, z: 1.45}
   m_LocalScale: {x: 1.0548277, y: 1.0548277, z: 1.0548279}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -41551,6 +41882,27 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!95 &5165000062684038499
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053136907187845460}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e90d2953f58c3ab45b28fb87a23528e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8353252899856404907
 GameObject:
   m_ObjectHideFlags: 0
@@ -41690,6 +42042,7 @@ GameObject:
   - component: {fileID: 1820120906015791921}
   - component: {fileID: 4167777510756638203}
   - component: {fileID: 5172300749948762562}
+  - component: {fileID: 9064100669448971122}
   m_Layer: 0
   m_Name: Cube8
   m_TagString: Untagged
@@ -41706,7 +42059,7 @@ Transform:
   m_GameObject: {fileID: 8625112953680642908}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.12571692, y: 1.6023148, z: 0.013771091}
+  m_LocalPosition: {x: 0.12571692, y: 1.6023148, z: 0}
   m_LocalScale: {x: 1.0548277, y: 1.0548277, z: 1.0548279}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -46598,6 +46951,27 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!95 &9064100669448971122
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8625112953680642908}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e90d2953f58c3ab45b28fb87a23528e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8803288649441029114
 GameObject:
   m_ObjectHideFlags: 0
@@ -46612,6 +46986,7 @@ GameObject:
   - component: {fileID: 7950965766724850166}
   - component: {fileID: 2587845084279178445}
   - component: {fileID: 6968654672303978498}
+  - component: {fileID: 5301787762299612901}
   m_Layer: 0
   m_Name: LockZoneCube 3
   m_TagString: Lily Pad
@@ -46735,6 +47110,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0293239, y: 1.0389587, z: 1.0369749}
   m_Center: {x: 0.00008541512, y: -0.0119536575, z: 0.0068969447}
+--- !u!95 &5301787762299612901
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8803288649441029114}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f843ac05b82e9446a9ecf986c0a7295, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &701504233267058043
 PrefabInstance:
   m_ObjectHideFlags: 0
