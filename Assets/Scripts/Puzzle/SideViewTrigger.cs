@@ -7,6 +7,7 @@ public class SideViewTrigger : MonoBehaviour
     public SpawnerCodeV3 arduinoSpawner;
     public LayerMask playerMask;
     public GameObject freeLookCam, sideViewCam;
+    public GameObject[] activateObjs;
 
     int triggersActive;
     bool playerPresent = false;
@@ -27,6 +28,13 @@ public class SideViewTrigger : MonoBehaviour
                 ghost.SetActive(false);
             }
 
+            if (activateObjs != null)
+            {
+                foreach (GameObject obj in activateObjs)
+                {
+                    obj.SetActive(true);
+                }
+            }
         }
     }
 
@@ -42,6 +50,14 @@ public class SideViewTrigger : MonoBehaviour
                 sideViewCam.SetActive(false);
                 freeLookCam.SetActive(true);
                 arduinoSpawner.canSpawnSpocks = true;
+
+                if (activateObjs != null)
+                {
+                    foreach (GameObject obj in activateObjs)
+                    {
+                        obj.SetActive(true);
+                    }
+                }
             }
         }
     }
