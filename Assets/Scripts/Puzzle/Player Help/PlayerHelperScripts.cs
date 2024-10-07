@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class PlayerHelperScripts : MonoBehaviour
 {
+    public bool helpActive;
+    public GameObject[] UIElements;
     public void OfferHelp()
     {
-
+        foreach (GameObject help in UIElements)
+        {
+            help.SetActive(true);
+        }
+    }
+    public void CutSafetyLine()
+    {
+        foreach (GameObject help in UIElements)
+        {
+            help.SetActive(false);
+        }
     }
 }

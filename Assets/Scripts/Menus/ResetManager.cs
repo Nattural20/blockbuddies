@@ -65,11 +65,11 @@ public class ResetManager : MonoBehaviour
         if (endViewTrigger != null)
         {
             reset = endViewTrigger.reset;
-            Debug.Log("Made it half way to reset and gave up");
+            //Debug.Log("Made it half way to reset and gave up");
             if (reset)
             {
                 ResetScene();
-                Debug.Log("Gotta hit that reset!");
+                //Debug.Log("Gotta hit that reset!");
             }
         }
     }
