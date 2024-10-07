@@ -64,6 +64,9 @@ public class ResetManager : MonoBehaviour
 
     public void ResetScene()
     {
+        FindAnyObjectByType<AudioManager>().Stop("ThemeExcited");
+        FindAnyObjectByType<AudioManager>().Play("ThemeNeutral");
+
         StartCoroutine(RespawnLag());
         Time.timeScale = 1f;
     }
