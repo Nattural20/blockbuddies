@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class EndViewTrigger : MonoBehaviour
 {
     public LayerMask playerMask;
-    public GameObject freeLookCam, endViewCam;
+    public GameObject freeLookCam, endViewCam, rotator, rotationCam;
     public Image endScreen;
     public float endScreenFadeSpeed;
     bool isFinished = false;
+    public float speed;
 
     private void OnTriggerEnter(Collider col)
     {
@@ -20,6 +21,12 @@ public class EndViewTrigger : MonoBehaviour
 
             endScreen.gameObject.SetActive(true);
             isFinished = true;
+            StartCoroutine(CameraRotation());
+        }
+
+        if (isFinished == true)
+        {
+            
         }
     }
     private void Update()
@@ -28,5 +35,13 @@ public class EndViewTrigger : MonoBehaviour
         {
             endScreen.color = new Color(endScreen.color.r, endScreen.color.g, endScreen.color.b, endScreen.color.a + endScreenFadeSpeed * Time.deltaTime);
         }
+    }
+
+    private IEnumerator CameraRotation()
+    {
+        yield return new WaitForSeconds(2f * Time.deltaTime);
+        endViewCam.SetActive(false);
+        rotator.SetActive(true);
+        rotationCam.SetActive(true);
     }
 }
