@@ -11,6 +11,7 @@ public class VineDoorAnimTest : MonoBehaviour
     Collider[] colliders;
 
     bool open;
+    float time;
     private void Start()
     {
         colliders = GetComponents<Collider>();
@@ -30,11 +31,12 @@ public class VineDoorAnimTest : MonoBehaviour
     {
         if (open)
         {
-            if (player.CurrentTime < player.EndTime)
+            time += Time.deltaTime;
+            if (time > 2.5)
             {
                 Destroy(this);
             }
-            player.CurrentTime += Time.deltaTime;
+            player.CurrentTime = time;
         }
     }
 }
