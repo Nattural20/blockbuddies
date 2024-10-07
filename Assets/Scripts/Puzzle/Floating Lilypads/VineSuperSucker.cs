@@ -17,6 +17,7 @@ public class VineSuperSucker : MonoBehaviour
         }
         sinkingSpock = Instantiate(lilyPadSpocks, lilyPadSpocks.transform.position, lilyPadSpocks.transform.rotation);
         sinkingSpock.transform.localScale = lilyPadSpocks.transform.lossyScale;
+        Destroy(sinkingSpock.GetComponent<RotationalBehaviourYAxis>());
         
         rotateDir = Random.Range(0, 2);
         if (rotateDir == 0)
@@ -38,11 +39,10 @@ public class VineSuperSucker : MonoBehaviour
         {
             sinkingSpock.transform.position -= new Vector3 (0, sinkSpeed * Time.deltaTime, 0);
 
-            sinkingSpock.transform.rotation = Quaternion.Euler (sinkingSpock.transform.rotation.eulerAngles - new Vector3(0, sinkSpeed * 10 * rotateDir * Time.deltaTime, 0));
+            sinkingSpock.transform.rotation = Quaternion.Euler(sinkingSpock.transform.rotation.eulerAngles - new Vector3(0, sinkSpeed * 10 * rotateDir * Time.deltaTime, 0));
         }
 
         var rotation = new Vector3(0, 0, sinkSpeed * rotateSpeed * Time.deltaTime);
-
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles - rotation);
     }
     IEnumerator DestroyDelay()

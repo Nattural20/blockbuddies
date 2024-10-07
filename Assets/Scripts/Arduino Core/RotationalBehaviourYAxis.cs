@@ -21,7 +21,7 @@ public class RotationalBehaviourYAxis : MonoBehaviour
         }
         else if (spawnRotation.value == 1)
         {
-            gameObject.transform.localRotation = Quaternion.Euler(startRotation + new Vector3(0, -90, 0));
+            gameObject.transform.localRotation = Quaternion.Euler(startRotation + new Vector3(0, -270, 0));
         }
         else if (spawnRotation.value == 2)
         {
@@ -29,7 +29,7 @@ public class RotationalBehaviourYAxis : MonoBehaviour
         }
         else if (spawnRotation.value == 3)
         {
-            gameObject.transform.localRotation = Quaternion.Euler(startRotation + new Vector3(0, -270, 0));
+            gameObject.transform.localRotation = Quaternion.Euler(startRotation + new Vector3(0, -90, 0));
         }
     }
 

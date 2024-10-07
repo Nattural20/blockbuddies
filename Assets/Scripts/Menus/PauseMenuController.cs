@@ -15,6 +15,7 @@ public class PauseMenuController : MonoBehaviour
     public List<Transform> spawns;
     public List<GameObject> playerParts;
     public Camera mainCam;
+    public ArduinoReader arduinoReader;
 
     public GameObject fpsCounter;
     public GameObject pauseMenuUI;
@@ -144,7 +145,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void CollectArduino()
     {
-        input = GetComponent<ArduinoReader>().OutputArray;
+        input = arduinoReader.OutputArray;
         
 
         if (input != null)
