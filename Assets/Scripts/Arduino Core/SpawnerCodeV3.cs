@@ -45,13 +45,16 @@ public class SpawnerCodeV3 : MonoBehaviour
     private DualShockGamepad dualShockGamepad;
     private Gamepad currentGamepad;
 
+    //End conditions
+    private EndViewTrigger endViewTrigger;
+    private bool unlimited;
 
     /// <summary>
     /// Spawner Code V3.Integrated Spoof toggle and functionality.  
     /// </summary>
     public void Start()
     {
-
+        endViewTrigger = GameObject.Find("EndViewTrigger").GetComponent<EndViewTrigger>();
     }
 
     void Update()
@@ -70,7 +73,16 @@ public class SpawnerCodeV3 : MonoBehaviour
 
         ToggleSpoof();
 
+        
+        if (endViewTrigger != null)
+        {
+            unlimited = endViewTrigger.unlimited;
 
+            if (unlimited)
+            {
+                spawnLimit = 9999999;
+            }
+        }
 
 
     }
@@ -265,6 +277,8 @@ public class SpawnerCodeV3 : MonoBehaviour
         Int32.TryParse(input, out x);
 
         spawnLimit = x;
+
+
     }
 
     public void ChangeBlockWeight(string input)

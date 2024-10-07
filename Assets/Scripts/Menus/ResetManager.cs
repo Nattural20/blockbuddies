@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ResetManager : MonoBehaviour
 {
-
+    private EndViewTrigger endViewTrigger;
     private static ResetManager instance;
 
     public Dropdown dropdown;  // The specific dropdown component
@@ -17,6 +17,8 @@ public class ResetManager : MonoBehaviour
     public float timeToReset = 30;
     public float autoResetTimer;
     public bool startAutoReset = false;
+
+    private bool reset;
 
     private void Awake()
     {
@@ -52,6 +54,24 @@ public class ResetManager : MonoBehaviour
 
         // Add listener to save the dropdown value when it changes
         dropdown.onValueChanged.AddListener(delegate { SaveDropdownValue(); });
+
+
+        endViewTrigger = GameObject.Find("EndViewTrigger").GetComponent<EndViewTrigger>();
+
+    }
+
+    public void Update()
+    {
+        if (endViewTrigger != null)
+        {
+            reset = endViewTrigger.reset;
+            Debug.Log("Made it half way to reset and gave up");
+            if (reset)
+            {
+                ResetScene();
+                Debug.Log("Gotta hit that reset!");
+            }
+        }
     }
 
     public void SaveDropdownValue()

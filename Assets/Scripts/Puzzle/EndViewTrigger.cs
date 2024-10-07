@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EndViewTrigger : MonoBehaviour
@@ -10,7 +11,10 @@ public class EndViewTrigger : MonoBehaviour
     public Image endScreen;
     public float endScreenFadeSpeed;
     bool isFinished = false;
-    public float speed;
+    public float rotationDelay;
+    public int endResetTimer;
+    public bool unlimited;
+    public bool reset = false;
 
     private void OnTriggerEnter(Collider col)
     {
@@ -22,12 +26,15 @@ public class EndViewTrigger : MonoBehaviour
             endScreen.gameObject.SetActive(true);
             isFinished = true;
             StartCoroutine(CameraRotation());
+            unlimited = true;
+            if (rotationCam == enabled)
+            {
+                StartCoroutine(EndResetCountdown());
+            }
+
         }
 
-        if (isFinished == true)
-        {
-            
-        }
+
     }
     private void Update()
     {
@@ -35,13 +42,21 @@ public class EndViewTrigger : MonoBehaviour
         {
             endScreen.color = new Color(endScreen.color.r, endScreen.color.g, endScreen.color.b, endScreen.color.a + endScreenFadeSpeed * Time.deltaTime);
         }
+
+
     }
 
     private IEnumerator CameraRotation()
     {
-        yield return new WaitForSeconds(2f * Time.deltaTime);
+        yield return new WaitForSecondsRealtime(rotationDelay);
         endViewCam.SetActive(false);
         rotator.SetActive(true);
         rotationCam.SetActive(true);
+    }
+
+    private IEnumerator EndResetCountdown()
+    {
+        yield return new WaitForSecondsRealtime(endResetTimer);
+        reset = true;
     }
 }
