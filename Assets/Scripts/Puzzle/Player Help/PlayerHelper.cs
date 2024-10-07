@@ -17,9 +17,11 @@ public class PlayerHelper : MonoBehaviour
             if (counting)
             {
                 respawnCount = respawns.respawnCounter - respawnsOnEnter;
+
                 if (respawnCount > 15)
                 {
                     helpScript.OfferHelp();
+                    helpScript.helpActive = true;
                     helpOffered = true;
                 }
             }
@@ -29,14 +31,24 @@ public class PlayerHelper : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Body"))
         {
-           respawnsOnEnter = respawns.respawnCounter;
-           counting = true;
+            if (!helpOffered)
+            {
+                respawnsOnEnter = respawns.respawnCounter;
+                counting = true;
+            }
+            else
+            {
+                helpScript.IndicatorOnly();
+                helpScript.helpActive = true;
+            }
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Body"))
         {
+            helpScript.helpActive = false;
+            helpScript.CutSafetyLine();
             counting = false;
         }
     }

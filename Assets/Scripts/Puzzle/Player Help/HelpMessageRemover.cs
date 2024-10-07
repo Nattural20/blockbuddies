@@ -6,10 +6,7 @@ public class HelpMessageRemover : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetAxis("DPadVertical") != 0) // DPad Up
-        {
+        if (Input.GetAxis("DPadVertical") != 0)
             gameObject.SetActive(false);
-        }
-
     }
 }

@@ -44,6 +44,7 @@ public class SpawnerCodeV3 : MonoBehaviour
     private bool haptics = false;
     private DualShockGamepad dualShockGamepad;
     private Gamepad currentGamepad;
+    bool isDualshock;
 
     //End conditions
     private EndViewTrigger endViewTrigger;
@@ -110,6 +111,7 @@ public class SpawnerCodeV3 : MonoBehaviour
             {
                 if (Gamepad.current is DualShockGamepad)
                 {
+                    isDualshock = true;
                     dualShockGamepad = (DualShockGamepad)Gamepad.current;
                     dualShockGamepad.SetLightBarColor(Color.magenta);
                 }
@@ -167,7 +169,7 @@ public class SpawnerCodeV3 : MonoBehaviour
 
                 buttonPressed = false;
             }
-            else if (!buttonPressed && input[0].ToString() == "0")
+            else if (!buttonPressed && input[0].ToString() == "0" && isDualshock)
             {
                 dualShockGamepad.SetLightBarColor(Color.blue);
             }

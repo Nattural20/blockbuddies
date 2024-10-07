@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerHelperScripts : MonoBehaviour
 {
     public bool helpActive;
+
+    public GameObject indicatorUI;
     public GameObject[] UIElements;
     public void OfferHelp()
     {
@@ -19,5 +21,9 @@ public class PlayerHelperScripts : MonoBehaviour
         {
             help.SetActive(false);
         }
+    }
+    public void IndicatorOnly()
+    {
+        indicatorUI.SetActive(true);
     }
 }
