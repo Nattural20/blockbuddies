@@ -16,10 +16,10 @@ public class HopperMoveSounds : MonoBehaviour
     {
         CheckHopperMovement();
         CheckAnyMovement();
-        if (inWater)
-        {
-            Debug.Log("WATERWATERWATERWATER");
-        }
+        //if (inWater)
+        //{
+        //    Debug.Log("WATERWATERWATERWATER");
+        //}
     }
 
     private void CheckHopperMovement()
