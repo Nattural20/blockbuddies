@@ -5,13 +5,16 @@ using UnityEngine;
 public class LilyPadResetValue : MonoBehaviour
 {
     public float resetDistance;
-    public void LeftoverSpocks(GameObject leftovers)
+    public bool turnSpocks;
+    bool delayLerpSwapper = true;
+    public bool DelayOrNot()
     {
-        StartCoroutine(DestroyDelay(leftovers));
-    }
-    IEnumerator DestroyDelay(GameObject spocks)
-    {
-        yield return new WaitForSeconds(3);
-        Destroy(spocks);
+        if (turnSpocks)
+        {
+            delayLerpSwapper = !delayLerpSwapper;
+            return delayLerpSwapper;
+        }
+        else
+            return true;
     }
 }

@@ -40,8 +40,13 @@ public class LockZoneMovement : MonoBehaviour
         {
             var leftoverCubes = Instantiate(lockSpawn.spawnCubesParent, lockSpawn.spawnCubesParent.transform.position, lockSpawn.spawnCubesParent.transform.rotation);
             leftoverCubes.transform.localScale = lockSpawn.spawnCubesParent.transform.lossyScale;
+            Destroy(leftoverCubes.GetComponent<RotationalBehaviourYAxis>());
+            var waterfallSpock = leftoverCubes.AddComponent<SpockOverWaterfall>();
+            waterfallSpock.speed = speed;
+            waterfallSpock.MoveDelay(other.GetComponent<LilyPadResetValue>().DelayOrNot());
 
-            other.GetComponent<LilyPadResetValue>().LeftoverSpocks(leftoverCubes);
+
+            //other.GetComponent<LilyPadResetValue>().LeftoverSpocks(leftoverCubes);
 
             GetComponent<LilyPadLockedSpawn>().BustSpocks();
             

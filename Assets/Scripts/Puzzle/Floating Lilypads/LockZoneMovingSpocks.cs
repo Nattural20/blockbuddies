@@ -40,15 +40,15 @@ public class LockZoneMovingSpocks : MonoBehaviour
             lockZone.playerPresent--;
         }
     }
+    private void Update()
+    {
+        detected = false;
+    }
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Body"))
         {
             detected = true;
         }
-    }
-    private void Update()
-    {
-        present = false;
     }
 }

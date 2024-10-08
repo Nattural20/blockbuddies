@@ -86,10 +86,10 @@ public class LilyPadLockedSpawn : MonoBehaviour
             int index = 0;
 
 
-            foreach (GameObject cube in spawnCubes)
-            {
-                cube.SetActive(false);
-            }
+            //foreach (GameObject cube in spawnCubes)
+            //{
+            //    cube.SetActive(false);
+            //}
             foreach (char i in outputArray)
             {
                 if (index == 0)
@@ -101,13 +101,16 @@ public class LilyPadLockedSpawn : MonoBehaviour
 
                     if (ghostSpawnCubes[index -1].GetComponent<SpockSpawnPlayerDetector>().playerPresent == false)
                     {
-                        //Move the spawnCubes stuff into here to have it not spawn if a player is in the way
-                        spawnCubes[index - 1].SetActive(true);
+                        if (spawnCubes[index-1].activeSelf == false)
+                        {
+                            spawnCubes[index - 1].SetActive(true);
+                        }
                     }
                     index++;
                 }
                 else
                 {
+                    spawnCubes[index - 1].SetActive(false);
                     index++;
                 }
             }
