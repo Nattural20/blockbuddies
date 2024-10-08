@@ -10,7 +10,8 @@ public class LilyPadLockEnabler : MonoBehaviour
     //public List<LilyPadLockedSpawn> lilyPads;
     public GameObject lilyPadParent;
     public LilyPadLockedSpawn[] lilyPads;
-    public float proximityWeighting, closenessProximity;
+    Vector2 screebSize;
+    public float screenCentreWeighting, proximityWeighting, closenessProximity;
     LilyPadLockedSpawn currentPad;
 
     CubertMovement cM;
@@ -19,6 +20,9 @@ public class LilyPadLockEnabler : MonoBehaviour
     void Start()
     {
         cM = GameObject.Find("CUBERT").GetComponent<CubertMovement>();
+
+        screebSize = new Vector2(Screen.width, Screen.height);
+        screenCentreWeighting = screenCentreWeighting/1920 * screebSize.x;
 
         //lilyPads = new List<LilyPadLockedSpawn>();
         lilyPads = lilyPadParent.GetComponentsInChildren<LilyPadLockedSpawn>();
@@ -40,19 +44,29 @@ public class LilyPadLockEnabler : MonoBehaviour
                     {
                         if (pad.centerDistance < currentPad.centerDistance)
                         {
-                            if (closenessProximity < pad.padDistance && pad.padDistance < proximityWeighting)
+                            if (currentPad.centerDistance < screenCentreWeighting)
+                            {
+                                if (pad.screenTop && !currentPad.screenTop)
+                                {
+                                    if (closenessProximity < pad.padDistance && pad.padDistance < proximityWeighting)
+                                    {
+                                        currentPad._playerPresent = false;
+                                        currentPad.BustGhosts();
+                                        currentPad = pad;
+                                    }
+                                }
+                            }
+                            else if (closenessProximity < pad.padDistance && pad.padDistance < proximityWeighting)
                             {
                                 currentPad._playerPresent = false;
                                 currentPad.BustGhosts();
                                 currentPad = pad;
-                                //Debug.Log("The active pad is now " + currentPad.name + " with an offset of " + currentPad.centerDistance);
                             }
                         }
                     }
                 }
                 else
                 {
-                    cM.cubertOnLock = false;
                     pad._playerPresent = false;
                     pad.BustGhosts();
                 }
@@ -70,6 +84,7 @@ public class LilyPadLockEnabler : MonoBehaviour
                 }
                 else
                 {
+                    cM.cubertOnLock = false;
                     currentPad.BustGhosts();
                     currentPad._playerPresent = false;
                     currentPad = null;
