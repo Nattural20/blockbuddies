@@ -90,7 +90,6 @@ public class ResetManager : MonoBehaviour
         StartCoroutine(RespawnLag());
         Time.timeScale = 1f;
     }
-
     IEnumerator RespawnLag()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -98,6 +97,21 @@ public class ResetManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
     }
+    public void SingleReset()
+    {
+        FindAnyObjectByType<AudioManager>().Stop("ThemeExcited");
+        FindAnyObjectByType<AudioManager>().Play("ThemeNeutral");
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
+    }
+
+    //IEnumerator RespawnOnce()
+    //{
+        
+        
+    //}
+
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

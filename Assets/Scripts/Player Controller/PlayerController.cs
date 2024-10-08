@@ -166,6 +166,11 @@ public class PlayerController : MonoBehaviour
             ResetScene();
         }
 
+        if (pause.isPaused == true && Input.GetKey(KeyCode.Joystick1Button4) && Input.GetKey(KeyCode.Joystick1Button5))
+        {
+            SingleReset();
+        }
+
         //Ground check 
         ExtraGroundCheck();
 
@@ -380,6 +385,11 @@ public class PlayerController : MonoBehaviour
     public void ResetScene()
     {
         FindObjectOfType<ResetManager>().ResetScene();
+    }
+
+    public void SingleReset()
+    {
+        FindObjectOfType<ResetManager>().SingleReset();
     }
 
 

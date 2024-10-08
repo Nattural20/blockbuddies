@@ -24,7 +24,6 @@ public class PauseMenuController : MonoBehaviour
     public bool isPaused = false;
 
     private bool fpsOn = false;
-    public char[] output = { 'a', 'b', 'c' };
     
 
 
