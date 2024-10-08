@@ -36,7 +36,6 @@ public class VineFloorRaise : MonoBehaviour
         {
             isRising = true;
             GetComponent<BoxCollider>().enabled = false;
-            Debug.Log("Raise vine trigger hit. Rising");
         }
     }
     private void FixedUpdate()
@@ -55,6 +54,10 @@ public class VineFloorRaise : MonoBehaviour
                     previousHeightDangers.SetActive(false);
                 if (newHeightDangers != null)
                     newHeightDangers.SetActive(true);
+                foreach (ThornTimed thorn in newHeightDangers.GetComponentsInChildren<ThornTimed>())
+                {
+                    thorn.ThawnSporn();
+                }
                 Destroy(gameObject);
             }
         }

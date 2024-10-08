@@ -22,7 +22,7 @@ public class LilyPadLockEnabler : MonoBehaviour
         cM = GameObject.Find("CUBERT").GetComponent<CubertMovement>();
 
         screebSize = new Vector2(Screen.width, Screen.height);
-        screenCentreWeighting = screenCentreWeighting/1920 * screebSize.x;
+        screenCentreWeighting = (screenCentreWeighting/1920) * screebSize.x;
 
         //lilyPads = new List<LilyPadLockedSpawn>();
         lilyPads = lilyPadParent.GetComponentsInChildren<LilyPadLockedSpawn>();

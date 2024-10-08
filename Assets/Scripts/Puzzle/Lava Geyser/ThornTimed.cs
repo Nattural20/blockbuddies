@@ -9,9 +9,9 @@ public class ThornTimed : MonoBehaviour
     private bool _isTriggered;
     public float thornsTimer = 3f;
 
-    private Vector3 setPosition, risePosition;
+    private Vector3 setPosition, risePosition, spornPosition;
     private float riseSpeed = 10f;
-    private bool isRising = false;
+    private bool isRising = false, sporning = false;
 
     void Start()
     {
@@ -27,6 +27,14 @@ public class ThornTimed : MonoBehaviour
             if (Vector3.Distance(transform.position, risePosition) < 0.1f)
             {
                 isRising = false;
+            }
+        }
+        if (sporning)
+        {
+            transform.parent.transform.position = Vector3.Lerp(transform.parent.position, spornPosition, 5 * Time.deltaTime);
+            if (Vector3.Distance(transform.parent.position, spornPosition) < 0.1f)
+            {
+                sporning = false;
             }
         }
     }
@@ -66,5 +74,15 @@ public class ThornTimed : MonoBehaviour
         transform.position = setPosition;
         _isTriggered = false;
         spock.tag = "Spocks";
+    }
+
+    public void ThawnSporn()
+    {
+        spornPosition = transform.parent.position;
+
+        var downSet = UnityEngine.Random.Range(2, 8) + UnityEngine.Random.value;
+        
+        transform.parent.transform.position -= new Vector3(0, downSet, 0);
+        sporning = true;
     }
 }
