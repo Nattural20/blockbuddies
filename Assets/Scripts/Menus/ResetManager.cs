@@ -32,6 +32,13 @@ public class ResetManager : MonoBehaviour
                 {
                     Destroy(gameObject);  // Ensure only one instance of ResetManager exists
                 }*/
+        if (resetWarning == null)
+        {
+            resetWarning = GameObject.FindWithTag("Reset Warning");
+            DontDestroyOnLoad(resetWarning);
+        }
+
+
     }
 
     private void Start()

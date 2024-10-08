@@ -54,7 +54,7 @@ public class PauseMenuController : MonoBehaviour
 
     void Update()
     {
-        CollectArduino();
+        //CollectArduino();
     }
 
     
@@ -142,21 +142,19 @@ public class PauseMenuController : MonoBehaviour
         }
     }
 
-    public void CollectArduino()
-    {
-        input = arduinoReader.OutputArray;
-        
+    //public void CollectArduino()
+    //{
 
-        if (input != null)
-        {
-            arduinoString.text = input[0].ToString();
-        }
-        else if (input == null)
-        {
-            arduinoString.text = ("Can't read arduino!");
-            Debug.Log("Can't read arduino!");
-        }
+    //    input = arduinoReader.OutputArray;
 
-    }
-
+    //    if (input != null && input.Length > 0)
+    //    {
+    //        arduinoString.text = input[0].ToString();
+    //    }
+    //    else if (input == null)
+    //    {
+    //        arduinoString.text = ("Can't read arduino!");
+    //        Debug.Log("Can't read arduino!");
+    //    }
+    //}
 }

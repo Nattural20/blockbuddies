@@ -98,7 +98,7 @@ public class SpawnerCodeV3 : MonoBehaviour
         //I am so sorry about the sins I have committed 
         //No I'm not. Those sins were pointless!!!
         //Left Orientation
-        if (input != null)
+        if (input != null && input.Length > 0)
         {
             if (enableDebugSpam)
                 Debug.Log("Facing Left");
