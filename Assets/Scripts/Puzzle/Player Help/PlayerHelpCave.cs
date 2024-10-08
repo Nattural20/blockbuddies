@@ -9,7 +9,6 @@ public class PlayerHelpCave : PlayerHelperScripts
     Color defaultCol, onCol;
 
     public GameObject[] thorns;
-    public float defaultSize, smallerSize;
 
     bool shrunkThorns = false;
     bool resetD = true;
@@ -59,7 +58,10 @@ public class PlayerHelpCave : PlayerHelperScripts
             indicatorUI.SetActive(true);
         }
 
-
+        foreach (GameObject thorn in thorns)
+        {
+            thorn.SetActive(false);
+        }
 
         helpIndicator.color = onCol;
         shrunkThorns = true;
@@ -67,11 +69,10 @@ public class PlayerHelpCave : PlayerHelperScripts
     public void BiggenThorns()
     {
         if (!helpOffered)
-        {
             indicatorUI.SetActive(false);
-        }
 
-
+        foreach (GameObject thorn in thorns)
+            thorn.SetActive(true);
 
         helpIndicator.color = defaultCol;
         shrunkThorns = false;
