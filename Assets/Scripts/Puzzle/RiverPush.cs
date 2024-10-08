@@ -14,7 +14,7 @@ public class RiverPush : MonoBehaviour
             if (collision.gameObject.GetComponent<RiverSpockScript>() == null)
             {
                 FindAnyObjectByType<AudioManager>().Play("SpockInVines"); //Sound effect script- this line plays a sound from the AudioManager.
-                FindAnyObjectByType<AudioManager>().Play("SinkingInVines"); //Sound effect script- this line plays a sound from the AudioManager.
+                //FindAnyObjectByType<AudioManager>().Play("SinkingInVines"); //Sound effect script- this line plays a sound from the AudioManager.
 
                 var newSpock = collision.gameObject.AddComponent<RiverSpockScript>();
                 newSpock.tag = "River Spock";
@@ -28,7 +28,7 @@ public class RiverPush : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Body"))
         {
-            FindAnyObjectByType<AudioManager>().Play("PlayerInVines"); //Sound effect script- this line plays a sound from the AudioManager.
+            FindAnyObjectByType<AudioManager>().Play("PlayerInWater"); //Sound effect script- this line plays a sound from the AudioManager.
         }
     }
 }
