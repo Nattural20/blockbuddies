@@ -21,7 +21,6 @@ public class PlayerHelper : MonoBehaviour
                 if (respawnCount > 15)
                 {
                     helpScript.OfferHelp();
-                    helpScript.helpActive = true;
                     helpScript.helpOffered = true;
                     helpOffered = true;
                 }
@@ -32,15 +31,16 @@ public class PlayerHelper : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Body"))
         {
+            helpScript.helpActive = true;
             if (!helpOffered)
             {
-                respawnsOnEnter = respawns.respawnCounter;
+                if (respawnsOnEnter != 0)
+                    respawnsOnEnter = respawns.respawnCounter;
                 counting = true;
             }
             else
             {
                 helpScript.IndicatorOnly();
-                helpScript.helpActive = true;
                 helpOffered = true;
             }
         }

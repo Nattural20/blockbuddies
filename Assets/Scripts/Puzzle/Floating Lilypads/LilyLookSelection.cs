@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class LilyLookSelection : MonoBehaviour
 {
-    public LayerMask jimCarreys;
     public float zoneDistance, centerDistance;
-    public bool onScreen;
+    public bool onScreen, topOfScreen;
     LilyPadLockedSpawn lilyPad;
     Camera cam;
     Vector2 screenSize;
@@ -36,9 +35,13 @@ public class LilyLookSelection : MonoBehaviour
             GetComponent<MeshRenderer>().material = playerHere;
             zoneDistance = screenPos.z;
             centerDistance = Vector2.Distance(screenMiddle, screenPos);
-
+            if (screenPos.y > screenMiddle.y)
+                topOfScreen = true;
+            else
+                topOfScreen = false;
 
             lilyPad.onScreen = true;
+            lilyPad.screenTop = topOfScreen;
             lilyPad.padDistance = screenPos.z;
             lilyPad.centerDistance = centerDistance;
             //Debug.Log(lilyPad.name + " is on screen at " + screenPos);

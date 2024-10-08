@@ -17,6 +17,7 @@ public class ResetManager : MonoBehaviour
     public float timeToReset = 30;
     public float autoResetTimer;
     public bool startAutoReset = false;
+    public GameObject resetWarning;
 
     private bool reset;
 
@@ -129,6 +130,7 @@ public class ResetManager : MonoBehaviour
     void InputGotten()
     {
         autoResetTimer = 0f;
+        resetWarning.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -145,6 +147,9 @@ public class ResetManager : MonoBehaviour
             {
                 InputGotten();
             }
+
+            if (autoResetTimer > timeToReset - 10)
+                resetWarning.SetActive(true);
 
             if (autoResetTimer > timeToReset)
             {
