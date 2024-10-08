@@ -54,12 +54,25 @@ public class PlayerHelpCave : PlayerHelperScripts
 
     public void ShrinkThorns()
     {
+        if (!helpOffered)
+        {
+            indicatorUI.SetActive(true);
+        }
+
+
 
         helpIndicator.color = onCol;
         shrunkThorns = true;
     }
     public void BiggenThorns()
     {
+        if (!helpOffered)
+        {
+            indicatorUI.SetActive(false);
+        }
+
+
+
         helpIndicator.color = defaultCol;
         shrunkThorns = false;
     }

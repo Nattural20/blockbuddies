@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHelperScripts : MonoBehaviour
 {
-    public bool helpActive;
+    public bool helpActive, helpOffered;
 
     public GameObject indicatorUI;
     public GameObject[] UIElements;

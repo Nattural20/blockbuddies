@@ -22,6 +22,7 @@ public class PlayerHelper : MonoBehaviour
                 {
                     helpScript.OfferHelp();
                     helpScript.helpActive = true;
+                    helpScript.helpOffered = true;
                     helpOffered = true;
                 }
             }
@@ -40,6 +41,7 @@ public class PlayerHelper : MonoBehaviour
             {
                 helpScript.IndicatorOnly();
                 helpScript.helpActive = true;
+                helpOffered = true;
             }
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerHelpRiver : PlayerHelperScripts
 {
     public LilyPadLockEnabler lilyPads;
-    public Image helpIndicator;
+    public Image indicatorColour;
 
     Color defaultCol, onCol;
 
@@ -18,7 +18,7 @@ public class PlayerHelpRiver : PlayerHelperScripts
     public bool resetD = true;
     private void Start()
     {
-        defaultCol = new Color(helpIndicator.color.r, helpIndicator.color.g, helpIndicator.color.b, helpIndicator.color.a);
+        defaultCol = new Color(indicatorColour.color.r, indicatorColour.color.g, indicatorColour.color.b, indicatorColour.color.a);
         onCol = new Color(defaultCol.r, Color.green.g, defaultCol.b, defaultCol.a);
     }
 
@@ -32,11 +32,11 @@ public class PlayerHelpRiver : PlayerHelperScripts
                 {
                     if (!slowedRiver)
                         SlowRiver();
-                    else 
+                    else
                         SpeedUpRiver();
                     resetD = false;
                 }
-                
+
                 if (Input.GetAxis("DPadVertical") > 0) // DPad Down
                 {
                     //SpeedUpRiver();
@@ -55,20 +55,28 @@ public class PlayerHelpRiver : PlayerHelperScripts
 
     public void SlowRiver()
     {
+        if (!helpOffered)
+        {
+            indicatorUI.SetActive(true);
+        }
         foreach (LilyPadLockedSpawn movingLily in lilyPads.lilyPads)
         {
             movingLily.GetComponent<LockZoneMovement>().speed = newSpeed;
         }
-        helpIndicator.color = onCol;
+        indicatorColour.color = onCol;
         slowedRiver = true;
     }
     public void SpeedUpRiver()
     {
+        if (!helpOffered)
+        {
+            indicatorUI.SetActive(false);
+        }
         foreach (LilyPadLockedSpawn movingLily in lilyPads.lilyPads)
         {
             movingLily.GetComponent<LockZoneMovement>().speed = defaultSpeed;
         }
-        helpIndicator.color = defaultCol;
+        indicatorColour.color = defaultCol;
         slowedRiver = false;
     }
 }
