@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.DualShock;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerHelpRiver : PlayerHelperScripts
@@ -26,29 +28,38 @@ public class PlayerHelpRiver : PlayerHelperScripts
     {
         if (helpActive)
         {
-            if (resetD)
+            if (!isDualShock)
             {
-                if (Input.GetAxis("DPadVertical") < 0) // DPad Up
+                if (resetD)
                 {
-                    if (!slowedRiver)
-                        SlowRiver();
-                    else
-                        SpeedUpRiver();
-                    resetD = false;
+                    if (Input.GetAxis("DPadVertical") < 0) // DPad Up
+                    {
+                        if (!slowedRiver)
+                            SlowRiver();
+                        else
+                            SpeedUpRiver();
+                        resetD = false;
+                    }
                 }
-
-                if (Input.GetAxis("DPadVertical") > 0) // DPad Down
-                {
-                    //SpeedUpRiver();
-                    resetD = false;
-                }
+                else if (Input.GetAxis("DPadVertical") == 0)
+                    resetD = true;
             }
+
             else
             {
-                if (Input.GetAxis("DPadVertical") == 0)
+                if (resetD)
                 {
-                    resetD = true;
+                    if (Input.GetAxis("DualPadVertical") < 0) // DPad Up
+                    {
+                        if (!slowedRiver)
+                            SlowRiver();
+                        else
+                            SpeedUpRiver();
+                        resetD = false;
+                    }
                 }
+                else if (Input.GetAxis("DualPadVertical") == 0)
+                    resetD = true;
             }
         }
     }

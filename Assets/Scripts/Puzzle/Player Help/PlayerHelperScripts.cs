@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.DualShock;
+using UnityEngine.InputSystem;
 
 public class PlayerHelperScripts : MonoBehaviour
 {
@@ -8,8 +10,15 @@ public class PlayerHelperScripts : MonoBehaviour
 
     public GameObject indicatorUI;
     public GameObject[] UIElements;
+
+    public bool isDualShock;
     public void OfferHelp()
     {
+        if (Gamepad.current is DualShockGamepad)
+            isDualShock = true;
+        else
+            isDualShock = false;
+
         foreach (GameObject help in UIElements)
         {
             help.SetActive(true);
@@ -24,6 +33,11 @@ public class PlayerHelperScripts : MonoBehaviour
     }
     public void IndicatorOnly()
     {
+        if (Gamepad.current is DualShockGamepad)
+            isDualShock = true;
+        else
+            isDualShock = false;
+
         indicatorUI.SetActive(true);
     }
 }

@@ -24,26 +24,39 @@ public class PlayerHelpCave : PlayerHelperScripts
     {
         if (helpActive)
         {
-            if (resetD)
+            if (!isDualShock)
             {
-                if (Input.GetAxis("DPadVertical") < 0) // DPad Up
+                if (resetD)
                 {
-                    if (!shrunkThorns)
-                        ShrinkThorns();
-                    else
-                        BiggenThorns();
-                    resetD = false;
+                    if (Input.GetAxis("DPadVertical") < 0) // DPad Up
+                    {
+                        if (!shrunkThorns)
+                            ShrinkThorns();
+                        else
+                            BiggenThorns();
+                        resetD = false;
+                    }
                 }
-
-                if (Input.GetAxis("DPadVertical") > 0) // DPad Down
+                else if (Input.GetAxis("DPadVertical") == 0)
                 {
-                    //SpeedUpRiver();
-                    resetD = false;
+                    resetD = true;
                 }
             }
+
             else
             {
-                if (Input.GetAxis("DPadVertical") == 0)
+                if (resetD)
+                {
+                    if (Input.GetAxis("DualPadVertical") < 0) // DPad Up
+                    {
+                        if (!shrunkThorns)
+                            ShrinkThorns();
+                        else
+                            BiggenThorns();
+                        resetD = false;
+                    }
+                }
+                else if (Input.GetAxis("DualPadVertical") == 0)
                 {
                     resetD = true;
                 }
