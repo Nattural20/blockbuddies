@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 public class PlayerHelperScripts : MonoBehaviour
 {
-    public bool helpActive, helpOffered;
+    public bool helpActive, helpOffered, helpFunctionOn;
 
     public Image indicatorColour;
     Color defaultCol, onCol;

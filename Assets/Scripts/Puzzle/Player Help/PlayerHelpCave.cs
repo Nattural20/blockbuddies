@@ -7,7 +7,6 @@ public class PlayerHelpCave : PlayerHelperScripts
 {
     public GameObject[] thorns;
 
-    bool shrunkThorns = false;
     bool resetD = true;
     private void Update()
     {
@@ -19,7 +18,7 @@ public class PlayerHelpCave : PlayerHelperScripts
                 {
                     if (Input.GetAxis("DPadVertical") < 0) // DPad Up
                     {
-                        if (!shrunkThorns)
+                        if (!helpFunctionOn)
                             ShrinkThorns();
                         else
                             BiggenThorns();
@@ -38,7 +37,7 @@ public class PlayerHelpCave : PlayerHelperScripts
                 {
                     if (Input.GetAxis("DualPadVertical") > 0) // DPad Up
                     {
-                        if (!shrunkThorns)
+                        if (!helpFunctionOn)
                             ShrinkThorns();
                         else
                             BiggenThorns();
@@ -66,7 +65,7 @@ public class PlayerHelpCave : PlayerHelperScripts
         }
 
         IndicatorOn();
-        shrunkThorns = true;
+        helpFunctionOn = true;
     }
     public void BiggenThorns()
     {
@@ -77,6 +76,6 @@ public class PlayerHelpCave : PlayerHelperScripts
             thorn.SetActive(true);
 
         IndicatorOff();
-        shrunkThorns = false;
+        helpFunctionOn = false;
     }
 }

@@ -43,6 +43,8 @@ public class PlayerHelper : MonoBehaviour
                 helpScript.IndicatorOnly();
                 helpOffered = true;
             }
+            if (helpScript.helpFunctionOn)
+                helpScript.IndicatorOn();
         }
     }
     private void OnTriggerExit(Collider other)

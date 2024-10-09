@@ -12,8 +12,6 @@ public class PlayerHelpRiver : PlayerHelperScripts
     public float defaultSpeed;
     public float newSpeed;
 
-    public bool slowedRiver = false;
-
     public bool resetD = true;
     private void Update()
     {
@@ -25,7 +23,7 @@ public class PlayerHelpRiver : PlayerHelperScripts
                 {
                     if (Input.GetAxis("DPadVertical") < 0) // DPad Up
                     {
-                        if (!slowedRiver)
+                        if (!helpFunctionOn)
                             SlowRiver();
                         else
                             SpeedUpRiver();
@@ -42,7 +40,7 @@ public class PlayerHelpRiver : PlayerHelperScripts
                 {
                     if (Input.GetAxis("DualPadVertical") > 0) // DPad Up
                     {
-                        if (!slowedRiver)
+                        if (!helpFunctionOn)
                             SlowRiver();
                         else
                             SpeedUpRiver();
@@ -66,7 +64,7 @@ public class PlayerHelpRiver : PlayerHelperScripts
             movingLily.GetComponent<LockZoneMovement>().speed = newSpeed;
         }
         IndicatorOn();
-        slowedRiver = true;
+        helpFunctionOn = true;
     }
     public void SpeedUpRiver()
     {
@@ -79,6 +77,6 @@ public class PlayerHelpRiver : PlayerHelperScripts
             movingLily.GetComponent<LockZoneMovement>().speed = defaultSpeed;
         }
         IndicatorOff();
-        slowedRiver = false;
+        helpFunctionOn = false;
     }
 }
