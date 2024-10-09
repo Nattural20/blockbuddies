@@ -47,7 +47,7 @@ public class PlayerHelpCave : PlayerHelperScripts
             {
                 if (resetD)
                 {
-                    if (Input.GetAxis("DualPadVertical") < 0) // DPad Up
+                    if (Input.GetAxis("DualPadVertical") > 0) // DPad Up
                     {
                         if (!shrunkThorns)
                             ShrinkThorns();

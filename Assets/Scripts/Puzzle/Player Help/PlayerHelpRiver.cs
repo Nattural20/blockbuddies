@@ -49,7 +49,7 @@ public class PlayerHelpRiver : PlayerHelperScripts
             {
                 if (resetD)
                 {
-                    if (Input.GetAxis("DualPadVertical") < 0) // DPad Up
+                    if (Input.GetAxis("DualPadVertical") > 0) // DPad Up
                     {
                         if (!slowedRiver)
                             SlowRiver();
