@@ -8,9 +8,6 @@ using UnityEngine.UI;
 public class PlayerHelpRiver : PlayerHelperScripts
 {
     public LilyPadLockEnabler lilyPads;
-    public Image indicatorColour;
-
-    Color defaultCol, onCol;
 
     public float defaultSpeed;
     public float newSpeed;
@@ -18,12 +15,6 @@ public class PlayerHelpRiver : PlayerHelperScripts
     public bool slowedRiver = false;
 
     public bool resetD = true;
-    private void Start()
-    {
-        defaultCol = new Color(indicatorColour.color.r, indicatorColour.color.g, indicatorColour.color.b, indicatorColour.color.a);
-        onCol = new Color(defaultCol.r, Color.green.g, defaultCol.b, defaultCol.a);
-    }
-
     private void Update()
     {
         if (helpActive)
@@ -74,7 +65,7 @@ public class PlayerHelpRiver : PlayerHelperScripts
         {
             movingLily.GetComponent<LockZoneMovement>().speed = newSpeed;
         }
-        indicatorColour.color = onCol;
+        IndicatorOn();
         slowedRiver = true;
     }
     public void SpeedUpRiver()
@@ -87,7 +78,7 @@ public class PlayerHelpRiver : PlayerHelperScripts
         {
             movingLily.GetComponent<LockZoneMovement>().speed = defaultSpeed;
         }
-        indicatorColour.color = defaultCol;
+        IndicatorOff();
         slowedRiver = false;
     }
 }

@@ -5,21 +5,10 @@ using UnityEngine;
 
 public class PlayerHelpCave : PlayerHelperScripts
 {
-    public Image helpIndicator;
-    Color defaultCol, onCol;
-
     public GameObject[] thorns;
 
     bool shrunkThorns = false;
     bool resetD = true;
-    private void Start()
-    {
-        defaultCol = new Color(helpIndicator.color.r, helpIndicator.color.g, helpIndicator.color.b, helpIndicator.color.a);
-        onCol = new Color(defaultCol.r, Color.green.g, defaultCol.b, defaultCol.a);
-
-        //defaultSize = thorns[0].transform.localScale;
-    }
-
     private void Update()
     {
         if (helpActive)
@@ -76,7 +65,7 @@ public class PlayerHelpCave : PlayerHelperScripts
             thorn.SetActive(false);
         }
 
-        helpIndicator.color = onCol;
+        IndicatorOn();
         shrunkThorns = true;
     }
     public void BiggenThorns()
@@ -87,7 +76,7 @@ public class PlayerHelpCave : PlayerHelperScripts
         foreach (GameObject thorn in thorns)
             thorn.SetActive(true);
 
-        helpIndicator.color = defaultCol;
+        IndicatorOff();
         shrunkThorns = false;
     }
 }
