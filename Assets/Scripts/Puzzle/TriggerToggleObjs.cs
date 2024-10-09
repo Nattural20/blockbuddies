@@ -13,6 +13,7 @@ public class TriggerToggleObjs : MonoBehaviour
             {
                 obj.SetActive(!obj.activeSelf);
             }
+            Destroy(this);
         }
     }
 }
