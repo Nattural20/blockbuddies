@@ -31,7 +31,7 @@ public class SpockOverWaterfall : MonoBehaviour
         }
 
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (lerpActive)
         {
