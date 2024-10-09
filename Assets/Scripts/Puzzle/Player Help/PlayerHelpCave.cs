@@ -56,7 +56,7 @@ public class PlayerHelpCave : PlayerHelperScripts
     {
         if (!helpOffered)
         {
-            indicatorUI.SetActive(true);
+            indicatorUIParent.SetActive(true);
         }
 
         foreach (GameObject thorn in thorns)
@@ -70,7 +70,7 @@ public class PlayerHelpCave : PlayerHelperScripts
     public void BiggenThorns()
     {
         if (!helpOffered)
-            indicatorUI.SetActive(false);
+            indicatorUIParent.SetActive(false);
 
         foreach (GameObject thorn in thorns)
             thorn.SetActive(true);

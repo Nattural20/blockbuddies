@@ -57,7 +57,7 @@ public class PlayerHelpRiver : PlayerHelperScripts
     {
         if (!helpOffered)
         {
-            indicatorUI.SetActive(true);
+            indicatorUIParent.SetActive(true);
         }
         foreach (LilyPadLockedSpawn movingLily in lilyPads.lilyPads)
         {
@@ -70,7 +70,7 @@ public class PlayerHelpRiver : PlayerHelperScripts
     {
         if (!helpOffered)
         {
-            indicatorUI.SetActive(false);
+            indicatorUIParent.SetActive(false);
         }
         foreach (LilyPadLockedSpawn movingLily in lilyPads.lilyPads)
         {

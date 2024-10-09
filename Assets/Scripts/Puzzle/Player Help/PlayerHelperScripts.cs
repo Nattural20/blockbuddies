@@ -10,17 +10,11 @@ public class PlayerHelperScripts : MonoBehaviour
 {
     public bool helpActive, helpOffered, helpFunctionOn;
 
-    public Image indicatorColour;
-    Color defaultCol, onCol;
-    public GameObject indicatorUI;
+    public GameObject indicatorUIParent;
+    public GameObject[] indicatorUI;
     public GameObject[] UIElements;
 
     public bool isDualShock;
-    private void Start()
-    {
-        defaultCol = new Color(indicatorColour.color.r, indicatorColour.color.g, indicatorColour.color.b, indicatorColour.color.a);
-        onCol = new Color(defaultCol.r, Color.green.g, defaultCol.b, defaultCol.a);
-    }
     public void OfferHelp()
     {
         if (Gamepad.current is DualShockGamepad)
@@ -48,14 +42,18 @@ public class PlayerHelperScripts : MonoBehaviour
         else
             isDualShock = false;
 
-        indicatorUI.SetActive(true);
+        indicatorUIParent.SetActive(true);
     }
     public void IndicatorOn()
     {
-        indicatorColour.color = onCol;
+        indicatorUI[0].SetActive(false);
+        indicatorUI[1].SetActive(true);
+        //indicatorColour.color = onCol;
     }
     public void IndicatorOff()
     {
-        indicatorColour.color = defaultCol;
+        indicatorUI[1].SetActive(false);
+        indicatorUI[0].SetActive(true);
+        //indicatorColour.color = defaultCol;
     }
 }
