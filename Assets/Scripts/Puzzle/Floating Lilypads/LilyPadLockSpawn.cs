@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class LilyPadLockedSpawn : MonoBehaviour
 {
@@ -90,6 +91,7 @@ public class LilyPadLockedSpawn : MonoBehaviour
             //{
             //    cube.SetActive(false);
             //}
+
             foreach (char i in outputArray)
             {
                 if (index == 0)
@@ -123,6 +125,27 @@ public class LilyPadLockedSpawn : MonoBehaviour
     private void UpdateLockedGhostCubes(char[] outputArray)
     {
         int index = 0;
+
+        int ind = 1;
+        while (ind < outputArray.Length)
+        {
+            bool wasActive = ghostSpawnCubes[ind - 1].activeSelf;
+            bool isActive = outputArray[ind].ToString() == "1";
+
+            if (isActive && !wasActive)
+            {
+                FindAnyObjectByType<AudioManager>().Play("GhostSpockAppear");
+            }
+            else if (!isActive && wasActive)
+            {
+                FindAnyObjectByType<AudioManager>().Play("GhostSpockDisappear");
+            }
+
+            ind++;
+        }
+
+
+
 
         foreach (char i in outputArray)
         {
