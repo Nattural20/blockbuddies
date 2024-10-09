@@ -64,7 +64,7 @@ public class ActionTracker : MonoBehaviour
 
     void CheckHopperJump()
     {
-        if (hopper.isGrounded == false) //temp solution. Can be triggered by false positives, though not likely
+        if (hopper.jumpCooldown > 0) //temp solution. Can be triggered by false positives, though not likely
         {
             //hopper jump
             Debug.Log("Hopper has jumped");

@@ -126,8 +126,6 @@ public class ArduinoLockedSpawn : MonoBehaviour
             foreach (GameObject cube in spawnCubes)
             {
                 cube.SetActive(false);
-                //cube.GetComponent<MeshRenderer>().enabled = false;
-                //cube.GetComponent<BoxCollider>().enabled = false;
             }
             foreach (char i in outputArray)
             {
@@ -137,15 +135,9 @@ public class ArduinoLockedSpawn : MonoBehaviour
                 }
                 else if (i.ToString() == "1")
                 {
-                    //Debug.Log("Array Length:" + outputArray.Length);
-                    //Debug.Log("Postion: " + index + ". Spawning Block: " + spawnCubes[index]);
-
                     if (ghostSpawnCubes[index -1].GetComponent<SpockSpawnPlayerDetector>().playerPresent == false)
                     {
-                        //Move the spawnCubes stuff into here to have it not spawn if a player is in the way
                         spawnCubes[index - 1].SetActive(true);
-                        //spawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
-                        //spawnCubes[index - 1].GetComponent<BoxCollider>().enabled = true;
                     }
                     index++;
                 }
@@ -161,11 +153,6 @@ public class ArduinoLockedSpawn : MonoBehaviour
     {
         int index = 0;
 
-
-        //foreach (GameObject cube in ghostSpawnCubes)
-        //{
-        //    cube.GetComponent<MeshRenderer>().enabled = false;
-        //}
         foreach (char i in outputArray)
         {
             if (index == 0)
@@ -188,6 +175,13 @@ public class ArduinoLockedSpawn : MonoBehaviour
 
                 index++;
             }
+        }
+    }
+    public void RemoveSpocks()
+    {
+        foreach (GameObject cube in spawnCubes)
+        {
+            cube.SetActive(false);
         }
     }
 }

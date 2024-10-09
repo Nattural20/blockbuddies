@@ -38,14 +38,22 @@ public class LockZoneMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Pad Reset"))
         {
-            var leftoverCubes = Instantiate(lockSpawn.spawnCubesParent, lockSpawn.spawnCubesParent.transform.position, lockSpawn.spawnCubesParent.transform.rotation);
-            leftoverCubes.transform.localScale = lockSpawn.spawnCubesParent.transform.lossyScale;
-            Destroy(leftoverCubes.GetComponent<RotationalBehaviourYAxis>());
-            var waterfallSpock = leftoverCubes.AddComponent<SpockOverWaterfall>();
-            waterfallSpock.speed = speed;
-            waterfallSpock.MoveDelay(other.GetComponent<LilyPadResetValue>().DelayOrNot());
+            bool spockActive = false;
+            foreach (LockZoneMovingSpocks egg in lockSpawn.spawnCubesParent.GetComponentsInChildren<LockZoneMovingSpocks>())
+            {
+                if (egg.gameObject.activeSelf)
+                    spockActive = true;
+            }
 
-
+            if (spockActive)
+            {
+                var leftoverCubes = Instantiate(lockSpawn.spawnCubesParent, lockSpawn.spawnCubesParent.transform.position, lockSpawn.spawnCubesParent.transform.rotation);
+                leftoverCubes.transform.localScale = lockSpawn.spawnCubesParent.transform.lossyScale;
+                Destroy(leftoverCubes.GetComponent<RotationalBehaviourYAxis>());
+                var waterfallSpock = leftoverCubes.AddComponent<SpockOverWaterfall>();
+                waterfallSpock.speed = speed;
+                waterfallSpock.MoveDelay(other.GetComponent<LilyPadResetValue>().DelayOrNot());
+            }
             //other.GetComponent<LilyPadResetValue>().LeftoverSpocks(leftoverCubes);
 
             GetComponent<LilyPadLockedSpawn>().BustSpocks();
