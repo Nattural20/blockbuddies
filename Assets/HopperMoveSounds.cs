@@ -29,7 +29,7 @@ public class HopperMoveSounds : MonoBehaviour
             //Play different sound if in water
             if (inWater)
             {
-                FindAnyObjectByType<AudioManager>().Play("PlayerInWater");
+                FindAnyObjectByType<AudioManager>().Play("MoveFromStillWater");
             }
             else
             {
