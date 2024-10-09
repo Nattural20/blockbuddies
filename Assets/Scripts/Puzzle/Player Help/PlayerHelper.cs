@@ -9,7 +9,7 @@ public class PlayerHelper : MonoBehaviour
     bool helpOffered;
 
     bool counting;
-    int respawnsOnEnter, respawnCount;
+    public int respawnsOnEnter, respawnCount;
     void Update()
     {
         if (!helpOffered)
@@ -34,7 +34,7 @@ public class PlayerHelper : MonoBehaviour
             helpScript.helpActive = true;
             if (!helpOffered)
             {
-                if (respawnsOnEnter != 0)
+                if (respawnsOnEnter == 0)
                     respawnsOnEnter = respawns.respawnCounter;
                 counting = true;
             }
