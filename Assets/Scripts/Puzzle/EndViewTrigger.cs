@@ -57,6 +57,7 @@ public class EndViewTrigger : MonoBehaviour
     private IEnumerator EndResetCountdown()
     {
         yield return new WaitForSecondsRealtime(endResetTimer);
+        endScreen.gameObject.SetActive(false);
         reset = true;
     }
 }

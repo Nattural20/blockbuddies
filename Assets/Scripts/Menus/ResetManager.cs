@@ -162,7 +162,9 @@ public class ResetManager : MonoBehaviour
             {
                 startAutoReset = false;
                 autoResetTimer = 0f;
+                resetWarning.SetActive(false);
                 ResetScene();
+                
             }
         }
     }
