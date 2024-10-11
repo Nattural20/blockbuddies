@@ -32,22 +32,16 @@ public class ArduinoLockedSpawn : MonoBehaviour
     {
         cM = GameObject.Find("CUBERT").GetComponent<CubertMovement>();
     }
-
-    // Start is called before the first frame update
     void Start()
     {
         currentSpawns = new char[10];
         foreach (GameObject cube in spawnCubes)
         {
             cube.SetActive(false);
-            //cube.GetComponent<MeshRenderer>().enabled = false;
-            //cube.GetComponent<BoxCollider>().enabled = false;
         }
         foreach (GameObject ghost in ghostSpawnCubes)
         {
             ghost.SetActive(false);
-            //ghost.GetComponent<MeshRenderer>().enabled = false;
-            //ghost.GetComponent<BoxCollider>().enabled = false;
         }
     }
 
@@ -76,7 +70,7 @@ public class ArduinoLockedSpawn : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(UnityEngine.Collider collision) //When the player enters, set player to true. 
+    private void OnTriggerEnter(Collider collision) //When the player enters, set player to true. 
     {
         cM.currentSpawnLockPosition = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z) + this.gameObject.transform.forward * 2; ;
         cM.cubertOnLock = true;
@@ -118,15 +112,8 @@ public class ArduinoLockedSpawn : MonoBehaviour
 
         if (outputArray[0].ToString() == "1" && spawnScript.buttonPressed == true)
         {
-            //currentSpawns = outputArray;
-
             int index = 0;
 
-
-            foreach (GameObject cube in spawnCubes)
-            {
-                cube.SetActive(false);
-            }
             foreach (char i in outputArray)
             {
                 if (index == 0)
@@ -137,12 +124,18 @@ public class ArduinoLockedSpawn : MonoBehaviour
                 {
                     if (ghostSpawnCubes[index -1].GetComponent<SpockSpawnPlayerDetector>().playerPresent == false)
                     {
-                        spawnCubes[index - 1].SetActive(true);
+                        if (spawnCubes[index - 1].activeSelf == false)
+                        {
+                            spawnCubes[index - 1].SetActive(true);
+                        }
                     }
+                    ghostSpawnCubes[index - 1].GetComponent<SpockSpawnPlayerDetector>().playerPresent = false;
                     index++;
                 }
                 else
                 {
+                    ghostSpawnCubes[index - 1].GetComponent<SpockSpawnPlayerDetector>().playerPresent = false;
+                    spawnCubes[index-1].SetActive(false);
                     index++;
                 }
                 FindAnyObjectByType<AudioManager>().Play("SpockSpawn");

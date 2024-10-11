@@ -10,16 +10,31 @@ public class SpockSpawnPlayerDetector : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Body"))
         {
-            playerPresent = true;
-            GetComponent<MeshRenderer>().material = materials[1];
+            PlayerPresent();
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Body"))
         {
-            playerPresent = false;
-            GetComponent<MeshRenderer>().material = materials[0];
+            PlayerNotPresent();
         }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Body"))
+        {
+            PlayerPresent();
+        }
+    }
+    public void PlayerPresent()
+    {
+        playerPresent = true;
+        GetComponent<MeshRenderer>().material = materials[1];
+    }
+    public void PlayerNotPresent()
+    {
+        playerPresent = false;
+        GetComponent<MeshRenderer>().material = materials[0];
     }
 }

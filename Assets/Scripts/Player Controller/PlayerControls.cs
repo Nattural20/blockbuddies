@@ -69,7 +69,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""id"": ""d0ffa059-f9db-4d4b-b480-54b8b483e647"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""MultiTap(tapCount=3)"",
+                    ""interactions"": ""MultiTap"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -106,6 +106,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TriggerHold"",
+                    ""type"": ""Button"",
+                    ""id"": ""be2b083d-444a-487f-9d4e-4e66fb3b3348"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=1,pressPoint=0.2)"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -307,6 +316,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""GhostDistanceDecrease"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d4d3e17-81fd-446e-bfd3-104298a18d30"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TriggerHold"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -324,6 +344,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_GhostHeightDecrease = m_Gameplay.FindAction("GhostHeightDecrease", throwIfNotFound: true);
         m_Gameplay_GhostDistanceIncrease = m_Gameplay.FindAction("GhostDistanceIncrease", throwIfNotFound: true);
         m_Gameplay_GhostDistanceDecrease = m_Gameplay.FindAction("GhostDistanceDecrease", throwIfNotFound: true);
+        m_Gameplay_TriggerHold = m_Gameplay.FindAction("TriggerHold", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -394,6 +415,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_GhostHeightDecrease;
     private readonly InputAction m_Gameplay_GhostDistanceIncrease;
     private readonly InputAction m_Gameplay_GhostDistanceDecrease;
+    private readonly InputAction m_Gameplay_TriggerHold;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -407,6 +429,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @GhostHeightDecrease => m_Wrapper.m_Gameplay_GhostHeightDecrease;
         public InputAction @GhostDistanceIncrease => m_Wrapper.m_Gameplay_GhostDistanceIncrease;
         public InputAction @GhostDistanceDecrease => m_Wrapper.m_Gameplay_GhostDistanceDecrease;
+        public InputAction @TriggerHold => m_Wrapper.m_Gameplay_TriggerHold;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -443,6 +466,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @GhostDistanceDecrease.started += instance.OnGhostDistanceDecrease;
             @GhostDistanceDecrease.performed += instance.OnGhostDistanceDecrease;
             @GhostDistanceDecrease.canceled += instance.OnGhostDistanceDecrease;
+            @TriggerHold.started += instance.OnTriggerHold;
+            @TriggerHold.performed += instance.OnTriggerHold;
+            @TriggerHold.canceled += instance.OnTriggerHold;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -474,6 +500,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @GhostDistanceDecrease.started -= instance.OnGhostDistanceDecrease;
             @GhostDistanceDecrease.performed -= instance.OnGhostDistanceDecrease;
             @GhostDistanceDecrease.canceled -= instance.OnGhostDistanceDecrease;
+            @TriggerHold.started -= instance.OnTriggerHold;
+            @TriggerHold.performed -= instance.OnTriggerHold;
+            @TriggerHold.canceled -= instance.OnTriggerHold;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -502,5 +531,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnGhostHeightDecrease(InputAction.CallbackContext context);
         void OnGhostDistanceIncrease(InputAction.CallbackContext context);
         void OnGhostDistanceDecrease(InputAction.CallbackContext context);
+        void OnTriggerHold(InputAction.CallbackContext context);
     }
 }

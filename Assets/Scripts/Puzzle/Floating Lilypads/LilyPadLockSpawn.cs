@@ -69,7 +69,6 @@ public class LilyPadLockedSpawn : MonoBehaviour
     }
     private void SummonBlocks() //summons the blocks
     {
-        //throw new NotImplementedException();
         char[] outputArray = readerScript.OutputArray;
         if (spawnScript.enableSpoof == true)//check for spoof output
         {
@@ -86,12 +85,6 @@ public class LilyPadLockedSpawn : MonoBehaviour
 
             int index = 0;
 
-
-            //foreach (GameObject cube in spawnCubes)
-            //{
-            //    cube.SetActive(false);
-            //}
-
             foreach (char i in outputArray)
             {
                 if (index == 0)
@@ -100,7 +93,6 @@ public class LilyPadLockedSpawn : MonoBehaviour
                 }
                 else if (i.ToString() == "1")
                 {
-
                     if (ghostSpawnCubes[index -1].GetComponent<SpockSpawnPlayerDetector>().playerPresent == false)
                     {
                         if (spawnCubes[index-1].activeSelf == false)
@@ -108,10 +100,12 @@ public class LilyPadLockedSpawn : MonoBehaviour
                             spawnCubes[index - 1].SetActive(true);
                         }
                     }
+                    ghostSpawnCubes[index - 1].GetComponent<SpockSpawnPlayerDetector>().playerPresent = false;
                     index++;
                 }
                 else
                 {
+                    ghostSpawnCubes[index - 1].GetComponent<SpockSpawnPlayerDetector>().playerPresent = false;
                     spawnCubes[index - 1].SetActive(false);
                     index++;
                 }
@@ -186,4 +180,3 @@ public class LilyPadLockedSpawn : MonoBehaviour
         }
     }
 }
-

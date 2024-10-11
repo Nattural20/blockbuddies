@@ -18,6 +18,13 @@ public class VineSuperSucker : MonoBehaviour
         sinkingSpock = Instantiate(lilyPadSpocks, lilyPadSpocks.transform.position, lilyPadSpocks.transform.rotation);
         sinkingSpock.transform.localScale = lilyPadSpocks.transform.lossyScale;
         Destroy(sinkingSpock.GetComponent<RotationalBehaviourYAxis>());
+        foreach (LockZoneMovingSpocks spockZone in sinkingSpock.GetComponentsInChildren<LockZoneMovingSpocks>())
+        {
+            Destroy(spockZone);
+            var ani = spockZone.GetComponent<Animator>();
+            ani.StopPlayback();
+            Destroy(ani);
+        }
         
         rotateDir = Random.Range(0, 2);
         if (rotateDir == 0)
@@ -25,11 +32,6 @@ public class VineSuperSucker : MonoBehaviour
             rotateDir = -1;
         }
 
-        LockZoneMovingSpocks[] spockDetectors = sinkingSpock.GetComponentsInChildren<LockZoneMovingSpocks>();
-        foreach (LockZoneMovingSpocks spock in spockDetectors)
-        {
-            Destroy(spock);
-        }
         isSinking = true;
         StartCoroutine(DestroyDelay());
     }

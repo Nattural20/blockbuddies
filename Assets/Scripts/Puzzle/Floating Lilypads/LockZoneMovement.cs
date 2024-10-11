@@ -47,12 +47,13 @@ public class LockZoneMovement : MonoBehaviour
 
             if (spockActive)
             {
-                var leftoverCubes = Instantiate(lockSpawn.spawnCubesParent, lockSpawn.spawnCubesParent.transform.position, lockSpawn.spawnCubesParent.transform.rotation);
-                leftoverCubes.transform.localScale = lockSpawn.spawnCubesParent.transform.lossyScale;
-                Destroy(leftoverCubes.GetComponent<RotationalBehaviourYAxis>());
-                var waterfallSpock = leftoverCubes.AddComponent<SpockOverWaterfall>();
-                waterfallSpock.speed = speed;
-                waterfallSpock.MoveDelay(other.GetComponent<LilyPadResetValue>().DelayOrNot());
+                SinkSpock(other.gameObject);
+                //var leftoverCubes = Instantiate(lockSpawn.spawnCubesParent, lockSpawn.spawnCubesParent.transform.position, lockSpawn.spawnCubesParent.transform.rotation);
+                //leftoverCubes.transform.localScale = lockSpawn.spawnCubesParent.transform.lossyScale;
+                //Destroy(leftoverCubes.GetComponent<RotationalBehaviourYAxis>());
+                //var waterfallSpock = leftoverCubes.AddComponent<SpockOverWaterfall>();
+                //waterfallSpock.speed = speed;
+                //waterfallSpock.MoveDelay(other.GetComponent<LilyPadResetValue>().DelayOrNot());
             }
             //other.GetComponent<LilyPadResetValue>().LeftoverSpocks(leftoverCubes);
 
@@ -76,5 +77,14 @@ public class LockZoneMovement : MonoBehaviour
                 }
             }
         }
+    }
+    void SinkSpock(GameObject ResetPad)
+    {
+        var leftoverCubes = Instantiate(lockSpawn.spawnCubesParent, lockSpawn.spawnCubesParent.transform.position, lockSpawn.spawnCubesParent.transform.rotation);
+        leftoverCubes.transform.localScale = lockSpawn.spawnCubesParent.transform.lossyScale;
+        Destroy(leftoverCubes.GetComponent<RotationalBehaviourYAxis>());
+        var waterfallSpock = leftoverCubes.AddComponent<SpockOverWaterfall>();
+        waterfallSpock.speed = speed;
+        waterfallSpock.MoveDelay(ResetPad.GetComponent<LilyPadResetValue>().DelayOrNot());
     }
 }

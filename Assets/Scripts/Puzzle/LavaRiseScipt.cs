@@ -25,16 +25,18 @@ public class LavaRiseScipt : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Body"))
         {
-            rising = false;
-            transform.localPosition = resetPosition;
+            ResetVines();
+            other.gameObject.GetComponent<SetPos>().TeleportPlayer();
+        }
+    }
+    public void ResetVines()
+    {
+        rising = false;
+        transform.localPosition = resetPosition;
 
-            foreach (ArduinoLockedSpawn spawn in spawns)
-            {
-                spawn.RemoveSpocks();
-            }
-
-            var player = other.gameObject;
-            player.GetComponent<SetPos>().TeleportPlayer();
+        foreach (ArduinoLockedSpawn spawn in spawns)
+        {
+            spawn.RemoveSpocks();
         }
     }
 }

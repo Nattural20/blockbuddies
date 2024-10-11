@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     PauseMenuController pause;
     public GameObject pauseObject;
     private bool resetLag = true;
+    public bool triggerHeld;
 
     Vector2 move;
     Vector2 rotate;
@@ -127,7 +128,8 @@ public class PlayerController : MonoBehaviour
 
 
         controls.Gameplay.Menu.performed += ctx => pause.PauseMenu();
-
+        controls.Gameplay.TriggerHold.performed += ctx => triggerHeld = true;
+        controls.Gameplay.TriggerHold.canceled += ctx => triggerHeld = false;
 
 
 
@@ -161,7 +163,7 @@ public class PlayerController : MonoBehaviour
 
         //isGrounded = CheckGrounded();
 
-        if (pause.isPaused == true && Input.GetKey(KeyCode.Joystick1Button6) && Input.GetKey(KeyCode.Joystick1Button7))
+        if (pause.isPaused == true && Input.GetKey(KeyCode.Joystick1Button6) && Input.GetKey(KeyCode.Joystick1Button7) || pause.isPaused == true && triggerHeld == true)
         {
             ResetScene();
         }
