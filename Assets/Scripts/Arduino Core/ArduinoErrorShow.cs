@@ -33,8 +33,9 @@ public class ArduinoErrorShow : MonoBehaviour
     IEnumerator CheckArduinoDelay()
     {
         yield return new WaitForSeconds(1);
-        if (CheckArduino() == false && doAutoReset)
+        if (CheckArduino() == false && doAutoReset && !Input.GetKey(KeyCode.K))
         {
+            gameObject.SetActive(false);
             reset.SingleReset();
         }
         Destroy(this);
