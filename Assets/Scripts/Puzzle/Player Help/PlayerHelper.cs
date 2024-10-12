@@ -6,6 +6,7 @@ public class PlayerHelper : MonoBehaviour
 {
     public SetPos respawns;
     public PlayerHelperScripts helpScript;
+    public int deathLimit = 15;
     bool helpOffered;
 
     bool counting;
@@ -18,7 +19,7 @@ public class PlayerHelper : MonoBehaviour
             {
                 respawnCount = respawns.respawnCounter - respawnsOnEnter;
 
-                if (respawnCount > 15)
+                if (respawnCount > deathLimit)
                 {
                     helpScript.OfferHelp();
                     helpScript.helpOffered = true;

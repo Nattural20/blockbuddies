@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class SideViewTrigger : MonoBehaviour
@@ -7,11 +8,17 @@ public class SideViewTrigger : MonoBehaviour
     public SpawnerCodeV3 arduinoSpawner;
     public LayerMask playerMask;
     public GameObject freeLookCam, sideViewCam;
+    CinemachineFreeLook machineFree;
+    CinemachineVirtualCamera machineSide;
     public GameObject[] activateObjs;
 
     int triggersActive;
     bool playerPresent = false;
-
+    private void Start()
+    {
+        machineFree = freeLookCam.GetComponent<CinemachineFreeLook>();
+        machineSide = sideViewCam.GetComponent<CinemachineVirtualCamera>();
+    }
     private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Body")
@@ -47,6 +54,8 @@ public class SideViewTrigger : MonoBehaviour
             if (triggersActive == 0)
             {
                 playerPresent = false;
+
+                machineFree.m_XAxis.Value = 90;
                 sideViewCam.SetActive(false);
                 freeLookCam.SetActive(true);
                 arduinoSpawner.canSpawnSpocks = true;

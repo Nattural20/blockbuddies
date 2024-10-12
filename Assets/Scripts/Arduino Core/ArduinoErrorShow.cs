@@ -6,32 +6,37 @@ using UnityEngine.UI;
 public class ArduinoErrorShow : MonoBehaviour
 {
     public ArduinoReader reader;
+    public ResetManager reset;
+
+    bool doAutoReset = true;
     private void Start()
     {
+        if (Application.isEditor)
+        {
+            doAutoReset = false;
+        }
         StartCoroutine(CheckArduinoDelay());
     }
-    //private void Update()
-    //{
-    //    CheckArduino();
-    //}
-    void CheckArduino()
+    bool CheckArduino()
     {
+        bool allOkay = true;
         foreach (char input in reader.OutputArray)
         {
             if (input.ToString() != "0" && input.ToString() != "1")
             {
                 GetComponent<Image>().color = Color.red;
+                allOkay = false;
             }
         }
+        return allOkay;
     }
     IEnumerator CheckArduinoDelay()
     {
         yield return new WaitForSeconds(1);
-        CheckArduino();
+        if (CheckArduino() == false && doAutoReset)
+        {
+            reset.SingleReset();
+        }
         Destroy(this);
-    }
-    IEnumerator StopChecking()
-    {
-        yield return new WaitForSeconds(1);
     }
 }

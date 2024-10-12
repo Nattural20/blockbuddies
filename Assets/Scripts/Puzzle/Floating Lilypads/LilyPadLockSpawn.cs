@@ -15,7 +15,7 @@ public class LilyPadLockedSpawn : MonoBehaviour
     ///Both of these variables should come from the same object. Fix later.
     //public GameObject spawnLocation;
     public GameObject[] spawnCubes, ghostSpawnCubes; //each cube should be in here
-    public GameObject spawnCubesParent;
+    public GameObject spawnCubesParent, lilyPadsParent;
 
     public float selectionDistance = 20;
     public float padDistance;

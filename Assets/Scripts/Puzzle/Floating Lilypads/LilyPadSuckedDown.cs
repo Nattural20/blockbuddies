@@ -7,8 +7,10 @@ public class LilyPadSuckedDown : MonoBehaviour
 {
     public float suckSpeed;
     public float resetTime;
-    bool suckedDown;
+    bool suckedDown, suckDestroy;
     Vector3 floatPos, suckedPos;
+    public float suckDestroySpeed;
+    float suckAmount;
     private void Start()
     {
         floatPos = transform.localPosition;
@@ -24,18 +26,36 @@ public class LilyPadSuckedDown : MonoBehaviour
         {
             transform.localPosition = Vector3.Lerp(transform.localPosition, floatPos, suckSpeed * Time.deltaTime);
         }
+
+        if (suckDestroy)
+        {
+            transform.position += new Vector3(suckDestroySpeed * Time.deltaTime, -suckSpeed * Time.deltaTime);
+            suckAmount += suckSpeed * Time.deltaTime;
+
+            if (suckAmount > suckSpeed)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Lily Pad Sucker"))
         {
-            suckedDown = true;
-            StartCoroutine(ResetSuck());
+            if (!suckedDown)
+            {
+                suckedDown = true;
+                StartCoroutine(ResetSuck());
+            }
         }
     }
     IEnumerator ResetSuck()
     {
         yield return new WaitForSeconds(resetTime);
         suckedDown = false;
+    }
+    public void SuckAndDestroy()
+    {
+        suckDestroy = true;
     }
 }
