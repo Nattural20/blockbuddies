@@ -12,11 +12,12 @@ public class ThornTimed : MonoBehaviour
     private Vector3 setPosition, risePosition, spornPosition;
     private float riseSpeed = 10f;
     private bool isRising = false, sporning = false;
+    bool unrising;
 
     void Start()
     {
-        setPosition = transform.position;
-        risePosition = transform.position + new Vector3(0, 5, 0);
+        //setPosition = transform.position;
+        //risePosition = transform.position + new Vector3(0, 5, 0);
     }
 
     void Update()
@@ -27,6 +28,14 @@ public class ThornTimed : MonoBehaviour
             if (Vector3.Distance(transform.position, risePosition) < 0.1f)
             {
                 isRising = false;
+            }
+        }
+        if (unrising)
+        {
+            transform.position = Vector3.Lerp(transform.position, setPosition, riseSpeed * 2 * Time.deltaTime);
+            if (Vector3.Distance(transform.position, setPosition) < 0.1f)
+            {
+                unrising = false;
             }
         }
         if (sporning)
@@ -41,14 +50,13 @@ public class ThornTimed : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (!_isTriggered)
+        if (!_isTriggered && !sporning)
         {
             if (col.CompareTag("Spocks") || col.CompareTag("Lava Spock") || col.CompareTag("River Spock"))
             {
                 _isTriggered = true;
                 _affectedSpock = col.gameObject;
                 StartCoroutine(ThornExplode(_affectedSpock));
-                Debug.Log("1st trigger Triggered. " + _affectedSpock);
             }
         }
     }
@@ -71,13 +79,17 @@ public class ThornTimed : MonoBehaviour
         spock.GetComponent<Rigidbody>().velocity = launchForce;
 
         yield return new WaitForSeconds(thornsTimer);
-        transform.position = setPosition;
+        unrising = true;
+
+        yield return new WaitForSeconds(thornsTimer/2);
         _isTriggered = false;
         spock.tag = "Spocks";
     }
 
     public void ThawnSporn()
     {
+        setPosition = transform.position;
+        risePosition = transform.position + new Vector3(0, 5, 0);
         spornPosition = transform.parent.position;
 
         var downSet = UnityEngine.Random.Range(2, 8) + UnityEngine.Random.value;

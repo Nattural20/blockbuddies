@@ -8,12 +8,13 @@ public class ArduinoErrorShow : MonoBehaviour
     public ArduinoReader reader;
     public ResetManager reset;
 
-    bool doAutoReset = true;
+    public bool doAutoReset = true;
+    bool inEditor = false;
     private void Start()
     {
         if (Application.isEditor)
         {
-            doAutoReset = false;
+            inEditor = true;
         }
         StartCoroutine(CheckArduinoDelay());
     }
@@ -33,7 +34,7 @@ public class ArduinoErrorShow : MonoBehaviour
     IEnumerator CheckArduinoDelay()
     {
         yield return new WaitForSeconds(1);
-        if (CheckArduino() == false && doAutoReset && !Input.GetKey(KeyCode.K))
+        if (CheckArduino() == false && doAutoReset && !inEditor && !Input.GetKey(KeyCode.K))
         {
             gameObject.SetActive(false);
             reset.SingleReset();
