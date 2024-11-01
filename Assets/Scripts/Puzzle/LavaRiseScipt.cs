@@ -8,6 +8,8 @@ public class LavaRiseScipt : MonoBehaviour
     public bool rising;
 
     public Vector3 resetPosition;
+
+    public ArduinoLockedSpawn[] spawns;
     private void Start()
     {
         resetPosition = Vector3.zero;
@@ -23,10 +25,18 @@ public class LavaRiseScipt : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Body"))
         {
-            rising = false;
-            transform.localPosition = resetPosition;
-            var player = other.gameObject;
-            player.GetComponent<SetPos>().TeleportPlayer();
+            ResetVines();
+            other.gameObject.GetComponent<SetPos>().TeleportPlayer();
+        }
+    }
+    public void ResetVines()
+    {
+        rising = false;
+        transform.localPosition = resetPosition;
+
+        foreach (ArduinoLockedSpawn spawn in spawns)
+        {
+            spawn.RemoveSpocks();
         }
     }
 }

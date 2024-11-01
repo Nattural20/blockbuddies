@@ -13,6 +13,9 @@ public class SetPos : MonoBehaviour
 
     public List<GameObject> playerBits;
 
+    public int respawnCounter;
+
+    [Header("Respawn Particles")]
     public ParticleSystem deathCubert;
     public ParticleSystem respawnCubert;
     public ParticleSystem deathHopper;
@@ -74,6 +77,7 @@ public class SetPos : MonoBehaviour
     {
         transform.position = pos.position;
         rb.velocity = Vector3.zero;
+        respawnCounter++;
         foreach (GameObject player in playerBits)
         {
             player.transform.position = pos.position;

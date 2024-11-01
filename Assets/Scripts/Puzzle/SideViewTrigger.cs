@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class SideViewTrigger : MonoBehaviour
@@ -7,29 +8,39 @@ public class SideViewTrigger : MonoBehaviour
     public SpawnerCodeV3 arduinoSpawner;
     public LayerMask playerMask;
     public GameObject freeLookCam, sideViewCam;
+    CinemachineFreeLook machineFree;
+    CinemachineVirtualCamera machineSide;
+    public GameObject[] activateObjs;
 
-    // Start is called before the first frame update
-    void Start()
+    int triggersActive;
+    bool playerPresent = false;
+    private void Start()
     {
-        
+        machineFree = freeLookCam.GetComponent<CinemachineFreeLook>();
+        machineSide = sideViewCam.GetComponent<CinemachineVirtualCamera>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Body")
         {
+            playerPresent = true;
+            triggersActive++;
+
+
             freeLookCam.SetActive(false);
             sideViewCam.SetActive(true);
             arduinoSpawner.canSpawnSpocks = false;
             foreach (var ghost in arduinoSpawner.ghostSpocks)
             {
                 ghost.SetActive(false);
+            }
+
+            if (activateObjs != null)
+            {
+                foreach (GameObject obj in activateObjs)
+                {
+                    obj.SetActive(true);
+                }
             }
         }
     }
@@ -38,10 +49,45 @@ public class SideViewTrigger : MonoBehaviour
     {
         if (col.gameObject.tag == "Body")
         {
-            sideViewCam.SetActive(false);
-            freeLookCam.SetActive(true);
-            arduinoSpawner.canSpawnSpocks = true;
-        }
+            triggersActive--;
 
+            if (triggersActive == 0)
+            {
+                playerPresent = false;
+
+                machineFree.m_XAxis.Value = 90;
+                sideViewCam.SetActive(false);
+                freeLookCam.SetActive(true);
+                arduinoSpawner.canSpawnSpocks = true;
+
+                if (activateObjs != null)
+                {
+                    foreach (GameObject obj in activateObjs)
+                    {
+                        obj.SetActive(true);
+                    }
+                }
+            }
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Body")
+        {
+            if (triggersActive == 0)
+            {
+                playerPresent = true;
+                triggersActive++;
+    
+    
+                freeLookCam.SetActive(false);
+                sideViewCam.SetActive(true);
+                arduinoSpawner.canSpawnSpocks = false;
+                foreach (var ghost in arduinoSpawner.ghostSpocks)
+                {
+                    ghost.SetActive(false);
+                }
+            }
+        }
     }
 }

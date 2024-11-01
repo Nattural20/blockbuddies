@@ -14,24 +14,39 @@ public class ArduinoLockedSpawn : MonoBehaviour
     ///Both of these variables should come from the same object. Fix later.
     //public GameObject spawnLocation;
     public GameObject[] spawnCubes, ghostSpawnCubes; //each cube should be in here
+    public Material[] spockGlow;
+
+    char[] currentSpawns;
+
+    int triggerCount;
+
+
 
     /// <summary>
     /// This version does not despawn the cubes immediately after leaving the trigger, meaning they are constant. 
     /// </summary>
 
-    // Start is called before the first frame update
+    private CubertMovement cM;
+
+    private void Awake()
+    {
+        cM = GameObject.Find("CUBERT").GetComponent<CubertMovement>();
+    }
     void Start()
     {
+        currentSpawns = new char[10];
         foreach (GameObject cube in spawnCubes)
         {
-            cube.GetComponent<MeshRenderer>().enabled = false;
-            cube.GetComponent<BoxCollider>().enabled = false;
+            cube.SetActive(false);
         }
-
+        foreach (GameObject ghost in ghostSpawnCubes)
+        {
+            ghost.SetActive(false);
+        }
     }
 
     // when are you gonna make Automatic Blast
-    void Update()
+    void FixedUpdate()
     {
         if (spawnScript) //null catch
         {
@@ -46,10 +61,6 @@ public class ArduinoLockedSpawn : MonoBehaviour
                 //spawnScript.canSpawnSpocks = true;
             }
 
-            //foreach (var ghost in spawnScript.ghostSpocks)//this sucks
-            //{
-            //    ghost.SetActive(false);
-            //}
         }
         else
         {
@@ -59,47 +70,50 @@ public class ArduinoLockedSpawn : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(UnityEngine.Collider collision) //When the player enters, set player to true. 
+    private void OnTriggerEnter(Collider collision) //When the player enters, set player to true. 
     {
+        cM.currentSpawnLockPosition = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z) + this.gameObject.transform.forward * 2; ;
+        cM.cubertOnLock = true;
+
+
         if (collision.gameObject.tag == "Body")
         {
             _playerPresent = true;
             spawnScript.canSpawnSpocks = false;
 
+            triggerCount++;
         }
     }
 
     private void OnTriggerExit(Collider collision) //When the player exits, set to false. 
     {
+        cM.cubertOnLock = false;
+
+
         if (collision.gameObject.tag == "Body")
         {
-            _playerPresent = false;
-            spawnScript.canSpawnSpocks = true; //fixed for v3 spawn code spoof
-
+            triggerCount--;
+            if (triggerCount == 0)
+            {
+                _playerPresent = false;
+            }
         }
     }
     private void SummonBlocks() //summons the blocks
     {
         //throw new NotImplementedException();
         char[] outputArray = readerScript.OutputArray;
-        if (outputArray == null)//check for spoof output
+        if (spawnScript.enableSpoof == true)//check for spoof output
         {
             outputArray = spawnScript.SpoofOutputArray;
         }
 
-        UpdateLockedGhostCubes(outputArray);
+            UpdateLockedGhostCubes(outputArray);
 
         if (outputArray[0].ToString() == "1" && spawnScript.buttonPressed == true)
         {
-
             int index = 0;
 
-
-            foreach (GameObject cube in spawnCubes)
-            {
-                cube.GetComponent<MeshRenderer>().enabled = false;
-                cube.GetComponent<BoxCollider>().enabled = false;
-            }
             foreach (char i in outputArray)
             {
                 if (index == 0)
@@ -108,21 +122,23 @@ public class ArduinoLockedSpawn : MonoBehaviour
                 }
                 else if (i.ToString() == "1")
                 {
-                    //Debug.Log("Array Length:" + outputArray.Length);
-                    //Debug.Log("Postion: " + index + ". Spawning Block: " + spawnCubes[index]);
-
                     if (ghostSpawnCubes[index -1].GetComponent<SpockSpawnPlayerDetector>().playerPresent == false)
                     {
-                        //Move the spawnCubes stuff into here to have it not spawn if a player is in the way
+                        if (spawnCubes[index - 1].activeSelf == false)
+                        {
+                            spawnCubes[index - 1].SetActive(true);
+                        }
                     }
-                    spawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
-                    spawnCubes[index - 1].GetComponent<BoxCollider>().enabled = true;
+                    ghostSpawnCubes[index - 1].GetComponent<SpockSpawnPlayerDetector>().playerPresent = false;
                     index++;
                 }
                 else
                 {
+                    ghostSpawnCubes[index - 1].GetComponent<SpockSpawnPlayerDetector>().playerPresent = false;
+                    spawnCubes[index-1].SetActive(false);
                     index++;
                 }
+                FindAnyObjectByType<AudioManager>().Play("SpockSpawn");
             }
         }
     }
@@ -130,11 +146,6 @@ public class ArduinoLockedSpawn : MonoBehaviour
     {
         int index = 0;
 
-
-        foreach (GameObject cube in ghostSpawnCubes)
-        {
-            cube.GetComponent<MeshRenderer>().enabled = false;
-        }
         foreach (char i in outputArray)
         {
             if (index == 0)
@@ -143,13 +154,27 @@ public class ArduinoLockedSpawn : MonoBehaviour
             }
             else if (i.ToString() == "1")
             {
-                ghostSpawnCubes[index - 1].GetComponent<MeshRenderer>().enabled = true;
+                ghostSpawnCubes[index - 1].SetActive(true); //GetComponent<MeshRenderer>().enabled = true;
+
+                spawnCubes[index - 1].GetComponent<SpockColourChange>().ChangeToBlue();
+
                 index++;
             }
             else
             {
+                ghostSpawnCubes[index - 1].SetActive(false); //GetComponent<MeshRenderer>().enabled = false;
+
+                spawnCubes[index - 1].GetComponent<SpockColourChange>().ChangeToRed();
+
                 index++;
             }
+        }
+    }
+    public void RemoveSpocks()
+    {
+        foreach (GameObject cube in spawnCubes)
+        {
+            cube.SetActive(false);
         }
     }
 }

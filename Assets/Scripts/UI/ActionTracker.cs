@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class ActionTracker : MonoBehaviour
 {
+    public ResetManager resetManager;
+
     public PlayerController hopper;
     public AlternateGrab hopperGrab;
-    public SpawnerCode cubert;
+    public SpawnerCodeV3 cubert;
     public GameObject instructionUI;
 
     public int instructionIndex = 0;
@@ -22,7 +24,7 @@ public class ActionTracker : MonoBehaviour
     {
         hopper = GetComponentInChildren<PlayerController>();
         hopperGrab = GetComponentInChildren<AlternateGrab>();
-        cubert = GetComponentInChildren<SpawnerCode>();
+        cubert = GetComponentInChildren<SpawnerCodeV3>();
     }
 
     // Update is called once per frame
@@ -38,8 +40,8 @@ public class ActionTracker : MonoBehaviour
             //    CheckSpockUpdate();
             else if (instructionIndex == 2)
                 CheckSpockSpawned();
-            else if (instructionIndex == 3)
-                CheckHopperGrab();
+            //else if (instructionIndex == 3)
+            //    CheckHopperGrab();
 
             //if (Input.GetKeyDown(KeyCode.P))
             //{
@@ -55,13 +57,14 @@ public class ActionTracker : MonoBehaviour
         {
             //hopper moved
             Debug.Log("Hopper has moved");
+            resetManager.startAutoReset = true;
             ChangeInstructions();
         }
     }
 
     void CheckHopperJump()
     {
-        if (hopper.isGrounded == false) //temp solution. Can be triggered by false positives, though not likely
+        if (hopper.jumpCooldown > 0) //temp solution. Can be triggered by false positives, though not likely
         {
             //hopper jump
             Debug.Log("Hopper has jumped");
@@ -112,7 +115,7 @@ public class ActionTracker : MonoBehaviour
     {
         instructionIndex++;
         // UI Change here
-        if (instructionIndex == 4)
+        if (instructionIndex == 3)
         {
             RemoveInstructions();
         }

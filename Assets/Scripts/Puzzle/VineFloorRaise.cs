@@ -10,22 +10,35 @@ public class VineFloorRaise : MonoBehaviour
     public BoxCollider[] triggers;
     Vector3 risePosition;
     bool isRising;
+    public bool hasChildren = false;
     private void Start()
     {
         risePosition = vineFloor.transform.position + new Vector3(0, riseHeight, 0);
-        triggers = GetComponentsInChildren<BoxCollider>();
-        //Debug.Log(triggers);
+
+        if (GetComponentsInChildren<BoxCollider>() != null )
+        {
+            triggers = GetComponentsInChildren<BoxCollider>();
+            //hasChildren = true;
+        }
     }
     public void RaiseFloor()
     {
         isRising = true;
-        //gameObject.GetComponent<Collider>().enabled = false;
+
         foreach (BoxCollider col in triggers)
         {
             col.enabled = false;
         }
     }
-    private void Update()
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!hasChildren && other.gameObject.CompareTag("Body"))
+        {
+            isRising = true;
+            GetComponent<BoxCollider>().enabled = false;
+        }
+    }
+    private void FixedUpdate()
     {
         if (isRising)
         {
@@ -41,6 +54,10 @@ public class VineFloorRaise : MonoBehaviour
                     previousHeightDangers.SetActive(false);
                 if (newHeightDangers != null)
                     newHeightDangers.SetActive(true);
+                foreach (ThornTimed thorn in newHeightDangers.GetComponentsInChildren<ThornTimed>())
+                {
+                    thorn.ThawnSporn();
+                }
                 Destroy(gameObject);
             }
         }

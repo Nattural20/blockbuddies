@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &53870518772928435
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 135.94078
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 135.94078
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 52.60023
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -96.26
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17.18
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.49999923
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.50000083
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.4999993
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.50000066
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_Name
+      value: Sucky Vine Danger
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      propertyPath: m_TagString
+      value: Lily Pad Sucker
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 6173504851983894670}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2912967472310212169}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2265106920784243795}
+  m_SourcePrefab: {fileID: 100100000, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+--- !u!1 &900169217978839778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dc8d23f842cb3e44a91cc82b25cd40f8, type: 3}
+  m_PrefabInstance: {fileID: 53870518772928435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6173504851983894670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900169217978839778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad249bdabc6c28b4dbbd7abd03d0b179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sinkSpeed: 2
+--- !u!65 &2912967472310212169
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900169217978839778}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.012073837, y: 0.012309175, z: 0.10501259}
+  m_Center: {x: 0.000120982295, y: -0.000025275041, z: 0.052506294}
+--- !u!54 &2265106920784243795
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900169217978839778}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

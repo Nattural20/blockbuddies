@@ -47,7 +47,7 @@
                     "id": "d0ffa059-f9db-4d4b-b480-54b8b483e647",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "MultiTap",
                     "initialStateCheck": false
                 },
                 {
@@ -84,6 +84,15 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TriggerHold",
+                    "type": "Button",
+                    "id": "be2b083d-444a-487f-9d4e-4e66fb3b3348",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=1,pressPoint=0.2)",
                     "initialStateCheck": false
                 }
             ],
@@ -283,6 +292,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "GhostDistanceDecrease",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d4d3e17-81fd-446e-bfd3-104298a18d30",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerHold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -34,6 +34,7 @@ public class ArduinoGetter
         //blah do hardware processing..
         //Begin "hardware processing"...
         PhysicalBlockState = ReadFromSerialPort();
+
         }
     }
 
@@ -46,6 +47,7 @@ public class ArduinoGetter
         {
             serialPort.Open();
             serialPort.ReadTimeout = 50; // Adjust as necessary
+            serialPort.DtrEnable = true;
         }
         catch (Exception e)
         {
@@ -68,6 +70,9 @@ public class ArduinoGetter
                 {
                     char[] FinalArdArray = ArduinoStringToArray(message, selectedOrientation);
                     return FinalArdArray;
+                }
+                else {
+                    //previous
                 }
 
 

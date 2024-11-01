@@ -12,11 +12,10 @@ public class PlayerController : MonoBehaviour
 
 
 
-
     //jump buffer stuff
     public float jumpBufferTime = 0.2f;
     public float jumpBufferCounter;
-    public  bool jumpQueued;
+    public bool jumpQueued;
 
     public float jumpCooldown = .5f;
 
@@ -50,6 +49,7 @@ public class PlayerController : MonoBehaviour
     PauseMenuController pause;
     public GameObject pauseObject;
     private bool resetLag = true;
+    public bool triggerHeld;
 
     Vector2 move;
     Vector2 rotate;
@@ -64,8 +64,11 @@ public class PlayerController : MonoBehaviour
     //movement
     public float acceleration = 5f;
     public float maxSpeed = 5f;
+
+    public float airSpeed = 1.2f;
     public float deceleration = 5f;
     public float pivotSpeed = 5;
+    public Vector3 extraVelocity;
 
     //jump
     public float jumpForce = 10f;
@@ -82,6 +85,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 velocity;
     private Vector2 lastMove;
+
+    public ParticleSystem dust;
 
     // Moving platform velocity transferral
     //private Rigidbody movingPlatform;
@@ -123,15 +128,16 @@ public class PlayerController : MonoBehaviour
 
 
         controls.Gameplay.Menu.performed += ctx => pause.PauseMenu();
-
+        controls.Gameplay.TriggerHold.performed += ctx => triggerHeld = true;
+        controls.Gameplay.TriggerHold.canceled += ctx => triggerHeld = false;
 
 
 
 
 
         //SPOCK STUFF
-        controls.Gameplay.GhostHeightIncrease.performed += ctx =>  gS.UnIncreaseGhostHeight();
-        controls.Gameplay.GhostHeightDecrease.performed += ctx =>  gS.IncreaseGhostHeight();
+        controls.Gameplay.GhostHeightIncrease.performed += ctx => gS.UnIncreaseGhostHeight();
+        controls.Gameplay.GhostHeightDecrease.performed += ctx => gS.IncreaseGhostHeight();
 
 
 
@@ -154,11 +160,17 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = CheckGrounded();
 
-        if (pause.isPaused == true && Input.GetKey(KeyCode.Joystick1Button6) && Input.GetKey(KeyCode.Joystick1Button7))
+        //isGrounded = CheckGrounded();
+
+        if (pause.isPaused == true && Input.GetKey(KeyCode.Joystick1Button6) && Input.GetKey(KeyCode.Joystick1Button7) || pause.isPaused == true && triggerHeld == true)
         {
             ResetScene();
+        }
+
+        if (pause.isPaused == true && Input.GetKey(KeyCode.Joystick1Button4) && Input.GetKey(KeyCode.Joystick1Button5))
+        {
+            SingleReset();
         }
 
         //Ground check 
@@ -191,12 +203,14 @@ public class PlayerController : MonoBehaviour
         //Jump buffer logic
         if (jumpBufferCounter > 0)
         {
+            isGrounded = CheckGrounded();
+
             jumpBufferCounter -= Time.deltaTime;
             if (isGrounded)
             {
-                rb.velocity = new Vector3 (rb.velocity.x, 0, rb.velocity.z);
-                PerformJump(); 
-                jumpBufferCounter = 0; 
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+                PerformJump();
+                jumpBufferCounter = 0;
                 Debug.Log("Jump performed from buffer");
             }
         }
@@ -225,14 +239,14 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
+    public float leaningAngle = -50; //0 to -100
 
     void ApplyForwardRotation()
     {
 
 
         float currentSpeed = new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude;
-        float targetZRotation = Mathf.Lerp(0, -60, currentSpeed / maxSpeed);
+        float targetZRotation = Mathf.Lerp(0, leaningAngle, currentSpeed / maxSpeed);
 
         Quaternion currentRotation = rb.transform.rotation;
         Quaternion targetRotation = Quaternion.Euler(currentRotation.eulerAngles.x, currentRotation.eulerAngles.y, targetZRotation);
@@ -240,7 +254,7 @@ public class PlayerController : MonoBehaviour
         rb.transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
 
         //Camera.main.transform.rotation = Quaternion.Euler(Camera.main.transform.rotation.eulerAngles.x, Camera.main.transform.rotation.eulerAngles.y, 0);
-        
+
     }
 
     void ApplyCustomGravity()
@@ -274,38 +288,50 @@ public class PlayerController : MonoBehaviour
         Vector3 forward = cameraTransform.forward;
         forward.y = 0;
         Vector3 right = cameraTransform.right;
-        right.y = 0; 
+        right.y = 0;
 
+        // Scale movement speed based on how far the stick is being pushed
+        float movementMultiplier = move.magnitude; // This will be a value between 0 and 1
         currentMovementDirection = (forward * moveInput.z + right * moveInput.x).normalized;
 
-        Vector3 accelerationVector = currentMovementDirection * acceleration;
+        Vector3 accelerationVector = currentMovementDirection * acceleration * movementMultiplier; // Apply scaling here
 
         if (Vector2.Dot(lastMove.normalized, new Vector2(currentMovementDirection.x, currentMovementDirection.z).normalized) < 0.8f && move != Vector2.zero)
         {
-            //pivot faster
+            // Pivot faster
             velocity = Vector3.MoveTowards(velocity, Vector3.zero, deceleration * pivotSpeed * Time.fixedDeltaTime);
-            lastMovementDirection = new Vector3(currentMovementDirection.x,0, currentMovementDirection.z);
+            lastMovementDirection = new Vector3(currentMovementDirection.x, 0, currentMovementDirection.z);
         }
         else if (move == Vector2.zero)
         {
-            //normal deceleration if let go
+            // Normal deceleration if let go
             velocity = Vector3.MoveTowards(velocity, Vector3.zero, deceleration * Time.fixedDeltaTime);
         }
         else
         {
-            //normal acceleration
+            // Normal acceleration with scaling based on input magnitude
             velocity += accelerationVector * Time.fixedDeltaTime;
-            velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+            velocity = Vector3.ClampMagnitude(velocity, maxSpeed * movementMultiplier); // Scale max speed too
         }
 
-        rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z);
+        if (isGrounded)
+        {
+            rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z) + extraVelocity;
+        }
+        else
+        {
+            rb.velocity = new Vector3(velocity.x * airSpeed, rb.velocity.y, velocity.z * airSpeed) + extraVelocity;
+        }
+
         lastMove = new Vector2(currentMovementDirection.x, currentMovementDirection.z);
 
+        extraVelocity = Vector3.zero;
     }
+
 
     void Grab()
     {
-        
+
         Vector3 newDir = new Vector3(lastMove.x, 0, lastMovementDirection.z);
         Debug.Log(lastMovementDirection);
         // hand1.AddForce(lastMovementDirection * armThrust);
@@ -316,10 +342,11 @@ public class PlayerController : MonoBehaviour
 
     void StartJump()
     {
-
+        isGrounded = CheckGrounded();
         if (isGrounded)
         {
             PerformJump();
+            CreateDust();
             Debug.Log("Immediate jump performed");
         }
         else
@@ -333,7 +360,10 @@ public class PlayerController : MonoBehaviour
     {
         if (jumpCooldown < 0)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            //rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+            FindAnyObjectByType<AudioManager>().Play("HopperJump");
+
             StopCoroutine(CoyoteCooldown());
             StartCoroutine(CoyoteCooldown());
             isGrounded = false;
@@ -359,6 +389,11 @@ public class PlayerController : MonoBehaviour
         FindObjectOfType<ResetManager>().ResetScene();
     }
 
+    public void SingleReset()
+    {
+        FindObjectOfType<ResetManager>().SingleReset();
+    }
+
 
 
 
@@ -374,7 +409,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        controls.Gameplay.Disable();   
+        controls.Gameplay.Disable();
     }
 
     private bool CheckGrounded()
@@ -475,5 +510,9 @@ public class PlayerController : MonoBehaviour
             timeSinceLastGrounded = 0f;
         }
         return groundedReturn;
+    }
+    void CreateDust() //Adds in Jumping particle system
+    {
+        dust.Play();
     }
 }
