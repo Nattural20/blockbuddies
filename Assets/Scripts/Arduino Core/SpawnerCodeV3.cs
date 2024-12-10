@@ -41,10 +41,11 @@ public class SpawnerCodeV3 : MonoBehaviour
     public float lowFrequency = .100f;
     public float highFrequency = .750f;
     public float rumbleDuration = .1f;
+    public float lightDuration = 2.2f;
     private bool haptics = false;
-    private DualShockGamepad dualShockGamepad;
+    private DualShock4GamepadHID dualShockGamepad;
     private Gamepad currentGamepad;
-    bool isDualshock;
+    public bool isDualshock;
 
     //End conditions
     private EndViewTrigger endViewTrigger;
@@ -53,9 +54,12 @@ public class SpawnerCodeV3 : MonoBehaviour
     /// <summary>
     /// Spawner Code V3.Integrated Spoof toggle and functionality.  
     /// </summary>
+
+
+
     public void Start()
     {
-        endViewTrigger = GameObject.Find("EndViewTrigger").GetComponent<EndViewTrigger>();
+        endViewTrigger = GameObject.Find("EndViewTrigger").GetComponent<EndViewTrigger>();        
     }
 
     void Update()
@@ -112,8 +116,8 @@ public class SpawnerCodeV3 : MonoBehaviour
                 if (Gamepad.current is DualShockGamepad)
                 {
                     isDualshock = true;
-                    dualShockGamepad = (DualShockGamepad)Gamepad.current;
-                    dualShockGamepad.SetLightBarColor(Color.magenta);
+                    dualShockGamepad = (DualShock4GamepadHID)Gamepad.current;
+                    LightBar();
                 }
                 
                 buttonPressed = true;
@@ -169,10 +173,11 @@ public class SpawnerCodeV3 : MonoBehaviour
 
                 buttonPressed = false;
             }
-            else if (!buttonPressed && input[0].ToString() == "0" && isDualshock)
-            {
-                dualShockGamepad.SetLightBarColor(Color.blue);
-            }
+            //else if (!buttonPressed && input[0].ToString() == "0" && isDualshock)
+            //{
+            //    //buttonPressed = false;
+            //    //dualShockGamepad.SetLightBarColor(Color.blue);
+            //}
 
             previousInput = input;
         }
@@ -340,6 +345,7 @@ public class SpawnerCodeV3 : MonoBehaviour
         {
             Debug.Log("Interupting Rumble");
             currentGamepad.SetMotorSpeeds(0f, 0f);
+            dualShockGamepad.SetMotorSpeeds(0f, 0f);
             haptics = false;
         }
 
@@ -347,14 +353,30 @@ public class SpawnerCodeV3 : MonoBehaviour
         {
             haptics = true;
             StartCoroutine(HapticCoroutine());
+            
         }
+    }
+
+    public void LightBar()
+    {
+        StartCoroutine(LightBarCoroutine());
+        StartCoroutine(HapticCoroutine());
+    }
+
+    private IEnumerator LightBarCoroutine()
+    {
+        dualShockGamepad.SetMotorSpeedsAndLightBarColor(lowFrequency, highFrequency, Color.magenta);
+
+        yield return new WaitForSeconds(lightDuration);
+
+        dualShockGamepad.SetMotorSpeedsAndLightBarColor(0f, 0f, Color.blue);
     }
 
     private IEnumerator HapticCoroutine()
     {
         Debug.Log("I'm about to rumble");
         // Set the motor speeds to start the haptic feedback.
-        currentGamepad.SetMotorSpeeds(lowFrequency, highFrequency);
+        currentGamepad.SetMotorSpeeds(lowFrequency, highFrequency);       
        
         // Wait for set duration.
         yield return new WaitForSeconds(rumbleDuration);
@@ -362,6 +384,7 @@ public class SpawnerCodeV3 : MonoBehaviour
         Debug.Log("Rumble stopping");
         // Reset haptic feedback.
         currentGamepad.ResetHaptics();
+        //dualShockGamepad.ResetHaptics();
         haptics = false;
     }
 }
